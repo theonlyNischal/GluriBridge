@@ -104,7 +104,7 @@ export function CandidateDetailPage() {
   const backHref = `/candidates${backSearchParams.toString() ? `?${backSearchParams.toString()}` : ""}`;
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8">
+    <div className="mx-auto max-w-5xl px-6 py-6">
       <div className="mb-3 flex items-center justify-between">
         {/* Real navigation back to the list — previously missing entirely
             (the sidebar's "Candidates" link was the only way out, and it
@@ -147,7 +147,7 @@ export function CandidateDetailPage() {
       </div>
 
       {/* ---------- hero ---------- */}
-      <div className="rounded-xl border border-stone-200 bg-white p-6">
+      <div className="rounded-xl border border-stone-200 bg-white p-5">
         <h1 className="font-display text-2xl font-semibold leading-tight text-stone-900">{identity.name}</h1>
         <div className="mt-1 text-[14px] text-stone-500">{identity.org ?? "—"}</div>
 
@@ -157,7 +157,7 @@ export function CandidateDetailPage() {
             Numbers aren't repeated next to it here (showNumbers=false):
             the two equal-size score cards right below already show both
             real numbers at full weight. */}
-        <div className="mt-3">
+        <div className="mt-2.5">
           <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} />
         </div>
 
@@ -168,7 +168,7 @@ export function CandidateDetailPage() {
             recommendation after them would bury it below a screen of
             detail for exactly the richest candidates — the opposite of
             "first substantive thing you see." */}
-        <div className="mt-4">
+        <div className="mt-3">
           <SuggestedNextStep scoring={scoring} dossier={dossier} />
         </div>
 
@@ -177,7 +177,7 @@ export function CandidateDetailPage() {
             low on one and high on the other (Katingan: need 11.1,
             credibility 88.2, this project's single best-evidenced
             candidate all session) and neither number is "worse." */}
-        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
           <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay">
             <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" />
           </ScoreStatCard>
@@ -189,7 +189,7 @@ export function CandidateDetailPage() {
           </ScoreStatCard>
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-2.5 border-t border-stone-100 pt-4">
+        <div className="mt-3 flex flex-wrap items-center gap-2.5 border-t border-stone-100 pt-3">
           <RichnessBadge richness={identity.data_richness} />
           <span className="rounded bg-stone-100 px-2 py-0.5 text-[11px] font-semibold capitalize text-stone-500">{identity.verification_status.replace(/_/g, " ")}</span>
           {/* Same HonestState treatment as the Dashboard's province panel,
@@ -219,14 +219,14 @@ export function CandidateDetailPage() {
             user-owned, persisted data) belongs on the Tracked page, so a
             status change can never be started here and finished there, or
             vice versa, silently drifting apart. */}
-        <div className="mt-3 flex flex-wrap items-center gap-3 rounded-lg border border-stone-200 bg-stone-50 px-4 py-3">
+        <div className="mt-3 flex flex-wrap items-center gap-3 rounded-lg border border-stone-200 bg-stone-50 px-3.5 py-2.5">
           <StatusBadge status={status.status} />
           <span className="text-[12px] text-stone-500">{status.status_changed_at ? `Updated ${status.status_changed_at}` : "No status changes recorded yet"}</span>
           <Link to={`/tracked?candidate=${rec.candidate_id}`} className="ml-auto text-[12.5px] font-semibold text-forest-700 hover:underline">
             View tracking →
           </Link>
         </div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {sources.map((s) => (
             <SourceBadge key={s} source={s} />
           ))}
@@ -249,7 +249,7 @@ export function CandidateDetailPage() {
       </div>
 
       {/* ---------- tabs ---------- */}
-      <div className="mt-5 flex gap-1 border-b border-stone-200">
+      <div className="mt-4 flex gap-1 border-b border-stone-200">
         {TABS.map((t) => (
           <button
             key={t}
@@ -265,11 +265,11 @@ export function CandidateDetailPage() {
 
       {/* ---------- overview ---------- */}
       {tab === "overview" && (
-        <div className="mt-6 space-y-5">
-          <Panel title="Land rights">
+        <div className="mt-4 space-y-4">
+          <Panel title="Land rights" className="!p-4">
             <div className="space-y-3">
               {land_rights.land_rights_category ? (
-                <div className="rounded-lg border border-forest-200 bg-forest-50 px-4 py-3">
+                <div className="rounded-lg border border-forest-200 bg-forest-50 px-3.5 py-2.5">
                   <div className="text-[11px] font-semibold uppercase tracking-wide text-forest-600">Formal land-rights category on file</div>
                   <div className="mt-1 flex items-baseline gap-2">
                     <span className="text-[14px] font-medium capitalize text-forest-800">{land_rights.land_rights_category.replace(/_/g, " ")}</span>
@@ -303,7 +303,7 @@ export function CandidateDetailPage() {
                   )}
                 </div>
               ) : land_rights.brwa_overlap ? (
-                <div className="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3">
+                <div className="rounded-lg border border-teal-200 bg-teal-50 px-3.5 py-2.5">
                   <div className="text-[11px] font-semibold uppercase tracking-wide text-teal-700">BRWA spatial overlap found (no formal category classified yet)</div>
                   <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-[13px]">
                     <dt className="text-stone-500">Territory</dt>
@@ -333,10 +333,10 @@ export function CandidateDetailPage() {
             </div>
           </Panel>
 
-          <Panel title="Identity resolution">
+          <Panel title="Identity resolution" className="!p-4">
             <div className="divide-y divide-stone-100">
               {identity_resolution.merge_history.map((m, i) => (
-                <div key={i} className="flex items-center gap-3 py-2 text-[13px]">
+                <div key={i} className="flex items-center gap-3 py-1.5 text-[13px]">
                   <SourceBadge source={m.source} />
                   <span className="text-stone-500">
                     {m.match_status}
@@ -350,7 +350,7 @@ export function CandidateDetailPage() {
           {documents.length > 0 && <DocumentsPanel documents={documents} expanded={docsExpanded} onToggle={() => setDocsExpanded((v) => !v)} />}
 
           {news_evidence.length > 0 && (
-            <Panel title={`News evidence (${news_evidence.length})`}>
+            <Panel title={`News evidence (${news_evidence.length})`} className="!p-4">
               <ul className="space-y-2">
                 {news_evidence.map((n, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px]">
@@ -369,14 +369,14 @@ export function CandidateDetailPage() {
 
       {/* ---------- compliance ---------- */}
       {tab === "compliance" && (
-        <div className="mt-6 space-y-5">
+        <div className="mt-4 space-y-4">
           {scoring.compliance.deadline && (
-            <div className="rounded-xl border border-compliance-amber/30 bg-compliance-amberBg p-5 text-center">
+            <div className="rounded-xl border border-compliance-amber/30 bg-compliance-amberBg p-4 text-center">
               <div className="font-mono text-figure text-compliance-amber">{scoring.compliance.days_until_deadline}</div>
               <div className="mt-1 text-[13px] text-stone-600">days remaining until {scoring.compliance.deadline} (Permenhut 6/2026 Pasal 61)</div>
             </div>
           )}
-          <Panel title="Compliance (Permenhut)">
+          <Panel title="Compliance (Permenhut)" className="!p-4">
             <div className="space-y-3">
               <ComplianceRuleRow rule_id={scoring.compliance.rule_id} badge={scoring.compliance.badge} reason={scoring.compliance.reason} primary />
               {scoring.compliance.other_rules.map((r, i) => (
@@ -384,7 +384,7 @@ export function CandidateDetailPage() {
               ))}
             </div>
           </Panel>
-          <Panel title={`Not wired into scoring (${scoring.compliance.not_wired_rules.length} rules)`}>
+          <Panel title={`Not wired into scoring (${scoring.compliance.not_wired_rules.length} rules)`} className="!p-4">
             <ul className="space-y-2">
               {scoring.compliance.not_wired_rules.map((r) => (
                 <li key={r.rule_id} className="flex items-start gap-3 text-[12.5px]">
@@ -400,12 +400,12 @@ export function CandidateDetailPage() {
 
       {/* ---------- dossier ---------- */}
       {tab === "dossier" && (
-        <div className="mt-6 space-y-5">
-          <Panel title="Why Gluri">
+        <div className="mt-4 space-y-4">
+          <Panel title="Why Gluri" className="!p-4">
             <ReasonList reasons={dossier.structured.why_gluri} kind="need" />
           </Panel>
           {dossier.structured.land_and_regulatory && (
-            <Panel title="Land & regulatory position">
+            <Panel title="Land & regulatory position" className="!p-4">
               <div className="flex items-start justify-between gap-3">
                 <p className="text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.land_rights_text}</p>
                 <CitationLink citation={dossier.structured.land_and_regulatory.land_rights_citation} />
@@ -413,19 +413,19 @@ export function CandidateDetailPage() {
               <p className="mt-2 text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.compliance_text}</p>
             </Panel>
           )}
-          <Panel title="Contact route">
+          <Panel title="Contact route" className="!p-4">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.contact_route}</p>
           </Panel>
-          <Panel title="Suggested point of contact">
+          <Panel title="Suggested point of contact" className="!p-4">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.suggested_poc}</p>
           </Panel>
           {dossier.structured.dpp_validation_proxy.length > 0 && (
-            <Panel title="DPP validation proxy (unscored evidence — not a compliance check)">
+            <Panel title="DPP validation proxy (unscored evidence — not a compliance check)" className="!p-4">
               <ReasonList reasons={dossier.structured.dpp_validation_proxy} />
             </Panel>
           )}
           {dossier.structured.next_questions.length > 0 && (
-            <Panel title="Next questions">
+            <Panel title="Next questions" className="!p-4">
               <ol className="list-decimal space-y-1.5 pl-5 text-[13.5px] text-stone-700">
                 {dossier.structured.next_questions.map((q, i) => (
                   <li key={i}>{q}</li>
@@ -438,8 +438,8 @@ export function CandidateDetailPage() {
 
       {/* ---------- outreach ---------- */}
       {tab === "outreach" && (
-        <div className="mt-6">
-          <Panel title="Outreach draft">
+        <div className="mt-4">
+          <Panel title="Outreach draft" className="!p-4">
             {!outreach || outreach.structured.recipient_status === "insufficient_contact" ? (
               <HonestState kind="insufficient" label="Cannot generate outreach yet">
                 {outreach?.structured.warnings?.[0] ?? "Insufficient contact information."}
@@ -489,7 +489,7 @@ export function CandidateDetailPage() {
  */
 function SuggestedNextStep({ scoring, dossier }: { scoring: CandidateDetail["scoring"]; dossier: CandidateDetail["dossier"] }) {
   return (
-    <div className="rounded-xl border border-forest-200 bg-forest-50/40 p-5">
+    <div className="rounded-xl border border-forest-200 bg-forest-50/40 p-4">
       <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-forest-700">Suggested next step</div>
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} />
@@ -512,7 +512,7 @@ function documentIcon(url: string) {
 function DocumentsPanel({ documents, expanded, onToggle }: { documents: DocumentRef[]; expanded: boolean; onToggle: () => void }) {
   const shown = expanded ? documents : documents.slice(0, DOCS_COLLAPSED_COUNT);
   return (
-    <Panel title={`Documents (${documents.length})`}>
+    <Panel title={`Documents (${documents.length})`} className="!p-4">
       {/* Real evidence, never truncated out of existence — Katingan
           genuinely has 91 real, unique documents (VCS 1477's own
           multi-year monitoring/verification history). Collapsed to a
@@ -523,7 +523,7 @@ function DocumentsPanel({ documents, expanded, onToggle }: { documents: Document
         {shown.map((d, i) => {
           const Icon = documentIcon(d.url);
           return (
-            <li key={i} className="flex items-center gap-3 py-2 text-[13px]">
+            <li key={i} className="flex items-center gap-3 py-1.5 text-[13px]">
               <Icon size={16} className="shrink-0 text-stone-400" />
               <span className="min-w-0 flex-1 truncate font-medium text-stone-700" title={d.title}>
                 {d.title}
@@ -553,7 +553,7 @@ function DocumentsPanel({ documents, expanded, onToggle }: { documents: Document
 
 function ComplianceRuleRow({ rule_id, badge, reason, primary }: { rule_id: string; badge: CandidateDetail["scoring"]["compliance"]["badge"]; reason: string; primary?: boolean }) {
   return (
-    <div className={`rounded-lg border px-4 py-3 ${primary ? "border-forest-200 bg-forest-50/40" : "border-stone-200"}`}>
+    <div className={`rounded-lg border px-3.5 py-2.5 ${primary ? "border-forest-200 bg-forest-50/40" : "border-stone-200"}`}>
       <div className="flex items-center gap-2">
         <span className="font-mono text-[11px] font-semibold text-stone-500">{rule_id}</span>
         <ComplianceBadge badge={badge} />

@@ -30,7 +30,7 @@ export function ScoreStatCard({
   const ring = accent === "clay" ? "border-t-clay-500" : "border-t-forest-500";
   const text = accent === "clay" ? "text-clay-700" : "text-forest-700";
   return (
-    <div className={`rounded-xl border border-stone-200 border-t-[6px] bg-white p-6 ${ring}`} data-axis={axis}>
+    <div className={`rounded-xl border border-stone-200 border-t-[6px] bg-white p-5 ${ring}`} data-axis={axis}>
       <div className={`font-mono text-figure-xl tabular ${text}`}>
         {fmtScore(value)}
         <span className="ml-1.5 text-lg font-medium text-stone-400">/ 100</span>
@@ -41,7 +41,7 @@ export function ScoreStatCard({
           <span className="rounded bg-compliance-amberBg px-1.5 py-0.5 font-mono text-[10px] font-semibold text-compliance-amber">capped</span>
         )}
       </div>
-      <div className="mt-4 space-y-2 border-t border-stone-100 pt-4">{children}</div>
+      <div className="mt-3 space-y-2 border-t border-stone-100 pt-3">{children}</div>
     </div>
   );
 }
