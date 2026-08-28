@@ -1,0 +1,54 @@
+{
+  "idx": "1145",
+  "source_url": "https://brwa.id/profil/1145",
+  "title": "Meunasah Keudee",
+  "administratif": {
+    "Propinsi": "Aceh",
+    "Kabupaten": "Aceh Besar",
+    "Kecamatan": "Mesjid Raya",
+    "Desa": "Meunasah Keudee"
+  },
+  "kewilayahan": {
+    "Luas": "43,29 Ha",
+    "Satuan": "Gampong Meunasah Keudee",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMeunasah Keudee\n, Berada dalam Wilayah Administratif Propinsi\nAceh\n, Kabupaten\nAceh Besar\n, Kecamatan\nMesjid Raya\ndan Desa\nMeunasah Keudee\n, Wilayah adat ini memiliki Luas wilayah\n43,29\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nAceh",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": ".",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah no 8 Tahun 2009 Pemerintahan Mukim",
+      "pdf_url": "https://brwa.id/files/reg-qanun-kabupaten-aceh-besar-nomor-8-tahun-2009-tentang-pemerintahan-mukim.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 17 Tahun 2022 Tata Cara Penataan Wilayah Adat Mukim dan Harta Kekayaan Mukim di Kabupaten Aceh Besar",
+      "pdf_url": "https://brwa.id/files/reg-perbup-no-17-tahun-2022-tentang-tata-cara-penataan-wilayah-adat-mukim-dan-harta-kekayaan-mukim-di-kabupaten-aceh-besar.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-qanun-kabupaten-aceh-besar-nomor-8-tahun-2009-tentang-pemerintahan-mukim.pdf",
+    "https://brwa.id/files/reg-perbup-no-17-tahun-2022-tentang-tata-cara-penataan-wilayah-adat-mukim-dan-harta-kekayaan-mukim-di-kabupaten-aceh-besar.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1145",
+    "nama_kewilayahan": "Meunasah Keudee"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1145_reg-qanun-kabupaten-aceh-besar-nomor-8-tahun-2009-tentang-pemerintahan-mukim.pdf",
+    "data/pdfs/1145_reg-perbup-no-17-tahun-2022-tentang-tata-cara-penataan-wilayah-adat-mukim-dan-harta-kekayaan-mukim-di-kabupaten-aceh-besar.pdf"
+  ]
+}

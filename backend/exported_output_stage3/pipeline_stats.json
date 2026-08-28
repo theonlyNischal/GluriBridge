@@ -1,0 +1,564 @@
+{
+  "sruk_and_srn_ppi_input": 283,
+  "verra_input": 1976,
+  "skipped_non_forestry": [
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-II-2026-3556.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-II-2026-4036.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-IX-2025-5209.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VI-2026-1910.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VI-2026-3377.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VII-2026-5549.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VIII-2025-2135.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VIII-2025-2474.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VIII-2025-5484.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VIII-2025-8793.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-VIII-2025-9801.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-X-2025-9764.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-XI-2025-6164.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-XI-2025-8684.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-XII-2025-7501.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/sruk/raw_details/REG-11-PR-XII-2025-9072.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-10-PR-III-2025-16202.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-I-2026-3493.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-I-2026-6034.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-I-2026-6100.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-I-2026-7029.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-I-2026-7135.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-I-2026-7579.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-II-2026-1777.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-II-2026-2939.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-II-2026-3556.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-II-2026-4036.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-II-2026-8391.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-II-2026-8851.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-III-2026-1116.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-III-2026-1346.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IV-2026-4750.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IV-2026-5535.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IV-2026-6852.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IV-2026-7565.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IV-2026-7815.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IX-2025-1479.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IX-2025-1990.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IX-2025-5209.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-IX-2025-7197.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-1600.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-4159.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-5230.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-7774.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-8285.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-9364.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-V-2026-9456.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-1826.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-1910.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-2125.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-3377.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-4496.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-5897.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-6816.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-7361.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-9102.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VI-2026-9163.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VII-2026-5562.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VII-2026-8608.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-1904.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-2135.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-2474.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-3320.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-5484.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-5636.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-6195.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-8793.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2025-9801.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2026-8145.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-VIII-2026-9810.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-X-2025-2565.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-X-2025-4566.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-X-2025-6984.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-X-2025-8035.json",
+      "sector": "⁠Proses Industri dan Penggunaan Produk (IPPU)"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-X-2025-8186.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-X-2025-9764.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XI-2025-6164.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XI-2025-8684.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-1076.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-1571.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-2290.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-3897.json",
+      "sector": "⁠Proses Industri dan Penggunaan Produk (IPPU)"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-7501.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-7856.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-8706.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/REG-11-PR-XII-2025-9072.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-10-PR-IV-2024-17599.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-10-PR-V-2023-10134.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-10-PR-VI-2023-14464.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-10-PR-VI-2024-20755.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-10-PR-X-2023-16887.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-10-PR-XI-2022-11275.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-11-PR-IV-2024-17421.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-11-PR-IV-2024-18003.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-11-PR-V-2022-10867.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-11-PR-VI-2024-16141.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/SPE-11-PR-VI-2024-22454.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-10-PR-IV-2025-18716.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-10-PR-IV-2025-25938.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-10-PR-VIII-2024-22549.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-10-PR-XII-2024-25581.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-I-2025-16873.json",
+      "sector": "Pertanian"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-V-2024-16871.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-V-2025-27967.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-VIII-2025-1746.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-VIII-2025-2705.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-VIII-2025-3642.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-VIII-2025-3666.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-VIII-2025-7633.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-VIII-2025-7746.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-1180.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-2351.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-2681.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-3647.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-4128.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-4489.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-4926.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-5503.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-5607.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VAL-11-PR-X-2025-8334.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-10-PR-III-2024-17575.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-10-PR-XII-2024-24207.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-V-2024-18156.json",
+      "sector": "Pengelolaan Limbah"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-1917.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-2364.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-2922.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-3864.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-4293.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-5930.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-6828.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-9659.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-VIII-2025-9677.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-X-2025-4634.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-X-2025-8759.json",
+      "sector": "Energi"
+    },
+    {
+      "path": "/home/nischal/research/GLURI/backend/data/raw/srn_ppi/raw_details/VER-11-PR-XII-2025-5003.json",
+      "sector": "Energi"
+    }
+  ],
+  "skipped_non_indonesia": 1929,
+  "skipped_test_data": 4,
+  "skipped_duplicate_raw": 56,
+  "errors": [],
+  "final_candidate_count": 144,
+  "tentative_link_count": 84,
+  "brwa_territories_available": 1756,
+  "brwa_territories_in_full_list": 2283,
+  "candidates_with_brwa_overlap": 11,
+  "candidates_with_coverage_gaps": 53,
+  "news_queries_run": 146,
+  "news_hits_processed": 685,
+  "news_thin_candidates_created": 16,
+  "news_corroborations": 114,
+  "tier_b_contact_attempted": 61,
+  "tier_b_contact_resolved": 3,
+  "dossiers_generated": 144,
+  "data_freshness": {}
+}

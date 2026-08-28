@@ -1,0 +1,51 @@
+{
+  "idx": "2926",
+  "source_url": "https://brwa.id/profil/2926",
+  "title": "Kadamangan Miri Manasa",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Gunung Mas",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Kadamangan Miri Manasa",
+    "Kondisi Fisik": "Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKadamangan Miri Manasa\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nGunung Mas\n, Kecamatan\n-\ndan Desa\n-\nDengan Kondisi fisik wilayah berupa\nPerbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 9 Tahun 2022 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-gunung-mas-no-9-tahun-2022-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 215 Tahun 2020 Panitia Pembentukan Masyarakat Hukum Adat Kabupaten Gunung Mas",
+      "pdf_url": "https://brwa.id/files/reg-panitia-mha-kab-gunung-mas.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-gunung-mas-no-9-tahun-2022-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-panitia-mha-kab-gunung-mas.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/2926_reg-perda-kab-gunung-mas-no-9-tahun-2022-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/2926_reg-panitia-mha-kab-gunung-mas.pdf"
+  ]
+}

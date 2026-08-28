@@ -1,0 +1,68 @@
+{
+  "idx": "1491",
+  "source_url": "https://brwa.id/profil/1491",
+  "title": "Wanijan",
+  "administratif": {
+    "Propinsi": "Papua",
+    "Kabupaten": "Kepulauan Yapen",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "32.751,10 Ha",
+    "Satuan": "Wanijan",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nWanijan\n, Berada dalam Wilayah Administratif Propinsi\nPapua\n, Kabupaten\nKepulauan Yapen\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n32.751,10\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No 23 Tahun 2008 Hak Ulayat Masyakarat Hukum Adat dan Hak Perorangan Warga Masyarakat Hukum Adat Atas Tanah",
+      "pdf_url": "https://brwa.id/files/reg-perdasus-23_2008.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Instruksi Presiden No 9 Tahun 2020 ercepatan Pembangunan Kesejahteraan di Provinsi Papua dan Provinsi Papua Barat",
+      "pdf_url": "https://brwa.id/files/reg-inpres-nomor-9-tahun-2020.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Daerah No 3 Tahun 2022 Kampung Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-papua-no-3-tahun-2022-tentang-kampung-adat.pdf"
+    },
+    {
+      "no": "4",
+      "description": "Peraturan Daerah No 5 Tahun 2022 Pengakuan dan Perlindungan Masyarakat Hukum Adat di Provinsi Papua",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-papua-no-5-tahun-2022-tentang-ppmha-di-provinsi-papua.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perdasus-23_2008.pdf",
+    "https://brwa.id/files/reg-inpres-nomor-9-tahun-2020.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-papua-no-3-tahun-2022-tentang-kampung-adat.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-papua-no-5-tahun-2022-tentang-ppmha-di-provinsi-papua.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1491",
+    "nama_kewilayahan": "Wanijan"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1491_reg-perdasus-23_2008.pdf",
+    "data/pdfs/1491_reg-inpres-nomor-9-tahun-2020.pdf",
+    "data/pdfs/1491_reg-perda-provinsi-papua-no-3-tahun-2022-tentang-kampung-adat.pdf",
+    "data/pdfs/1491_reg-perda-provinsi-papua-no-5-tahun-2022-tentang-ppmha-di-provinsi-papua.pdf"
+  ]
+}

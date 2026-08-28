@@ -1,0 +1,54 @@
+{
+  "idx": "1937",
+  "source_url": "https://brwa.id/profil/1937",
+  "title": "Tumiang",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Bengkayang",
+    "Kecamatan": "AIR BESAR",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "1.931,01 Ha",
+    "Satuan": "Tumiang",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTumiang\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nBengkayang\n, Kecamatan\nAIR BESAR\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n1.931,01\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 4 Tahun 2019 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-bengkayang-nomor-4-tahun-2019-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 18 Tahun 2020 Pedoman Identifikasi, Verifikasi dan Penetapan Masyarakat Hukum Adat di Kabupaten Bengkayang",
+      "pdf_url": "https://brwa.id/files/reg-perbup-kabbengkayang-no18-tahun-2020-tentang-pedoman-identifkasi-verifikasi-dan-validasi-ma.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-bengkayang-nomor-4-tahun-2019-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-perbup-kabbengkayang-no18-tahun-2020-tentang-pedoman-identifkasi-verifikasi-dan-validasi-ma.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "1937",
+    "nama_kewilayahan": "Tumiang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1937_reg-perda-kabupaten-bengkayang-nomor-4-tahun-2019-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/1937_reg-perbup-kabbengkayang-no18-tahun-2020-tentang-pedoman-identifkasi-verifikasi-dan-validasi-ma.pdf"
+  ]
+}

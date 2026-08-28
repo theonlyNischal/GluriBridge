@@ -1,0 +1,42 @@
+{
+  "idx": "3270",
+  "source_url": "https://brwa.id/profil/3270",
+  "title": "Fanugwa Loran",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Kepulauan Aru",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "39.899,89 Ha",
+    "Satuan": "Fanugwa Loran",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nFanugwa Loran\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nKepulauan Aru\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n39.899,89\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 2 Tahun 2022 Pengakuan dan Perlindungan Masyarakat Hukum Adat Aru Ursia-Urlima",
+      "pdf_url": null
+    }
+  ],
+  "pdf_links": [],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3270",
+    "nama_kewilayahan": "Fanugwa Loran"
+  }
+}

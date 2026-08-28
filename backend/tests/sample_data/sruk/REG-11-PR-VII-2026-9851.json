@@ -1,0 +1,363 @@
+{
+  "id": "b7d87022-971f-4fd6-817e-a7de431af032",
+  "program_code": "REG-11-PR-VII-2026-9851",
+  "title": "Central Seram IFM Restorationwise Project",
+  "project_name_en": "",
+  "stage": 2,
+  "latest_status": "DRAFT",
+  "latest_status_date": "2026-07-21T08:09:12.014Z",
+  "created_at": "2026-07-21T08:09:11.874Z",
+  "user": {
+    "id": "252159ea-f205-4d3a-9e5f-c52d9dd7e4c2",
+    "name": "Aqilla Bagas Fadila",
+    "username": "bintang5makmur",
+    "organization_name": "PT. Bintang Lima Makmur"
+  },
+  "responsible": {
+    "name": "PT. Bintang Lima Makmur",
+    "address": "Gd Graha Ketut Masagung Lt. 4, Jl. Kwitang Raya No. 13 , Kecamatan Senen, Jakarta Pusat 10420"
+  },
+  "sectors": [
+    {
+      "id": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed",
+      "name": "⁠Forestry and Other Land Use (FOLU)"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "3eeeba14-f66f-4aab-9940-f23abf5800e4",
+      "name": "Mitigasi Sektor Kehutanan",
+      "id_sector": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed"
+    }
+  ],
+  "executor": {
+    "id": "d628bf6f-8eaa-4d34-aafd-18204a1481ac",
+    "name": "Dunia Usaha"
+  },
+  "action": {
+    "id": "dfc57786-c21f-4d3c-9d07-8620ca962f10",
+    "name": "Mitigasi"
+  },
+  "start_date": "2022-08-01T00:00:00.000Z",
+  "end_date": "2047-08-01T00:00:00.000Z",
+  "project_description_general": "Dokumen PDD ini bertujuan utama untuk menghentikan kegiatan penebangan komersial dan mengalihkan kawasan hutan di Seram Bagian Tengah menjadi kawasan yang dilindungi melalui pendekatan Improved Forest Management (IFM). Pelaksanaan proyek IFM ini dirancang untuk menurunkan emisi karbon dan melestarikan ekosistem alami selama periode kredit proyek 25 tahun. Selain itu, proyek ini berfokus pada peningkatan kesejahteraan masyarakat sekitar melalui skema pendapatan berkelanjutan, bantuan mikrofinans, serta penyediaan fasilitas dasar seperti air bersih, energi surya, dan layanan kesehatan.",
+  "project_description_general_en": "",
+  "project_description_special": "1. Penerapan Improved Forest Management (IFM): Memunculkan penurunan emisi sebesar 33,98 juta CO2 ekuivalen melalui skema Logged to Protected Forest.\n2. Pelestarian Keanekaragaman Hayati: Menjaga habitat dan mengurangi ancaman terhadap spesies flora serta fauna bernilai konservasi tinggi (High Conservation Value) yang terancam punah.\n3.Keberlanjutan Finansial 25 Tahun: Memanfaatkan skema pembiayaan karbon (carbon finance) selama periode kredit proyek 25 tahun untuk menjamin operasional perlindungan hutan secara mandiri dan jangka panjang.\n4. Kesetaraan Gender dan Pekerjaan Layak: Membuka lapangan kerja lokal yang adil dan memastikan keterlibatan perempuan dalam posisi kepemimpinan kelompok usaha masyarakat.\n5. Penegakan Hukum dan Patroli Hutan: Membentuk dan melatih tim jagawana (ranger) bersama masyarakat lokal di Seram Tengah untuk mencegah pembalakan liar dan perburuan satwa.\n6. Integrasi Improved Forest Management (IFM) dengan SDGs: Mengimplementasikan pendekatan IFM yang mendukung pencapaian 12 target Tujuan Pembangunan Berkelanjutan (SDGs) PBB di kawasan proyek.",
+  "project_description_special_en": "",
+  "program_relevances": [
+    {
+      "id": "2a5abe55-3288-455a-8426-8517cd22d2ef",
+      "name": "SDGs-1 Tanpa Kemiskinan"
+    },
+    {
+      "id": "11ca2707-00c1-470d-ab69-55de1a693b61",
+      "name": "SDGs-2 Tanpa Kelaparan"
+    },
+    {
+      "id": "7141ea5d-651f-489b-a855-dceb61fa9bae",
+      "name": "SDGs-3 Kehidupan Sehat dan Sejahtera"
+    },
+    {
+      "id": "35013333-a4ed-4f8e-a0cc-cbfe38db65c0",
+      "name": "SDGs-4 Pendidikan Berkualitas"
+    },
+    {
+      "id": "6ed062dd-4e34-4079-acdb-54b8960547e9",
+      "name": "SDGs-5 Kesetaraan Gender"
+    },
+    {
+      "id": "dd59e52f-67cf-4a67-a974-ba747b5e2e06",
+      "name": "SDGs-6 Air Bersih dan Sanitasi Layak"
+    },
+    {
+      "id": "efc5b8ee-2f43-48f3-877a-c91fda5eb765",
+      "name": "SDGs-7 Energi Bersih dan Terjangkau"
+    },
+    {
+      "id": "2a4ec9e0-e9ae-4823-81d5-49ed646763e8",
+      "name": "SDGs-8 Pekerjaan Layak dan Pertumbuhan Ekonomi"
+    },
+    {
+      "id": "1f63ee76-bab0-45fe-a87a-c8f73415345b",
+      "name": "SDGs-9 Industri, Inovasi dan Infrastruktur"
+    },
+    {
+      "id": "0e010fab-1bc3-40c2-8e91-765a85189e83",
+      "name": "SDGs-13 Penanganan Perubahan Iklim"
+    },
+    {
+      "id": "37c7da5a-10ef-4c11-a855-ae02f2c1cfd4",
+      "name": "SDGs-15 Ekosistem Daratan"
+    },
+    {
+      "id": "8cdea6d2-d10a-4baa-a61a-46302066047a",
+      "name": "SDGs-17 Kemitraan untuk Mencapai Tujuan"
+    }
+  ],
+  "technology_expert": {
+    "id": "39e92d47-26a8-4679-80bb-25be4d9a8ec5",
+    "name": "Tidak"
+  },
+  "capacity_increase": {
+    "id": "887b5d29-5e9d-4cc7-936b-943792e7d92f",
+    "name": "Tidak"
+  },
+  "funding_status": {
+    "id": "10ec21fc-2c25-48c2-9698-178b22f06856",
+    "name": "Tidak"
+  },
+  "funding_source": null,
+  "expert": {
+    "id": "8eb6a7da-c8c5-4157-932d-e7c880efda7b",
+    "name": "Tidak"
+  },
+  "location": {
+    "rt_rw": null,
+    "latitude": "-3.214454558803662",
+    "longitude": "129.13498988724",
+    "province": null,
+    "city": null,
+    "district": null,
+    "village": null
+  },
+  "program_documents": [
+    {
+      "id": "f15f27c6-43d6-4bda-a208-36a18980906e",
+      "title": "Dokumen DRAM",
+      "description": "Dokumen DRAM",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/6462af05-aff2-4bba-b6e6-fec14788861f.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "DRAM",
+      "created_at": "2026-07-21T08:14:10.715Z"
+    },
+    {
+      "id": "9ba0c67e-addc-436b-86ef-9433ddd716e5",
+      "title": "SK PBPH",
+      "description": "SK PBPH PT. Bintang Lima Makmur",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/faa137c5-b024-4d70-a324-f46366656fe6.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-07-21T08:12:57.665Z"
+    },
+    {
+      "id": "283edb55-6560-415e-858f-334dfc788577",
+      "title": "SK Kemenkumham",
+      "description": "SK Kemenkumham PT. Bintang Lima Makmur",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/bfb26f67-2b56-4b38-8948-a6c4afdbc303.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-07-21T08:09:32.637Z"
+    },
+    {
+      "id": "37344c6b-ffcc-4325-a32e-4e2f5991aa88",
+      "title": "SK RKUPH",
+      "description": "SK RKUPH PT Bintang Lima Makmur",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/789b3532-22b7-447c-b32f-ef4b35ce70f0.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-07-21T08:09:32.172Z"
+    }
+  ],
+  "verificators": {},
+  "validators": {
+    "lvv_dram": null,
+    "lvv_lcam": null
+  },
+  "approvals": {
+    "igrk_stage_1_approved_at": "2026-07-21T08:09:11.874Z",
+    "ms2r_stage_1_approved_at": null,
+    "registration_date": null,
+    "ms2r_stage_2_approved_at": null
+  },
+  "verified_carbon_amount": null,
+  "verified_reduction_emission": [],
+  "emission_reduction_achievement": null,
+  "dram": null,
+  "lcam": null,
+  "workflow_steps": [
+    {
+      "id": 1,
+      "name": "DATA UMUM",
+      "stage": 1,
+      "latest_status": "APPROVED_GENERAL_DATA",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 1,
+          "name": "Data Umum",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-07-21T08:09:12.002Z",
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 2,
+          "name": "Lokasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 3,
+          "name": "Dokumen",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-07-21T08:12:57.665Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DATA TEKNIS",
+      "stage": 2,
+      "latest_status": "DRAFT",
+      "status": "active",
+      "sub_processes": [
+        {
+          "id": 4,
+          "name": "DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2026-07-21T08:09:12.014Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 5,
+          "name": "Aksi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2026-07-21T08:09:12.014Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "DATA VALIDASI",
+      "stage": 3,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 6,
+          "name": "Pemilihan LVV",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 7,
+          "name": "Dokumen Kontrak Kerja",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 8,
+          "name": "Dokumen DRAM Final",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 9,
+          "name": "Dokumen Validasi DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV",
+          "approved_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "DATA VERIFIKASI",
+      "stage": 4,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 10,
+          "name": "LCAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 11,
+          "name": "Dokumen Verifikasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 12,
+          "name": "Pemilihan LVV-2",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 13,
+          "name": "Worksheet Perhitungan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 14,
+          "name": "Dokumen Pendukung",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 15,
+          "name": "Persetujuan Emisi Karbon",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "FINALISASI",
+      "stage": 5,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 16,
+          "name": "Generate SPE",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        },
+        {
+          "id": 17,
+          "name": "Sertifikat Pengurangan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        }
+      ]
+    }
+  ]
+}

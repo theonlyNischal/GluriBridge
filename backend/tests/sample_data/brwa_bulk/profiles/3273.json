@@ -1,0 +1,47 @@
+{
+  "idx": "3273",
+  "source_url": "https://brwa.id/profil/3273",
+  "title": "Praingu Umalulu",
+  "administratif": {
+    "Propinsi": "Nusa Tenggara Timur",
+    "Kabupaten": "Sumba Timur",
+    "Kecamatan": "Umalulu",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "40.442,80 Ha",
+    "Satuan": "Umalulu",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPraingu Umalulu\n, Berada dalam Wilayah Administratif Propinsi\nNusa Tenggara Timur\n, Kabupaten\nSumba Timur\n, Kecamatan\nUmalulu\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n40.442,80\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nSumba",
+    "Batas Wilayah Adat": "Pada bagian Utara Laut sawu dan Prai Patawang (watubaka ) ditandai dengan watu makangungu, batu berdengung\nPada bagian Selatan Prai Kalala dan Prai Mbana ditandai dengan watu patinjang paberiwai\nPada bagian Timur Komunitas Pataning dan wilayah Mau Mamaru (omang/Hutan LuLuNDILU dan omang maumadangu) ditandai dengan waijilu la wailakaba\nPada bagian Barat Wilayah  Lamuru , Luku walu dan Mata Wu. ditandai dengan tanda alam Ngamba Rara dan Landa Haka reting wuya haka hiongu",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati Nomor 505/DLH.800/505/X/2025 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Sumba Timur Tahun Anggaran 2025",
+      "pdf_url": "https://brwa.id/files/reg-sk-pembentukan-panitia-masyarakat-hukum-adat-kabupaten-sumba-timur.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-pembentukan-panitia-masyarakat-hukum-adat-kabupaten-sumba-timur.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3273",
+    "nama_kewilayahan": "Praingu Umalulu"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3273_reg-sk-pembentukan-panitia-masyarakat-hukum-adat-kabupaten-sumba-timur.pdf"
+  ]
+}

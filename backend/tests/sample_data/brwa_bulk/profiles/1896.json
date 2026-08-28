@@ -1,0 +1,61 @@
+{
+  "idx": "1896",
+  "source_url": "https://brwa.id/profil/1896",
+  "title": "Bathin Baduo Batang Uleh",
+  "administratif": {
+    "Propinsi": "Jambi",
+    "Kabupaten": "Bungo",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "40,68 Ha",
+    "Satuan": "Bathin Baduo Batang Uleh",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBathin Baduo Batang Uleh\n, Berada dalam Wilayah Administratif Propinsi\nJambi\n, Kabupaten\nBungo\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n40,68\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No. SK.775/MENLHK-PSKL/PKTHA/PSL.1/2/2018 Penetapan Pencantuman Hutan Adat Rimbo Bulim Kepada Masyarakat Hukum Adat Bathin II Batang Uleh Seluas ±40,5 (Empat Puluh dan Lima Perseratus) Hektar di Dusun Rambah Kecamatan Tanah Tumbuh Kabupaten Bungo Provinsi Jambi dalam Peta Kawasan Hutan",
+      "pdf_url": "https://brwa.id/files/reg-2018-sk-penetapan-pencantuman-hutan-adat-rimbo-bulim-bungo-jambi.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati - Penetapan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No. 2 Tahun 2014 Lembaga Adat Melayu Jambi",
+      "pdf_url": "https://brwa.id/files/reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2018-sk-penetapan-pencantuman-hutan-adat-rimbo-bulim-bungo-jambi.pdf",
+    "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf",
+    "https://brwa.id/files/reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1896",
+    "nama_kewilayahan": "Bathin Baduo Batang Uleh"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1896_reg-2018-sk-penetapan-pencantuman-hutan-adat-rimbo-bulim-bungo-jambi.pdf",
+    "data/pdfs/1896_reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf",
+    "data/pdfs/1896_reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf"
+  ]
+}

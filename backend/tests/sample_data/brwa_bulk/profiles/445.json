@@ -1,0 +1,47 @@
+{
+  "idx": "445",
+  "source_url": "https://brwa.id/profil/445",
+  "title": "Kampong Pertumbukan",
+  "administratif": {
+    "Propinsi": "Sumatera Utara",
+    "Kabupaten": "Langkat",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "1.249,68 Ha",
+    "Satuan": "Kampong Pertumbukan",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKampong Pertumbukan\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Utara\n, Kabupaten\nLangkat\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n1.249,68\nHa               Dengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n300\njiwa              , Terdiri dari\n200\nLaki-laki dan\n100\nperempuan              , dan total\n300\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Pantai Gemi\nPada bagian Selatan Perdamaian\nPada bagian Timur Banyumas\nPada bagian Barat Seiwampu",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nRakyat Penunggu\n-Berdasarkan musyawarah\n1. Ketua adat\n2. Ketua kampong\n3. Sekretaris\n4. Bendahara\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "Setiap anggota mengelola lahan adat seluas 5 rante\nmasing - masing.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nGotong Royong\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 2 Tahun 2019 Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "445",
+    "nama_kewilayahan": "Kampong Pertumbukan"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/445_reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ]
+}

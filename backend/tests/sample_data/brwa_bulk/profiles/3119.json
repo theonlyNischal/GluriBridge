@@ -1,0 +1,54 @@
+{
+  "idx": "3119",
+  "source_url": "https://brwa.id/profil/3119",
+  "title": "Rumbia",
+  "administratif": {
+    "Propinsi": "Sulawesi Selatan",
+    "Kabupaten": "Sinjai",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "2.437,10 Ha",
+    "Satuan": "Rumbia",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nRumbia\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Selatan\n, Kabupaten\nSinjai\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n2.437,10\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 427 Tahun 2023 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Sinjai Tahun 2023",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-mh-adat-2023.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Daerah No. 1 Tahun 2019 Pedoman Pengakuan dan Perlindungan dan Pemberdayaan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-sinjai-nomor-1-tahun-2019-tentang-pedoman-pengakuan-dan-perlindungan-dan-pemberdayaan-masyarakat-hukum-adat.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-panitia-mh-adat-2023.pdf",
+    "https://brwa.id/files/reg-perda-kabupaten-sinjai-nomor-1-tahun-2019-tentang-pedoman-pengakuan-dan-perlindungan-dan-pemberdayaan-masyarakat-hukum-adat.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "GeometryCollection",
+  "geojson_properties": {
+    "idx": "3119",
+    "nama_kewilayahan": "Rumbia "
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3119_reg-sk-panitia-mh-adat-2023.pdf",
+    "data/pdfs/3119_reg-perda-kabupaten-sinjai-nomor-1-tahun-2019-tentang-pedoman-pengakuan-dan-perlindungan-dan-pemberdayaan-masyarakat-hukum-adat.pdf"
+  ]
+}

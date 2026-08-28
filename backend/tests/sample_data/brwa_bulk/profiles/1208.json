@@ -1,0 +1,61 @@
+{
+  "idx": "1208",
+  "source_url": "https://brwa.id/profil/1208",
+  "title": "Dayak Punan Adiu",
+  "administratif": {
+    "Propinsi": "Kalimantan Utara",
+    "Kabupaten": "Malinau",
+    "Kecamatan": "Malinau Selatan",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "17.286,81 Ha",
+    "Satuan": "Tukung Punan Adiu",
+    "Kondisi Fisik": "Dataran, Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nDayak Punan Adiu\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Utara\n, Kabupaten\nMalinau\n, Kecamatan\nMalinau Selatan\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n17.286,81\nHa               Dengan Kondisi fisik wilayah meliputi\nDataran, Pegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n150\njiwa              , Terdiri dari\n72\nLaki-laki dan\n78\nperempuan              , dan total\n30\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Gongsalok\nPada bagian Selatan Sengganyau\nPada bagian Timur Punan Gongsalok\nPada bagian Barat Gunung Setarap",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\nKetua\nWakil Ketua\nSekretaris\nAnggota\n-\nTahapan dan Lokasi Pengambilan Keputusan\nMusyawarah untuk membuat keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": ".",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 189.1/K.185/2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat Punan Long Adiu Sebagai Kesatuan Masyarakat Hukum Adat di Kabupaten Malinau",
+      "pdf_url": "https://brwa.id/files/reg-sk-ppmha-punan-adiu.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Daerah No 10 Tahun 2012 Pengakuan dan Perlindungan hak-hak Masyarakat Adat di Kabupaten Malinau",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-malinau-nomor-10-tahun-2012-tentang-pengakuan-dan-perlindungan-hak-hak-masyarakat-adat-di-kabupaten-malinau.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati No. 189.1/K.115/2019 Pengangkatan Anggota Badan Pengelola Urusan Masyarakat Adat Kabupaten Malinau",
+      "pdf_url": "https://brwa.id/files/reg-dlhsk-nomor-k-115-bpuma-tentang-pengangkatan-anggota-bpuma.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-ppmha-punan-adiu.pdf",
+    "https://brwa.id/files/reg-perda-kabupaten-malinau-nomor-10-tahun-2012-tentang-pengakuan-dan-perlindungan-hak-hak-masyarakat-adat-di-kabupaten-malinau.pdf",
+    "https://brwa.id/files/reg-dlhsk-nomor-k-115-bpuma-tentang-pengangkatan-anggota-bpuma.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1208",
+    "nama_kewilayahan": "Dayak Punan Adiu"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1208_reg-sk-ppmha-punan-adiu.pdf",
+    "data/pdfs/1208_reg-perda-kabupaten-malinau-nomor-10-tahun-2012-tentang-pengakuan-dan-perlindungan-hak-hak-masyarakat-adat-di-kabupaten-malinau.pdf",
+    "data/pdfs/1208_reg-dlhsk-nomor-k-115-bpuma-tentang-pengangkatan-anggota-bpuma.pdf"
+  ]
+}

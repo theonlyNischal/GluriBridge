@@ -1,0 +1,51 @@
+{
+  "idx": "1312",
+  "source_url": "https://brwa.id/profil/1312",
+  "title": "Pelabi",
+  "administratif": {
+    "Propinsi": "Riau",
+    "Kabupaten": "Pelalawan",
+    "Kecamatan": "Ukui",
+    "Desa": "Bagan Limau"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Pelabi",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPelabi\n, Berada dalam Wilayah Administratif Propinsi\nRiau\n, Kabupaten\nPelalawan\n, Kecamatan\nUkui\ndan Desa\nBagan Limau\nDengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n780\njiwa              , Terdiri dari\n393\nLaki-laki dan\n387\nperempuan              , dan total\n780\nkepala Keluarga              , sedangkan Bahasa sehari-hari yang digunakan adalah\nMelayu",
+    "Batas Wilayah Adat": "Pada bagian Utara Batin Putih\nPada bagian Selatan Indragiri Hulu\nPada bagian Timur Suku Peliang\nPada bagian Barat Muncak",
+    "Sejarah": "suku Pelabi berasal dari minangkabau\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nPelabi\nUtuk; Nika; Kaulin\nMamak Adat\nTahapan dan Lokasi Pengambilan Keputusan\nDuduk bersama iya sekata\nContoh Proses dan Hasil Pengambilan Keputusan\nditimang sama baat dibagi sama rata",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\ndaun tekana untuk obat bengkak\nPotensi Sumber Sandang & Papan\nkayu meranti untuk bahan dinding rumah###kulit toap untuk sanangan\nPotensi Sumber Rempah & Bumbu\npucuk madang peaul untuk memasak ikan busuk\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nkarit",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 10 Tahun 2015 Tanah Ulayat dan Pemanfaatannya",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Gubernur No. Kpts.756/VI/2023 Pembentukan Panitia Masyarakat Hukum Adat Provinsi Riau",
+      "pdf_url": "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/1312_reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "data/pdfs/1312_reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+  ]
+}

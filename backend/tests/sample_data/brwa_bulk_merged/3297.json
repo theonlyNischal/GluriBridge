@@ -1,0 +1,54 @@
+{
+  "idx": "3297",
+  "source_url": "https://brwa.id/profil/3297",
+  "title": "Sambaho/Salu Paondo",
+  "administratif": {
+    "Propinsi": "Sulawesi Barat",
+    "Kabupaten": "Majene",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "79,06 Ha",
+    "Satuan": "Sambaho/Salu Paondo",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nSambaho/Salu Paondo\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Barat\n, Kabupaten\nMajene\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n79,06\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 1 Tahun 2023 Pengakuan Perlindungan dan Pemberdayaan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-majene-no-1-tahun-2023-tentang-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 429/HK/KEP-BUP/IV/2023 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Majene 2023",
+      "pdf_url": "https://brwa.id/files/reg-sk-no-429-tentang-pembentukan-panitia-masyarakat-hukum-adat-kab-majene.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-majene-no-1-tahun-2023-tentang-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-sk-no-429-tentang-pembentukan-panitia-masyarakat-hukum-adat-kab-majene.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3297",
+    "nama_kewilayahan": "Sambaho/Salu Paondo"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3297_reg-perda-kab-majene-no-1-tahun-2023-tentang-masyarakat-hukum-adat.pdf",
+    "data/pdfs/3297_reg-sk-no-429-tentang-pembentukan-panitia-masyarakat-hukum-adat-kab-majene.pdf"
+  ]
+}

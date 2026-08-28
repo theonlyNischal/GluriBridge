@@ -1,0 +1,47 @@
+{
+  "idx": "3269",
+  "source_url": "https://brwa.id/profil/3269",
+  "title": "Polak Muttogat Suku Mentawai",
+  "administratif": {
+    "Propinsi": "Sumatera Barat",
+    "Kabupaten": "Kepulauan Mentawai",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "888,01 Ha",
+    "Satuan": "Polak Muttogat Suku Mentawai",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPolak Muttogat Suku Mentawai\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Barat\n, Kabupaten\nKepulauan Mentawai\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n888,01\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "No. 385 Tahun 2019 Pengakuan dan Perlindungan Uma Usut Ngaik di Desa Matobe Kecamatan Sipora Selatan Sebagai Kesatuan Masyarakat Hukum Adat di Kabupaten Kepulauan Mentawai",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-kabupaten-kepulauan-mentawai-no-385-tahun-2019-tentang-ppmha-uma-usut-ngaik.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-bupati-kabupaten-kepulauan-mentawai-no-385-tahun-2019-tentang-ppmha-uma-usut-ngaik.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3269",
+    "nama_kewilayahan": "Polak Muttogat Suku Mentawai"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3269_reg-sk-bupati-kabupaten-kepulauan-mentawai-no-385-tahun-2019-tentang-ppmha-uma-usut-ngaik.pdf"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "idx": "3162",
+  "source_url": "https://brwa.id/profil/3162",
+  "title": "Lipu Tanga Pomisikonan",
+  "administratif": {
+    "Propinsi": "Sulawesi Tengah",
+    "Kabupaten": "Banggai Kepulauan",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "7.796,78 Ha",
+    "Satuan": "Lipu Tanga Pomisikonan",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nLipu Tanga Pomisikonan\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Tengah\n, Kabupaten\nBanggai Kepulauan\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n7.796,78\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 100.3.3.2/620/Tahun 2025 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Banggai Kepulauan Periode 2025-2029",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-banggai-kepulauan-pembentukan-panitia-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Daerah No. 10 Tahun 2024 Pengakuan dan Perlindungan Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-banggai-kepulauan-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No. 12 Tahun 2025 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-bupati-banggai-kepulauan-pembentukan-panitia-hukum-adat.pdf",
+    "https://brwa.id/files/reg-perda-banggai-kepulauan-tentang-pengakuan-dan-perlindungan-mha.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "3162",
+    "nama_kewilayahan": "Lipu Tanga Pomisikonan"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3162_reg-sk-bupati-banggai-kepulauan-pembentukan-panitia-hukum-adat.pdf",
+    "data/pdfs/3162_reg-perda-banggai-kepulauan-tentang-pengakuan-dan-perlindungan-mha.pdf",
+    "data/pdfs/3162_reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ]
+}

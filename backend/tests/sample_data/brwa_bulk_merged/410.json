@@ -1,0 +1,69 @@
+{
+  "idx": "410",
+  "source_url": "https://brwa.id/profil/410",
+  "title": "Onggari",
+  "administratif": {
+    "Propinsi": "Papua Selatan",
+    "Kabupaten": "Merauke",
+    "Kecamatan": "Distrik Malid, Kurik",
+    "Desa": "Belum ada"
+  },
+  "kewilayahan": {
+    "Luas": "16.329,44 Ha",
+    "Satuan": "Onggari",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nOnggari\n, Berada dalam Wilayah Administratif Propinsi\nPapua Selatan\n, Kabupaten\nMerauke\n, Kecamatan\nDistrik Malid, Kurik\ndan Desa\nBelum ada\n, Wilayah adat ini memiliki Luas wilayah\n16.329,44\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nBelum ada",
+    "Batas Wilayah Adat": "Pada bagian Utara Belum ada\nPada bagian Selatan Belum ada\nPada bagian Timur Belum ada\nPada bagian Barat Belum ada",
+    "Sejarah": "Belum ada\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nBelum ada\nBelum ada\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nBelum ada",
+    "Tata Ruang Hidup di Wilayah Adat": "Belum ada.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nBelum ada\nPotensi Sumber Kesehatan & Kecantikan\nBelum ada\nPotensi Sumber Sandang & Papan\nBelum ada###Belum ada\nPotensi Sumber Rempah & Bumbu\nBelum ada\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nBelum ada",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "B2 nomor 5 tahun 2013 PENGELOLAAN SUMBER DAYA ALAM BERBASIS MASYARAKAT\nHUKUM ADAT MALIND ANIM",
+      "pdf_url": "https://brwa.id/files/1584674788.pdf"
+    },
+    {
+      "no": "2",
+      "description": "B3 23 Tahun 2008 PERDASUS NOMOR 23 THN 2008 TENTANG HAK ULAYAT MASYARAKAT HUKUM ADAT ATAS TANAH",
+      "pdf_url": "https://brwa.id/files/1607931385.pdf"
+    },
+    {
+      "no": "3",
+      "description": "9 Tahun 2020 Inpres Nomor 9 Tahun 2020 Tentang Percepatan Pembangunan Kesejahteraan di Prov Papua dan Papua Barat",
+      "pdf_url": "https://brwa.id/files/1626241753.pdf"
+    },
+    {
+      "no": "4",
+      "description": "B3 3 Tahun 2022 Perda Provinsi Papua No 3 Tahun 2022 Tentang Kampung Adat",
+      "pdf_url": "https://brwa.id/files/1696832750.pdf"
+    },
+    {
+      "no": "5",
+      "description": "B3 5 Tahun 2022 Perda Provinsi Papua No 5 Tahun 2022 Tentang PPMHA. di Provinsi Papua",
+      "pdf_url": "https://brwa.id/files/1696832776.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/1584674788.pdf",
+    "https://brwa.id/files/1607931385.pdf",
+    "https://brwa.id/files/1626241753.pdf",
+    "https://brwa.id/files/1696832750.pdf",
+    "https://brwa.id/files/1696832776.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "410",
+    "nama_kewilayahan": "Onggari"
+  },
+  "downloaded_pdf_files": []
+}

@@ -1,0 +1,47 @@
+{
+  "idx": "1300",
+  "source_url": "https://brwa.id/profil/1300",
+  "title": "Batu Ampar Laman Lamat (Bau)",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Lamandau",
+    "Kecamatan": "Menthobi Raya",
+    "Desa": "Batu Ampar"
+  },
+  "kewilayahan": {
+    "Luas": "7.378,00 Ha",
+    "Satuan": "Batu Ampar Laman Lamat",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBatu Ampar Laman Lamat (Bau)\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nLamandau\n, Kecamatan\nMenthobi Raya\ndan Desa\nBatu Ampar\n, Wilayah adat ini memiliki Luas wilayah\n7.378,00\nHa                            , Komunitas adat ini memiliki Jumlah penduduk\n563\njiwa              , Terdiri dari\n226\nLaki-laki dan\n337\nperempuan              , dan total\n563\nkepala Keluarga              , sedangkan Bahasa sehari-hari yang digunakan adalah\nDayak Daerah",
+    "Batas Wilayah Adat": "Pada bagian Utara Lubuk Hiju\nPada bagian Selatan Topalan\nPada bagian Timur Desa Riam\nPada bagian Barat Nanuah dan Batu Tunggal",
+    "Sejarah": "pedukuhan Pahas Pagong yang dikuasai dari jaman pengasingan kerajaan Kula Ringinm pada abad XVII oleh patinggi Hiak Sangi Sampai saat ini dengan kelembagaan Buis Tampih\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nBuis Tampih Rumah Dayak\nKetua Adat;\nPenasehat Adat;\nDamang Adat;\nPengurus Adat.\nSesuai dengan kelembagaan dan tingkatannya.\nTahapan dan Lokasi Pengambilan Keputusan\nDi tingkat bahaum sampai keputusan tertinggi hukum adat\nContoh Proses dan Hasil Pengambilan Keputusan\ndi tingkat bahaum sampai keputusan tertinggi hukum adat",
+    "Tata Ruang Hidup di Wilayah Adat": "3500 Ha di wilayah timor ke utara desa batu ampar yang disepakati menjadi hutan / tanah adat\ndibuka menjadi ladang dan pedukuhan yang selanjutnya dikuasai erorangan / dikuasai sebagian PT Korindo.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nDibuka menjadi ladang dan pedukuhan yang selanjutnya dikuasai erorangan / dikuasai sebagian PT Korindo\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\n-Berlakunya hukum adat baik yang tertulis maupun tidak tapi disepakati seluruh pranata kehidupannya\n-Sebagian sudah rusak tetapi dihapal dan disepakati dan sudah dibukukan ulang termasuk pamalinya (dalam keterangan portal lama adalah aturan adat, sehingga perlu dipastikan lagi ini peraturan sosial atau lahan).\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\npadi, umbi-umbuan, dan lain-lain\nPotensi Sumber Kesehatan & Kecantikan\npohon-pohon yang dilindungi yang sudah diwarisi sejak dahulu\nPotensi Sumber Sandang & Papan\njenis meranti ulin dan bangkirai###kulit kapuk dan pohon tongang\nPotensi Sumber Rempah & Bumbu\nsintuk merah, daun lompi, dll\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nhasil berburu dan sebagian mengolah pohon untuk bangunan",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 3 Tahun 2023 Pedoman Pengakuan dan Perlindungan Masyarakat Hukum Adat Dayak",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-lamandau-tentang-pedoman-ppmha-dayak.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-lamandau-tentang-pedoman-ppmha-dayak.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "1300",
+    "nama_kewilayahan": "Batu Ampar Laman Lamat (Bau)"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1300_reg-perda-kab-lamandau-tentang-pedoman-ppmha-dayak.pdf"
+  ]
+}

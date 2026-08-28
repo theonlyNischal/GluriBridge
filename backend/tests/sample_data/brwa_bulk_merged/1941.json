@@ -1,0 +1,68 @@
+{
+  "idx": "1941",
+  "source_url": "https://brwa.id/profil/1941",
+  "title": "Mekar Raya",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Ketapang",
+    "Kecamatan": "AIR UPAS",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "50.535,20 Ha",
+    "Satuan": "Mekar Raya",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMekar Raya\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nKetapang\n, Kecamatan\nAIR UPAS\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n50.535,20\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 8 Tahun 2020 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-ketapang-no-8-tahun-2020-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-ketapang.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 70 Tahun 2022 Petunjuk Pelaksanaan Peraturan Daerah Nomor 8 Tahun 2020 Tentang Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perbup-ketapang-nomor-70-tahun-2022_compress.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati No. 589/DISPMPD-B/2021 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Ketapang",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-ketapang-ttg-panitia-mha.pdf"
+    },
+    {
+      "no": "4",
+      "description": "SK Bupati No. 968/DISPMD-B/2024 Penetapan Pengakuan dan Perlindungan Masyarakat Hukum Adat Kampong Banua Banyor Dayak Simpakng Sekayok Desa Mekar Raya Kecamatan Simpang Dua Kabupaten Ketapang",
+      "pdf_url": "https://brwa.id/files/reg-desa-mekar-raya-kecamatan-simpang-dua.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-ketapang-no-8-tahun-2020-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-ketapang.pdf",
+    "https://brwa.id/files/reg-perbup-ketapang-nomor-70-tahun-2022_compress.pdf",
+    "https://brwa.id/files/reg-sk-bupati-ketapang-ttg-panitia-mha.pdf",
+    "https://brwa.id/files/reg-desa-mekar-raya-kecamatan-simpang-dua.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1941",
+    "nama_kewilayahan": "Mekar Raya"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1941_reg-perda-kabupaten-ketapang-no-8-tahun-2020-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-ketapang.pdf",
+    "data/pdfs/1941_reg-perbup-ketapang-nomor-70-tahun-2022_compress.pdf",
+    "data/pdfs/1941_reg-sk-bupati-ketapang-ttg-panitia-mha.pdf",
+    "data/pdfs/1941_reg-desa-mekar-raya-kecamatan-simpang-dua.pdf"
+  ]
+}

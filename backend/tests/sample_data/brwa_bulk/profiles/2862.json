@@ -1,0 +1,61 @@
+{
+  "idx": "2862",
+  "source_url": "https://brwa.id/profil/2862",
+  "title": "Karukunan Balai Adat Datu Panganan Tuinggalah",
+  "administratif": {
+    "Propinsi": "Kalimantan Selatan",
+    "Kabupaten": "Kotabaru",
+    "Kecamatan": "-",
+    "Desa": "Ulang"
+  },
+  "kewilayahan": {
+    "Luas": "42.828,62 Ha",
+    "Satuan": "Karukunan Balai Adat Datu Panganan Tuinggalah",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKarukunan Balai Adat Datu Panganan Tuinggalah\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Selatan\n, Kabupaten\nKotabaru\n, Kecamatan\n-\ndan Desa\nUlang\n, Wilayah adat ini memiliki Luas wilayah\n42.828,62\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 19 Tahun 2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-peraturan-daerah-kabupaten-kotabaru-no-19-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 100.3.3.2/500/KUM/2024 Pembentukan Panitia Pengakuan dan Perlindungan Masyarakat Hukum Adat Kabupaten Kotabaru",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-mha-kab-kotabaru.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No. 2 Tahun 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-peraturan-daerah-kabupaten-kotabaru-no-19-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-sk-panitia-mha-kab-kotabaru.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2862",
+    "nama_kewilayahan": "Karukunan Balai Adat Datu Panganan Tuinggalah"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2862_reg-peraturan-daerah-kabupaten-kotabaru-no-19-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/2862_reg-sk-panitia-mha-kab-kotabaru.pdf",
+    "data/pdfs/2862_reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+  ]
+}

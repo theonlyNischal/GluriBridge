@@ -1,0 +1,47 @@
+{
+  "idx": "1486",
+  "source_url": "https://brwa.id/profil/1486",
+  "title": "Masama",
+  "administratif": {
+    "Propinsi": "Sulawesi Tengah",
+    "Kabupaten": "Banggai",
+    "Kecamatan": "Masama",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "19.451,51 Ha",
+    "Satuan": "Masama",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMasama\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Tengah\n, Kabupaten\nBanggai\n, Kecamatan\nMasama\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n19.451,51\nHa                            , Komunitas adat ini memiliki Jumlah penduduk\n1278\njiwa              , Terdiri dari\n661\nLaki-laki dan\n617\nperempuan              , dan total\n367\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Andala\nPada bagian Selatan Kota Baru\nPada bagian Timur Simpangan\nPada bagian Barat Serat Pering",
+    "Sejarah": "Suku andio berasal dari tompotika, Desa pertama suku andio merukan desa eteng, lalu menyebar menjadi luas dan sekarang dikenal dengan komunitas andio dan merupakan suku asli tompotika\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nAndio\nRaja (Bosaan)\nKapitan\nPemangku Adat\nSemua dapat mengambil keputusan berdasarkan tempat wilayahnya\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nJika membuka lahan harus meminta izin dengan ketua adat\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nJika membuat keramaian seperti pesta harus meminta izin kepada ketua adat, jika dilanggar maka akan datang banjir\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\npadi\nkopra\nPotensi Sumber Kesehatan & Kecantikan\nkunyit\ngoreka\nPotensi Sumber Sandang & Papan\nkayu palap###bakealu\nPotensi Sumber Rempah & Bumbu\ncabe, tomat\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nnelayan",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 12 Tahun 2025 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1486",
+    "nama_kewilayahan": "Masama"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1486_reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ]
+}

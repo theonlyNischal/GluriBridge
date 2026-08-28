@@ -1,0 +1,54 @@
+{
+  "idx": "180",
+  "source_url": "https://brwa.id/profil/180",
+  "title": "Ngaju Jabiren",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Pulang Pisau",
+    "Kecamatan": "belum ada",
+    "Desa": "belum ada"
+  },
+  "kewilayahan": {
+    "Luas": "13.706,43 Ha",
+    "Satuan": "Ngaju Jabiren",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nNgaju Jabiren\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nPulang Pisau\n, Kecamatan\nbelum ada\ndan Desa\nbelum ada\n, Wilayah adat ini memiliki Luas wilayah\n13.706,43\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nbelum ada",
+    "Batas Wilayah Adat": "Pada bagian Utara belum ada\nPada bagian Selatan belum ada\nPada bagian Timur belum ada\nPada bagian Barat belum ada",
+    "Sejarah": "belum ada\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nbelum ada\nbelum ada\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nbelum ada",
+    "Tata Ruang Hidup di Wilayah Adat": "belum ada.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nbelum ada\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nbelum ada###belum ada\nPotensi Sumber Rempah & Bumbu\nbelum ada\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nbelum ada",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 44 Tahun 2019 Panitia Pembentukan Masyarakat Hukum Adat Kabupaten Pulang Pisau",
+      "pdf_url": "https://brwa.id/files/reg-keputusan-bupati-pulang-pisau-nomor-44-tahun-2019-tentang-panitia-pembentukan-masyarakat-hukum-adat-kabupaten-pulang-pisau.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 105 Tahun 2019",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-pulang-pisau.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-keputusan-bupati-pulang-pisau-nomor-44-tahun-2019-tentang-panitia-pembentukan-masyarakat-hukum-adat-kabupaten-pulang-pisau.pdf",
+    "https://brwa.id/files/reg-sk-bupati-pulang-pisau.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "180",
+    "nama_kewilayahan": "Ngaju Jabiren"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/180_reg-keputusan-bupati-pulang-pisau-nomor-44-tahun-2019-tentang-panitia-pembentukan-masyarakat-hukum-adat-kabupaten-pulang-pisau.pdf",
+    "data/pdfs/180_reg-sk-bupati-pulang-pisau.pdf"
+  ]
+}

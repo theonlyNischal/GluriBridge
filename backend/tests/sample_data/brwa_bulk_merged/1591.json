@@ -1,0 +1,54 @@
+{
+  "idx": "1591",
+  "source_url": "https://brwa.id/profil/1591",
+  "title": "Merap Gong Solok",
+  "administratif": {
+    "Propinsi": "Kalimantan Utara",
+    "Kabupaten": "Malinau",
+    "Kecamatan": "Malinau Selatan Hilir",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "37.703,06 Ha",
+    "Satuan": "Dusun Gong Solok",
+    "Kondisi Fisik": "Dataran, Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMerap Gong Solok\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Utara\n, Kabupaten\nMalinau\n, Kecamatan\nMalinau Selatan Hilir\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n37.703,06\nHa               Dengan Kondisi fisik wilayah meliputi\nDataran, Pegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n279\njiwa              , Terdiri dari\n177\nLaki-laki dan\n102\nperempuan              , dan total\n47\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Saterap dan Punan Setarap\nPada bagian Selatan Adiu dan Punan G. Solok\nPada bagian Timur Gua Sarang Walet\nPada bagian Barat Setarap dan Adiu",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nMerap Desa Gong Solok\nKetua, Wakil Ketua, Sekretaris dan anggota\n-\nTahapan dan Lokasi Pengambilan Keputusan\nMufakat\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 10 Tahun 2012 Pengakuan dan Perlindungan hak-hak Masyarakat Adat di Kabupaten Malinau",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-malinau-nomor-10-tahun-2012-tentang-pengakuan-dan-perlindungan-hak-hak-masyarakat-adat-di-kabupaten-malinau.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 189.1/K.115/2019 Pengangkatan Anggota Badan Pengelola Urusan Masyarakat Adat Kabupaten Malinau",
+      "pdf_url": "https://brwa.id/files/reg-dlhsk-nomor-k-115-bpuma-tentang-pengangkatan-anggota-bpuma.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-malinau-nomor-10-tahun-2012-tentang-pengakuan-dan-perlindungan-hak-hak-masyarakat-adat-di-kabupaten-malinau.pdf",
+    "https://brwa.id/files/reg-dlhsk-nomor-k-115-bpuma-tentang-pengangkatan-anggota-bpuma.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1591",
+    "nama_kewilayahan": "Merap Gong Solok"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1591_reg-perda-kabupaten-malinau-nomor-10-tahun-2012-tentang-pengakuan-dan-perlindungan-hak-hak-masyarakat-adat-di-kabupaten-malinau.pdf",
+    "data/pdfs/1591_reg-dlhsk-nomor-k-115-bpuma-tentang-pengangkatan-anggota-bpuma.pdf"
+  ]
+}

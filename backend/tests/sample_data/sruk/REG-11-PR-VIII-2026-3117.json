@@ -1,0 +1,316 @@
+{
+  "id": "32bcf253-0c84-4a98-b5c2-f285d4d56ca0",
+  "program_code": "REG-11-PR-VIII-2026-3117",
+  "title": "West Seram REDD+ and Agarwood ForestWise Project",
+  "project_name_en": "",
+  "stage": 2,
+  "latest_status": "DRAFT",
+  "latest_status_date": "2026-08-11T03:09:57.000Z",
+  "created_at": "2026-08-11T03:09:56.901Z",
+  "user": {
+    "id": "84f194d4-0a8b-4bf5-bd90-467616ac8d76",
+    "name": "Tuhfah Fathiyyah Muhjah",
+    "username": "asiapasifikasset2026",
+    "organization_name": "ASIA PASIFIK ASSET PERCAYAAN INDONESIA"
+  },
+  "responsible": {
+    "name": "ASIA PASIFIK ASSET PERCAYAAN INDONESIA",
+    "address": "Jl. Kwitang Raya No. 13, Kelurahan Kwitang, Kecamatan Senen, Kota Adm Jakarta Pusat, Provinsi DKI Jakarta 10450"
+  },
+  "sectors": [
+    {
+      "id": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed",
+      "name": "⁠Forestry and Other Land Use (FOLU)"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "3eeeba14-f66f-4aab-9940-f23abf5800e4",
+      "name": "Mitigasi Sektor Kehutanan",
+      "id_sector": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed"
+    }
+  ],
+  "executor": {
+    "id": "d628bf6f-8eaa-4d34-aafd-18204a1481ac",
+    "name": "Dunia Usaha"
+  },
+  "action": {
+    "id": "dfc57786-c21f-4d3c-9d07-8620ca962f10",
+    "name": "Mitigasi"
+  },
+  "start_date": "2025-03-01T00:00:00.000Z",
+  "end_date": "2055-02-01T00:00:00.000Z",
+  "project_description_general": "Reducing CO2 emissions through afforestation, reforestation, and revegetation activities; improving the well-being of local communities through income-generating programs and basic services; and preserving habitats and reducing threats to protected flora and fauna.",
+  "project_description_general_en": "",
+  "project_description_special": "Climate Objectives\n● Reduce CO2 emissions resulting from the PAAs Afforestation, Reforestation and\nRevegetation to Protect Forest of 33,989,500 tCO2e in crediting period from 1\nJanuary 2025 to 31 December 2054.\nCommunity Objectives\n● Improve community welfare by Sustainable Income Generation Groups (SIGG),\nCreating local Bee raising/foods in meat/egg and milk with SIGG, have clean and safe\ndrinking water in villages, equality of women, having good dental oral health, improve\nquality of education and gender equality, construct affordable solar energy to\nvillages.\n● Implement Sustainable Income Generation Scheme by forming\nAgarwood_Plantation Agarwood plantation and other NTFP generation groups.\n● Promote and support local community development\nBiodiversity Objectives\n● Maintain habitat for viable, abundant and diverse natural populations of High\nConservation Value of Fauna and Flora.\n● Reduce threats to rare, threatened, endangered and vulnerable Fauna and Flora",
+  "project_description_special_en": "",
+  "program_relevances": [
+    {
+      "id": "2a5abe55-3288-455a-8426-8517cd22d2ef",
+      "name": "SDGs-1 Tanpa Kemiskinan"
+    },
+    {
+      "id": "11ca2707-00c1-470d-ab69-55de1a693b61",
+      "name": "SDGs-2 Tanpa Kelaparan"
+    },
+    {
+      "id": "7141ea5d-651f-489b-a855-dceb61fa9bae",
+      "name": "SDGs-3 Kehidupan Sehat dan Sejahtera"
+    },
+    {
+      "id": "6ed062dd-4e34-4079-acdb-54b8960547e9",
+      "name": "SDGs-5 Kesetaraan Gender"
+    },
+    {
+      "id": "2a4ec9e0-e9ae-4823-81d5-49ed646763e8",
+      "name": "SDGs-8 Pekerjaan Layak dan Pertumbuhan Ekonomi"
+    },
+    {
+      "id": "1f63ee76-bab0-45fe-a87a-c8f73415345b",
+      "name": "SDGs-9 Industri, Inovasi dan Infrastruktur"
+    },
+    {
+      "id": "dd59e52f-67cf-4a67-a974-ba747b5e2e06",
+      "name": "SDGs-6 Air Bersih dan Sanitasi Layak"
+    }
+  ],
+  "technology_expert": {
+    "id": "39e92d47-26a8-4679-80bb-25be4d9a8ec5",
+    "name": "Tidak"
+  },
+  "capacity_increase": {
+    "id": "887b5d29-5e9d-4cc7-936b-943792e7d92f",
+    "name": "Tidak"
+  },
+  "funding_status": {
+    "id": "10ec21fc-2c25-48c2-9698-178b22f06856",
+    "name": "Tidak"
+  },
+  "funding_source": null,
+  "expert": {
+    "id": "8eb6a7da-c8c5-4157-932d-e7c880efda7b",
+    "name": "Tidak"
+  },
+  "location": {
+    "rt_rw": null,
+    "latitude": "-3.134144118716336",
+    "longitude": "128.4272124395495",
+    "province": null,
+    "city": null,
+    "district": null,
+    "village": null
+  },
+  "program_documents": [
+    {
+      "id": "6d21d8a3-b8a3-461d-91aa-3f90cc146273",
+      "title": "WEST SERAM REDD+ and Agarwood ForestWise PROJECT",
+      "description": "WEST SERAM REDD+ and Agarwood ForestWise PROJECT PDD Document",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/5eec17ec-a4ea-42ad-800d-90b670d849b6.docx",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-08-11T03:20:55.515Z"
+    }
+  ],
+  "verificators": {},
+  "validators": {
+    "lvv_dram": null,
+    "lvv_lcam": null
+  },
+  "approvals": {
+    "igrk_stage_1_approved_at": "2026-08-11T03:09:56.901Z",
+    "ms2r_stage_1_approved_at": null,
+    "registration_date": null,
+    "ms2r_stage_2_approved_at": null
+  },
+  "verified_carbon_amount": null,
+  "verified_reduction_emission": [],
+  "emission_reduction_achievement": null,
+  "dram": null,
+  "lcam": null,
+  "workflow_steps": [
+    {
+      "id": 1,
+      "name": "DATA UMUM",
+      "stage": 1,
+      "latest_status": "APPROVED_GENERAL_DATA",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 1,
+          "name": "Data Umum",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-08-11T03:09:56.993Z",
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 2,
+          "name": "Lokasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 3,
+          "name": "Dokumen",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-08-11T03:20:55.515Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DATA TEKNIS",
+      "stage": 2,
+      "latest_status": "DRAFT",
+      "status": "active",
+      "sub_processes": [
+        {
+          "id": 4,
+          "name": "DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2026-08-11T03:09:57.000Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 5,
+          "name": "Aksi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2026-08-11T03:09:57.000Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "DATA VALIDASI",
+      "stage": 3,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 6,
+          "name": "Pemilihan LVV",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 7,
+          "name": "Dokumen Kontrak Kerja",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 8,
+          "name": "Dokumen DRAM Final",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 9,
+          "name": "Dokumen Validasi DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV",
+          "approved_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "DATA VERIFIKASI",
+      "stage": 4,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 10,
+          "name": "LCAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 11,
+          "name": "Dokumen Verifikasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 12,
+          "name": "Pemilihan LVV-2",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 13,
+          "name": "Worksheet Perhitungan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 14,
+          "name": "Dokumen Pendukung",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 15,
+          "name": "Persetujuan Emisi Karbon",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "FINALISASI",
+      "stage": 5,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 16,
+          "name": "Generate SPE",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        },
+        {
+          "id": 17,
+          "name": "Sertifikat Pengurangan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "idx": "2868",
+  "source_url": "https://brwa.id/profil/2868",
+  "title": "Praing Lai Taku",
+  "administratif": {
+    "Propinsi": "Nusa Tenggara Timur",
+    "Kabupaten": "Sumba Timur",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "3.586,53 Ha",
+    "Satuan": "Praing Lai Taku",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPraing Lai Taku\n, Berada dalam Wilayah Administratif Propinsi\nNusa Tenggara Timur\n, Kabupaten\nSumba Timur\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n3.586,53\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati Nomor 505/DLH.800/505/X/2025 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Sumba Timur Tahun Anggaran 2025",
+      "pdf_url": "https://brwa.id/files/reg-sk-pembentukan-panitia-masyarakat-hukum-adat-kabupaten-sumba-timur.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-pembentukan-panitia-masyarakat-hukum-adat-kabupaten-sumba-timur.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "2868",
+    "nama_kewilayahan": "Praing Lai Taku"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2868_reg-sk-pembentukan-panitia-masyarakat-hukum-adat-kabupaten-sumba-timur.pdf"
+  ]
+}

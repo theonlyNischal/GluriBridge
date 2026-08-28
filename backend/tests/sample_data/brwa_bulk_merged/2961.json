@@ -1,0 +1,47 @@
+{
+  "idx": "2961",
+  "source_url": "https://brwa.id/profil/2961",
+  "title": "Banete",
+  "administratif": {
+    "Propinsi": "Nusa Tenggara Barat",
+    "Kabupaten": "Sumbawa",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "1.466,52 Ha",
+    "Satuan": "Banete",
+    "Kondisi Fisik": "Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBanete\n, Berada dalam Wilayah Administratif Propinsi\nNusa Tenggara Barat\n, Kabupaten\nSumbawa\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n1.466,52\nHa               Dengan Kondisi fisik wilayah berupa\nPerbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\na\na\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\na",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\na\nBentuk Kebudayaan Non-Material\na\nBentuk Kebudayaan Material\na",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\na\nPotensi Sumber Sandang & Papan\na\nPotensi Sumber Rempah & Bumbu\na\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nates\nPotensi Komoditas & Ekonomi Lainnya\na\na",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 11 Tahun 2021 Pengakuan, Penghormatan, dan Perlindungan Terhadap Kesatuan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-11-perda-provntb-tentang-pengakuan-dan-perlindungan-kesatuan-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-11-perda-provntb-tentang-pengakuan-dan-perlindungan-kesatuan-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2961",
+    "nama_kewilayahan": "Banete"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2961_reg-11-perda-provntb-tentang-pengakuan-dan-perlindungan-kesatuan-mha.pdf"
+  ]
+}

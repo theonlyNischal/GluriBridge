@@ -1,0 +1,54 @@
+{
+  "idx": "2967",
+  "source_url": "https://brwa.id/profil/2967",
+  "title": "Pulau Buano",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Seram Bagian Barat",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "8.917,69 Ha",
+    "Satuan": "Pulau Buano",
+    "Kondisi Fisik": "Perairan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPulau Buano\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nSeram Bagian Barat\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n8.917,69\nHa               Dengan Kondisi fisik wilayah berupa\nPerairan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[  ✓  ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 13 Tahun 2019 Negeri",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-seram-bagian-barat-no-13-tahun-2019_negeri.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Surat Keputusan Menteri No 188. 4-599 Tahun 2020 Penetapan Wilayah Kelola Masyarakat Hukum Adat Pulau Buano dalam Pemanfaatan Ruang di Wilayah Pesisir dan Pulau Pulau Kecil",
+      "pdf_url": "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-seram-bagian-barat-no-13-tahun-2019_negeri.pdf",
+    "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "2967",
+    "nama_kewilayahan": "Pulau Buano"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2967_reg-perda-kabupaten-seram-bagian-barat-no-13-tahun-2019_negeri.pdf",
+    "data/pdfs/2967_reg-permen-kkp-no8-tahun-20218.pdf"
+  ]
+}

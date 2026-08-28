@@ -1,0 +1,61 @@
+{
+  "idx": "355",
+  "source_url": "https://brwa.id/profil/355",
+  "title": "Meragun",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Sekadau",
+    "Kecamatan": "Nanga Taman",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "5.145,81 Ha",
+    "Satuan": "Kampung Meragun",
+    "Kondisi Fisik": "Dataran, Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMeragun\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nSekadau\n, Kecamatan\nNanga Taman\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n5.145,81\nHa               Dengan Kondisi fisik wilayah meliputi\nDataran, Pegunungan",
+    "Batas Wilayah Adat": "Pada bagian Utara Kab. Ketapang & Kaliman Tengah\nPada bagian Selatan Desa Rirang Jati\nPada bagian Timur Kabupaten Sintang\nPada bagian Barat Libuk Tajau",
+    "Sejarah": "Berasal dari suku dayak Taman Sosat\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n1. Mantri adat desa mengurus adat desa\n2. Mantri adat kampung mengurus adat kampung\n3. Kabayan membatu pengurus adat kampung\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nAdat pencurian (ringan) Dikenai 16 poku mangkok 1 tempayan tuak 1 ekor ayam Denda lain akan ada kesepakatan bersama",
+    "Tata Ruang Hidup di Wilayah Adat": ".",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\n- Mengadakan gawai di kampung harus selalu ada kesepakatan bersama.\n- Mengadakan kerja di kampung juga harus melalui pembukaan/rapat di kampung untuk menentukan hari & tanggal pelaksanaannya, dll\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 8 Tahun 2018 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-sekadau-nomor-8-tahun-2018-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 13 Tahun 2020 Pedoman Identifikasi, Verifikasi dan Penetapan Masyarakat Hukum Adat di Kabupaten Sekadau",
+      "pdf_url": "https://brwa.id/files/reg-perbup-kab-sekadau-no-13-thn-2020-ttg-identifikasi-verifikasi-dan-validasi-mha.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati No. 189/23/DPMD-C/2021 Pembentukan Panitia Pengakuan dan Perlindungan Masyarakat Hukum Adat di Kabupaten Sekadau",
+      "pdf_url": "https://brwa.id/files/reg-2-sk-bupati-sekadau-ttg-panitia-mha_2021.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-sekadau-nomor-8-tahun-2018-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-perbup-kab-sekadau-no-13-thn-2020-ttg-identifikasi-verifikasi-dan-validasi-mha.pdf",
+    "https://brwa.id/files/reg-2-sk-bupati-sekadau-ttg-panitia-mha_2021.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "355",
+    "nama_kewilayahan": "Meragun"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/355_reg-perda-kabupaten-sekadau-nomor-8-tahun-2018-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/355_reg-perbup-kab-sekadau-no-13-thn-2020-ttg-identifikasi-verifikasi-dan-validasi-mha.pdf",
+    "data/pdfs/355_reg-2-sk-bupati-sekadau-ttg-panitia-mha_2021.pdf"
+  ]
+}

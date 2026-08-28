@@ -1,0 +1,61 @@
+{
+  "idx": "1468",
+  "source_url": "https://brwa.id/profil/1468",
+  "title": "Mukim Panga Pasie",
+  "administratif": {
+    "Propinsi": "Aceh",
+    "Kabupaten": "Aceh Jaya",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "28.041,45 Ha",
+    "Satuan": "Mukim Panga Pasie",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMukim Panga Pasie\n, Berada dalam Wilayah Administratif Propinsi\nAceh\n, Kabupaten\nAceh Jaya\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n28.041,45\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No. SK.9524/MENLHK-PSKL/PKTHA/PSL.1/9/2023 Penetapan Status Hutan Adat Dalam Wilayah Masyarakat Hukum Adat Mukim Panga Pasi Seluas ±1.282 (Seribu Dua Ratus Delapan Puluh Dua) Hektar di Gampong Gle Putoh Kecamatan Panga Kabupaten Aceh Jaya Provinsi Aceh",
+      "pdf_url": "https://brwa.id/files/reg-2023-sk-penetapan-hutan-adat-mukim-panga-pasi-aceh-jaya-aceh.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Daerah No. 5 Tahun 2017 Hutan Adat Mukim",
+      "pdf_url": "https://brwa.id/files/reg-qanun-kabupaten-aceh-jaya-no-5-tahun-2017-tentang-hutan-adat-mukim.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Daerah No. 4 Tahun 2011 Pemerintahan Mukim",
+      "pdf_url": "https://brwa.id/files/reg-qanun-kabupaten-aceh-jaya-nomor-4-tahun-2011-tentang-pemerintahan-mukim.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2023-sk-penetapan-hutan-adat-mukim-panga-pasi-aceh-jaya-aceh.pdf",
+    "https://brwa.id/files/reg-qanun-kabupaten-aceh-jaya-no-5-tahun-2017-tentang-hutan-adat-mukim.pdf",
+    "https://brwa.id/files/reg-qanun-kabupaten-aceh-jaya-nomor-4-tahun-2011-tentang-pemerintahan-mukim.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1468",
+    "nama_kewilayahan": "Mukim Panga Pasie"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1468_reg-2023-sk-penetapan-hutan-adat-mukim-panga-pasi-aceh-jaya-aceh.pdf",
+    "data/pdfs/1468_reg-qanun-kabupaten-aceh-jaya-no-5-tahun-2017-tentang-hutan-adat-mukim.pdf",
+    "data/pdfs/1468_reg-qanun-kabupaten-aceh-jaya-nomor-4-tahun-2011-tentang-pemerintahan-mukim.pdf"
+  ]
+}

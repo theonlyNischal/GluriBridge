@@ -1,0 +1,47 @@
+{
+  "idx": "3320",
+  "source_url": "https://brwa.id/profil/3320",
+  "title": "Pomparan Ompu Sunggu Barita",
+  "administratif": {
+    "Propinsi": "Sumatera Utara",
+    "Kabupaten": "Toba",
+    "Kecamatan": "Borbor",
+    "Desa": "Janji Maria"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Huta Janji Maria",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPomparan Ompu Sunggu Barita\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Utara\n, Kabupaten\nToba\n, Kecamatan\nBorbor\ndan Desa\nJanji Maria",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Menteri No. 7893/MENLHK-PSKL/PKTHA/PSL.1/12/2021 Penetapan Wilayah Indikatif Hutan Adat Janji Maria dalam Wilayah Masyarakat Hukum Adat Pomparan Ompu Sunggu Barita Seluas ± 118 (Seratus Delapan Belas) Hektar di Desa Janji Maria, Kecamatan Borbor, Kabupaten Toba, Provinsi Sumatera Utara",
+      "pdf_url": "https://brwa.id/files/reg-sk7893-menlhk-pskl-pktha-psl1-12-2021.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk7893-menlhk-pskl-pktha-psl1-12-2021.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3320",
+    "nama_kewilayahan": "Pomparan Ompu Sunggu Barita"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3320_reg-sk7893-menlhk-pskl-pktha-psl1-12-2021.pdf"
+  ]
+}

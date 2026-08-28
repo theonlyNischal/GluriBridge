@@ -1,0 +1,61 @@
+{
+  "idx": "2846",
+  "source_url": "https://brwa.id/profil/2846",
+  "title": "Uma Sakulok Keturunan Latco",
+  "administratif": {
+    "Propinsi": "Sumatera Barat",
+    "Kabupaten": "Kepulauan Mentawai",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "212,27 Ha",
+    "Satuan": "Uma Sakulok Keturunan Latco",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nUma Sakulok Keturunan Latco\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Barat\n, Kabupaten\nKepulauan Mentawai\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n212,27\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 11 Tahun 2017 Pengakuan dan Perlindungan Uma Sebagai Kesatuan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-kepulauan-mentawai-tentang-pengakuan-perlindungan-uma-sebagai-kesatuan-mha-kab-kepulauan-mentawai.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 12 Tahun 2019 Peraturan Pelaksanaan Peraturan Daerah Kabupaten Kepulauan Mentawai Nomor 11 Tahun 2017 Tentang Pengakuan dan Perlindungan Uma Sebagai Kesatuan Masyarakat Hukum Adat di Kabupaten Kepulauan Mentawai",
+      "pdf_url": "https://brwa.id/files/reg-2019_perbup_kepmentawaikab_12.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati No.162 Tahun 2019 Panitia Penetapan Pengakuan dan Perlindungan Uma Sebagai Kesatuan Masyarakat Hukum Adat di Kabupaten Kepulauan Mentawai Tahun 2019",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-kepulauan-mentawai-nomor-162-tahun-2019-tentang-panintia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-kepulauan-mentawai-tentang-pengakuan-perlindungan-uma-sebagai-kesatuan-mha-kab-kepulauan-mentawai.pdf",
+    "https://brwa.id/files/reg-2019_perbup_kepmentawaikab_12.pdf",
+    "https://brwa.id/files/reg-sk-bupati-kepulauan-mentawai-nomor-162-tahun-2019-tentang-panintia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "2846",
+    "nama_kewilayahan": "Uma Sakulok Keturunan Latco"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2846_reg-perda-kab-kepulauan-mentawai-tentang-pengakuan-perlindungan-uma-sebagai-kesatuan-mha-kab-kepulauan-mentawai.pdf",
+    "data/pdfs/2846_reg-2019_perbup_kepmentawaikab_12.pdf",
+    "data/pdfs/2846_reg-sk-bupati-kepulauan-mentawai-nomor-162-tahun-2019-tentang-panintia-mha.pdf"
+  ]
+}

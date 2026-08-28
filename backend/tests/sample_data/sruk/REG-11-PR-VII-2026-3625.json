@@ -1,0 +1,325 @@
+{
+  "id": "4c22ce2b-7906-4421-abe0-a01995d929e7",
+  "program_code": "REG-11-PR-VII-2026-3625",
+  "title": "Seram Climate and Conservation Project",
+  "project_name_en": "",
+  "stage": 2,
+  "latest_status": "SUBMITTED_TECHNICAL",
+  "latest_status_date": "2026-07-23T06:56:11.832Z",
+  "created_at": "2026-07-23T02:15:05.738Z",
+  "user": {
+    "id": "aa1ed92c-cbc8-4335-b12d-1b5da87ab95e",
+    "name": "JOHAN SATRIA PUTRA",
+    "username": "stratapacific",
+    "organization_name": "STRATA PACIFIC"
+  },
+  "responsible": {
+    "name": "STRATA PACIFIC",
+    "address": "Menara Sunlife Lt 19 Unit I, Jl. DR. Ide Anak Agung Gde Agung No.Blok 6 3, RT.5/RW.2, Kuningan, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta"
+  },
+  "sectors": [
+    {
+      "id": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed",
+      "name": "⁠Forestry and Other Land Use (FOLU)"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "3eeeba14-f66f-4aab-9940-f23abf5800e4",
+      "name": "Mitigasi Sektor Kehutanan",
+      "id_sector": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed"
+    }
+  ],
+  "executor": {
+    "id": "0723ed6c-56c1-4bac-b756-c4e6195f41a9",
+    "name": "Institusi/Lembaga"
+  },
+  "action": {
+    "id": "dfc57786-c21f-4d3c-9d07-8620ca962f10",
+    "name": "Mitigasi"
+  },
+  "start_date": "2021-11-01T00:00:00.000Z",
+  "end_date": "2058-11-01T00:00:00.000Z",
+  "project_description_general": "The SERCOVA Project aims to enhance forest management, conserve biodiversity, and improve the resilience and wellbeing of Indigenous People and Local Communities (IPLC) through a series of targeted activities. The primary goals are to reduce greenhouse gas (GHG) emissions, conserve High Conservation Value (HCV) species, and improve the livelihoods and climate resilience of IPLCs. The project employs a multi-faceted approach that includes forest rehabilitation, biodiversity monitoring, climate adaptation training, and the promotion of climate-smart livelihood options. Special emphasis is placed on prioritizing vulnerable groups and ensuring inclusive participation in decision-making processes.",
+  "project_description_general_en": "",
+  "project_description_special": "SERCOVA Project is designed to deliver the project goal through a series of objectives, including below:\n1. Reduce GHG Emissions and Improve Forest Management\na. Implemented Forest Management (IFM) practices.\nb. Convert logging activities to protected forest activities.\nc. Conduct regular forest and fire patrols.\n\n2. Conserve Biodiversity and HCV Species\na. Identify and monitor HCV species.\nb. Develop and implement biodiversity management plans.\nc. Reduce threats from illegal wildlife trade and hunting.\n\n3. Enhance IPLC Resilience and Wellbeing\na. Provide climate adaptation training.\nb. Promote climate-smart agriculture and fisheries.\nc. Improve livelihood options through community enterprise development.\n\n4. Prioritize Vulnerable Groups\na. Ensure health and education services prioritize vulnerable groups.\nb. Facilitate inclusive participation in decision-making processes.\nc. Develop social safeguards to ensure transparent and just project implementation.",
+  "project_description_special_en": "",
+  "program_relevances": [
+    {
+      "id": "2a5abe55-3288-455a-8426-8517cd22d2ef",
+      "name": "SDGs-1 Tanpa Kemiskinan"
+    },
+    {
+      "id": "11ca2707-00c1-470d-ab69-55de1a693b61",
+      "name": "SDGs-2 Tanpa Kelaparan"
+    },
+    {
+      "id": "7141ea5d-651f-489b-a855-dceb61fa9bae",
+      "name": "SDGs-3 Kehidupan Sehat dan Sejahtera"
+    },
+    {
+      "id": "35013333-a4ed-4f8e-a0cc-cbfe38db65c0",
+      "name": "SDGs-4 Pendidikan Berkualitas"
+    },
+    {
+      "id": "6ed062dd-4e34-4079-acdb-54b8960547e9",
+      "name": "SDGs-5 Kesetaraan Gender"
+    },
+    {
+      "id": "2a4ec9e0-e9ae-4823-81d5-49ed646763e8",
+      "name": "SDGs-8 Pekerjaan Layak dan Pertumbuhan Ekonomi"
+    },
+    {
+      "id": "0e010fab-1bc3-40c2-8e91-765a85189e83",
+      "name": "SDGs-13 Penanganan Perubahan Iklim"
+    },
+    {
+      "id": "37c7da5a-10ef-4c11-a855-ae02f2c1cfd4",
+      "name": "SDGs-15 Ekosistem Daratan"
+    }
+  ],
+  "technology_expert": {
+    "id": "39e92d47-26a8-4679-80bb-25be4d9a8ec5",
+    "name": "Tidak"
+  },
+  "capacity_increase": {
+    "id": "887b5d29-5e9d-4cc7-936b-943792e7d92f",
+    "name": "Tidak"
+  },
+  "funding_status": {
+    "id": "10ec21fc-2c25-48c2-9698-178b22f06856",
+    "name": "Tidak"
+  },
+  "funding_source": null,
+  "expert": {
+    "id": "8eb6a7da-c8c5-4157-932d-e7c880efda7b",
+    "name": "Tidak"
+  },
+  "location": {
+    "rt_rw": null,
+    "latitude": "-3.270015473892946",
+    "longitude": "130.4561683386495",
+    "province": null,
+    "city": null,
+    "district": null,
+    "village": null
+  },
+  "program_documents": [
+    {
+      "id": "36db3e3f-b2fd-4578-927c-e2518cb4e74e",
+      "title": "Dokumen DRAM",
+      "description": "Dokumen DRAM",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/2e3df81e-8371-48a1-8be3-436f972815b5.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "DRAM",
+      "created_at": "2026-07-23T02:37:04.296Z"
+    }
+  ],
+  "verificators": {},
+  "validators": {
+    "lvv_dram": null,
+    "lvv_lcam": null
+  },
+  "approvals": {
+    "igrk_stage_1_approved_at": "2026-07-23T02:15:05.738Z",
+    "ms2r_stage_1_approved_at": null,
+    "registration_date": null,
+    "ms2r_stage_2_approved_at": null
+  },
+  "verified_carbon_amount": null,
+  "verified_reduction_emission": [],
+  "emission_reduction_achievement": null,
+  "dram": {
+    "id": "44c43e9e-0b87-4227-852d-deb28e616d4b",
+    "validation_report_link": null,
+    "created_at": "2026-07-23T06:56:10.918Z",
+    "approved_at": "2026-07-23T02:15:05.939Z"
+  },
+  "lcam": null,
+  "workflow_steps": [
+    {
+      "id": 1,
+      "name": "DATA UMUM",
+      "stage": 1,
+      "latest_status": "APPROVED_GENERAL_DATA",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 1,
+          "name": "Data Umum",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-07-23T02:15:05.925Z",
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 2,
+          "name": "Lokasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 3,
+          "name": "Dokumen",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DATA TEKNIS",
+      "stage": 2,
+      "latest_status": "SUBMITTED_TECHNICAL",
+      "status": "active",
+      "sub_processes": [
+        {
+          "id": 4,
+          "name": "DRAM",
+          "status": "sent",
+          "status_label": "Terkirim",
+          "date": "2026-07-23T02:15:05.939Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 5,
+          "name": "Aksi",
+          "status": "sent",
+          "status_label": "Terkirim",
+          "date": "2026-07-23T02:15:05.939Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "DATA VALIDASI",
+      "stage": 3,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 6,
+          "name": "Pemilihan LVV",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 7,
+          "name": "Dokumen Kontrak Kerja",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 8,
+          "name": "Dokumen DRAM Final",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 9,
+          "name": "Dokumen Validasi DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV",
+          "approved_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "DATA VERIFIKASI",
+      "stage": 4,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 10,
+          "name": "LCAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 11,
+          "name": "Dokumen Verifikasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 12,
+          "name": "Pemilihan LVV-2",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 13,
+          "name": "Worksheet Perhitungan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 14,
+          "name": "Dokumen Pendukung",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 15,
+          "name": "Persetujuan Emisi Karbon",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "FINALISASI",
+      "stage": 5,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 16,
+          "name": "Generate SPE",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        },
+        {
+          "id": 17,
+          "name": "Sertifikat Pengurangan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        }
+      ]
+    }
+  ]
+}

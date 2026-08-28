@@ -1,0 +1,61 @@
+{
+  "idx": "2955",
+  "source_url": "https://brwa.id/profil/2955",
+  "title": "Werur",
+  "administratif": {
+    "Propinsi": "Papua Barat Daya",
+    "Kabupaten": "Tambrauw",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "13.272,31 Ha",
+    "Satuan": "Werur",
+    "Kondisi Fisik": "Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nWerur\n, Berada dalam Wilayah Administratif Propinsi\nPapua Barat Daya\n, Kabupaten\nTambrauw\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n13.272,31\nHa               Dengan Kondisi fisik wilayah berupa\nPerbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 6/37/2018 Pengakuan dan Perlindungan Masyarakat Hukum Adat di Kabupaten Tambraw",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-tambrauw-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-tambrauw.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 189.1/16/2022 Pembentukan Panitia Masyarakat Hukum Adat di kabupaten Tambrauw",
+      "pdf_url": "https://brwa.id/files/reg-sk-kab-tambrauw-pembentukan-panitia-mha.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Surat Keputusan Menteri No. 800/134/2018 Penetapan Wilayah Kelola Masyarakat Hukum Adat Mpur Wot dan Werur dalam Pemanfaatan Ruang di Wilayah Pesisir dan Pulau Pulau Kecil",
+      "pdf_url": "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-tambrauw-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-tambrauw.pdf",
+    "https://brwa.id/files/reg-sk-kab-tambrauw-pembentukan-panitia-mha.pdf",
+    "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2955",
+    "nama_kewilayahan": "Werur"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2955_reg-perda-kab-tambrauw-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-tambrauw.pdf",
+    "data/pdfs/2955_reg-sk-kab-tambrauw-pembentukan-panitia-mha.pdf",
+    "data/pdfs/2955_reg-permen-kkp-no8-tahun-20218.pdf"
+  ]
+}

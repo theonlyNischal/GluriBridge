@@ -1,0 +1,54 @@
+{
+  "idx": "3219",
+  "source_url": "https://brwa.id/profil/3219",
+  "title": "Dabulon",
+  "administratif": {
+    "Propinsi": "Kalimantan Utara",
+    "Kabupaten": "Nunukan",
+    "Kecamatan": "Lumbis",
+    "Desa": "Dabulon"
+  },
+  "kewilayahan": {
+    "Luas": "9.242,85 Ha",
+    "Satuan": "Dabulon",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nDabulon\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Utara\n, Kabupaten\nNunukan\n, Kecamatan\nLumbis\ndan Desa\nDabulon\n, Wilayah adat ini memiliki Luas wilayah\n9.242,85\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 188.45/127/I/2024 Perubahan Kedua atas Keputusan Bupati Nunukan No. 188.48/272/V/2022 Tentang Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Nunukan",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-kab-nunukan-nomor-127_1_2024-perubahan-kedua-pembentukan-panitia-mha.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Daerah No. 4 Tahun 2023 Perubahan Atas Peraturan Daerah No. 16 Tahun 2018 Pemberdayaan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-nunukan-no-4-tahun-2023-tentang-mha-perubahan.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-panitia-kab-nunukan-nomor-127_1_2024-perubahan-kedua-pembentukan-panitia-mha.pdf",
+    "https://brwa.id/files/reg-perda-kab-nunukan-no-4-tahun-2023-tentang-mha-perubahan.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3219",
+    "nama_kewilayahan": "Dabulon"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3219_reg-sk-panitia-kab-nunukan-nomor-127_1_2024-perubahan-kedua-pembentukan-panitia-mha.pdf",
+    "data/pdfs/3219_reg-perda-kab-nunukan-no-4-tahun-2023-tentang-mha-perubahan.pdf"
+  ]
+}

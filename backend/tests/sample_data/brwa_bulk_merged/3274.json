@@ -1,0 +1,59 @@
+{
+  "idx": "3274",
+  "source_url": "https://brwa.id/profil/3274",
+  "title": "Balai Suliyan",
+  "administratif": {
+    "Propinsi": "Kalimantan Selatan",
+    "Kabupaten": "Kotabaru",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "3.508,31 Ha",
+    "Satuan": "Balai Suliyan",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBalai Suliyan\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Selatan\n, Kabupaten\nKotabaru\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n3.508,31\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 2 Tahun 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 100.3.3.2/500/KUM/2024 Pembentukan Panitia Pengakuan dan Perlindungan Masyarakat Hukum Adat Kabupaten Kotabaru",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-mha-kab-kotabaru.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No. 2 Tahun 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf",
+    "https://brwa.id/files/reg-sk-panitia-mha-kab-kotabaru.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3274",
+    "nama_kewilayahan": "Balai Suliyan"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3274_reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf",
+    "data/pdfs/3274_reg-sk-panitia-mha-kab-kotabaru.pdf"
+  ]
+}

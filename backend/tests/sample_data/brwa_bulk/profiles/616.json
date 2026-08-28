@@ -1,0 +1,61 @@
+{
+  "idx": "616",
+  "source_url": "https://brwa.id/profil/616",
+  "title": "Dayak Meratus/Balai Adat Karya Sepakat",
+  "administratif": {
+    "Propinsi": "Kalimantan Selatan",
+    "Kabupaten": "Tanah Bumbu",
+    "Kecamatan": "Mentiwe",
+    "Desa": "Gunung Raya"
+  },
+  "kewilayahan": {
+    "Luas": "1.640,50 Ha",
+    "Satuan": "Karya Sepakat",
+    "Kondisi Fisik": "Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nDayak Meratus/Balai Adat Karya Sepakat\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Selatan\n, Kabupaten\nTanah Bumbu\n, Kecamatan\nMentiwe\ndan Desa\nGunung Raya\n, Wilayah adat ini memiliki Luas wilayah\n1.640,50\nHa               Dengan Kondisi fisik wilayah berupa\nPegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n235\njiwa              , Terdiri dari\n110\nLaki-laki dan\n125\nperempuan              , dan total\n68\nkepala Keluarga              , sedangkan Bahasa sehari-hari yang digunakan adalah\nBanjar Pahuluan",
+    "Batas Wilayah Adat": "Pada bagian Utara Balai Hatuni\nPada bagian Selatan Balai Tamunih\nPada bagian Timur Balai Mentiwe\nPada bagian Barat Kampung Alut Dalam",
+    "Sejarah": "Sejak nenek moyang kami sudah menguasai wilayah adat ini sampai sekarang yang dikelola secara arif dan lestari\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nKarya Sepakat\nkepala adat, wakil adat, penghulu, mantir, kepala balai\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nUrun rembuk adat / rapat adat. denda adat yang berlaku di wilayah adat",
+    "Tata Ruang Hidup di Wilayah Adat": "hutan keramat, hutan pamali, hutan adat,\nSecara bersama tanah komunal.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nakar-akaran dari hutan dan obat tradisional\nPotensi Sumber Sandang & Papan\n###padi dan buah-buahan\nPotensi Sumber Rempah & Bumbu\njanar, jahe, kencur, kayu manis\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nberladang/tani, dan HHBK",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 2 Tahun 2024 Pengakuan, Perlindungan dan Pemberdayaan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-tanbu-mha-no-2-tahun-2024-tgl-4-juli-2024.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 188.46/133/DLH/2024 Panitia Masyarakat Hukum Adat Kabupaten Tanah Bumbu",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-tanah-bumbu-tentang-panitia-mha-2024.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No. 2 Tahun 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-tanbu-mha-no-2-tahun-2024-tgl-4-juli-2024.pdf",
+    "https://brwa.id/files/reg-sk-bupati-tanah-bumbu-tentang-panitia-mha-2024.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "616",
+    "nama_kewilayahan": "Dayak Meratus/Balai Adat Karya Sepakat"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/616_reg-perda-kab-tanbu-mha-no-2-tahun-2024-tgl-4-juli-2024.pdf",
+    "data/pdfs/616_reg-sk-bupati-tanah-bumbu-tentang-panitia-mha-2024.pdf",
+    "data/pdfs/616_reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+  ]
+}

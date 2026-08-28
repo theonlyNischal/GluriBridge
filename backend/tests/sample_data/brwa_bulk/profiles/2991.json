@@ -1,0 +1,54 @@
+{
+  "idx": "2991",
+  "source_url": "https://brwa.id/profil/2991",
+  "title": "Pulau Kaimer",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Kota Tual",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "266,04 Ha",
+    "Satuan": "Pulau Kaimer",
+    "Kondisi Fisik": "Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPulau Kaimer\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nKota Tual\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n266,04\nHa               Dengan Kondisi fisik wilayah berupa\nPerbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No 310 Tahun 2017 Penetapan Wilayah Kelola Masyarakat Hukum Adat Pulau Kaimer dan Manggur dalam Pemanfaatan Ruang di Wilayah Pesisir dan Pulau Pulau Kecil",
+      "pdf_url": "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati - Penetapan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf",
+    "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "2991",
+    "nama_kewilayahan": "Pulau Kaimer"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2991_reg-permen-kkp-no8-tahun-20218.pdf",
+    "data/pdfs/2991_reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ]
+}

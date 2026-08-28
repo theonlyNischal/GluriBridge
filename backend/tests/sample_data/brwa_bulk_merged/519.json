@@ -1,0 +1,47 @@
+{
+  "idx": "519",
+  "source_url": "https://brwa.id/profil/519",
+  "title": "Sinar Resmi",
+  "administratif": {
+    "Propinsi": "Jawa Barat",
+    "Kabupaten": "Kota Sukabumi",
+    "Kecamatan": "Cisolok, Cibeber, Cikaka Pelabuhan Ratu, Cikidang, Kabandungan",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "3.139,68 Ha",
+    "Satuan": "Sinar Resmi",
+    "Kondisi Fisik": "Pesisir, Dataran, Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nSinar Resmi\n, Berada dalam Wilayah Administratif Propinsi\nJawa Barat\n, Kabupaten\nKota Sukabumi\n, Kecamatan\nCisolok, Cibeber, Cikaka Pelabuhan Ratu, Cikidang, Kabandungan\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n3.139,68\nHa               Dengan Kondisi fisik wilayah meliputi\nPesisir, Dataran, Pegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n11116\njiwa              , Terdiri dari\n5412\nLaki-laki dan\n5704\nperempuan              , dan total\n3316\nkepala Keluarga              , sedangkan Bahasa sehari-hari yang digunakan adalah\nsunda",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nMusyawarah",
+    "Tata Ruang Hidup di Wilayah Adat": "Titipan, Tutupan, Garapan\nBerdasarkan Titipan Leluhur",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nMenjaga sumber mata air hutan diwilayah adat\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nâ¢ Sumber karbohidrat\nPadi : (Pare Terong, Pare Cere, Pare Uni, dll)\nâ¢ Sumber Protein \nKacang Dungkuk, Kacang Panjang, Benguk, Roay\nâ¢ Sumber Vitamin\nAlpukat, Nangka, Jambu Batu, Jambu Aer, Buncis Kangkung, Tomat, Cabe\nPotensi Sumber Kesehatan & Kecantikan\nâ¢ Tumbuhan Obat : Kumis Ucing, Jawer Kotok Koneng Gede, Akar Ilalang, Akar Pepaya, Akar Jambe, Sembung\nPotensi Sumber Sandang & Papan\nKayu Manglid, Kayu Sengon, Kayu ManiâI, kayu Huru, Kayu Kibelang, kayu Pasang, Kelapa,###\nPotensi Sumber Rempah & Bumbu\nCengkeh, Jahe , Cebe, Salam, kapol, Bawang daun.\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nPisang, Kapol, Cabe, Buncis",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 430/Kep.1050-Disbudpora/2021 Pengakuan Keberadaan Masyarakat Kesatuan Adat Banten Kidul di Kabupaten Sukabumi",
+      "pdf_url": "https://brwa.id/files/reg-97422sk-pengakuan-keberadaan-masyarakat-kesatuan-adat-banten-kidul-di-kabupaten-sukabumi.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-97422sk-pengakuan-keberadaan-masyarakat-kesatuan-adat-banten-kidul-di-kabupaten-sukabumi.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "519",
+    "nama_kewilayahan": "Sinar Resmi"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/519_reg-97422sk-pengakuan-keberadaan-masyarakat-kesatuan-adat-banten-kidul-di-kabupaten-sukabumi.pdf"
+  ]
+}

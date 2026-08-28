@@ -1,0 +1,47 @@
+{
+  "idx": "444",
+  "source_url": "https://brwa.id/profil/444",
+  "title": "Kampong Pantai Gemi",
+  "administratif": {
+    "Propinsi": "Sumatera Utara",
+    "Kabupaten": "Langkat",
+    "Kecamatan": "Setabat",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "3.453,07 Ha",
+    "Satuan": "Kampong Pantai Gemi",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKampong Pantai Gemi\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Utara\n, Kabupaten\nLangkat\n, Kecamatan\nSetabat\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n3.453,07\nHa               Dengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n546\njiwa              , Terdiri dari\n284\nLaki-laki dan\n262\nperempuan              , dan total\n182\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Sebelah Utara dengan Sungai wampum\nPada bagian Selatan Sebelah Selatan dengan Banyumas(Kw Bingai)\nPada bagian Timur Sebelah Timur dengan Sipangmaut\nPada bagian Barat Sebelah Barat berbatasan dengan Rel kereta api,",
+    "Sejarah": "wilayah adat kampung pantai gemi terdiri dari suku melayu pesisir di wilayah\nini sebagai nelayan air tawar masyarakatnya juga bertani dan berladang reba\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nRakyat Penunggu\n1. Ketua Masyarakat adat\n2. Ketua Kampung\n3. Sekretaris\n4. Bendahara\nMengambil keputusan apabila anggota membuat kesalahan terhadap organisasi\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "Setiap masyarakat adat wajib memperjuangkan dan mempertahankan hak â\nhak adatnya seperti tanah pertanian untuk sumber kehidupan ekonomi.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 2 Tahun 2019 Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "444",
+    "nama_kewilayahan": "Kampong Pantai Gemi"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/444_reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ]
+}

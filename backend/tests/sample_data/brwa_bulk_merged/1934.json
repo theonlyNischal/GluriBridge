@@ -1,0 +1,54 @@
+{
+  "idx": "1934",
+  "source_url": "https://brwa.id/profil/1934",
+  "title": "Tonakng",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Landak",
+    "Kecamatan": "AIR BESAR",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "1.576,69 Ha",
+    "Satuan": "Tonakng",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTonakng\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nLandak\n, Kecamatan\nAIR BESAR\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n1.576,69\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 15 Tahun 2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat Kabupaten Landak",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-15-tahun-2017-tentang-pengakuan-dan-perlindungan-mha-kabupaten-landak.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 660.1/292/Hk-2018 Pembentukan Panitia Verifikasi dan Validasi Pengakuan dan Perlindungan Masyarakat Hukum Adat Kabupaten Landak Provinsi Kalimantan Barat",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-no-292-2018-landak_pembentukan-panitia-ppmha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-15-tahun-2017-tentang-pengakuan-dan-perlindungan-mha-kabupaten-landak.pdf",
+    "https://brwa.id/files/reg-sk-bupati-no-292-2018-landak_pembentukan-panitia-ppmha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "1934",
+    "nama_kewilayahan": "Tonakng"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1934_reg-perda-no-15-tahun-2017-tentang-pengakuan-dan-perlindungan-mha-kabupaten-landak.pdf",
+    "data/pdfs/1934_reg-sk-bupati-no-292-2018-landak_pembentukan-panitia-ppmha.pdf"
+  ]
+}

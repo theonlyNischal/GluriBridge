@@ -1,0 +1,65 @@
+{
+  "idx": "1099",
+  "source_url": "https://brwa.id/profil/1099",
+  "title": "Dayak Desa",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Sekadau",
+    "Kecamatan": "Sekadau Hilir",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Kampung Dayak Desa",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nDayak Desa\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nSekadau\n, Kecamatan\nSekadau Hilir\ndan Desa\n-\nDengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n514\njiwa              , Terdiri dari\n248\nLaki-laki dan\n266\nperempuan              , dan total\n350\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Engkelitau\nPada bagian Selatan Engkeresik\nPada bagian Timur Manis Raya\nPada bagian Barat Gonis Tekam",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nKetemenggungan\nAda\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nHukum Adat",
+    "Tata Ruang Hidup di Wilayah Adat": ".",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 8 Tahun 2018 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-sekadau-nomor-8-tahun-2018-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 13 Tahun 2020 Pedoman Identifikasi, Verifikasi dan Penetapan Masyarakat Hukum Adat di Kabupaten Sekadau",
+      "pdf_url": "https://brwa.id/files/reg-perbup-kab-sekadau-no-13-thn-2020-ttg-identifikasi-verifikasi-dan-validasi-mha.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati No. 189/23/DPMD-C/2021 Pembentukan Panitia Pengakuan dan Perlindungan Masyarakat Hukum Adat di Kabupaten Sekadau",
+      "pdf_url": "https://brwa.id/files/reg-2-sk-bupati-sekadau-ttg-panitia-mha_2021.pdf"
+    },
+    {
+      "no": "4",
+      "description": "SK Bupati No. 189/340/DPMD-C/2022 Pengakuan dan Perlindungan Masyarakat Hukum Adat Sub Suku Dayak De'sa Desa Tapang Semadak Kecamatan Sekadau Hilir Kabupaten Sekadau",
+      "pdf_url": "https://brwa.id/files/reg-3-sk-bupati-sekadau-ttg-ppmha-de_s-di-desa-tapang-semadak.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-sekadau-nomor-8-tahun-2018-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-perbup-kab-sekadau-no-13-thn-2020-ttg-identifikasi-verifikasi-dan-validasi-mha.pdf",
+    "https://brwa.id/files/reg-2-sk-bupati-sekadau-ttg-panitia-mha_2021.pdf",
+    "https://brwa.id/files/reg-3-sk-bupati-sekadau-ttg-ppmha-de_s-di-desa-tapang-semadak.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/1099_reg-perda-kabupaten-sekadau-nomor-8-tahun-2018-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/1099_reg-perbup-kab-sekadau-no-13-thn-2020-ttg-identifikasi-verifikasi-dan-validasi-mha.pdf",
+    "data/pdfs/1099_reg-2-sk-bupati-sekadau-ttg-panitia-mha_2021.pdf",
+    "data/pdfs/1099_reg-3-sk-bupati-sekadau-ttg-ppmha-de_s-di-desa-tapang-semadak.pdf"
+  ]
+}

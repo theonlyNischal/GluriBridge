@@ -1,0 +1,54 @@
+{
+  "idx": "3385",
+  "source_url": "https://brwa.id/profil/3385",
+  "title": "Marga Malalu Kalaguk Kampung Waimon",
+  "administratif": {
+    "Propinsi": "Papua Barat Daya",
+    "Kabupaten": "Sorong",
+    "Kecamatan": "Segun",
+    "Desa": "Kampung Waimon"
+  },
+  "kewilayahan": {
+    "Luas": "2.940,39 Ha",
+    "Satuan": "Kampung Wimon",
+    "Kondisi Fisik": "Dataran, Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMarga Malalu Kalaguk Kampung Waimon\n, Berada dalam Wilayah Administratif Propinsi\nPapua Barat Daya\n, Kabupaten\nSorong\n, Kecamatan\nSegun\ndan Desa\nKampung Waimon\n, Wilayah adat ini memiliki Luas wilayah\n2.940,39\nHa               Dengan Kondisi fisik wilayah meliputi\nDataran, Perbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara Berbatasan dengan Marga Aresi\nPada bagian Selatan Berbatasan dengan Marga Fadan\nPada bagian Timur Berbatasan dengan Laut\nPada bagian Barat Berbatasan dengan Marga Kasilit",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 10 Tahun 2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat Moi di Kabupaten Sorong",
+      "pdf_url": "https://brwa.id/files/reg-peraturan-daerah-kabupaten-sorong-nomor-10-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-moi-di-kabupaten-sorong.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati NOMOR 593.2/KEP.226/XII/TAHUN 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat dan Wilayah Adat Marga Malalu Kampung Waimon Distrik Segun Kabupaten Sorong",
+      "pdf_url": "https://brwa.id/files/reg-sk-wilayah-adat-marga-malalu.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-peraturan-daerah-kabupaten-sorong-nomor-10-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-moi-di-kabupaten-sorong.pdf",
+    "https://brwa.id/files/reg-sk-wilayah-adat-marga-malalu.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3385",
+    "nama_kewilayahan": "Marga Malalu Kalaguk Kampung Waimon"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3385_reg-peraturan-daerah-kabupaten-sorong-nomor-10-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-moi-di-kabupaten-sorong.pdf",
+    "data/pdfs/3385_reg-sk-wilayah-adat-marga-malalu.pdf"
+  ]
+}

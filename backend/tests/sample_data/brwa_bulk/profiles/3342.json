@@ -1,0 +1,47 @@
+{
+  "idx": "3342",
+  "source_url": "https://brwa.id/profil/3342",
+  "title": "Pangulu Desa Napal Melintang",
+  "administratif": {
+    "Propinsi": "Jambi",
+    "Kabupaten": "Sarolangun",
+    "Kecamatan": "Limun",
+    "Desa": "Napal Melintang"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Pangulu Desa Napal Melintang",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPangulu Desa Napal Melintang\n, Berada dalam Wilayah Administratif Propinsi\nJambi\n, Kabupaten\nSarolangun\n, Kecamatan\nLimun\ndan Desa\nNapal Melintang",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No. SK.5773/MENLHK-PSKL/PKTHA/PSL.1/9/2018 Pencantuman Hutan Adat Imbo Pseko Kepada Masyarakat Hukum Adat Pangulu Desa Napal Melintang Seluas ±83 (Delapan Puluh Tiga) Hektar yang terletak di Desa Napal Melintang Kabupaten Sarolangun Provinsi Jambi",
+      "pdf_url": "https://brwa.id/files/reg-2018-sk-pencantuman-hutan-adat-imbo-pseko-sarolangun-jambi.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2018-sk-pencantuman-hutan-adat-imbo-pseko-sarolangun-jambi.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "3342",
+    "nama_kewilayahan": "Pangulu Desa Napal Melintang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3342_reg-2018-sk-pencantuman-hutan-adat-imbo-pseko-sarolangun-jambi.pdf"
+  ]
+}

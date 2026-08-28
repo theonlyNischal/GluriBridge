@@ -1,0 +1,56 @@
+{
+  "idx": "1608",
+  "source_url": "https://brwa.id/profil/1608",
+  "title": "Wru/Serua",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Maluku Tengah",
+    "Kecamatan": "Teon Nila Serua",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Wru/Serua",
+    "Kondisi Fisik": "Pesisir, Bahari (Laut), Dataran, Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nWru/Serua\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nMaluku Tengah\n, Kecamatan\nTeon Nila Serua\ndan Desa\n-\nDengan Kondisi fisik wilayah meliputi\nPesisir, Bahari (Laut), Dataran, Pegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n1092\njiwa              , Terdiri dari\n497\nLaki-laki dan\n595\nperempuan              , dan total\n252\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Negeri Lesluru\nPada bagian Selatan Negeri Trana\nPada bagian Timur Pantai/Laut\nPada bagian Barat Gunung",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nPatutura Leta\nPatu Leta, Kapala Sua, Seniri, Matarumah\nTahapan dan Lokasi Pengambilan Keputusan\nMelalui musyawarah dan mufakat\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No 14 Tahun 2005 PENETAPAN KEMBALI NEGERI SEBAGAI KESATUAN MASYARAKAT HUKUM ADAT  DALAM WILAYAH PEMERINTAHAN PROVINSI MALUKU",
+      "pdf_url": "https://brwa.id/files/reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Provinsi No 16 Tahun 2019 Penataan Desa Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-16-th-2019-ttg-penataan-desa-adat.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No 14 Tahun 2005 PENETAPAN KEMBALI NEGERI SEBAGAI KESATUAN MASYARAKAT HUKUM ADAT  DALAM WILAYAH PEMERINTAHAN PROVINSI MALUKU",
+      "pdf_url": "https://brwa.id/files/reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf",
+    "https://brwa.id/files/reg-perda-no-16-th-2019-ttg-penataan-desa-adat.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/1608_reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf",
+    "data/pdfs/1608_reg-perda-no-16-th-2019-ttg-penataan-desa-adat.pdf"
+  ]
+}

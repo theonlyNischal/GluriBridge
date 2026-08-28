@@ -1,0 +1,54 @@
+{
+  "idx": "153",
+  "source_url": "https://brwa.id/profil/153",
+  "title": "Sei Terik",
+  "administratif": {
+    "Propinsi": "Kalimantan Timur",
+    "Kabupaten": "Paser",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "11.902,08 Ha",
+    "Satuan": "Sei Terik",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nSei Terik\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Timur\n, Kabupaten\nPaser\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n11.902,08\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 4 Tahun 2019 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-paser-nomor-4-tahun-2019-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-paser.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 189.1/KEP-460/2017 Pembentukan Panitia Masyarakat Hukum Adat di Kabupaten Paser",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-mha-paser-2017.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-paser-nomor-4-tahun-2019-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-paser.pdf",
+    "https://brwa.id/files/reg-sk-panitia-mha-paser-2017.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "153",
+    "nama_kewilayahan": "Sei Terik"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/153_reg-perda-kabupaten-paser-nomor-4-tahun-2019-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-paser.pdf",
+    "data/pdfs/153_reg-sk-panitia-mha-paser-2017.pdf"
+  ]
+}

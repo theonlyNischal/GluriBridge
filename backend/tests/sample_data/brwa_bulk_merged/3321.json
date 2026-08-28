@@ -1,0 +1,47 @@
+{
+  "idx": "3321",
+  "source_url": "https://brwa.id/profil/3321",
+  "title": "Ratschap Ohoitel Nangan Rumadian",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Maluku Tengah",
+    "Kecamatan": "Manyeuw",
+    "Desa": "Rumadian"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Ratschap Ohoitel Nangan Rumadian",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nRatschap Ohoitel Nangan Rumadian\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nMaluku Tengah\n, Kecamatan\nManyeuw\ndan Desa\nRumadian",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No. SK.4764/MENLHK-PSKL/PKTHA/PSL.1/7/2021 Penetapan Hutan Adat Ohoi Rumadian Kepada Masyarakat Hukum Adat Ratschap Ohoitel Nangan Rumadian Seluas ±154 (Seratus Lima Puluh Empat) Hektar di Desa Rumadian, Kecamatan Manyeuw, Kabupaten Maluku Tenggara, Provinsi Maluku",
+      "pdf_url": "https://brwa.id/files/reg-2021-maluku-ha-4764-ohoi-rumadian-sk.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2021-maluku-ha-4764-ohoi-rumadian-sk.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3321",
+    "nama_kewilayahan": "Ratschap Ohoitel Nangan Rumadian"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3321_reg-2021-maluku-ha-4764-ohoi-rumadian-sk.pdf"
+  ]
+}

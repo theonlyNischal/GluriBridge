@@ -1,0 +1,54 @@
+{
+  "idx": "1518",
+  "source_url": "https://brwa.id/profil/1518",
+  "title": "Legurlai",
+  "administratif": {
+    "Propinsi": "Nusa Tenggara Timur",
+    "Kabupaten": "Manggarai Timur",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "3.356,84 Ha",
+    "Satuan": "Legurlai",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nLegurlai\n, Berada dalam Wilayah Administratif Propinsi\nNusa Tenggara Timur\n, Kabupaten\nManggarai Timur\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n3.356,84\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 1 Tahun 2018 Pengakuan, Perlindungan dan Pemberdayaan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no1-tahun-2018-tentang-pengakuan-perlindungan-dan-pemberdayaan-masyarakat-hukum-adat_compress.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. HK/199/Tahun 2019 Pembentukan Penitia Masyarakat Hukum Adat di Kabupaten Manggarai Timur Tahun 2019",
+      "pdf_url": "https://brwa.id/files/reg-sk-bup-manggarai-timur-no-hk-199-tahun-2019-tentang-panitia-ppmha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no1-tahun-2018-tentang-pengakuan-perlindungan-dan-pemberdayaan-masyarakat-hukum-adat_compress.pdf",
+    "https://brwa.id/files/reg-sk-bup-manggarai-timur-no-hk-199-tahun-2019-tentang-panitia-ppmha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1518",
+    "nama_kewilayahan": "Legurlai"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1518_reg-perda-no1-tahun-2018-tentang-pengakuan-perlindungan-dan-pemberdayaan-masyarakat-hukum-adat_compress.pdf",
+    "data/pdfs/1518_reg-sk-bup-manggarai-timur-no-hk-199-tahun-2019-tentang-panitia-ppmha.pdf"
+  ]
+}

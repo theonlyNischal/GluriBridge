@@ -1,0 +1,54 @@
+{
+  "idx": "2947",
+  "source_url": "https://brwa.id/profil/2947",
+  "title": "Usul",
+  "administratif": {
+    "Propinsi": "Riau",
+    "Kabupaten": "Indragiri Hulu",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "5.702,75 Ha",
+    "Satuan": "Usul",
+    "Kondisi Fisik": "Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nUsul\n, Berada dalam Wilayah Administratif Propinsi\nRiau\n, Kabupaten\nIndragiri Hulu\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n5.702,75\nHa               Dengan Kondisi fisik wilayah berupa\nPegunungan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 10 Tahun 2015 Tanah Ulayat dan Pemanfaatannya",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Gubernur No. Kpts.756/VI/2023 Pembentukan Panitia Masyarakat Hukum Adat Provinsi Riau",
+      "pdf_url": "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2947",
+    "nama_kewilayahan": "Usul"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2947_reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "data/pdfs/2947_reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+  ]
+}

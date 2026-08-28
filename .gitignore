@@ -1,0 +1,110 @@
+# Runtime database — generated state, not source. Re-seeded on first
+# startup from backend/exported_output_stage3/ (which IS tracked).
+backend/gluribridge.db
+
+# Raw scraped data — large, regenerable via backend/scrapers/*, not source.
+# Includes the ~9.8GB BRWA legal-decree PDF archive
+# (backend/data/raw/brwa_profiles/pdfs/) — confirmed unread by the running
+# app (nothing outside backend/scrapers/brwa/brwa_crawler.py itself
+# references it; the live app only ever uses the real external pdf_url).
+# backend/data/regulatory/ and backend/tests/sample_data/ are NOT under
+# this path and ship normally — the regulatory rules are real source data
+# compliance.py reads at runtime, and the test fixtures are load-bearing
+# for the test suite.
+backend/data/raw/
+
+# Raw bulk source material at the project root — the original manual
+# downloads (Verra Excel export, SRUK/SRN-PPI project-list zips) that
+# predate and seeded the scrapers now in backend/scrapers/*. Same
+# reasoning as backend/data/raw/ above: zero code references anywhere
+# (grepped .py/.ts/.tsx across the whole repo), not read by the running
+# app. Left on disk, just not committed.
+GluriDocs/
+
+# Stray manual backup copies from earlier session work — confirmed zero
+# code references anywhere (grepped the whole backend), not real source
+# or fixtures. Left on disk, just not committed.
+backend/data/geojson - Copy/
+backend/data/geojson - Copy.zip
+backend/data/profiles.zip
+backend/data/wa_list.json
+
+# Root-level leftovers, each confirmed zero code references: full backup
+# snapshots of package states now superseded by backend/gluribridge/ and
+# backend/scrapers/verra/ respectively; a stale dated report snapshot
+# (references 140 candidates, the live system now has 144); and
+# /brwa_crawler.py, which despite its name isn't code at all — it's a
+# pasted terminal transcript (shell prompt + a circular-import traceback)
+# accidentally saved with a .py extension.
+/gluribridge.zip
+/verra_crawler.zip
+/brwa_crawler.py
+/current_output.md
+
+# Same story, one directory in: full old working-directory snapshots
+# (source + stale __pycache__/*.pyc + sample output, all zipped together)
+# sitting beside the real, active .py scrapers that superseded them. Zero
+# code references.
+backend/scrapers/brwa/brwa_crawler.zip
+backend/scrapers/srn_ppi/srn_ppi_scraper.zip
+backend/scrapers/sruk/sruk_indonesia_scraper.zip
+
+# Regenerates fresh every test_export.py run (export_pipeline_result(...,
+# output_dir="exported_output") is a relative path, so it lands wherever
+# the CWD happened to be at invocation time) — not a deliberate fixture
+# like backend/tests/sample_data/, so committing any of them would just
+# create spurious diffs every time the tests run locally. Found two more
+# instances of the same artifact beyond the one already flagged:
+# backend/exported_output/ is explicitly called "stale" in orchestrate.py's
+# own comment (pre-dates the 2026-08-27 reorg); the repo-root one is a
+# leftover from an earlier ad hoc run. Real seed data lives in
+# backend/exported_output_stage3/ instead, which is NOT matched by these
+# patterns and ships normally.
+backend/tests/exported_output/
+backend/exported_output/
+/exported_output/
+
+# Python
+gluri_env/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Env / secrets — none exist in this repo today; ignored preemptively so
+# a future local .env is never committed by accident.
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+
+# Legacy vanilla-JS frontend — kept during the React rebuild purely as a
+# functional-diff comparison baseline. That migration is complete and
+# re-verified (feature parity confirmed across this session); frontend-react/
+# is the real product going forward. Real, working code, not junk — a
+# deliberate decision, not a "same as the backups above" case. Left on disk.
+/frontend/
+
+# Ad hoc dev-iteration content — screenshots from this session's visual
+# reviews (not a sanctioned test-verification output like
+# frontend/screenshots/ was; most show now-superseded UI states) and
+# anything else that lands here, like the file-list this exact .gitignore
+# review generated. The whole directory, not just screenshots/ — "tmp"
+# means throwaway, consistently. Left on disk as a local record.
+/tmp/
+
+# OS / editor cruft
+.DS_Store
+# Windows/WSL alternate-data-stream artifact left behind when a
+# browser-downloaded file is copied over from Windows — pure metadata
+# cruft, not real data (found 3 of these under backend/data/regulatory/).
+*:Zone.Identifier
+.vscode/*
+!.vscode/extensions.json
+.idea/

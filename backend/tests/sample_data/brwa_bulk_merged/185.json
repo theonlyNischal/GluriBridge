@@ -1,0 +1,47 @@
+{
+  "idx": "185",
+  "source_url": "https://brwa.id/profil/185",
+  "title": "Katingan Tewang",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Katingan",
+    "Kecamatan": "belum ada",
+    "Desa": "belum ada"
+  },
+  "kewilayahan": {
+    "Luas": "32.988,72 Ha",
+    "Satuan": "Katingan Tewang",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKatingan Tewang\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nKatingan\n, Kecamatan\nbelum ada\ndan Desa\nbelum ada\n, Wilayah adat ini memiliki Luas wilayah\n32.988,72\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nbelum ada",
+    "Batas Wilayah Adat": "Pada bagian Utara belum ada\nPada bagian Selatan belum ada\nPada bagian Timur belum ada\nPada bagian Barat belum ada",
+    "Sejarah": "belum ada\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nbelum ada\nbelum ada\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nbelum ada",
+    "Tata Ruang Hidup di Wilayah Adat": "belum ada.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nbelum ada\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nbelum ada###belum ada\nPotensi Sumber Rempah & Bumbu\nbelum ada\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nbelum ada",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 4 Tahun 2022 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-katingan-no-4-tahun-2022.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-katingan-no-4-tahun-2022.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "185",
+    "nama_kewilayahan": "Katingan Tewang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/185_reg-perda-katingan-no-4-tahun-2022.pdf"
+  ]
+}

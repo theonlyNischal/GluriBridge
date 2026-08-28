@@ -1,0 +1,47 @@
+{
+  "idx": "133",
+  "source_url": "https://brwa.id/profil/133",
+  "title": "Seruyan Ulak Batu",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Seruyan",
+    "Kecamatan": "belum ada",
+    "Desa": "belum ada"
+  },
+  "kewilayahan": {
+    "Luas": "1.855,63 Ha",
+    "Satuan": "Seruyan Ulak Batu",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nSeruyan Ulak Batu\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nSeruyan\n, Kecamatan\nbelum ada\ndan Desa\nbelum ada\n, Wilayah adat ini memiliki Luas wilayah\n1.855,63\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nbelum ada",
+    "Batas Wilayah Adat": "Pada bagian Utara belum ada\nPada bagian Selatan belum ada\nPada bagian Timur belum ada\nPada bagian Barat belum ada",
+    "Sejarah": "belum ada\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nbelum ada\nbelum ada\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nbelum ada",
+    "Tata Ruang Hidup di Wilayah Adat": "belum ada.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nbelum ada\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nbelum ada###belum ada\nPotensi Sumber Rempah & Bumbu\nbelum ada\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nbelum ada",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 5 Tahun 2024 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-seruyan-no-5-tahun-2024-tentang-ppmha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-seruyan-no-5-tahun-2024-tentang-ppmha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "133",
+    "nama_kewilayahan": "Seruyan Ulak Batu"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/133_reg-perda-kab-seruyan-no-5-tahun-2024-tentang-ppmha.pdf"
+  ]
+}

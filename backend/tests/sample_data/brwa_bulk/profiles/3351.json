@@ -1,0 +1,58 @@
+{
+  "idx": "3351",
+  "source_url": "https://brwa.id/profil/3351",
+  "title": "Hutan Adat Dayak Ot Danum Lowu Tumbang Marikoi Kedamangan Damang Batu",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Gunung Mas",
+    "Kecamatan": "Damang Batu",
+    "Desa": "Tumbang Marikoi"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Hutan Adat Dayak Ot Danum Lowu Tumbang Marikoi Kedamangan Damang Batu",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nHutan Adat Dayak Ot Danum Lowu Tumbang Marikoi Kedamangan Damang Batu\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nGunung Mas\n, Kecamatan\nDamang Batu\ndan Desa\nTumbang Marikoi",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No. SK.7923/MENLHK-PSKL/PKTHA/PSL.1/8/2023 Penetapan Status Hutan Adat Dalam Wilayah Masyarakat Hukum Adat Dayak Ot Danum Lowu Tumbang Marikoi Kedamangan Damang Batu Seluas ±3.123 (Tiga Ribu Seratus Dua Puluh Tiga) Hektar di Desa Tumbang Marikoi, Kecamatan Damang Batu, Kabupaten Gunung Mas, Provinsi Kalimantan Tengah",
+      "pdf_url": "https://brwa.id/files/reg-2023-sk-penetapan-hutan-adat-dayak-ot-danum-lowu-tumbang-marikoi-gunung-mas-kalteng.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 100.3.3.2/344/2023 Pengakuan dan Perlindungan 14 (Empat Belas) Masyarakat Hukum Adat di Wilayah Kabupaten Gunung Mas",
+      "pdf_url": "https://brwa.id/files/reg-sk-14-mha-kab-gunung-mas-1_compressed.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Daerah No. 9 Tahun 2022 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-gunung-mas-no-9-tahun-2022-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2023-sk-penetapan-hutan-adat-dayak-ot-danum-lowu-tumbang-marikoi-gunung-mas-kalteng.pdf",
+    "https://brwa.id/files/reg-sk-14-mha-kab-gunung-mas-1_compressed.pdf",
+    "https://brwa.id/files/reg-perda-kab-gunung-mas-no-9-tahun-2022-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/3351_reg-2023-sk-penetapan-hutan-adat-dayak-ot-danum-lowu-tumbang-marikoi-gunung-mas-kalteng.pdf",
+    "data/pdfs/3351_reg-sk-14-mha-kab-gunung-mas-1_compressed.pdf",
+    "data/pdfs/3351_reg-perda-kab-gunung-mas-no-9-tahun-2022-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "idx": "1845",
+  "source_url": "https://brwa.id/profil/1845",
+  "title": "Sutan Bagindo",
+  "administratif": {
+    "Propinsi": "Jambi",
+    "Kabupaten": "Sarolangun",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "69,41 Ha",
+    "Satuan": "Sutan Bagindo",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nSutan Bagindo\n, Berada dalam Wilayah Administratif Propinsi\nJambi\n, Kabupaten\nSarolangun\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n69,41\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 2 Tahun 2014 Lembaga Adat Melayu Jambi",
+      "pdf_url": "https://brwa.id/files/reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Daerah No. 3 Tahun 2021 Pedoman Pengakuan dan Perlindungan Terhadap Masyarakat Hukum Adat di Kabupaten Sarolangun",
+      "pdf_url": "https://brwa.id/files/reg-peraturan-daerah-kabupaten-sarolangun-no-3-tahun-2021-tentang-pengakuan-dan-perlindungan-terhadap-masyarakat-hukum-adat-di-kabupaten-sarolangun.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati - Penetapan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf",
+    "https://brwa.id/files/reg-peraturan-daerah-kabupaten-sarolangun-no-3-tahun-2021-tentang-pengakuan-dan-perlindungan-terhadap-masyarakat-hukum-adat-di-kabupaten-sarolangun.pdf",
+    "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1845",
+    "nama_kewilayahan": "Sutan Bagindo"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1845_reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf",
+    "data/pdfs/1845_reg-peraturan-daerah-kabupaten-sarolangun-no-3-tahun-2021-tentang-pengakuan-dan-perlindungan-terhadap-masyarakat-hukum-adat-di-kabupaten-sarolangun.pdf",
+    "data/pdfs/1845_reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ]
+}

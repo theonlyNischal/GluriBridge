@@ -1,0 +1,61 @@
+{
+  "idx": "1471",
+  "source_url": "https://brwa.id/profil/1471",
+  "title": "Mukim Beungga",
+  "administratif": {
+    "Propinsi": "Aceh",
+    "Kabupaten": "Pidie",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "18.460,72 Ha",
+    "Satuan": "Mukim Beungga",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMukim Beungga\n, Berada dalam Wilayah Administratif Propinsi\nAceh\n, Kabupaten\nPidie\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n18.460,72\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 140/344/KEP.02/2016 Penetapan Batas Wilayah Mukim Beungga Kecamatan Tangse Kabupaten Pidie",
+      "pdf_url": "https://brwa.id/files/reg-keputusan-bupati-pidie-no-140-344-thn-2016-tentang-penetapan-batas-wilayah-mukim-beungga.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Surat Keputusan Menteri No. SK.9526/MENLHK-PSKL/PKTHA/PSL.1/9/2023 Penetapan Status Hutan Adat Dalam Wilayah Masyarakat Hukum Adat Mukim Beungga Seluas ±4.060 (Empat Ribu Enam Puluh) Hektar di Kecamatan Tangse, Kabupaten Pidie, Provinsi Aceh",
+      "pdf_url": "https://brwa.id/files/reg-2023-sk-penetapan-hutan-adat-mukim-beungga-pidie-aceh.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Daerah No. 7 Tahun 2011 Pemerintahan Mukim",
+      "pdf_url": "https://brwa.id/files/reg-qanun-kabupaten-pidie-no-7-tahun-2011-tentang-pemerintahan-mukim.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-keputusan-bupati-pidie-no-140-344-thn-2016-tentang-penetapan-batas-wilayah-mukim-beungga.pdf",
+    "https://brwa.id/files/reg-2023-sk-penetapan-hutan-adat-mukim-beungga-pidie-aceh.pdf",
+    "https://brwa.id/files/reg-qanun-kabupaten-pidie-no-7-tahun-2011-tentang-pemerintahan-mukim.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1471",
+    "nama_kewilayahan": "Mukim Beungga"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1471_reg-keputusan-bupati-pidie-no-140-344-thn-2016-tentang-penetapan-batas-wilayah-mukim-beungga.pdf",
+    "data/pdfs/1471_reg-2023-sk-penetapan-hutan-adat-mukim-beungga-pidie-aceh.pdf",
+    "data/pdfs/1471_reg-qanun-kabupaten-pidie-no-7-tahun-2011-tentang-pemerintahan-mukim.pdf"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "idx": "1230",
+  "source_url": "https://brwa.id/profil/1230",
+  "title": "Modang",
+  "administratif": {
+    "Propinsi": "Kalimantan Timur",
+    "Kabupaten": "Paser",
+    "Kecamatan": "Kecamatan Kuaro",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "10.654,12 Ha",
+    "Satuan": "Modang, Paser",
+    "Kondisi Fisik": "Pesisir, Dataran, Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nModang\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Timur\n, Kabupaten\nPaser\n, Kecamatan\nKecamatan Kuaro\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n10.654,12\nHa               Dengan Kondisi fisik wilayah meliputi\nPesisir, Dataran, Pegunungan\n, sedangkan Bahasa sehari-hari yang digunakan adalah\nPaser",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan Ma Acalong\nPada bagian Timur Kecamatan Telen\nPada bagian Barat Tabang/Kukar",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nLembaga Adat Dayak Modang\n1. Ketua adat\n2. Sekretaris\n3. Bendahara\n4. Anggota\nTahapan dan Lokasi Pengambilan Keputusan\nMusyawarah Mufakat\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\nJika terdapat pengrusakan hutan maka akan dikenakan denda ritual",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nMelaksanakan Sanksi dan denda adat\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Bupati No. 37 Tahun 2020 Pedoman Identifikasi, Verifikasi, dan Penetapan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perbup-kutai-timur-no-37-thn-2020-ttg-pedoman-identifikasi-verifikasi-dan-penetapan-masyarakat-hukum-adat.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perbup-kutai-timur-no-37-thn-2020-ttg-pedoman-identifikasi-verifikasi-dan-penetapan-masyarakat-hukum-adat.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "1230",
+    "nama_kewilayahan": "Modang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1230_reg-perbup-kutai-timur-no-37-thn-2020-ttg-pedoman-identifikasi-verifikasi-dan-penetapan-masyarakat-hukum-adat.pdf"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "idx": "1613",
+  "source_url": "https://brwa.id/profil/1613",
+  "title": "Tihulale",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Maluku Tengah",
+    "Kecamatan": "Saparua (Amalatu)",
+    "Desa": "Tihulale"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Desa Tihulale",
+    "Kondisi Fisik": "Pesisir"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTihulale\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nMaluku Tengah\n, Kecamatan\nSaparua (Amalatu)\ndan Desa\nTihulale\nDengan Kondisi fisik wilayah berupa\nPesisir\n, Komunitas adat ini memiliki Jumlah penduduk\n1793\njiwa              , Terdiri dari\n868\nLaki-laki dan\n925\nperempuan              , dan total\n485\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Gunung Totani Wel\nPada bagian Selatan Selat Seram\nPada bagian Timur Rumah Kai\nPada bagian Barat Kramarian",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nSaniri\nKepala Saniri Negeri, Wakil Ketua, Dua Badan Saniri\nMenetapkan Raja Negeri oleh Badan Saniri Negeri\nTahapan dan Lokasi Pengambilan Keputusan\nMusyawarah mufakat\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No 14 Tahun 2005 PENETAPAN KEMBALI NEGERI SEBAGAI KESATUAN MASYARAKAT HUKUM ADAT  DALAM WILAYAH PEMERINTAHAN PROVINSI MALUKU",
+      "pdf_url": "https://brwa.id/files/reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Provinsi No 16 Tahun 2019 Penataan Desa Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-16-th-2019-ttg-penataan-desa-adat.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Daerah No 1 Tahun 2006 Negeri",
+      "pdf_url": "https://brwa.id/files/reg-45943perda-maluku-tengah-no-1-tahun-2006-tentang-negeri.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf",
+    "https://brwa.id/files/reg-perda-no-16-th-2019-ttg-penataan-desa-adat.pdf",
+    "https://brwa.id/files/reg-45943perda-maluku-tengah-no-1-tahun-2006-tentang-negeri.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/1613_reg-2005-peraturan-daerah-provinsi-maluku-nomor-14-tahun-2005.pdf",
+    "data/pdfs/1613_reg-perda-no-16-th-2019-ttg-penataan-desa-adat.pdf",
+    "data/pdfs/1613_reg-45943perda-maluku-tengah-no-1-tahun-2006-tentang-negeri.pdf"
+  ]
+}

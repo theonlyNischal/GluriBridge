@@ -1,0 +1,1902 @@
+[
+  {
+    "candidate_a": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Cianjur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Sukabumi",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 92.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Pasirkuda' vs 'Tegalbuleud'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara, Perluasan Daerah Aliran Sungai (Langkat)",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 63.2,
+      "desc_score": 35.3,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2024-05-01T00:00:00.000Z' vs '2023-02-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara, Perluasan Daerah Aliran Sungai (Langkat)",
+    "candidate_a_source": "sruk",
+    "candidate_b": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara (Langkat)",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 84.3,
+      "desc_score": 100.0,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2024-05-01T00:00:00.000Z' vs '2021-03-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara, Perluasan Daerah Aliran Sungai (Langkat)",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 63.2,
+      "desc_score": 38.8,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2024-05-01T00:00:00.000Z' vs '2023-02-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan kering dan mangrove di Kabupaten Nunukan, Kalimantan Utara.",
+    "candidate_b_source": "sruk",
+    "score": 60,
+    "breakdown": {
+      "org_score": 60.6,
+      "name_score": 89.5,
+      "desc_score": 75.9,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+    "candidate_b_source": "sruk",
+    "score": 72.0,
+    "breakdown": {
+      "org_score": 40.0,
+      "name_score": 100.0,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 72.0
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan kering dan mangrove di Kabupaten Nunukan, Kalimantan Utara.",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+    "candidate_b_source": "sruk",
+    "score": 60,
+    "breakdown": {
+      "org_score": 55.8,
+      "name_score": 89.5,
+      "desc_score": 75.9,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+    "candidate_a_source": "sruk",
+    "candidate_b": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara (Langkat)",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 72.0,
+      "desc_score": 35.3,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2023-02-01T00:00:00.000Z' vs '2021-03-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Pengurangan Emisi Gas Rumah Kaca Berbasis Pengayaan Pakan Satwa Liar",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Program Rehabilitasi Hutan Berbasis Solusi Alam",
+    "candidate_b_source": "sruk",
+    "score": 76.2,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 38.3,
+      "desc_score": 28.4,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 76.2
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Proyek Lahan Gambut Kubu",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Kubu Peatland Project",
+    "candidate_b_source": "verra",
+    "score": 75.9,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 57.8,
+      "desc_score": 47.7,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 75.9
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Gunung Mas Community Forest Restoration Project",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Gunung Mas Community Forest Restoration Project",
+    "candidate_b_source": "verra",
+    "score": 60,
+    "breakdown": {
+      "org_score": 25.8,
+      "name_score": 100.0,
+      "desc_score": 34.1,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan tutupan hutan pada lanskap hulu SubDAS Karang Mumus, Kota Samarinda, Kalimantan Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Pengurangan laju deforestasi akibat kebakaran hutan melalui patroli intensif oleh Unit Kegiatan Mahasiswa Peduli Api di KHDTK Lempake, Samarinda",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 44.0,
+      "desc_score": 36.7,
+      "dates_match_bonus": 0,
+      "geo_score": 100,
+      "geo_distance_km": 0.49,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2027-01-01T00:00:00.000Z' vs '2025-01-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Seram Climate and Conservation Project",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Seram Climate and Conservation (SERCOVA)",
+    "candidate_b_source": "verra",
+    "score": 60,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 76.9,
+      "desc_score": 37.9,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": 707.204,
+      "geo_suspect_data_flagged": true,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Central Seram IFM Restorationwise Project",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Central Seram IFM RestorationWISE Project",
+    "candidate_b_source": "verra",
+    "score": 60,
+    "breakdown": {
+      "org_score": "N/A (generic placeholder)",
+      "name_score": 90.2,
+      "desc_score": 28.9,
+      "dates_match_bonus": 0,
+      "geo_score": 9.1,
+      "geo_distance_km": 45.47,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 64.1,
+      "name_score": 78.9,
+      "desc_score": 100.0,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2022-06-01T00:00:00.000Z' vs '2025-12-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 60.2,
+    "breakdown": {
+      "org_score": 48.3,
+      "name_score": 78.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2022-06-01T00:00:00.000Z' vs '2025-12-01T00:00:00.000Z'"
+      ],
+      "total": 60.2
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 60.4,
+    "breakdown": {
+      "org_score": 47.6,
+      "name_score": 80.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2022-06-01T00:00:00.000Z' vs '2025-12-01T00:00:00.000Z'"
+      ],
+      "total": 60.4
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Silau Raja  Kabupaten Samosir, Sumatra Utara.",
+    "candidate_b_source": "sruk",
+    "score": 75.8,
+    "breakdown": {
+      "org_score": 62.0,
+      "name_score": 85.8,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 75.8
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat.",
+    "candidate_b_source": "sruk",
+    "score": 65.0,
+    "breakdown": {
+      "org_score": 64.1,
+      "name_score": 78.8,
+      "desc_score": 100.0,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2022-06-01T00:00:00.000Z' vs '2023-12-01T00:00:00.000Z'"
+      ],
+      "total": 65.0
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Tanimbar Community Forest Restoration Project",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Tanimbar Community Forest Restoration Project",
+    "candidate_b_source": "verra",
+    "score": 60,
+    "breakdown": {
+      "org_score": 47.1,
+      "name_score": 100.0,
+      "desc_score": 65.7,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Gerbang Barito REDD+ Project",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Gerbang Barito REDD+ Project",
+    "candidate_b_source": "verra",
+    "score": 60,
+    "breakdown": {
+      "org_score": "N/A (generic placeholder)",
+      "name_score": 100.0,
+      "desc_score": 35.8,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 60
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "PLUM Peat and Mangrove Conservation and Restoration Project (PLUM Project)",
+    "candidate_a_source": "sruk",
+    "candidate_b": "PLUM Peat and Mangrove Conservation and Restoration Project (PLUM Project)",
+    "candidate_b_source": "verra",
+    "score": 70.6,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 100.0,
+      "desc_score": 44.7,
+      "dates_match_bonus": 0,
+      "geo_score": 53.1,
+      "geo_distance_km": 23.443,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 70.6
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 38.9,
+      "name_score": 86.0,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Bungbulang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 30.8,
+      "name_score": 80.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Tanggunggunung'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 33.3,
+      "name_score": 82.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Jatilawang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 30.8,
+      "name_score": 80.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Tanggunggunung'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 39.2,
+      "name_score": 84.8,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Cikajang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 32.3,
+      "name_score": 84.0,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Purwojati'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 36.4,
+      "name_score": 81.8,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 37.5,
+      "name_score": 86.3,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 33.3,
+      "name_score": 88.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 33.3,
+      "name_score": 85.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 48.0,
+      "name_score": 85.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Gumelar' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 68.1,
+      "name_score": 84.2,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Tanggunggunung'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 31.6,
+      "name_score": 81.9,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Jatilawang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 68.1,
+      "name_score": 84.2,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Tanggunggunung'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 37.3,
+      "name_score": 85.1,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Cikajang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 30.8,
+      "name_score": 82.3,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Purwojati'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 43.9,
+      "name_score": 82.8,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 55.0,
+      "name_score": 89.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 40.9,
+      "name_score": 87.3,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 40.9,
+      "name_score": 83.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 66.7,
+      "name_score": 88.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Bungbulang' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 39.0,
+      "name_score": 79.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Jatilawang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 35.5,
+      "name_score": 79.3,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Cikajang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 42.9,
+      "name_score": 78.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Purwojati'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 36.4,
+      "name_score": 73.9,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 55.8,
+      "name_score": 81.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 46.8,
+      "name_score": 81.1,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 29.8,
+      "name_score": 83.3,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Rimba Lestari, Desa Sepawon, Kecamatan Plosoklaten, Kabupaten Kediri, Provinsi Jawa Timur",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 46.5,
+      "name_score": 79.9,
+      "desc_score": 54.7,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Plosoklaten'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 55.6,
+      "name_score": 84.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Tanggunggunung' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 30.2,
+      "name_score": 81.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Cikajang'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 48.5,
+      "name_score": 87.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Purwojati'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 45.7,
+      "name_score": 78.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 29.4,
+      "name_score": 82.1,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 47.4,
+      "name_score": 81.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 42.1,
+      "name_score": 82.2,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 29.6,
+      "name_score": 82.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Jatilawang' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 33.3,
+      "name_score": 81.1,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikajang' vs 'Purwojati'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 35.7,
+      "name_score": 83.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikajang' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 36.4,
+      "name_score": 89.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikajang' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 40.7,
+      "name_score": 86.9,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikajang' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 37.3,
+      "name_score": 83.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikajang' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 25.0,
+      "name_score": 88.1,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikajang' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat.",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 99.8,
+      "desc_score": 100.0,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "start_date differs: '2025-12-01T00:00:00.000Z' vs '2023-12-01T00:00:00.000Z'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 33.3,
+      "name_score": 79.2,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Purwojati' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 40.0,
+      "name_score": 82.9,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Purwojati' vs 'Cikelet'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 71.8,
+      "name_score": 83.7,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Purwojati' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 35.9,
+      "name_score": 82.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 100,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Purwojati' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 35.7,
+      "name_score": 85.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Purwojati' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 69.0,
+    "breakdown": {
+      "org_score": 37.8,
+      "name_score": 88.1,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 69.0
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 39.0,
+      "name_score": 82.7,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikelet' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 39.0,
+      "name_score": 77.7,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikelet' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 40.0,
+      "name_score": 82.2,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikelet' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 45.0,
+      "name_score": 86.4,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikelet' vs 'Banjarwangi'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 30.0,
+      "name_score": 83.7,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikelet' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 75.9,
+      "name_score": 91.5,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Cikelet' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 36.4,
+      "name_score": 83.0,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Banjarwangi' vs 'Randudongkal'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 65,
+    "breakdown": {
+      "org_score": 42.4,
+      "name_score": 87.6,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Banjarwangi' vs 'Pakenjeng'"
+      ],
+      "total": 65
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+    "candidate_a_source": "sruk",
+    "candidate_b": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+    "candidate_b_source": "sruk",
+    "score": 63.1,
+    "breakdown": {
+      "org_score": 18.2,
+      "name_score": 88.0,
+      "desc_score": 100.0,
+      "dates_match_bonus": 10,
+      "geo_score": 0,
+      "geo_distance_km": null,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": true,
+      "conflict_reasons": [
+        "district differs: 'Randudongkal' vs 'Pakenjeng'"
+      ],
+      "total": 63.1
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Agroforestry and Reforestation for Carbon Sequestration in Indonesia",
+    "candidate_a_source": "verra",
+    "candidate_b": "KOPI LESTARI AGROFORESTRY AND LAND REHABILITATION WITH SMALLHOLDER FARMERS IN INDONESIA",
+    "candidate_b_source": "verra",
+    "score": 76.7,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 12.9,
+      "desc_score": 83.5,
+      "dates_match_bonus": 0,
+      "geo_score": 82.8,
+      "geo_distance_km": 8.615,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 76.7
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Barito Lestari Forest Restoration Project (BLFRP)",
+    "candidate_a_source": "verra",
+    "candidate_b": "Barito Lestari Peatland Project (BLPP)",
+    "candidate_b_source": "verra",
+    "score": 64.0,
+    "breakdown": {
+      "org_score": 51.3,
+      "name_score": 64.4,
+      "desc_score": 96.7,
+      "dates_match_bonus": 0,
+      "geo_score": 60.1,
+      "geo_distance_km": 19.963,
+      "geo_suspect_data_flagged": false,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 64.0
+    },
+    "match_status": "tentative"
+  },
+  {
+    "candidate_a": "Tanimbar Community Forest Restoration Project",
+    "candidate_a_source": "verra",
+    "candidate_b": "Gunung Mas Community Forest Restoration Project",
+    "candidate_b_source": "verra",
+    "score": 62.6,
+    "breakdown": {
+      "org_score": 100.0,
+      "name_score": 78.3,
+      "desc_score": 56.4,
+      "dates_match_bonus": 0,
+      "geo_score": 0,
+      "geo_distance_km": 1993.351,
+      "geo_suspect_data_flagged": true,
+      "province_score": 0,
+      "conflict_detected": false,
+      "conflict_reasons": [],
+      "total": 62.6
+    },
+    "match_status": "tentative"
+  }
+]

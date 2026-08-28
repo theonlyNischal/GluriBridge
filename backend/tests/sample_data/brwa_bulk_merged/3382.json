@@ -1,0 +1,54 @@
+{
+  "idx": "3382",
+  "source_url": "https://brwa.id/profil/3382",
+  "title": "Ndelet / Marga Blon Kampung Klafyo",
+  "administratif": {
+    "Propinsi": "Papua Barat Daya",
+    "Kabupaten": "Sorong",
+    "Kecamatan": "Konhir",
+    "Desa": "Kampung Klafyo"
+  },
+  "kewilayahan": {
+    "Luas": "333,07 Ha",
+    "Satuan": "Kampung Klafyo",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nNdelet / Marga Blon Kampung Klafyo\n, Berada dalam Wilayah Administratif Propinsi\nPapua Barat Daya\n, Kabupaten\nSorong\n, Kecamatan\nKonhir\ndan Desa\nKampung Klafyo\n, Wilayah adat ini memiliki Luas wilayah\n333,07\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara Berbatasan dengan Wilayah Adat Ndelet/Marga Saden Fle\nPada bagian Selatan Berbatasan dengan Wilayah Adat Marga Syatbul dan Ndelet/Marga Kilmi Ulian\nPada bagian Timur Berbatasan dengan Wilayah Adat Ndelet/Marga Koso dan Ndelet/Marga Gisim\nPada bagian Barat Berbatasan dengan Wilayah Adat Ndelet/Marga Momtsan",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 10 Tahun 2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat Moi di Kabupaten Sorong",
+      "pdf_url": "https://brwa.id/files/reg-peraturan-daerah-kabupaten-sorong-nomor-10-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-moi-di-kabupaten-sorong.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati NOMOR 593.2/KEP.223/XII/TAHUN 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat dan Wilayah Adat Ndelet/Marga Blon Kampung Klafyo Distrik Konhir Kabupaten Sorong",
+      "pdf_url": "https://brwa.id/files/reg-sk-wilayah-adat-marga-blon_compressed.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-peraturan-daerah-kabupaten-sorong-nomor-10-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-moi-di-kabupaten-sorong.pdf",
+    "https://brwa.id/files/reg-sk-wilayah-adat-marga-blon_compressed.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3382",
+    "nama_kewilayahan": "Ndelet / Marga Blon Kampung Klafyo"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3382_reg-peraturan-daerah-kabupaten-sorong-nomor-10-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-moi-di-kabupaten-sorong.pdf",
+    "data/pdfs/3382_reg-sk-wilayah-adat-marga-blon_compressed.pdf"
+  ]
+}

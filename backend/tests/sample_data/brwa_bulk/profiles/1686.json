@@ -1,0 +1,51 @@
+{
+  "idx": "1686",
+  "source_url": "https://brwa.id/profil/1686",
+  "title": "Lenggada Hilir-Rohil",
+  "administratif": {
+    "Propinsi": "Riau",
+    "Kabupaten": "Rokan Hilir",
+    "Kecamatan": "Rimba Melintang",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Lenggada Hilir-Rohil",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nLenggada Hilir-Rohil\n, Berada dalam Wilayah Administratif Propinsi\nRiau\n, Kabupaten\nRokan Hilir\n, Kecamatan\nRimba Melintang\ndan Desa\n-\nDengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n966\njiwa              , Terdiri dari\n459\nLaki-laki dan\n507\nperempuan              , dan total\n370\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Bentayan\nPada bagian Selatan Lenggadai Hulu\nPada bagian Timur bukit kapur dumai\nPada bagian Barat sungai rokan",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\nPenghulu kampung\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nMusyawarah mufakat",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 10 Tahun 2015 Tanah Ulayat dan Pemanfaatannya",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Gubernur No. Kpts.756/VI/2023 Pembentukan Panitia Masyarakat Hukum Adat Provinsi Riau",
+      "pdf_url": "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/1686_reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "data/pdfs/1686_reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+  ]
+}

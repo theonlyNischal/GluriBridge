@@ -1,0 +1,54 @@
+{
+  "idx": "2863",
+  "source_url": "https://brwa.id/profil/2863",
+  "title": "Lipu Laalo",
+  "administratif": {
+    "Propinsi": "Sulawesi Tengah",
+    "Kabupaten": "Banggai Laut",
+    "Kecamatan": "Bangkurung",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "483,81 Ha",
+    "Satuan": "Lipu Laalo",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nLipu Laalo\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Tengah\n, Kabupaten\nBanggai Laut\n, Kecamatan\nBangkurung\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n483,81\nHa               Dengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n180\njiwa              , Terdiri dari\n82\nLaki-laki dan\n98\nperempuan              , dan total\n36\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Selat Labobo\nPada bagian Selatan Selat Sulawesi\nPada bagian Timur Batas Perairan Boket\nPada bagian Barat Desa Lamasi Timur",
+    "Sejarah": "Laut-Laut\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\nTonggol-Pemangku Adat, Potumbak-Wakil, Dewantano\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nHukum adat yang berlaku",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 10 Tahun 2024 Pengakuan dan Perlindungan Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-banggai-kepulauan-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Provinsi No. 12 Tahun 2025 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-banggai-kepulauan-tentang-pengakuan-dan-perlindungan-mha.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "2863",
+    "nama_kewilayahan": "Lipu Laalo"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2863_reg-perda-banggai-kepulauan-tentang-pengakuan-dan-perlindungan-mha.pdf",
+    "data/pdfs/2863_reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ]
+}

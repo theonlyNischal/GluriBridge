@@ -1,0 +1,47 @@
+{
+  "idx": "3045",
+  "source_url": "https://brwa.id/profil/3045",
+  "title": "Bleskadit",
+  "administratif": {
+    "Propinsi": "Papua Barat Daya",
+    "Kabupaten": "Maybrat",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "7.876,56 Ha",
+    "Satuan": "Bleskadit",
+    "Kondisi Fisik": "Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBleskadit\n, Berada dalam Wilayah Administratif Propinsi\nPapua Barat Daya\n, Kabupaten\nMaybrat\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n7.876,56\nHa               Dengan Kondisi fisik wilayah berupa\nPegunungan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 7 Tahun 2024 Pengakuan, Perlindungan dan Pemberdayaan Masyarakat Hukum Adat di Kabupaten Maybrat",
+      "pdf_url": "https://brwa.id/files/reg-4-doc-salinan-perda-ppmha-kabupaten-maybrat-27062024.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-4-doc-salinan-perda-ppmha-kabupaten-maybrat-27062024.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "3045",
+    "nama_kewilayahan": "Bleskadit"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3045_reg-4-doc-salinan-perda-ppmha-kabupaten-maybrat-27062024.pdf"
+  ]
+}

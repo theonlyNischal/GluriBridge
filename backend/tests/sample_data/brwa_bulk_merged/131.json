@@ -1,0 +1,47 @@
+{
+  "idx": "131",
+  "source_url": "https://brwa.id/profil/131",
+  "title": "Teboyan setalar",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Barito Utara",
+    "Kecamatan": "belum ada",
+    "Desa": "belum ada"
+  },
+  "kewilayahan": {
+    "Luas": "7.652,26 Ha",
+    "Satuan": "Teboyan setalar",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTeboyan setalar\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nBarito Utara\n, Kecamatan\nbelum ada\ndan Desa\nbelum ada\n, Wilayah adat ini memiliki Luas wilayah\n7.652,26\nHa                                                                      , sedangkan Bahasa sehari-hari yang digunakan adalah\nindonesia",
+    "Batas Wilayah Adat": "Pada bagian Utara belum ada\nPada bagian Selatan belum ada\nPada bagian Timur belum ada\nPada bagian Barat belum ada",
+    "Sejarah": "belum ada\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nbelum ada\nbelum ada\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nbelum ada",
+    "Tata Ruang Hidup di Wilayah Adat": "belum ada .",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nbelum ada\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nbelum ada ###belum ada\nPotensi Sumber Rempah & Bumbu\nbelum ada\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nbelum ada",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 188.45/331/2019 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Barito Utara",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-barito-utara-tentang-pembentukan-panitia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-bupati-barito-utara-tentang-pembentukan-panitia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "131",
+    "nama_kewilayahan": "Teboyan setalar"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/131_reg-sk-bupati-barito-utara-tentang-pembentukan-panitia-mha.pdf"
+  ]
+}

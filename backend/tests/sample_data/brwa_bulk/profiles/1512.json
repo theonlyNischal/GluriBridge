@@ -1,0 +1,47 @@
+{
+  "idx": "1512",
+  "source_url": "https://brwa.id/profil/1512",
+  "title": "Tabulahan",
+  "administratif": {
+    "Propinsi": "Sulawesi Barat",
+    "Kabupaten": "Mamasa",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "69.305,54 Ha",
+    "Satuan": "Tabulahan",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTabulahan\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Barat\n, Kabupaten\nMamasa\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n69.305,54\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara wilayah adat Dambu dan Mambi (Lantang Kada Nene’ di PUS).\nPada bagian Selatan Keppe’ (Rante Bulahan To Ma’dua Takin To Ma’du Sulekka’ di PUS).\nPada bagian Timur wilayah adat Buntu Malangka (Indo’ Kada Nene’ Aralle).\nPada bagian Barat wilayah adat Tu’bi berbatasan dengan Matangnga).",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 10 Tahun 2021 Masyarakat Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-mamasa-nomor-10-tahun-2021-tentang-masyarakat-adat.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-mamasa-nomor-10-tahun-2021-tentang-masyarakat-adat.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1512",
+    "nama_kewilayahan": "Tabulahan"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1512_reg-perda-kab-mamasa-nomor-10-tahun-2021-tentang-masyarakat-adat.pdf"
+  ]
+}

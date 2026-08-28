@@ -1,0 +1,47 @@
+{
+  "idx": "1906",
+  "source_url": "https://brwa.id/profil/1906",
+  "title": "Upit",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Melawi",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "5.068,92 Ha",
+    "Satuan": "Upit",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nUpit\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nMelawi\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n5.068,92\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 4 Tahun 2018 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-melawi-nomor-4-tahun-2018-tentang-pengakuan-dan-perlindungan-hak-masyarakat-hukum-adat-di-kabupaten-melawi_compressed.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-melawi-nomor-4-tahun-2018-tentang-pengakuan-dan-perlindungan-hak-masyarakat-hukum-adat-di-kabupaten-melawi_compressed.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "1906",
+    "nama_kewilayahan": "Upit"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1906_reg-perda-kabupaten-melawi-nomor-4-tahun-2018-tentang-pengakuan-dan-perlindungan-hak-masyarakat-hukum-adat-di-kabupaten-melawi_compressed.pdf"
+  ]
+}

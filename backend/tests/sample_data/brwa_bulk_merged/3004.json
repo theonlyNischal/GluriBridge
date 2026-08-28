@@ -1,0 +1,54 @@
+{
+  "idx": "3004",
+  "source_url": "https://brwa.id/profil/3004",
+  "title": "Pulau Siompu1,Siompu2 & Siompu3",
+  "administratif": {
+    "Propinsi": "Sulawesi Tenggara",
+    "Kabupaten": "Buton",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "14.788,00 Ha",
+    "Satuan": "Pulau Siompu1,Siompu2 & Siompu3",
+    "Kondisi Fisik": "Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPulau Siompu1,Siompu2 & Siompu3\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Tenggara\n, Kabupaten\nButon\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n14.788,00\nHa               Dengan Kondisi fisik wilayah berupa\nPerbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Bupati No. 13 Tahun 2018 Pengakuan dan Perlindungan Masyarakat Hukum Adat Wabula dalam Pengelolaan Sumber Daya Pesisir dan Laut Berbasis Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perbup-buton-no-13-tahun-2018-tentang-ppmha-wabula-dalam-pengelolaan-sumber-daya-pesisir-dan-laut-berbasis-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Surat Keputusan Menteri No. 259 tahun 2017 Penetapan Wilayah Kelola Masyarakat Hukum Adat Pulau Siompu 1 2 3 dan Wapulaka dalam Pemanfaatan Ruang di Wilayah Pesisir dan Pulau Pulau Kecil",
+      "pdf_url": "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perbup-buton-no-13-tahun-2018-tentang-ppmha-wabula-dalam-pengelolaan-sumber-daya-pesisir-dan-laut-berbasis-hukum-adat.pdf",
+    "https://brwa.id/files/reg-permen-kkp-no8-tahun-20218.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "3004",
+    "nama_kewilayahan": "Pulau Siompu1,Siompu2 & Siompu3"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3004_reg-perbup-buton-no-13-tahun-2018-tentang-ppmha-wabula-dalam-pengelolaan-sumber-daya-pesisir-dan-laut-berbasis-hukum-adat.pdf",
+    "data/pdfs/3004_reg-permen-kkp-no8-tahun-20218.pdf"
+  ]
+}

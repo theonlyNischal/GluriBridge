@@ -1,0 +1,343 @@
+{
+  "id": "0e55297c-3188-4c29-8a37-0df41c8a6a8b",
+  "program_code": "VER-11-PR-VIII-2025-3298",
+  "title": "Perlindungan Hutan dan Revegetasi di Kawasan Gunung Arjuno",
+  "project_name_en": "",
+  "stage": 3,
+  "latest_status": "DRAFT",
+  "latest_status_date": "2026-01-19T08:23:09.335Z",
+  "created_at": "2025-08-17T05:13:21.949Z",
+  "user": {
+    "id": "68e10bbd-5983-4cac-8e91-b3ab66f7d6c0",
+    "name": "Veronika Sianturi",
+    "username": "perumperhutani",
+    "organization_name": "Perum Perhutani"
+  },
+  "responsible": {
+    "name": "Perum Perhutani",
+    "address": "Jl. TB Simatupang No.22, RT.1/RW.8, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540"
+  },
+  "sectors": [
+    {
+      "id": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed",
+      "name": "⁠Forestry and Other Land Use (FOLU)"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "3eeeba14-f66f-4aab-9940-f23abf5800e4",
+      "name": "Mitigasi Sektor Kehutanan",
+      "id_sector": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed"
+    }
+  ],
+  "executor": {
+    "id": "d628bf6f-8eaa-4d34-aafd-18204a1481ac",
+    "name": "Dunia Usaha"
+  },
+  "action": {
+    "id": "dfc57786-c21f-4d3c-9d07-8620ca962f10",
+    "name": "Mitigasi"
+  },
+  "start_date": "2022-05-01T00:00:00.000Z",
+  "end_date": "2042-05-01T00:00:00.000Z",
+  "project_description_general": "melindungi hutan alam yang tersisa, melakukan upaya peningkatan kualitas tutupan hutan di kawasan hutan lindung, melakukan upaya rehabilitasi dan restorasi pada lahan kritis yang rentan terhadap bencana yang memiliki tutupan lahan tidak berhutan dengan dengan melakukan kegiatan revegetasi secara kolaboratif di kawasan hutan lindung.",
+  "project_description_general_en": "",
+  "project_description_special": "1) menghindari emisi dan kebocoran dari kejadian dan aktivitas seperti kebakaran, deforestasi, dan aktivitas ilegal melalui kegiatan seperti manajemen pengelolaan lahan dan penyadartahuan masyarakat, 2) meningkatkan penyerapan karbon melalui kegiatan revegetasi, 3) Pelibatan masyarakat dalam kegiatan aksi untuk meningkatkan kualitas ekonomi dan kesejahteraan rakyat melalui kegiatan alternatif solusi praktik tanaman buah agar secara bertahap pemanfaatan difokuskan pada hasil hutan bukan kayu.",
+  "project_description_special_en": "",
+  "program_relevances": [
+    {
+      "id": "0e010fab-1bc3-40c2-8e91-765a85189e83",
+      "name": "SDGs-13 Penanganan Perubahan Iklim"
+    }
+  ],
+  "technology_expert": {
+    "id": "39e92d47-26a8-4679-80bb-25be4d9a8ec5",
+    "name": "Tidak"
+  },
+  "capacity_increase": {
+    "id": "887b5d29-5e9d-4cc7-936b-943792e7d92f",
+    "name": "Tidak"
+  },
+  "funding_status": {
+    "id": "10ec21fc-2c25-48c2-9698-178b22f06856",
+    "name": "Tidak"
+  },
+  "funding_source": null,
+  "expert": {
+    "id": "8eb6a7da-c8c5-4157-932d-e7c880efda7b",
+    "name": "Tidak"
+  },
+  "location": {
+    "rt_rw": "-",
+    "latitude": "-7.79615556",
+    "longitude": "112.532519",
+    "province": {
+      "id": "35",
+      "name": "JAWA TIMUR"
+    },
+    "city": {
+      "id": "35.79",
+      "name": "KOTA BATU"
+    },
+    "district": {
+      "id": "35.79.02",
+      "name": "Bumiaji"
+    },
+    "village": {
+      "id": "35.79.02.2003",
+      "name": "Tulungrejo"
+    }
+  },
+  "program_documents": [
+    {
+      "id": "b0fa73fc-2f6b-400a-adb2-618cc0878519",
+      "title": "Dokumen Lampiran tambahan",
+      "description": "Dokumen Lampiran Perlindungan Hutan dan Revegetasi di Kawasan Gunung Arjuno Perum Perhutani",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/3541f3ab-203a-49dd-9147-a53850a68c12.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "ADDITIONAL",
+      "created_at": "2026-01-13T08:18:14.602Z"
+    },
+    {
+      "id": "b6dacb61-89cc-4b3f-bea9-f07332dcbf33",
+      "title": "Dokumen DRAM",
+      "description": "Dokumen DRAM",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/482be2b8-c842-449d-8747-909e02062dbb.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "DRAM",
+      "created_at": "2026-01-13T07:26:47.369Z"
+    },
+    {
+      "id": "b7385a4b-3268-4ac5-9bbd-e70882a24e9c",
+      "title": "PKS Revegetasi Perum Perhutani dengan UT",
+      "description": "PKS Revegetasi 567 Ha",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/c9359b3a-0be9-4aef-98f7-6f43b80c6bfd.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2025-08-22T08:41:35.589Z"
+    },
+    {
+      "id": "95b31514-2f43-4c54-8b54-64368682a803",
+      "title": "Dokumen DRAM",
+      "description": "Dokumen DRAM",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/17bb4449-01ed-45f4-a9af-bf60d07de63d.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "DRAM",
+      "created_at": "2025-08-21T16:53:56.861Z"
+    }
+  ],
+  "verificators": {
+    "igrk": {
+      "id": "8dd83e8a-6fb8-4590-bf53-e97fd9d4daf6",
+      "name": "user IGRK",
+      "username": "igrk",
+      "email": "galuhpradipta95+igrk@gmail.com"
+    }
+  },
+  "validators": {
+    "lvv_dram": null,
+    "lvv_lcam": null
+  },
+  "approvals": {
+    "igrk_stage_1_approved_at": "2025-08-17T05:13:21.949Z",
+    "ms2r_stage_1_approved_at": null,
+    "registration_date": "2026-01-19T08:23:09.175Z",
+    "ms2r_stage_2_approved_at": "2026-01-19T08:23:09.175Z"
+  },
+  "verified_carbon_amount": null,
+  "verified_reduction_emission": [],
+  "emission_reduction_achievement": null,
+  "dram": {
+    "id": "26429283-ab0a-4872-a14d-963246b62712",
+    "validation_report_link": null,
+    "created_at": "2026-01-13T08:20:47.389Z",
+    "approved_at": "2026-01-19T08:23:09.175Z"
+  },
+  "lcam": null,
+  "workflow_steps": [
+    {
+      "id": 1,
+      "name": "DATA UMUM",
+      "stage": 1,
+      "latest_status": "APPROVED_GENERAL_DATA",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 1,
+          "name": "Data Umum",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2025-08-17T05:13:22.012Z",
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 2,
+          "name": "Lokasi",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2025-08-17T05:13:21.949Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 3,
+          "name": "Dokumen",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2025-08-22T08:41:35.589Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DATA TEKNIS",
+      "stage": 2,
+      "latest_status": "APPROVED_TECHNICAL",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 4,
+          "name": "DRAM",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-01-19T08:23:09.175Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 5,
+          "name": "Aksi",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-01-19T08:23:09.175Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "DATA VALIDASI",
+      "stage": 3,
+      "latest_status": "DRAFT",
+      "status": "active",
+      "sub_processes": [
+        {
+          "id": 6,
+          "name": "Pemilihan LVV",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 7,
+          "name": "Dokumen Kontrak Kerja",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 8,
+          "name": "Dokumen DRAM Final",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2026-01-19T08:23:09.335Z",
+          "completed_by": "LVV"
+        },
+        {
+          "id": 9,
+          "name": "Dokumen Validasi DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2026-01-19T08:23:09.335Z",
+          "completed_by": "LVV",
+          "approved_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "DATA VERIFIKASI",
+      "stage": 4,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 10,
+          "name": "LCAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 11,
+          "name": "Dokumen Verifikasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 12,
+          "name": "Pemilihan LVV-2",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 13,
+          "name": "Worksheet Perhitungan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 14,
+          "name": "Dokumen Pendukung",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 15,
+          "name": "Persetujuan Emisi Karbon",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "FINALISASI",
+      "stage": 5,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 16,
+          "name": "Generate SPE",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        },
+        {
+          "id": 17,
+          "name": "Sertifikat Pengurangan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        }
+      ]
+    }
+  ]
+}

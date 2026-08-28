@@ -1,0 +1,5 @@
+requests>=2.31
+shapely>=2.0
+rapidfuzz>=3.0
+fastapi>=0.141
+uvicorn>=0.52

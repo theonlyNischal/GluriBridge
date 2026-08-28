@@ -1,0 +1,47 @@
+{
+  "idx": "1344",
+  "source_url": "https://brwa.id/profil/1344",
+  "title": "Tombang",
+  "administratif": {
+    "Propinsi": "Sulawesi Tengah",
+    "Kabupaten": "Banggai",
+    "Kecamatan": "Pagimana",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "2.020,24 Ha",
+    "Satuan": "Tombang",
+    "Kondisi Fisik": "Bahari (Laut), Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTombang\n, Berada dalam Wilayah Administratif Propinsi\nSulawesi Tengah\n, Kabupaten\nBanggai\n, Kecamatan\nPagimana\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n2.020,24\nHa               Dengan Kondisi fisik wilayah meliputi\nBahari (Laut), Pegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n316\njiwa              , Terdiri dari\n183\nLaki-laki dan\n133\nperempuan              , dan total\n316\nkepala Keluarga              , sedangkan Bahasa sehari-hari yang digunakan adalah\nSaluan",
+    "Batas Wilayah Adat": "Pada bagian Utara Huhak\nPada bagian Selatan Salodi\nPada bagian Timur Poh\nPada bagian Barat Salipi",
+    "Sejarah": "Tombang merupakan nama desa. Pada jaman dahulu kala, ada hewan Anoa di Desa Tombang, Anoa tersebut memiliki tempat mandi (kubangan) atau juga disebut tombago.  Hewan tersebut memakan sapi dan kuda milik masyarakat setempat, sehingga membuat masyarakat geram. Sehingga mereka membuat jerat/ lubang besar di kubangan Anoa untuk menangkapnya. Kubangan itu sampai saat ini masih ada di Desa Tombang.\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTombang\nKetua adat\nKetua adat memutuskan semua keputusan\nTahapan dan Lokasi Pengambilan Keputusan\nBatanga (musyawarah)\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "Bapalos (Gotong royong dalam membuka lahan untuk berkebun).",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\nPembukaan lahan baru harus meminta izin pada ketua adat",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nPelamaran/ penerimaan lamaran harus ditentukan ketua adat\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nKarbohidrat: padi, jagung, sagu, dll\nVitamin: pisang, mangga, dll\nPotensi Sumber Kesehatan & Kecantikan\nMonokoala (akar kuning), Panini, kempangar (kulit kayu)\nPotensi Sumber Sandang & Papan\nKayu besi, alas, anteleng###Popok, bagu, biot (sayur lilin)\nPotensi Sumber Rempah & Bumbu\nLonsom, tiakal (pusung)\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 12 Tahun 2025 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1344",
+    "nama_kewilayahan": "Tombang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1344_reg-perda-provinsi-sulawesi-tengah-nomor-12-tahun-2025.pdf"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "idx": "1159",
+  "source_url": "https://brwa.id/profil/1159",
+  "title": "Dadat",
+  "administratif": {
+    "Propinsi": "Papua",
+    "Kabupaten": "Mamberamo Raya",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "87.057,42 Ha",
+    "Satuan": "Dadat",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nDadat\n, Berada dalam Wilayah Administratif Propinsi\nPapua\n, Kabupaten\nMamberamo Raya\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n87.057,42\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "B3 23 Tahun 2008 PERDASUS NOMOR 23 THN 2008 TENTANG HAK ULAYAT MASYARAKAT HUKUM ADAT ATAS TANAH",
+      "pdf_url": "https://brwa.id/files/1607931335.pdf"
+    },
+    {
+      "no": "2",
+      "description": "9 Tahun 2020 Inpres Nomor 9 Tahun 2020 Tentang Percepatan Pembangunan Kesejahteraan di Prov Papua dan Papua Barat",
+      "pdf_url": "https://brwa.id/files/1626241745.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/1607931335.pdf",
+    "https://brwa.id/files/1626241745.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1159",
+    "nama_kewilayahan": "Dadat"
+  },
+  "downloaded_pdf_files": []
+}

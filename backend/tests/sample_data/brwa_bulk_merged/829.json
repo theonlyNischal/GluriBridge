@@ -1,0 +1,61 @@
+{
+  "idx": "829",
+  "source_url": "https://brwa.id/profil/829",
+  "title": "Jalai Sungai Kiri",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Ketapang",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "2.182,39 Ha",
+    "Satuan": "Jalai Sungai Kiri",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nJalai Sungai Kiri\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nKetapang\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n2.182,39\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": ".",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 8 Tahun 2020 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-ketapang-no-8-tahun-2020-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-ketapang.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Bupati No. 70 Tahun 2022 Petunjuk Pelaksanaan Peraturan Daerah Nomor 8 Tahun 2020 Tentang Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perbup-ketapang-nomor-70-tahun-2022_compress.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati No. 589/DISPMPD-B/2021 Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Ketapang",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-ketapang-ttg-panitia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kabupaten-ketapang-no-8-tahun-2020-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-ketapang.pdf",
+    "https://brwa.id/files/reg-perbup-ketapang-nomor-70-tahun-2022_compress.pdf",
+    "https://brwa.id/files/reg-sk-bupati-ketapang-ttg-panitia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "829",
+    "nama_kewilayahan": "Jalai Sungai Kiri"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/829_reg-perda-kabupaten-ketapang-no-8-tahun-2020-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat-di-kabupaten-ketapang.pdf",
+    "data/pdfs/829_reg-perbup-ketapang-nomor-70-tahun-2022_compress.pdf",
+    "data/pdfs/829_reg-sk-bupati-ketapang-ttg-panitia-mha.pdf"
+  ]
+}

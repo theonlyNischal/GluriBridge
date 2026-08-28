@@ -1,0 +1,47 @@
+{
+  "idx": "2993",
+  "source_url": "https://brwa.id/profil/2993",
+  "title": "Desa Adaut",
+  "administratif": {
+    "Propinsi": "Maluku",
+    "Kabupaten": "Kota Tual",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "37.785,08 Ha",
+    "Satuan": "Desa Adaut",
+    "Kondisi Fisik": "Perbukitan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nDesa Adaut\n, Berada dalam Wilayah Administratif Propinsi\nMaluku\n, Kabupaten\nKota Tual\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n37.785,08\nHa               Dengan Kondisi fisik wilayah berupa\nPerbukitan",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati - Penetapan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2993",
+    "nama_kewilayahan": "Desa Adaut"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2993_reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ]
+}

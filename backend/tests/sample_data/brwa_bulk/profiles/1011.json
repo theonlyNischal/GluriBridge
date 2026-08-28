@@ -1,0 +1,47 @@
+{
+  "idx": "1011",
+  "source_url": "https://brwa.id/profil/1011",
+  "title": "Rakyat Penunggu Kampung Secanggang",
+  "administratif": {
+    "Propinsi": "Sumatera Utara",
+    "Kabupaten": "Langkat",
+    "Kecamatan": "Secanggang",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "8.547,62 Ha",
+    "Satuan": "Kampung Secanggang",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nRakyat Penunggu Kampung Secanggang\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Utara\n, Kabupaten\nLangkat\n, Kecamatan\nSecanggang\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n8.547,62\nHa               Dengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n1850\njiwa              , Terdiri dari\n850\nLaki-laki dan\n1000\nperempuan              , dan total\n800\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Kampung Jaring Halus\nPada bagian Selatan Kampung Telnk\nPada bagian Timur Kampung Karang Gading\nPada bagian Barat Kampung Hinai Kiri",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nRakyat Penunggu Kampung Secanggang\n1. Petua Adat( Ketua Adat)\n2. Ketua Kampung\n3. Sekretaris\n4. Bendahara\n5. Ketua lapangan\n6. Kemanan\n7. Perekonomian\n8. Penggerak muda(humas)\n1. Ketua adat menyelesaikan pelanggaran hukum adat 2. Ketua kampung mengatur dan membuat strategi\nTahapan dan Lokasi Pengambilan Keputusan\nMusyawarah Mufakat\nContoh Proses dan Hasil Pengambilan Keputusan\nKepemilikan tanah adat hanya secara komunal (kolektif)",
+    "Tata Ruang Hidup di Wilayah Adat": "Komunal\n-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\nPengelolaan secara turun temurun dan lahan tidak untuk diperjualbelikan",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nGotong royong\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 2 Tahun 2019 Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1011",
+    "nama_kewilayahan": "Rakyat Penunggu Kampung Secanggang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1011_reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ]
+}

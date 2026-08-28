@@ -1,0 +1,51 @@
+{
+  "id": "809fa5a0-4940-4ff2-b40f-ce7416bf8559",
+  "program_code": "REG-11-PR-X-2025-6737",
+  "title": "Proyek Restorasi dan Konservasi Hutan Rawa Gambut Katingan Mentaya - IUPHHK-RE PT Rimba Makmur Utama",
+  "project_name_en": "",
+  "stage": 2,
+  "latest_status": "DRAFT",
+  "latest_status_date": "2025-10-30T08:07:38.660Z",
+  "created_at": "2025-10-30T08:07:38.594Z",
+  "user": {
+    "id": "4677acbf-e694-4aed-93bb-2e799c821de8",
+    "name": "Sarlita Fitri Pasaribu",
+    "username": "srn.ptrmu",
+    "organization_name": "PT Rimba Makmur Utama"
+  },
+  "responsible": {
+    "name": "PT Rimba Makmur Utama",
+    "address": "Lantai 45, Menara BCA Grand Indonesia, Jalan M.H. Thamrin No.1 Jakarta"
+  },
+  "sectors": [{"id": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed", "name": "\u2060Forestry and Other Land Use (FOLU)"}],
+  "schemas": [{"id": "3eeeba14-f66f-4aab-9940-f23abf5800e4", "name": "Mitigasi Sektor Kehutanan", "id_sector": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed"}],
+  "start_date": "2013-10-01T00:00:00.000Z",
+  "end_date": "2073-10-01T00:00:00.000Z",
+  "project_description_general": "Mewujudkan pemulihan fungsi ekologis lahan gambut tropis sebagai kawasan penyerapan dan penyimpanan karbon serta sumber hasil hutan yang berkelanjutan melalui kegiatan restorasi dan pengelolaan sumberdaya alam lestari",
+  "project_description_special": "Menghasilkan pengurangan emisi gas rumah kaca yang kredibel dan berkualitas baik, dengan skema penghindaran deforestasi dan degradasi",
+  "location": {
+    "rt_rw": "0", "latitude": "-2.4", "longitude": "118.8271",
+    "province": {"id": "62", "name": "KALIMANTAN TENGAH"},
+    "city": {"id": "62.02", "name": "KOTAWARINGIN TIMUR"},
+    "district": {"id": "62.02.06", "name": "Mentawa Baru Ketapang"},
+    "village": {"id": "62.02.06.1001", "name": "Mentawa Baru Hulu"}
+  },
+  "program_documents": [
+    {"id": "fa8f733e-3f13-434b-b074-7379b7144480", "title": "DOKUMEN RENCANA KERJA USAHA PEMANFAATAN HASIL HUTAN KAYU RESTORASI EKOSISTEM ... PERIODE 2020 s/d 2029", "description": "RKUPHHK-RE ke-1 ... Luas 49.620 Ha", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/eca50893-4092-422a-b589-4f585de7c0eb.docx", "section": "GENERAL", "sub_section": null, "created_at": "2026-01-21T04:46:21.821Z"},
+    {"id": "eaa23427-386e-4b99-993d-df80cd1571f0", "title": "DOKUMEN RENCANA KERJA ... PERIODE 2016 s/d 2025", "description": "RKUPHHK-RE ke-1 Kab. Katingan ... Luas 108.255 Ha", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/b6ddfa02-68a5-4ae6-9086-ba5e8c8429b1.pdf", "section": "GENERAL", "sub_section": null, "created_at": "2026-01-19T04:56:41.086Z"},
+    {"id": "4e407e2b-a13e-4cbb-9c4a-9d4dbca7eabe", "title": "SK IUPHHK-RE PT RMU KAB. KOTAWARINGIN TIMUR DAN KATINGAN", "description": "Izin Usaha Pemanfaatan Hasil Hutan Kayu Restorasi Ekosistem", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/51e9a8c3-a6d4-45f9-889a-59c880238946.docx", "section": "GENERAL", "sub_section": null, "created_at": "2026-01-19T04:05:01.027Z"},
+    {"id": "3b78ba84-0572-41cf-bf80-b57db678a118", "title": "SK IUPHHK-RE PT RMU KAB. KATINGAN", "description": "SK.734/Menhut-II/2013 ... Seluas \u00b1 108.255 Hektar", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/2ea99947-603a-4273-b178-52a151a50d6c.docx", "section": "GENERAL", "sub_section": null, "created_at": "2026-01-19T04:02:11.394Z"},
+    {"id": "1f3a1a99-3646-45b6-89fa-7d0e78933a47", "title": "PETA AREAL KERJA IUPHHK-RE PT RIMBA MAKMUR UTAMA KAB. KOTAWARINGIN TIMUR DAN KATINGAN", "description": "Peta Areal Kerja", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/df59f3e6-0f91-4111-b394-a1f05822fee5.pdf", "section": "GENERAL", "sub_section": null, "created_at": "2025-10-31T07:59:53.161Z"},
+    {"id": "48ff2cab-8be9-4c05-bece-6087595e4998", "title": "PETA AREAL KERJA IUPHHK-RE PT RIMBA MAKMUR UTAMA KAB. KATINGAN", "description": "Peta Areal Kerja", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/8d25172b-7abf-4e47-a8be-9422014c81d7.pdf", "section": "GENERAL", "sub_section": null, "created_at": "2025-10-31T07:58:06.745Z"},
+    {"id": "717e38d5-0ba8-4218-b578-31f95085a097", "title": "PROJECT DESCRIPTION - KATINGAN PEATLAND RESTORATION AND CONSERVATION PROJECT", "description": "Deskripsi kegiatan ... telah diverifikasi dan divalidasi oleh SCS", "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/8f5b4fea-1e83-442b-91db-574bdac09b72.pdf", "section": "GENERAL", "sub_section": null, "created_at": "2025-10-31T07:30:56.423Z"}
+  ],
+  "dram": {"id": "040a3366-088f-4326-a284-f61266f17c6a", "validation_report_link": null, "created_at": "2025-10-30T09:28:39.344Z", "approved_at": "2025-10-30T08:07:38.660Z"},
+  "lcam": null,
+  "workflow_steps": [
+    {"id": 1, "name": "DATA UMUM", "stage": 1, "status": "completed", "sub_processes": []},
+    {"id": 2, "name": "DATA TEKNIS", "stage": 2, "latest_status": "DRAFT", "status": "active", "sub_processes": []},
+    {"id": 3, "name": "DATA VALIDASI", "stage": 3, "status": "inactive", "sub_processes": []},
+    {"id": 4, "name": "DATA VERIFIKASI", "stage": 4, "status": "inactive", "sub_processes": []},
+    {"id": 5, "name": "FINALISASI", "stage": 5, "status": "inactive", "sub_processes": []}
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "id": "7105b9f6-9af4-4ffd-985c-e2dfc2863865",
+  "program_code": "REG-10-PR-III-2025-16202",
+  "title": "Aksi Mitigasi: Reduksi Emisi Gas Metana (CH4) dari Air Limbah Kelapa Sawit (POME) dengan Teknologi Methane Capture-Digester Tank di PT Inti Indosawit Subur Riau PMKS Buatan II",
+  "title_en": "",
+  "stage": 2,
+  "latest_status": "DRAFT",
+  "latest_status_date": "2025-10-15T09:09:50.900Z",
+  "created_at": "2025-10-15T09:09:50.832Z",
+  "user": {
+    "id": "3984f861-73ca-4266-9d27-9db633ceb4bb",
+    "name": "Leonardo Yapardi",
+    "username": "Asian Agri",
+    "organization_name": "PT. Inti Indosawit Subur"
+  },
+  "responsible": {
+    "name": "PT. Inti Indosawit Subur",
+    "address": "Jl. Palembang Kav 35-37 Kel. kebon Melati Kec. Tanah Abang"
+  },
+  "sectors": [
+    {
+      "id": "eb50335a-30e7-4d9c-87c5-41a790d7741b",
+      "name": "Pengelolaan Limbah"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "5d2016aa-1024-4abf-a2fd-f8d05f607461",
+      "name": "Mitigasi Pengelolaan Limbah",
+      "id_sector": "eb50335a-30e7-4d9c-87c5-41a790d7741b"
+    }
+  ],
+  "executor": {
+    "id": "d628bf6f-8eaa-4d34-aafd-18204a1481ac",
+    "name": "Dunia Usaha"
+  },
+  "action": {
+    "id": "dfc57786-c21f-4d3c-9d07-8620ca962f10",
+    "name": "Mitigasi"
+  },
+  "start_date": "2023-12-01T00:00:00.000Z",
+  "end_date": "2030-11-01T00:00:00.000Z",
+  "general_purpose": "Penurunan emisi gas rumah kaca (CH4) dari air limbah kelapa sawit (POME)",
+  "general_purpose_en": "",
+  "special_purpose": "PT Inti Indosawit Subur-Riau PMKS Buatan II akan melaksanakan aksi mitigasi perubahan iklim dari pengolahan air limbah kelapa sawit dengan menangkap gas metana. Gas metana yang ditangkap tersebut akan digunakan untuk bahan bakar boiler di proses produksi dan dibakar pada menara suar (flare stack)",
+  "special_purpose_en": "",
+  "program_relevances": [
+    {
+      "id": "0e010fab-1bc3-40c2-8e91-765a85189e83",
+      "name": "SDGs-13 Penanganan Perubahan Iklim"
+    }
+  ],
+  "technology_expert": {
+    "id": "39e92d47-26a8-4679-80bb-25be4d9a8ec5",
+    "name": "Tidak"
+  },
+  "capacity_increase": {
+    "id": "887b5d29-5e9d-4cc7-936b-943792e7d92f",
+    "name": "Tidak"
+  },
+  "funding_status": {
+    "id": "10ec21fc-2c25-48c2-9698-178b22f06856",
+    "name": "Tidak"
+  },
+  "funding_source": null,
+  "expert": {
+    "id": "8eb6a7da-c8c5-4157-932d-e7c880efda7b",
+    "name": "Tidak"
+  },
+  "location": {
+    "rt_rw": "0",
+    "latitude": "0.4596",
+    "longitude": "101.869",
+    "province": {
+      "id": "14",
+      "name": "RIAU"
+    },
+    "city": {
+      "id": "14.05",
+      "name": "PELALAWAN"
+    },
+    "district": {
+      "id": "14.05.02",
+      "name": "Pangkalan Kerinci"
+    },
+    "village": {
+      "id": "14.05.02.1008",
+      "name": "Pangkalan Kerinci\\nKota"
+    }
+  },
+  "program_documents": [
+    {
+      "id": "29a44cbf-2ae7-4786-b3fa-152991152259",
+      "title": "Dokumen DRAM",
+      "description": "Dokumen DRAM",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/23589ce1-13b7-4557-83fc-5480ea7b5ea7.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "DRAM",
+      "created_at": "2025-10-15T09:19:40.518Z"
+    },
+    {
+      "id": "8b0f29e3-a154-478d-bc1b-287d8e716669",
+      "title": "Laporan Pendahuluan Proyek Reduksi Emisi di PMKS Buatan Dua",
+      "description": "Dokumen perencanaan proyek",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/bf1e1c42-ec0a-4189-b2f6-fa41b10bfb7f.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2025-10-15T09:15:06.734Z"
+    }
+  ],
+  "verificators": {},
+  "validators": {
+    "lvv_dram": null,
+    "lvv_lcam": null
+  },
+  "approvals": {
+    "igrk_stage_1_approved_at": "2025-10-15T09:09:50.832Z",
+    "ms2r_stage_1_approved_at": null,
+    "igrk_stage_2_approved_at": null,
+    "ms2r_stage_2_approved_at": null
+  },
+  "verified_carbon_amount": null,
+  "verified_reduction_emission": [],
+  "emission_reduction_achievement": null,
+  "dram": {
+    "id": "028a270f-9b79-4b5a-98b0-2a34c9d63bbd",
+    "dram_file_validation": null,
+    "created_at": "2025-10-15T09:15:14.754Z",
+    "approved_at": "2025-10-15T09:09:50.900Z"
+  },
+  "lcam": null,
+  "workflow_steps": [
+    {
+      "id": 1,
+      "name": "DATA UMUM",
+      "stage": 1,
+      "latest_status": "APPROVED_GENERAL_DATA",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 1,
+          "name": "Data Umum",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2025-10-15T09:09:50.894Z",
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 2,
+          "name": "Lokasi",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2025-10-15T09:09:50.832Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 3,
+          "name": "Dokumen",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2025-10-15T09:15:06.734Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DATA TEKNIS",
+      "stage": 2,
+      "latest_status": "DRAFT",
+      "status": "active",
+      "sub_processes": [
+        {
+          "id": 4,
+          "name": "DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2025-10-15T09:09:50.900Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 5,
+          "name": "Aksi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": "2025-10-15T09:09:50.900Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "DATA VALIDASI",
+      "stage": 3,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 6,
+          "name": "Pemilihan LVV",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 7,
+          "name": "Dokumen Kontrak Kerja",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 8,
+          "name": "Dokumen DRAM Final",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 9,
+          "name": "Dokumen Validasi DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV",
+          "approved_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "DATA VERIFIKASI",
+      "stage": 4,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 10,
+          "name": "LCAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 11,
+          "name": "Dokumen Verifikasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 12,
+          "name": "Pemilihan LVV-2",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 13,
+          "name": "Worksheet Perhitungan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 14,
+          "name": "Dokumen Pendukung",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 15,
+          "name": "Persetujuan Emisi Karbon",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "FINALISASI",
+      "stage": 5,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 16,
+          "name": "Generate SPE",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        },
+        {
+          "id": 17,
+          "name": "Sertifikat Pengurangan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        }
+      ]
+    }
+  ]
+}

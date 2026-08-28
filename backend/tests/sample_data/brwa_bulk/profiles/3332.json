@@ -1,0 +1,47 @@
+{
+  "idx": "3332",
+  "source_url": "https://brwa.id/profil/3332",
+  "title": "Pulau Tengah",
+  "administratif": {
+    "Propinsi": "Jambi",
+    "Kabupaten": "Bungo",
+    "Kecamatan": "Pelepat",
+    "Desa": "Baru Pelepat"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Pulau Tengah",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nPulau Tengah\n, Berada dalam Wilayah Administratif Propinsi\nJambi\n, Kabupaten\nBungo\n, Kecamatan\nPelepat\ndan Desa\nBaru Pelepat",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri No. SK.5533/MENLHK-PSKL/PKTHA/PSL.2/10/2017 Penetapan Pencantuman Hutan Adat Rimbo Penghulu Depati Gento Rajo Kepada Masyarakat Hukum Adat Desa Pulau Tengah Seluas ±525 (Lima Rtus Dua Puluh Lima) Hektar di Desa Pulau Tengah Kecamatan Jangkat Kabupaten Merangin Provinsi Jambi dalam Peta Kawasan Hutan",
+      "pdf_url": "https://brwa.id/files/reg-2017-sk-penetapan-pencantuman-hutan-adat-rimbo-penghulu-depati-gento-rajo-merangin-jambi.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-2017-sk-penetapan-pencantuman-hutan-adat-rimbo-penghulu-depati-gento-rajo-merangin-jambi.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "3332",
+    "nama_kewilayahan": "Pulau Tengah"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3332_reg-2017-sk-penetapan-pencantuman-hutan-adat-rimbo-penghulu-depati-gento-rajo-merangin-jambi.pdf"
+  ]
+}

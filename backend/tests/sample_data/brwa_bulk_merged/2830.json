@@ -1,0 +1,47 @@
+{
+  "idx": "2830",
+  "source_url": "https://brwa.id/profil/2830",
+  "title": "Ramang",
+  "administratif": {
+    "Propinsi": "Kalimantan Tengah",
+    "Kabupaten": "Pulang Pisau",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "1.850,81 Ha",
+    "Satuan": "Ramang",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nRamang\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Tengah\n, Kabupaten\nPulang Pisau\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n1.850,81\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "SK Bupati No. 44 Tahun 2019 Panitia Pembentukan Masyarakat Hukum Adat Kabupaten Pulang Pisau",
+      "pdf_url": "https://brwa.id/files/reg-keputusan-bupati-pulang-pisau-nomor-44-tahun-2019-tentang-panitia-pembentukan-masyarakat-hukum-adat-kabupaten-pulang-pisau.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-keputusan-bupati-pulang-pisau-nomor-44-tahun-2019-tentang-panitia-pembentukan-masyarakat-hukum-adat-kabupaten-pulang-pisau.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "MultiPolygon",
+  "geojson_properties": {
+    "idx": "2830",
+    "nama_kewilayahan": "Ramang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2830_reg-keputusan-bupati-pulang-pisau-nomor-44-tahun-2019-tentang-panitia-pembentukan-masyarakat-hukum-adat-kabupaten-pulang-pisau.pdf"
+  ]
+}

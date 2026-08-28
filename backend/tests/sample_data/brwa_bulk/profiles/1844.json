@@ -1,0 +1,61 @@
+{
+  "idx": "1844",
+  "source_url": "https://brwa.id/profil/1844",
+  "title": "Titian Teras Dusun Kampung Pondok",
+  "administratif": {
+    "Propinsi": "Jambi",
+    "Kabupaten": "Sarolangun",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Titian Teras Dusun Kampung Pondok",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTitian Teras Dusun Kampung Pondok\n, Berada dalam Wilayah Administratif Propinsi\nJambi\n, Kabupaten\nSarolangun\n, Kecamatan\n-\ndan Desa\n-",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 6 Tahun 2024 Pengukuhan, Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-6-tahun-2024-tentang-pengukuhan-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Provinsi No. 2 Tahun 2014 Lembaga Adat Melayu Jambi",
+      "pdf_url": "https://brwa.id/files/reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Surat Keputusan Menteri No. SK.5777/MENLHK-PSKL/PKTHA/PSL.1/9/2018 Pencantuman Hutan Adat Titian Teras Dusun Kampung Pondok Kepada Masyarakat Hukum Adat Pangulu Seluas 138 (Seratus Tiga Puluh Delapan) Hektar yang terletak di Desa Demang Kecamatan Limun Kabupaten Sarolangun Provinsi Jambi",
+      "pdf_url": "https://brwa.id/files/reg-2018-sk-pencantuman-hutan-adat-titian-teras-sarolangun-jambi.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-6-tahun-2024-tentang-pengukuhan-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf",
+    "https://brwa.id/files/reg-2018-sk-pencantuman-hutan-adat-titian-teras-sarolangun-jambi.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1844",
+    "nama_kewilayahan": "Titian Teras Dusun Kampung Pondok"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1844_reg-perda-no-6-tahun-2024-tentang-pengukuhan-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/1844_reg-perda-prov-jambi-no-2-tahun-2014-tentang-lembaga-adat-melayu-jambi.pdf",
+    "data/pdfs/1844_reg-2018-sk-pencantuman-hutan-adat-titian-teras-sarolangun-jambi.pdf"
+  ]
+}

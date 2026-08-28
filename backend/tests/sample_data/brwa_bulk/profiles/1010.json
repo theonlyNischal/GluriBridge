@@ -1,0 +1,47 @@
+{
+  "idx": "1010",
+  "source_url": "https://brwa.id/profil/1010",
+  "title": "Kampung Sei Benang",
+  "administratif": {
+    "Propinsi": "Sumatera Utara",
+    "Kabupaten": "Langkat",
+    "Kecamatan": "Selesai",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "912,27 Ha",
+    "Satuan": "Kampung Sei Benang",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKampung Sei Benang\n, Berada dalam Wilayah Administratif Propinsi\nSumatera Utara\n, Kabupaten\nLangkat\n, Kecamatan\nSelesai\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n912,27\nHa               Dengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n500\njiwa              , Terdiri dari\n300\nLaki-laki dan\n200\nperempuan              , dan total\n200\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Sungai\nPada bagian Selatan Padang Cermin\nPada bagian Timur Bingai\nPada bagian Barat Selayang",
+    "Sejarah": "Petani Reba, asal usul masyarakat dari suku karo, simalungun, melayudan diawali dari dari daerah Sumatera Timur\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nRakyat Penunggu Kampung Sei Benang\n1. Ketua adat\n2. Ketua Kampung\n3. Sekretaris Kampung\n4. Bendahara Kampung\n5. Anggota\n1. Ketua adat: Membuat peraturan dan sanksi sanksi adat, menerapkan hukum adat 2. Ketua kampung: Mengarahkan dan mengambil kebijakan untuk kepentingan bersama 3. Sekretaris Kampung: Membuat surat menyurat dan mendata anggota masyarakat adat 4. Mengurusi masalah keuangan kampung dan iuran anggota\nTahapan dan Lokasi Pengambilan Keputusan\nMusyawarah mufakat\nContoh Proses dan Hasil Pengambilan Keputusan\nSetiap pelanggaran akan dikenakan sanksi",
+    "Tata Ruang Hidup di Wilayah Adat": "Ketua adat/ kampung memberikan lahan kelola kepada anggota seluas 20x 20 untuk pemukiman dan 20x 100 untuk pertanian\nPenguasaan dan pengelolaan dikerjakan bersama dan bergotong royong.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\nPengelolaan lahan dilakukan secara turun temurun, dan tidak diperjualbelikan",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBerdo’a dan makan bersama sebelum menggarap lahan\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\n-\nPotensi Sumber Kesehatan & Kecantikan\n-\nPotensi Sumber Sandang & Papan\n-###-\nPotensi Sumber Rempah & Bumbu\n-\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\n-",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 2 Tahun 2019 Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1010",
+    "nama_kewilayahan": "Kampung Sei Benang"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1010_reg-perda-no-2-tahun-2019-tentang-masyarakat-hukum-adat-langkat_compress.pdf"
+  ]
+}

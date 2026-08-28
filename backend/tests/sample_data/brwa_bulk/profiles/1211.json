@@ -1,0 +1,61 @@
+{
+  "idx": "1211",
+  "source_url": "https://brwa.id/profil/1211",
+  "title": "Batu Lasung",
+  "administratif": {
+    "Propinsi": "Kalimantan Selatan",
+    "Kabupaten": "Kotabaru",
+    "Kecamatan": "Jantung Kiri hilir",
+    "Desa": "Batu Lasung"
+  },
+  "kewilayahan": {
+    "Luas": "28.956,92 Ha",
+    "Satuan": "Balai Batu Lasung",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBatu Lasung\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Selatan\n, Kabupaten\nKotabaru\n, Kecamatan\nJantung Kiri hilir\ndan Desa\nBatu Lasung\n, Wilayah adat ini memiliki Luas wilayah\n28.956,92\nHa               Dengan Kondisi fisik wilayah berupa\nDataran\n, sedangkan Bahasa sehari-hari yang digunakan adalah\nBanjar Kuala",
+    "Batas Wilayah Adat": "Pada bagian Utara Desa Lelapin\nPada bagian Selatan Desa Mangkirana\nPada bagian Timur -\nPada bagian Barat Desa Hampang Kecamatan Hampang",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nLembaga adat Batu lasung\nKepala Adat: Menyelesaikan sengketa terkait adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nMusyawarah adat (Bekumpul/Barembuk)",
+    "Tata Ruang Hidup di Wilayah Adat": "Hutan Pemukiman, Ladang\nKomunal dibawah adat dan individu.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\nDilarang menebang pohon di hutan lindung, bila dilanggar akan dikenakan sanksi adat",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nKelahiran, Perkawinan, Perkelahian, Pencurian\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPadi, Umbi-Umbian, Jagung, Sagu\ndaun singkong, kacang panjang, sawi\npisang, mangga, langsat, manggis\nPotensi Sumber Kesehatan & Kecantikan\nAkar Arau : Untuk obat keputihan \nPasak Bumi : Untuk obat sakit pinggang dan vitalitas \nBuah Limpaso : Untuk obat penghilang bekas jerawat \nLaos : Untuk obat penyakit kulit ( panu ) \nAkar Pikajar : Untuk obat sakit pinggang dan vitalitas \nButuh Ulin : Untuk obat sakit pinggang dan vitalitas Sintuk Dll\nPotensi Sumber Sandang & Papan\nkayu meranti kayu ulin kayu madang kayu sungkai bambu rotan###Rotan : Digunakan untuk pembuatan barang-barang kerajinan tangan.\nPotensi Sumber Rempah & Bumbu\nKemiri, Serai, Kunyit, Jahe dan Kencur.\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\nKayu Manis, Karet, Talas, Pisang, Umbi kayu, kacang tanah,",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 19 Tahun 2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-peraturan-daerah-kabupaten-kotabaru-no-19-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 100.3.3.2/500/KUM/2024 Pembentukan Panitia Pengakuan dan Perlindungan Masyarakat Hukum Adat Kabupaten Kotabaru",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-mha-kab-kotabaru.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Provinsi No. 2 Tahun 2023 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-peraturan-daerah-kabupaten-kotabaru-no-19-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "https://brwa.id/files/reg-sk-panitia-mha-kab-kotabaru.pdf",
+    "https://brwa.id/files/reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "1211",
+    "nama_kewilayahan": "Batu Lasung"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/1211_reg-peraturan-daerah-kabupaten-kotabaru-no-19-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf",
+    "data/pdfs/1211_reg-sk-panitia-mha-kab-kotabaru.pdf",
+    "data/pdfs/1211_reg-perda-provinsi-kalsel-no2-th-2023-tentang-pengakuan-dan-perlindungan-mha.pdf"
+  ]
+}

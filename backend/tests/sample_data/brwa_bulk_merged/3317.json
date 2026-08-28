@@ -1,0 +1,47 @@
+{
+  "idx": "3317",
+  "source_url": "https://brwa.id/profil/3317",
+  "title": "Benuaq Telimuk",
+  "administratif": {
+    "Propinsi": "Kalimantan Timur",
+    "Kabupaten": "Kutai Barat",
+    "Kecamatan": "Muara Lawa",
+    "Desa": "Muara Begai"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Benuaq Telimuk",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nBenuaq Telimuk\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Timur\n, Kabupaten\nKutai Barat\n, Kecamatan\nMuara Lawa\ndan Desa\nMuara Begai",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "Riwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Surat Keputusan Menteri - Penetapan Hutan Adat",
+      "pdf_url": "https://brwa.id/files/reg-sk-hutan-adat-reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-sk-hutan-adat-reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "3317",
+    "nama_kewilayahan": "Benuaq Telimuk"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/3317_reg-sk-hutan-adat-reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ]
+}

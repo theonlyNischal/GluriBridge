@@ -1,0 +1,47 @@
+{
+  "idx": "906",
+  "source_url": "https://brwa.id/profil/906",
+  "title": "Mali Bangkan",
+  "administratif": {
+    "Propinsi": "Kalimantan Barat",
+    "Kabupaten": "Sanggau",
+    "Kecamatan": "Balai",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "302,15 Ha",
+    "Satuan": "Mali Bangkan",
+    "Kondisi Fisik": "Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nMali Bangkan\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Barat\n, Kabupaten\nSanggau\n, Kecamatan\nBalai\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n302,15\nHa               Dengan Kondisi fisik wilayah berupa\nPegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n104\njiwa              , Terdiri dari\n54\nLaki-laki dan\n50\nperempuan              , dan total\n21\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara Padang\nPada bagian Selatan Mangkir\nPada bagian Timur Mak Ijing\nPada bagian Barat Gunung Keramat, Tiong Kandang",
+    "Sejarah": "Masyarakat kampung Bangkan berasal dari keturunan nenek moyang yang menetap di kaki pegunungan Tiong Kandang. Sejak beberapa ratus tahun yg lalu mereka suku Dayak Mali menjaga hutan dengan cara membuat ladang sesuai adat istiadat mereka. Juga menjaga kearifan lokal yang ada di kawasan ini.\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nKetemenggungan\nTemenggung Adat / Pasirah Adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nMusyawarah, mufakat, Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": ".",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 1 Tahun 2017 Pengakuan dan Perlindungan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-no-1-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-no-1-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "906",
+    "nama_kewilayahan": "Mali Bangkan"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/906_reg-perda-no-1-tahun-2017-tentang-pengakuan-dan-perlindungan-masyarakat-hukum-adat.pdf"
+  ]
+}

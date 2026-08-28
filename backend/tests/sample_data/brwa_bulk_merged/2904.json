@@ -1,0 +1,54 @@
+{
+  "idx": "2904",
+  "source_url": "https://brwa.id/profil/2904",
+  "title": "Agabag Lumbis Ogong Kampung Tadungus",
+  "administratif": {
+    "Propinsi": "Kalimantan Utara",
+    "Kabupaten": "Nunukan",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "6.841,83 Ha",
+    "Satuan": "Agabag Lumbis Ogong Kampung Tadungus",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nAgabag Lumbis Ogong Kampung Tadungus\n, Berada dalam Wilayah Administratif Propinsi\nKalimantan Utara\n, Kabupaten\nNunukan\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n6.841,83\nHa",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No. 4 Tahun 2023 Perubahan Atas Peraturan Daerah No. 16 Tahun 2018 Pemberdayaan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kab-nunukan-no-4-tahun-2023-tentang-mha-perubahan.pdf"
+    },
+    {
+      "no": "2",
+      "description": "SK Bupati No. 188.45/127/I/2024 Perubahan Kedua atas Keputusan Bupati Nunukan No. 188.48/272/V/2022 Tentang Pembentukan Panitia Masyarakat Hukum Adat Kabupaten Nunukan",
+      "pdf_url": "https://brwa.id/files/reg-sk-panitia-kab-nunukan-nomor-127_1_2024-perubahan-kedua-pembentukan-panitia-mha.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-kab-nunukan-no-4-tahun-2023-tentang-mha-perubahan.pdf",
+    "https://brwa.id/files/reg-sk-panitia-kab-nunukan-nomor-127_1_2024-perubahan-kedua-pembentukan-panitia-mha.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2904",
+    "nama_kewilayahan": "Agabag Lumbis Ogong Kampung Tadungus"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2904_reg-perda-kab-nunukan-no-4-tahun-2023-tentang-mha-perubahan.pdf",
+    "data/pdfs/2904_reg-sk-panitia-kab-nunukan-nomor-127_1_2024-perubahan-kedua-pembentukan-panitia-mha.pdf"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "frozen_at": "2026-08-26T06:13:34.941845+00:00",
+  "reason": "Pre-demo refresh completed 2026-08-26 (SRUK+Verra live re-scraped, 0 errors; SRN-PPI correctly skipped, not due; BRWA manual/unchanged). Data frozen through Demo Day (5 Sep 2026) for rehearsal stability \u2014 do not re-scrape without explicit --unfreeze."
+}

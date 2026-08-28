@@ -1,0 +1,72 @@
+{
+  "idx": "999",
+  "source_url": "https://brwa.id/profil/999",
+  "title": "Kekhalifahan Tudai",
+  "administratif": {
+    "Propinsi": "Riau",
+    "Kabupaten": "Kampar",
+    "Kecamatan": "Kampar Kiri Hulu",
+    "Desa": "Tidak ada"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Kekhalifahan Tudai",
+    "Kondisi Fisik": "Dataran"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nKekhalifahan Tudai\n, Berada dalam Wilayah Administratif Propinsi\nRiau\n, Kabupaten\nKampar\n, Kecamatan\nKampar Kiri Hulu\ndan Desa\nTidak ada\nDengan Kondisi fisik wilayah berupa\nDataran\n, Komunitas adat ini memiliki Jumlah penduduk\n550\njiwa              , Terdiri dari\n200\nLaki-laki dan\n350\nperempuan              , dan total\n250\nkepala Keluarga              , sedangkan Bahasa sehari-hari yang digunakan adalah\nTidak ada",
+    "Batas Wilayah Adat": "Pada bagian Utara Kekhalifahan Batu Sanggan\nPada bagian Selatan Delapan Koto Setingkai\nPada bagian Timur Kekhalifahan Ujung Bukit\nPada bagian Barat Sumatera Barat",
+    "Sejarah": "tidak ada\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nKekhalifahan Tudai\n1. Khalifah\n2. Ninik mamak\n3. Penghulu adat\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nMusyawarah mufakat",
+    "Tata Ruang Hidup di Wilayah Adat": "tidak ada.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\ntidak ada\nPotensi Sumber Kesehatan & Kecantikan\ntidak ada\nPotensi Sumber Sandang & Papan\ntidak ada###tidak ada\nPotensi Sumber Rempah & Bumbu\ntidak ada\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya\ntidak ada",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 10 Tahun 2015 Tanah Ulayat dan Pemanfaatannya",
+      "pdf_url": "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Peraturan Gubernur No. Kpts.756/VI/2023 Pembentukan Panitia Masyarakat Hukum Adat Provinsi Riau",
+      "pdf_url": "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf"
+    },
+    {
+      "no": "3",
+      "description": "Peraturan Daerah No. 12 Tahun 1999 Hak Tanah Ulayat",
+      "pdf_url": "https://brwa.id/files/reg-perda-kabupaten-kampar-nomor-12-tahun-1999-tentang-hak-tanah-ulayat.pdf"
+    },
+    {
+      "no": "4",
+      "description": "SK Bupati No. 604/DMPD/IX/2023 Pembentukan Panitia Pengakuan dan Perlindungan Masyarakat Hukum Adat di Kabupaten Kampar",
+      "pdf_url": "https://brwa.id/files/reg-sk-pembentukan-panitia-pengakuan-dan-perlindungan-mha-kab-kampar_.pdf"
+    },
+    {
+      "no": "5",
+      "description": "SK Bupati No. 660/DLH-IV.2/32 Pembentukan Tim Registrasi Penetapan Masyarakat Hukum Adat, Wilayah Adat dan Hutan Adat di Kabupaten Kampar",
+      "pdf_url": "https://brwa.id/files/reg-sk-bupati-kampar-nomor-660-dlh-iv2-32-tentang-pembentukan-tim-registrasi-penetapan-masyarakat-hukum-adat-wilayah-adat-dan-hutan-adat-di-kabupaten-kampar.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "https://brwa.id/files/reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf",
+    "https://brwa.id/files/reg-perda-kabupaten-kampar-nomor-12-tahun-1999-tentang-hak-tanah-ulayat.pdf",
+    "https://brwa.id/files/reg-sk-pembentukan-panitia-pengakuan-dan-perlindungan-mha-kab-kampar_.pdf",
+    "https://brwa.id/files/reg-sk-bupati-kampar-nomor-660-dlh-iv2-32-tentang-pembentukan-tim-registrasi-penetapan-masyarakat-hukum-adat-wilayah-adat-dan-hutan-adat-di-kabupaten-kampar.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": false,
+  "geometry_type": null,
+  "geojson_properties": null,
+  "downloaded_pdf_files": [
+    "data/pdfs/999_reg-perda-provinsi-riau-no-10-tahun-2015-tentang-tanah-ulayat-dan-pemanfaatannya.pdf",
+    "data/pdfs/999_reg-sk-gubernur-riau-no-756-vi-2023-tentang-pembentukan-panitia-mha.pdf",
+    "data/pdfs/999_reg-perda-kabupaten-kampar-nomor-12-tahun-1999-tentang-hak-tanah-ulayat.pdf",
+    "data/pdfs/999_reg-sk-pembentukan-panitia-pengakuan-dan-perlindungan-mha-kab-kampar_.pdf",
+    "data/pdfs/999_reg-sk-bupati-kampar-nomor-660-dlh-iv2-32-tentang-pembentukan-tim-registrasi-penetapan-masyarakat-hukum-adat-wilayah-adat-dan-hutan-adat-di-kabupaten-kampar.pdf"
+  ]
+}

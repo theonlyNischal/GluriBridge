@@ -1,0 +1,47 @@
+{
+  "idx": "2972",
+  "source_url": "https://brwa.id/profil/2972",
+  "title": "Sub Suku Ayamaru",
+  "administratif": {
+    "Propinsi": "Papua Barat Daya",
+    "Kabupaten": "Maybrat",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "87.139,91 Ha",
+    "Satuan": "Sub Suku Ayamaru",
+    "Kondisi Fisik": "Pegunungan"
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nSub Suku Ayamaru\n, Berada dalam Wilayah Administratif Propinsi\nPapua Barat Daya\n, Kabupaten\nMaybrat\n, Kecamatan\n-\ndan Desa\n-\n, Wilayah adat ini memiliki Luas wilayah\n87.139,91\nHa               Dengan Kondisi fisik wilayah berupa\nPegunungan\n, Komunitas adat ini memiliki Jumlah penduduk\n3777\njiwa              , Terdiri dari\n3434\nLaki-laki dan\n343\nperempuan              , dan total\n2343\nkepala Keluarga",
+    "Batas Wilayah Adat": "Pada bagian Utara -\nPada bagian Selatan -\nPada bagian Timur -\nPada bagian Barat -",
+    "Sejarah": "tentang legenda\nRiwayat sejarah komunitas hingga tahun 1945\ntentang riwayat komunitas\nRiwayat sejarah perkembangan komunitas setelah tahun 1945\nriwayat perkembangan komunitas",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\nisi Bentuk dan fungsi peran Kelembagaan Adat terkini\nisi Struktural dan Tugas Pemangku Adat\nisi  Tata Cara Suksesi Pemangku Adat\nisi Hubungan dengan Kelembagaan lain\nTahapan dan Lokasi Pengambilan Keputusan\nisi  Tahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\nisi Contoh Pengambilan Keputusan",
+    "Tata Ruang Hidup di Wilayah Adat": "isi Pembagian Ruang Menurut Aturan Adat\nisi Areal penguasaan atau pemanfaatan sumber daya komunal/kolektif",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nisi Aturan Adat/Pranata Penguasaan Hak dan/atau akses atas Tanah dan Sumber Daya Alam\nAturan Adat/Pranata Pemindahalihan Hak\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam\nAturan Adat yang menjelaskan dan mengatur akses dan Perlindungan Ruang Hidup dan Pengelolaan Sumber Daya Alam untuk upacara/ritual",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Tradisi, Ritual, serta Aturan Adat tentang Siklus Kehidupan dan Hubungan Antar Masyarakat\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Nonmaterial (tarian, nyanyian, dongeng, kesusastraan, dsb.)\nBentuk Kebudayaan Material\nBentuk Kebudayaan Material (benda pusaka, artefak, bangunan, dsb.)",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[  ✓  ]\nEkosistem Darat Alami\n[  ✓  ]\nEkosistem Buatan\n[  ✓  ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Sandang & Papan\nPotensi Sumber Rempah & Bumbu\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPengetahuan dan Praktik Lokal terkait Keanekaragaman Hayati\nPotensi Komoditas & Ekonomi Lainnya\nPotensi Komoditas Ekonomi\nPotensi Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Daerah No 7 Tahun 2024 Pengakuan, Perlindungan dan Pemberdayaan Masyarakat Hukum Adat di Kabupaten Maybrat",
+      "pdf_url": "https://brwa.id/files/reg-4-doc-salinan-perda-ppmha-kabupaten-maybrat-27062024.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-4-doc-salinan-perda-ppmha-kabupaten-maybrat-27062024.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2972",
+    "nama_kewilayahan": "Sub Suku Ayamaru"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2972_reg-4-doc-salinan-perda-ppmha-kabupaten-maybrat-27062024.pdf"
+  ]
+}

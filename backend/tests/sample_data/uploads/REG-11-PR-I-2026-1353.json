@@ -1,0 +1,353 @@
+{
+  "id": "891e5123-ef8a-415f-a88e-e02d5257941f",
+  "program_code": "REG-11-PR-I-2026-1353",
+  "title": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut Kecamatan Banjarwangi",
+  "project_name_en": "",
+  "stage": 2,
+  "latest_status": "SUBMITTED_TECHNICAL",
+  "latest_status_date": "2026-01-20T08:16:25.040Z",
+  "created_at": "2026-01-20T04:53:04.102Z",
+  "user": {
+    "id": "3e73e307-08ae-4179-9d21-128da53452cc",
+    "name": "Indri Anugrah Sopian",
+    "username": "Koperasi_Al_Bayyinah_Sejahtera",
+    "organization_name": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar"
+  },
+  "responsible": {
+    "name": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+    "address": "Desa Jaya Mekar Kecamatan Pakenjeng Kabupaten Garut Provinsi Jawa Barat"
+  },
+  "sectors": [
+    {
+      "id": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed",
+      "name": "⁠Forestry and Other Land Use (FOLU)"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "3eeeba14-f66f-4aab-9940-f23abf5800e4",
+      "name": "Mitigasi Sektor Kehutanan",
+      "id_sector": "dfbdcd6c-d41e-40e5-96c5-ae38ccb49eed"
+    }
+  ],
+  "executor": {
+    "id": "41a2043b-7e8b-4291-a909-5ea130a0cb04",
+    "name": "Komunitas"
+  },
+  "action": {
+    "id": "dfc57786-c21f-4d3c-9d07-8620ca962f10",
+    "name": "Mitigasi"
+  },
+  "start_date": "2023-10-01T00:00:00.000Z",
+  "end_date": "2043-10-01T00:00:00.000Z",
+  "project_description_general": "Melakukan aksi mitigasi pada hutan rakyat melalui kegiatan rehabilitasi",
+  "project_description_general_en": "",
+  "project_description_special": "1. Meningkatkan stok karbon pada hutan rakyat berbasis agroforestry pada pool karbon biomassa atas permukaan dan pool karbon tanah, 2. Meningkatkan kualitas tempat tumbuh, 3. Peningkatan ekonomi masyarakat melalui kegiatan agroforestry",
+  "project_description_special_en": "",
+  "program_relevances": [
+    {
+      "id": "2a4ec9e0-e9ae-4823-81d5-49ed646763e8",
+      "name": "SDGs-8 Pekerjaan Layak dan Pertumbuhan Ekonomi"
+    },
+    {
+      "id": "0e010fab-1bc3-40c2-8e91-765a85189e83",
+      "name": "SDGs-13 Penanganan Perubahan Iklim"
+    },
+    {
+      "id": "37c7da5a-10ef-4c11-a855-ae02f2c1cfd4",
+      "name": "SDGs-15 Ekosistem Daratan"
+    }
+  ],
+  "technology_expert": {
+    "id": "39e92d47-26a8-4679-80bb-25be4d9a8ec5",
+    "name": "Tidak"
+  },
+  "capacity_increase": {
+    "id": "887b5d29-5e9d-4cc7-936b-943792e7d92f",
+    "name": "Tidak"
+  },
+  "funding_status": {
+    "id": "10ec21fc-2c25-48c2-9698-178b22f06856",
+    "name": "Tidak"
+  },
+  "funding_source": null,
+  "expert": {
+    "id": "8eb6a7da-c8c5-4157-932d-e7c880efda7b",
+    "name": "Tidak"
+  },
+  "location": {
+    "rt_rw": "-",
+    "latitude": "-2.4",
+    "longitude": "118.8271",
+    "province": {
+      "id": "32",
+      "name": "JAWA BARAT"
+    },
+    "city": {
+      "id": "32.05",
+      "name": "GARUT"
+    },
+    "district": {
+      "id": "32.05.23",
+      "name": "Banjarwangi"
+    },
+    "village": {
+      "id": "32.05.23.2011",
+      "name": "Wangunjaya"
+    }
+  },
+  "program_documents": [
+    {
+      "id": "b6bd5f4a-35be-4587-9e4a-c7c6cec98058",
+      "title": "Dokumen Lampiran tambahan",
+      "description": "Versi 0 - DRAM Koperasi Albayyinah - Garut Banjarwangi dengan Lampiran",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/577518d9-c45d-4980-a3d5-04d45afda8ed.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "ADDITIONAL",
+      "created_at": "2026-01-20T08:15:42.175Z"
+    },
+    {
+      "id": "cefd1b6b-579c-44b8-907e-97698e247e06",
+      "title": "Dokumen DRAM",
+      "description": "Dokumen DRAM",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/4c604768-ad42-4720-92dc-7936b98b0a7c.pdf",
+      "section": "TECHNICAL",
+      "sub_section": "DRAM",
+      "created_at": "2026-01-20T08:14:41.071Z"
+    },
+    {
+      "id": "d2478945-1372-4415-aa14-e6bc729f6eec",
+      "title": "Proposal Kegiatan Perencanaan Astra Karbon Offset di Kabupaten Garut Kecamatan Banjarwangi",
+      "description": "Proposal Kegiatan Perencanaan Penanaman Kerjasama Astra dan IPB yang dilaksanakan di wilayah Hutan Rakyat Kabupaten Garut Kecamatan Banjarwangi",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/8b6f46e5-5c3d-43b4-b686-e9ff2d0e9fa7.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-01-20T08:11:27.094Z"
+    },
+    {
+      "id": "e018b9eb-8e05-441f-9170-7d186907c122",
+      "title": "Dokumen Peraturan dan Perundangan Terkait Pelaksanaan Kegiatan",
+      "description": "Dokumen Peraturan dan Perundangan Terkait Pelaksanaan Kegiatan antara lain: (1) Peraturan Presiden Republik Indonesia Nomor 98 tahun 2021 tentang Penyelenggaraan Nilai Ekonomi Karbon untuk Mencapai Target Kontribusi yang Ditetapkan Secara Nasional dan Pengendalian Emisi Gas Rumah Kaca Dalam Pembangunan Nasional (2) Peraturan Menteri Lingkungan Hidup dan Kehutanan Republik Indonesia Nomor 21 tahun 2022 tentang Tata Laksana Penerapan Nilai Ekonomi Karbon (3) Peraturan Menteri Lingkungan Hidup dan Kehutanan Republik Indonesia Nomor 9 tahun 2021 tentang Pengelolaan Perhutanan Sosial (4) Peraturan Menteri Lingkungan Hidup dan Kehutanan Republik Indonesia Nomor 7 tahun 2023 tentang Tata Cara Perdagangan Karbon Sektor Kehutanan",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/626ae2e6-5ddc-47e7-a481-f5f8e13b2fa0.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-01-20T08:08:59.874Z"
+    },
+    {
+      "id": "769006bd-52dd-426d-a394-35621e8a6d74",
+      "title": "S.K Pendirian Koperasi Al Bayyinah Sejahtera Jayamekar",
+      "description": "S.K Pendirian Koperasi Al Bayyinah Sejahtera, Desa Jayamekar, Kecamatan Pakenjeng, Kabupaten Garut",
+      "file_url": "https://asset.srnmenlh.id/srn-menlhk/files/79c56036-d89b-4537-b729-c85d428f01bf.pdf",
+      "section": "GENERAL",
+      "sub_section": null,
+      "created_at": "2026-01-20T08:06:42.344Z"
+    }
+  ],
+  "verificators": {},
+  "validators": {
+    "lvv_dram": null,
+    "lvv_lcam": null
+  },
+  "approvals": {
+    "igrk_stage_1_approved_at": "2026-01-20T04:53:04.102Z",
+    "ms2r_stage_1_approved_at": null,
+    "registration_date": null,
+    "ms2r_stage_2_approved_at": null
+  },
+  "verified_carbon_amount": null,
+  "verified_reduction_emission": [],
+  "emission_reduction_achievement": null,
+  "dram": {
+    "id": "7152b857-17b8-4027-a434-436cfd2ec3df",
+    "validation_report_link": null,
+    "created_at": "2026-01-20T08:16:22.390Z",
+    "approved_at": "2026-01-20T04:53:04.218Z"
+  },
+  "lcam": null,
+  "workflow_steps": [
+    {
+      "id": 1,
+      "name": "DATA UMUM",
+      "stage": 1,
+      "latest_status": "APPROVED_GENERAL_DATA",
+      "status": "completed",
+      "sub_processes": [
+        {
+          "id": 1,
+          "name": "Data Umum",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-01-20T04:53:04.210Z",
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 2,
+          "name": "Lokasi",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-01-20T04:53:04.102Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 3,
+          "name": "Dokumen",
+          "status": "approved",
+          "status_label": "Disetujui",
+          "date": "2026-01-20T08:11:27.094Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DATA TEKNIS",
+      "stage": 2,
+      "latest_status": "SUBMITTED_TECHNICAL",
+      "status": "active",
+      "sub_processes": [
+        {
+          "id": 4,
+          "name": "DRAM",
+          "status": "sent",
+          "status_label": "Terkirim",
+          "date": "2026-01-20T04:53:04.218Z",
+          "completed_by": "PROPONENT",
+          "approved_by": "IGRK"
+        },
+        {
+          "id": 5,
+          "name": "Aksi",
+          "status": "sent",
+          "status_label": "Terkirim",
+          "date": "2026-01-20T04:53:04.218Z",
+          "completed_by": "PROPONENT"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "DATA VALIDASI",
+      "stage": 3,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 6,
+          "name": "Pemilihan LVV",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 7,
+          "name": "Dokumen Kontrak Kerja",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 8,
+          "name": "Dokumen DRAM Final",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 9,
+          "name": "Dokumen Validasi DRAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV",
+          "approved_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "DATA VERIFIKASI",
+      "stage": 4,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 10,
+          "name": "LCAM",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 11,
+          "name": "Dokumen Verifikasi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 12,
+          "name": "Pemilihan LVV-2",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "PROPONENT"
+        },
+        {
+          "id": 13,
+          "name": "Worksheet Perhitungan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 14,
+          "name": "Dokumen Pendukung",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "LVV"
+        },
+        {
+          "id": 15,
+          "name": "Persetujuan Emisi Karbon",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "MRV"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "FINALISASI",
+      "stage": 5,
+      "latest_status": null,
+      "status": "inactive",
+      "sub_processes": [
+        {
+          "id": 16,
+          "name": "Generate SPE",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        },
+        {
+          "id": 17,
+          "name": "Sertifikat Pengurangan Emisi",
+          "status": "not_sent",
+          "status_label": "Belum Dikirim",
+          "date": null,
+          "completed_by": "SYSTEM"
+        }
+      ]
+    }
+  ]
+}

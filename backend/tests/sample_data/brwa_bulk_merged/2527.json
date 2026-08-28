@@ -1,0 +1,61 @@
+{
+  "idx": "2527",
+  "source_url": "https://brwa.id/profil/2527",
+  "title": "Tri Kayangan Belimbing",
+  "administratif": {
+    "Propinsi": "Bali",
+    "Kabupaten": "Tabanan",
+    "Kecamatan": "-",
+    "Desa": "-"
+  },
+  "kewilayahan": {
+    "Luas": "0,00 Ha",
+    "Satuan": "Tri Kayangan Belimbing",
+    "Kondisi Fisik": ""
+  },
+  "sections": {
+    "Profil Wilayah Adat": "Komunitas adat\nTri Kayangan Belimbing\n, Berada dalam Wilayah Administratif Propinsi\nBali\n, Kabupaten\nTabanan\n, Kecamatan\n-\ndan Desa\n-",
+    "Batas Wilayah Adat": "Pada bagian Utara\nPada bagian Selatan\nPada bagian Timur\nPada bagian Barat",
+    "Sejarah": "-\nRiwayat sejarah komunitas hingga tahun 1945\nRiwayat sejarah perkembangan komunitas setelah tahun 1945",
+    "Kelembagaan Adat": "Perangkat Kelembagaan Adat\n-\n-\nTahapan dan Lokasi Pengambilan Keputusan\nContoh Proses dan Hasil Pengambilan Keputusan\n-",
+    "Tata Ruang Hidup di Wilayah Adat": "-.",
+    "Pranata Penguasaan dan Kelola-Lindung di Wilayah Adat": "Sistem Penguasaan dan Pengelolaan Wilayah\nAturan Perlindungan dan Pengelolaan Wilayah dan Sumber Daya Alam",
+    "Pranata Sosial Budaya": "Tradisi, Ritual, dan Aturan Adat tentang Kehidupan Sosial Masyarakat dan Siklus Kehidupan Manusia\nBentuk Kebudayaan Non-Material\nBentuk Kebudayaan Material",
+    "Potensi dan Keanekaragaman Hayati": "Ragam Ekosistem\n[       ]\nEkosistem Suksesi\n[       ]\nEkosistem Darat Alami\n[       ]\nEkosistem Buatan\n[       ]\nEkosistem Perairan\nPotensi Sumber Pangan\nPotensi Sumber Kesehatan & Kecantikan\nPotensi Sumber Sandang & Papan\n###\nPotensi Sumber Rempah & Bumbu\nFlora dan Fauna Penting dalam Kepercayaan, Ritual, dan Tradisi\nPotensi Komoditas & Ekonomi Lainnya",
+    "Kebijakan": ""
+  },
+  "kebijakan_table": [
+    {
+      "no": "1",
+      "description": "Peraturan Provinsi No. 4 Tahun 2019 Desa Adat Bali",
+      "pdf_url": "https://brwa.id/files/reg-perda-prov-bali_nomor_4_tahun_2019_tentang_desa_adat.pdf"
+    },
+    {
+      "no": "2",
+      "description": "Surat Keputusan Menteri No. SK.9338/MENLHK-PSKL/PKTHA/KUM.1/11/2019 Penetapan Hutan Adat Mekori Kepada Masyarakat Hukum Adat Tri Kayangan Belimbing Seluas ±21 (Dua Puluh Satu) Hektar di Desa Belimbing, Kecamatan Pupuan, Kabupaten Tabanan, Provinsi Bali",
+      "pdf_url": "https://brwa.id/files/reg-2019-sk-penetapan-hutan-adat-mekori-tabanan-bali.pdf"
+    },
+    {
+      "no": "3",
+      "description": "SK Bupati - Penetapan Masyarakat Hukum Adat",
+      "pdf_url": "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+    }
+  ],
+  "pdf_links": [
+    "https://brwa.id/files/reg-perda-prov-bali_nomor_4_tahun_2019_tentang_desa_adat.pdf",
+    "https://brwa.id/files/reg-2019-sk-penetapan-hutan-adat-mekori-tabanan-bali.pdf",
+    "https://brwa.id/files/reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ],
+  "gallery_images": [],
+  "has_geojson": true,
+  "geometry_type": "Polygon",
+  "geojson_properties": {
+    "idx": "2527",
+    "nama_kewilayahan": "Tri Kayangan Belimbing"
+  },
+  "downloaded_pdf_files": [
+    "data/pdfs/2527_reg-perda-prov-bali_nomor_4_tahun_2019_tentang_desa_adat.pdf",
+    "data/pdfs/2527_reg-2019-sk-penetapan-hutan-adat-mekori-tabanan-bali.pdf",
+    "data/pdfs/2527_reg-untuk-mengakses-dokumen-ini-silahkan-hubungi-bagian-hukum-pemerintah-daerah.pdf"
+  ]
+}
