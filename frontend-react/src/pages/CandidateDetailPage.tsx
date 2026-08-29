@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useSearchParams, Link, useNavigate } from "react-router-dom";
 import { FileText, FileSpreadsheet, MapPinned, File as FileIcon, ExternalLink, ArrowLeft, ChevronLeft, ChevronRight, Mail } from "lucide-react";
 import { api } from "../lib/api";
@@ -104,7 +104,7 @@ export function CandidateDetailPage() {
   const backHref = `/candidates${backSearchParams.toString() ? `?${backSearchParams.toString()}` : ""}`;
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-6">
+    <div className="px-6 py-6">
       <div className="mb-3 flex items-center justify-between">
         {/* Real navigation back to the list — previously missing entirely
             (the sidebar's "Candidates" link was the only way out, and it
@@ -581,9 +581,16 @@ function SectionRail({ rec, tab, setTab }: { rec: CandidateDetail; tab: Tab; set
     [rec.documents.length, rec.news_evidence.length]
   );
   const [activeId, setActiveId] = useState(visibleSections[0].id);
+  // While a click-triggered smooth-scroll is in flight, the organic
+  // scroll listener below is suppressed (see jump()) so it can't
+  // overwrite the just-clicked section with something computed from an
+  // in-between scroll position mid-animation.
+  const suppressSpyRef = useRef(false);
+  const resumeSpyTimerRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     function computeActive() {
+      if (suppressSpyRef.current) return;
       const mounted = visibleSections.filter((s) => s.tab === null || s.tab === tab);
       let current = mounted[0]?.id;
       for (const s of mounted) {
@@ -592,6 +599,32 @@ function SectionRail({ rec, tab, setTab }: { rec: CandidateDetail; tab: Tab; set
         // (~44px) + a small margin — a section counts as "current" once
         // its top has scrolled up past that real fixed chrome.
         if (el && el.getBoundingClientRect().top <= 140) current = s.id;
+      }
+      // A section near the bottom of a short tab (or the last section in
+      // ANY tab) can have less real content below its own header than
+      // the 140px rule above needs to ever scroll flush under the rail —
+      // confirmed via manual testing on both Katingan's Documents panel
+      // (91 real documents, still the LAST section in its tab) and a
+      // thin candidate's Land Rights/Evidence panels, which sit close
+      // enough together that neither could reach 140px. Once the page
+      // truly can't scroll any further, re-sweep with a much more
+      // generous line (60% down the viewport) so whichever section
+      // actually dominates the visible screen at that point wins,
+      // instead of leaving the highlight stuck on whatever was last
+      // reachable under the strict 140px rule. A section too short to
+      // ever cross even that generous line (a one-line "Evidence" panel
+      // trailing right at the very bottom, for example) simply won't
+      // out-rank the section above it that's filling most of the
+      // screen — clicking that section's own rail item still jumps to
+      // and correctly highlights it every time; only pure mouse-wheel
+      // scrolling past it is affected, not navigation.
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+      if (atBottom) {
+        const generousLine = window.innerHeight * 0.6;
+        for (const s of mounted) {
+          const el = document.getElementById(s.id);
+          if (el && el.getBoundingClientRect().top <= generousLine) current = s.id;
+        }
       }
       if (current) setActiveId(current);
     }
@@ -605,9 +638,40 @@ function SectionRail({ rec, tab, setTab }: { rec: CandidateDetail; tab: Tab; set
       const el = document.getElementById(section.id);
       if (!el) return;
       const y = el.getBoundingClientRect().top + window.scrollY - 92;
+      // Reflect the CLICKED section immediately and honestly, regardless
+      // of whether the physical scroll can actually reach "flush below
+      // the rail" — on a short tab, the browser clamps the scroll short
+      // of that target (there isn't enough page left to scroll), and
+      // without this, the rail would end up highlighting a different
+      // (often the wrong) section once the organic scroll-spy above
+      // recomputed from wherever the clamped scroll actually landed.
+      setActiveId(section.id);
+      suppressSpyRef.current = true;
+      window.clearTimeout(resumeSpyTimerRef.current);
       window.scrollTo({ top: y, behavior: "smooth" });
+      // Real smooth-scrolls of the distances on this page settle well
+      // within this window; once it's up, organic scrolling (mouse
+      // wheel, trackpad, keyboard) resumes driving the highlight as
+      // normal, including the at-bottom rule above.
+      resumeSpyTimerRef.current = window.setTimeout(() => {
+        suppressSpyRef.current = false;
+      }, 700);
     }
     if (section.tab && section.tab !== tab) {
+      // Set the highlight AND suppress organic scroll-spy the instant the
+      // click happens, not after the tab switch settles — found via a
+      // real screenshot taken ~50ms into a cross-tab click: the OLD
+      // section was still shown active for a brief moment (the tab's
+      // content had already switched underneath it, just the rail hadn't
+      // caught up yet). Switching `tab` re-runs the scroll-spy effect
+      // immediately on this same commit, and without suppressing it here
+      // too (not just inside scrollToIt below, which only runs after the
+      // double rAF delay), that effect would recompute from wherever the
+      // page happened to be scrolled BEFORE the intended scroll, briefly
+      // showing something other than the clicked section.
+      setActiveId(section.id);
+      suppressSpyRef.current = true;
+      window.clearTimeout(resumeSpyTimerRef.current);
       // Switch tabs first, then scroll once the new tab's content has
       // actually mounted (one rAF for React's commit, one more for the
       // browser's next paint/layout) — scrolling immediately would
