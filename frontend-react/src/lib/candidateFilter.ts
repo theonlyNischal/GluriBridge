@@ -19,6 +19,12 @@ export interface CandidateFilterParams {
   minCred: number | null;
   complianceFlag: string; // "" | "approaching" (compliance_badge amber OR red — same definition Dashboard's KPI card counts)
   contactResolved: string; // "" | "yes" | "no" (has_resolved_contact)
+  // "" | "yes" | "no" (has_email) — deliberately separate from
+  // contactResolved (2026-08-31 audit): a resolved contact can be a Tier
+  // A registrant NAME with no email at all (83 of 144 real candidates),
+  // which is not "ready for outreach." This is the one param that means
+  // an actual email address is on file.
+  hasEmail: string;
   // "" | a normalizeProvince() output label (e.g. "Kalimantan Tengah",
   // "Not available") — Territory Discovery's left filter panel and its
   // province-region selection both drive this same param, never a
@@ -37,6 +43,7 @@ export const DEFAULT_FILTER_PARAMS: CandidateFilterParams = {
   minCred: null,
   complianceFlag: "",
   contactResolved: "",
+  hasEmail: "",
   province: "",
   brwaOverlap: "",
   sortKey: null,
@@ -70,6 +77,8 @@ export function applyCandidateFilter(candidates: CandidateListRow[], params: Can
   if (params.complianceFlag === "approaching") out = out.filter((r) => r.compliance_badge === "amber" || r.compliance_badge === "red");
   if (params.contactResolved === "yes") out = out.filter((r) => r.has_resolved_contact);
   if (params.contactResolved === "no") out = out.filter((r) => !r.has_resolved_contact);
+  if (params.hasEmail === "yes") out = out.filter((r) => r.has_email);
+  if (params.hasEmail === "no") out = out.filter((r) => !r.has_email);
   if (params.province) out = out.filter((r) => normalizeProvince(r.province) === params.province);
   if (params.brwaOverlap === "yes") out = out.filter((r) => r.has_brwa_evidence);
   if (params.brwaOverlap === "no") out = out.filter((r) => !r.has_brwa_evidence);
@@ -97,6 +106,7 @@ export function filterParamsToSearchParams(params: CandidateFilterParams): URLSe
   if (params.minCred != null) sp.set("minCred", String(params.minCred));
   if (params.complianceFlag) sp.set("compliance", params.complianceFlag);
   if (params.contactResolved) sp.set("contactResolved", params.contactResolved);
+  if (params.hasEmail) sp.set("hasEmail", params.hasEmail);
   if (params.province) sp.set("province", params.province);
   if (params.brwaOverlap) sp.set("brwaOverlap", params.brwaOverlap);
   if (params.sortKey) {
@@ -126,6 +136,7 @@ export function searchParamsToFilterParams(sp: URLSearchParams): CandidateFilter
     minCred: parseIntParam(sp, "minCred"),
     complianceFlag: sp.get("compliance") ?? "",
     contactResolved: sp.get("contactResolved") ?? "",
+    hasEmail: sp.get("hasEmail") ?? "",
     province: sp.get("province") ?? "",
     brwaOverlap: sp.get("brwaOverlap") ?? "",
     sortKey: sortKey === "need_score" || sortKey === "credibility_score" ? sortKey : null,

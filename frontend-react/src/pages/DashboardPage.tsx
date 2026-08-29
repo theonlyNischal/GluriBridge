@@ -22,6 +22,12 @@ export function DashboardPage() {
   const highCred = candidates.filter((r) => r.credibility_score >= 70).length;
   const approachingDeadline = candidates.filter((r) => r.compliance_badge === "amber" || r.compliance_badge === "red").length;
   const resolvedContact = candidates.filter((r) => r.has_resolved_contact).length;
+  // Deliberately separate from resolvedContact (2026-08-31 audit, real
+  // live numbers: 87 of 144 have SOME contact on file, but only 4 of
+  // those are an actual email — 83 are a Tier A registrant NAME with no
+  // email at all). Conflating the two in the summary sentence was
+  // exactly the "resolved contact" language this fixes.
+  const hasEmail = candidates.filter((r) => r.has_email).length;
 
   const richness: Record<string, number> = { rich: 0, corroborated: 0, thin: 0 };
   candidates.forEach((r) => {
@@ -50,17 +56,28 @@ export function DashboardPage() {
       </div>
 
       {/* Executive summary — the same real counts as the KPI cards below,
-          framed as plain sentences rather than only cards, plus one real
-          count (resolved contact) that doesn't have its own card. Every
-          number here is clickable and links to the exact filtered
-          Candidates view it describes — never a static, unverifiable claim. */}
+          framed as plain sentences rather than only cards, plus two real
+          counts (resolved contact, has email) that don't have their own
+          cards. Every number here is clickable and links to the exact
+          filtered Candidates view it describes — never a static,
+          unverifiable claim.
+
+          2026-08-31 audit fix: this used to say "{resolvedContact} have a
+          resolved contact ready for outreach" — false. has_resolved_contact
+          is true for a Tier A registrant NAME with no email at all (83 of
+          144 real candidates) — not ready for outreach in any real sense.
+          Now states both numbers with their real, distinct meanings, and
+          links each to its own accurately-filtered view (contactResolved=yes
+          vs. hasEmail=yes are different filters — see candidateFilter.ts). */}
       <div className="mb-4 rounded-xl border border-stone-200 bg-white px-5 py-4">
         <p className="text-[14px] leading-relaxed text-stone-700">
           <SummaryLink to="/candidates">{total} real candidates</SummaryLink> are tracked in this pipeline.{" "}
           <SummaryLink to="/candidates?minNeed=70">{highNeed}</SummaryLink> show high need (need_score ≥ 70) and{" "}
           <SummaryLink to="/candidates?minCred=70">{highCred}</SummaryLink> show high credibility (credibility_score ≥ 70) — independent axes,
-          never combined into one ranking. <SummaryLink to="/candidates?contactResolved=yes">{resolvedContact}</SummaryLink> have a resolved
-          contact ready for outreach, and <SummaryLink to="/candidates?compliance=approaching">{approachingDeadline}</SummaryLink> face an
+          never combined into one ranking. <SummaryLink to="/candidates?contactResolved=yes">{resolvedContact}</SummaryLink> have some contact on
+          file (a registry name or an email), but only <SummaryLink to="/candidates?hasEmail=yes">{hasEmail}</SummaryLink> of those have an actual
+          email address ready for outreach — the rest are a name on file with nothing to send to. And{" "}
+          <SummaryLink to="/candidates?compliance=approaching">{approachingDeadline}</SummaryLink> face an
           approaching Pasal 61 compliance deadline (amber/red).
         </p>
       </div>

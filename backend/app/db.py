@@ -291,6 +291,14 @@ def _detail_to_list_row(d: dict, status: dict = None) -> dict:
         "land_rights_category": d["land_rights"]["land_rights_category"],
         "has_named_contact": bool(contact and contact.get("name")),
         "has_resolved_contact": bool(contact and contact.get("contact_source")),
+        # Distinct from has_resolved_contact on purpose (2026-08-31 audit) —
+        # "resolved contact" is true for a Tier A registrant NAME with no
+        # email at all (the overwhelming majority: 83 of 144 real
+        # candidates), which is NOT "ready for outreach" the way the
+        # Dashboard's summary sentence used to imply. This is the one real
+        # field that means "there is an actual email address on file,"
+        # true only for real Tier B (org_website) resolutions today.
+        "has_email": bool(contact and contact.get("email")),
         "document_count": len(d.get("documents") or []),
         "news_evidence_count": len(d.get("news_evidence") or []),
         "status": status["status"],
