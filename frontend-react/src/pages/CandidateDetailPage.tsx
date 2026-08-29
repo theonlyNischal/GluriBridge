@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams, Link, useNavigate } from "react-router-dom";
-import { FileText, FileSpreadsheet, MapPinned, File as FileIcon, ExternalLink, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileText, FileSpreadsheet, MapPinned, File as FileIcon, ExternalLink, ArrowLeft, ChevronLeft, ChevronRight, Mail } from "lucide-react";
 import { api } from "../lib/api";
 import { useCandidates } from "../lib/CandidatesContext";
 import { fmtScore } from "../lib/format";
@@ -146,6 +146,8 @@ export function CandidateDetailPage() {
         )}
       </div>
 
+      <SectionRail rec={rec} tab={tab} setTab={setTab} />
+
       {/* ---------- hero ---------- */}
       <div className="rounded-xl border border-stone-200 bg-white p-5">
         <h1 className="font-display text-2xl font-semibold leading-tight text-stone-900">{identity.name}</h1>
@@ -163,7 +165,7 @@ export function CandidateDetailPage() {
             prominently they're shown, never what they say. The bare
             ScoreLabelPill that used to sit here on its own, duplicating
             the one inside the box below, is gone. */}
-        <div className="mt-3">
+        <div id="sec-hero" className="mt-3">
           <WhyContactFirst scoring={scoring} dossier={dossier} />
         </div>
 
@@ -177,7 +179,7 @@ export function CandidateDetailPage() {
             tighter card — see ScoreStatCard) so the page's dominant
             visual element is "why contact this candidate", not the raw
             numbers — but the two cards remain identical to each other. */}
-        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div id="sec-scores" className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
           <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay">
             <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" />
           </ScoreStatCard>
@@ -266,7 +268,7 @@ export function CandidateDetailPage() {
       {/* ---------- overview ---------- */}
       {tab === "overview" && (
         <div className="mt-4 space-y-4">
-          <Panel title="Land rights" className="!p-4">
+          <Panel id="sec-land-rights" title="Land rights" className="!p-4">
             <div className="space-y-3">
               {land_rights.land_rights_category ? (
                 <div className="rounded-lg border border-forest-200 bg-forest-50 px-3.5 py-2.5">
@@ -350,7 +352,7 @@ export function CandidateDetailPage() {
           {documents.length > 0 && <DocumentsPanel documents={documents} expanded={docsExpanded} onToggle={() => setDocsExpanded((v) => !v)} />}
 
           {news_evidence.length > 0 && (
-            <Panel title={`News evidence (${news_evidence.length})`} className="!p-4">
+            <Panel id="sec-evidence" title={`News evidence (${news_evidence.length})`} className="!p-4">
               <ul className="space-y-2">
                 {news_evidence.map((n, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px]">
@@ -369,7 +371,7 @@ export function CandidateDetailPage() {
 
       {/* ---------- compliance ---------- */}
       {tab === "compliance" && (
-        <div className="mt-4 space-y-4">
+        <div id="sec-compliance" className="mt-4 space-y-4">
           {scoring.compliance.deadline && (
             <div className="rounded-xl border border-compliance-amber/30 bg-compliance-amberBg p-4 text-center">
               <div className="font-mono text-figure text-compliance-amber">{scoring.compliance.days_until_deadline}</div>
@@ -401,7 +403,7 @@ export function CandidateDetailPage() {
       {/* ---------- dossier ---------- */}
       {tab === "dossier" && (
         <div className="mt-4 space-y-4">
-          <Panel title="Why Gluri" className="!p-4">
+          <Panel id="sec-dossier" title="Why Gluri" className="!p-4">
             <ReasonList reasons={dossier.structured.why_gluri} kind="need" />
           </Panel>
           {dossier.structured.land_and_regulatory && (
@@ -413,7 +415,7 @@ export function CandidateDetailPage() {
               <p className="mt-2 text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.compliance_text}</p>
             </Panel>
           )}
-          <Panel title="Contact route" className="!p-4">
+          <Panel id="sec-contact" title="Contact route" className="!p-4">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.contact_route}</p>
           </Panel>
           <Panel title="Suggested point of contact" className="!p-4">
@@ -438,7 +440,7 @@ export function CandidateDetailPage() {
 
       {/* ---------- outreach ---------- */}
       {tab === "outreach" && (
-        <div className="mt-4">
+        <div id="sec-outreach" className="mt-4">
           <Panel title="Outreach draft" className="!p-4">
             {!outreach || outreach.structured.recipient_status === "insufficient_contact" ? (
               <HonestState kind="insufficient" label="Cannot generate outreach yet">
@@ -461,13 +463,38 @@ export function CandidateDetailPage() {
                   <dt className="font-semibold text-stone-500">Subject</dt>
                   <dd className="text-stone-800">{lang === "en" ? outreach.structured.subject_en : outreach.structured.subject_id}</dd>
                 </dl>
-                <div className="mt-3 inline-flex overflow-hidden rounded-md border border-stone-200 text-[12px] font-semibold">
-                  <button onClick={() => setLang("en")} className={`px-3 py-1 ${lang === "en" ? "bg-forest-600 text-white" : "bg-white text-stone-500"}`}>
-                    EN
-                  </button>
-                  <button onClick={() => setLang("id")} className={`px-3 py-1 ${lang === "id" ? "bg-forest-600 text-white" : "bg-white text-stone-500"}`}>
-                    ID
-                  </button>
+                <div className="mt-3 flex items-center justify-between gap-3">
+                  <div className="inline-flex overflow-hidden rounded-md border border-stone-200 text-[12px] font-semibold">
+                    <button onClick={() => setLang("en")} className={`px-3 py-1 ${lang === "en" ? "bg-forest-600 text-white" : "bg-white text-stone-500"}`}>
+                      EN
+                    </button>
+                    <button onClick={() => setLang("id")} className={`px-3 py-1 ${lang === "id" ? "bg-forest-600 text-white" : "bg-white text-stone-500"}`}>
+                      ID
+                    </button>
+                  </div>
+                  {/* Real mailto action — opens the user's own local email
+                      client, no in-app sending, no new backend. Keyed off
+                      `to` being a non-null real email — NOT off
+                      recipient_status's name alone: "name_only_no_email"
+                      means exactly what it says (a name, no email; to is
+                      null), it's "ready" and "email_only_no_name" whose
+                      backend logic (outreach.py's `_recipient_status` /
+                      the `"to": contact.email if status in ("ready",
+                      "email_only_no_name") else None` line) actually
+                      populates a real address. Checking `to` directly is
+                      both simpler and the one condition guaranteed to
+                      never render a dead/empty mailto link. */}
+                  {outreach.structured.to && (
+                    <a
+                      href={`mailto:${outreach.structured.to}?subject=${encodeURIComponent(lang === "en" ? outreach.structured.subject_en : outreach.structured.subject_id)}&body=${encodeURIComponent(
+                        lang === "en" ? outreach.structured.body_en : outreach.structured.body_id
+                      )}`}
+                      title={`Open in your email client — to ${outreach.structured.to}`}
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-forest-600 px-3 py-1.5 text-[12.5px] font-semibold text-white hover:bg-forest-700"
+                    >
+                      <Mail size={14} /> Send email
+                    </a>
+                  )}
                 </div>
                 <pre className="mt-3 whitespace-pre-wrap rounded-lg bg-stone-100 p-4 font-mono text-[12.5px] leading-relaxed text-stone-700">{lang === "en" ? outreach.structured.body_en : outreach.structured.body_id}</pre>
               </div>
@@ -507,6 +534,110 @@ function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scori
   );
 }
 
+type RailSection = { id: string; label: string; tab: Tab | null };
+
+// The page's real sections, in real page order. `tab: null` sections are
+// always mounted (hero, scores); everything else only actually exists in
+// the DOM while its own tab is selected, so a click on one of those first
+// switches to that tab, then scrolls — never jumps to something that
+// isn't really there yet.
+const RAIL_SECTIONS: RailSection[] = [
+  { id: "sec-hero", label: "Why Contact First", tab: null },
+  { id: "sec-scores", label: "Scores", tab: null },
+  { id: "sec-land-rights", label: "Land Rights", tab: "overview" },
+  { id: "sec-documents", label: "Documents", tab: "overview" },
+  { id: "sec-evidence", label: "Evidence", tab: "overview" },
+  { id: "sec-compliance", label: "Compliance", tab: "compliance" },
+  { id: "sec-dossier", label: "Dossier", tab: "dossier" },
+  { id: "sec-contact", label: "Contact", tab: "dossier" },
+  { id: "sec-outreach", label: "Outreach", tab: "outreach" },
+];
+
+/**
+ * Pure wayfinding, NOT a workflow/pipeline stepper — the same distinction
+ * already made for the Dashboard (data_richness/scores are independent
+ * facts recomputed each run, not stages a candidate progresses through
+ * over time), applied here: these are the same section headings that
+ * already exist on the page, nothing new is claimed by listing them, and
+ * nothing here implies a candidate "moves through" Land Rights ->
+ * Compliance -> Outreach in sequence. It's just a way to jump around an
+ * admittedly dense page.
+ *
+ * Tabs stay (their real job — reducing how much of this dense page is
+ * mounted at once — is unchanged); this rail switches tabs on the
+ * caller's behalf when a section lives in a different one, then scrolls.
+ * Scroll-spy only ever inspects ids that are actually mounted for the
+ * CURRENT tab, so the highlighted item never claims a section is visible
+ * when it isn't.
+ */
+function SectionRail({ rec, tab, setTab }: { rec: CandidateDetail; tab: Tab; setTab: (t: Tab) => void }) {
+  const visibleSections = useMemo(
+    () =>
+      RAIL_SECTIONS.filter((s) => {
+        if (s.id === "sec-documents") return rec.documents.length > 0;
+        if (s.id === "sec-evidence") return rec.news_evidence.length > 0;
+        return true;
+      }),
+    [rec.documents.length, rec.news_evidence.length]
+  );
+  const [activeId, setActiveId] = useState(visibleSections[0].id);
+
+  useEffect(() => {
+    function computeActive() {
+      const mounted = visibleSections.filter((s) => s.tab === null || s.tab === tab);
+      let current = mounted[0]?.id;
+      for (const s of mounted) {
+        const el = document.getElementById(s.id);
+        // 140px accounts for the sticky header (48px) + this rail
+        // (~44px) + a small margin — a section counts as "current" once
+        // its top has scrolled up past that real fixed chrome.
+        if (el && el.getBoundingClientRect().top <= 140) current = s.id;
+      }
+      if (current) setActiveId(current);
+    }
+    computeActive();
+    window.addEventListener("scroll", computeActive, { passive: true });
+    return () => window.removeEventListener("scroll", computeActive);
+  }, [tab, visibleSections]);
+
+  function jump(section: RailSection) {
+    function scrollToIt() {
+      const el = document.getElementById(section.id);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 92;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+    if (section.tab && section.tab !== tab) {
+      // Switch tabs first, then scroll once the new tab's content has
+      // actually mounted (one rAF for React's commit, one more for the
+      // browser's next paint/layout) — scrolling immediately would
+      // target an element that doesn't exist in the DOM yet.
+      setTab(section.tab);
+      requestAnimationFrame(() => requestAnimationFrame(scrollToIt));
+    } else {
+      scrollToIt();
+    }
+  }
+
+  return (
+    <nav aria-label="Jump to section" className="sticky top-12 z-[5] -mx-6 mb-3 border-b border-stone-200 bg-white/95 px-6 backdrop-blur">
+      <div className="flex flex-wrap gap-1 overflow-x-auto py-2 text-[12px]">
+        {visibleSections.map((s) => (
+          <button
+            key={s.id}
+            onClick={() => jump(s)}
+            className={`whitespace-nowrap rounded-full px-2.5 py-1 font-semibold transition ${
+              activeId === s.id ? "bg-forest-600 text-white" : "text-stone-500 hover:bg-stone-100 hover:text-stone-700"
+            }`}
+          >
+            {s.label}
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
 function documentIcon(url: string) {
   const ext = url.split(".").pop()?.toLowerCase().split("?")[0];
   if (ext === "xlsx" || ext === "xls" || ext === "csv") return FileSpreadsheet;
@@ -518,7 +649,7 @@ function documentIcon(url: string) {
 function DocumentsPanel({ documents, expanded, onToggle }: { documents: DocumentRef[]; expanded: boolean; onToggle: () => void }) {
   const shown = expanded ? documents : documents.slice(0, DOCS_COLLAPSED_COUNT);
   return (
-    <Panel title={`Documents (${documents.length})`} className="!p-4">
+    <Panel id="sec-documents" title={`Documents (${documents.length})`} className="!p-4">
       {/* Real evidence, never truncated out of existence — Katingan
           genuinely has 91 real, unique documents (VCS 1477's own
           multi-year monitoring/verification history). Collapsed to a
