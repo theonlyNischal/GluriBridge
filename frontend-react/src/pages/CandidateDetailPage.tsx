@@ -41,6 +41,19 @@ export function CandidateDetailPage() {
   const [tab, setTab] = useState<Tab>(() => (isTab(searchParams.get("tab")) ? (searchParams.get("tab") as Tab) : "overview"));
   const [lang, setLang] = useState<"en" | "id">("en");
   const [docsExpanded, setDocsExpanded] = useState(false);
+  // Invisible bottom spacer (2026-08-31) — the section rail can only ever
+  // scroll a section flush under it if there's enough real page below
+  // that section to physically scroll into; a short tab's last section(s)
+  // otherwise land mid-screen no matter what the rail's own math does
+  // (confirmed via a real click-through: Katingan's Documents/Contact/
+  // Outreach, a thin candidate's Land Rights/Evidence/Dossier/Contact/
+  // Outreach). This adds exactly enough dead space below the real content
+  // — recomputed per tab/candidate, never a fixed guess — so every
+  // rail-tracked section CAN reach the top. Nobody reading top-to-bottom
+  // ever sees it (it's past the real content); it only exists for the
+  // rail to scroll into.
+  const [bottomSpacerPx, setBottomSpacerPx] = useState(0);
+  const bottomSpacerPxRef = useRef(0);
 
   useEffect(() => {
     if (!id) return;
@@ -56,6 +69,42 @@ export function CandidateDetailPage() {
     setTab(isTab(t) ? t : "overview");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  // Recomputes the invisible bottom spacer above whenever the current
+  // tab, candidate, or documents-expanded state changes (each can change
+  // which section is physically last, or how tall the page naturally is).
+  // Declared before the early returns below (rules of hooks — every hook
+  // must run unconditionally) but no-ops via the `!rec` guard until a
+  // candidate has actually loaded.
+  useEffect(() => {
+    if (!rec) return;
+    function recompute() {
+      const mounted = RAIL_SECTIONS.filter((s) => {
+        if (s.tab !== null && s.tab !== tab) return false;
+        if (s.id === "sec-documents") return rec!.documents.length > 0;
+        if (s.id === "sec-evidence") return rec!.news_evidence.length > 0;
+        return true;
+      });
+      let maxTop = 0;
+      for (const s of mounted) {
+        const el = document.getElementById(s.id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (top > maxTop) maxTop = top;
+        }
+      }
+      // Back out whatever spacer WE already applied to get the page's true
+      // natural height, not a measurement inflated by our own last pass —
+      // otherwise this would ratchet upward forever.
+      const naturalHeight = document.documentElement.scrollHeight - bottomSpacerPxRef.current;
+      const needed = Math.max(0, Math.round(maxTop - 92 + window.innerHeight - naturalHeight));
+      bottomSpacerPxRef.current = needed;
+      setBottomSpacerPx(needed);
+    }
+    recompute();
+    window.addEventListener("resize", recompute);
+    return () => window.removeEventListener("resize", recompute);
+  }, [rec, tab, docsExpanded]);
 
   // Prev/next through the EXACT curated set the user was actually looking
   // at on the Candidates list — not the raw 144 in default order. Reuses
@@ -502,6 +551,12 @@ export function CandidateDetailPage() {
           </Panel>
         </div>
       )}
+
+      {/* Invisible bottom spacer — see the bottomSpacerPx effect above.
+          Real, measured dead space, never a guessed constant; 0px on any
+          candidate/tab where every rail section already has enough real
+          content below it to reach the top on its own. */}
+      <div aria-hidden style={{ height: bottomSpacerPx }} />
     </div>
   );
 }
