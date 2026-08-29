@@ -113,3 +113,72 @@ mock_client_5 = MockTavilyClient({
 result5 = find_org_website_contact("Hutan Rakyat Mandiri", mock_client_5)
 print(result5)
 print("Expect found=True, confidence=high (copyright_footer signal)")
+
+print()
+print("=== Case 6 (real case, 2026-08-31): short-name-only self-ID via copyright footer ===")
+print("(the exact real PILI-Green Network pattern: org's own page never spells out")
+print(" the full formal 'Yayasan ...' name, only its short/common name)")
+mock_client_6 = MockTavilyClient({
+    "Yayasan Pusat Informasi Lingkungan Indonesia": {
+        "results": [
+            {
+                "url": "https://pili.or.id/kontak",
+                "title": "Kontak - PILI",
+                "content": (
+                    "Email: info@pili.or.id. "
+                    "© 2026 PILI-Green Network. All rights reserved."
+                ),
+            },
+        ]
+    }
+})
+result6 = find_org_website_contact("Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)", mock_client_6)
+print(result6)
+print("Expect found=True, confidence=high (copyright_footer signal, via the SHORT name)")
+
+print()
+print("=== Case 7 (ADVERSARIAL, guards the new short-name path): coincidental short-name")
+print(" collision on an unrelated third-party narrative page, mirroring Case 4's exact pattern")
+mock_client_7 = MockTavilyClient({
+    "Yayasan Konservasi Alam Contoh": {
+        "results": [
+            {
+                "url": "https://beritalingkungan.id/artikel/kas-terima-dana-hibah",
+                "title": "KAS Terima Dana Hibah dari Pemerintah",
+                "content": (
+                    "KAS mengumumkan penerimaan dana hibah senilai Rp 2 miliar. "
+                    "Menurut juru bicara kementerian, dana ini akan digunakan untuk restorasi lahan. "
+                    "Kirim tips berita ke tips@beritalingkungan.id."
+                ),
+            },
+        ]
+    }
+})
+result7 = find_org_website_contact("Yayasan Konservasi Alam Contoh (KAS)", mock_client_7)
+print(result7)
+print("Expect found=False -- 'KAS' (3 chars) is below SHORT_SLUG_THRESHOLD, so only Signal 1")
+print("(copyright footer) is trusted for it, same as any other short slug -- this narrative")
+print("page has no copyright footer naming KAS, so it must still be rejected.")
+
+print()
+print("=== Case 8 (ADVERSARIAL): short name long enough for weaker signals, but page is still")
+print(" genuinely third-party narrative (not org's own site) -- must still reject")
+mock_client_8 = MockTavilyClient({
+    "Yayasan Konservasi Hutan Nusantara": {
+        "results": [
+            {
+                "url": "https://beritalingkungan.id/artikel/konservasi-hutan-nusantara-dana",
+                "title": "Konservasi Hutan Nusantara Terima Dana Hibah dari Pemerintah",
+                "content": (
+                    "Konservasi Hutan Nusantara mengumumkan penerimaan dana hibah senilai Rp 2 miliar. "
+                    "Menurut juru bicara kementerian, dana ini akan digunakan untuk restorasi lahan. "
+                    "Kirim tips berita ke tips@beritalingkungan.id."
+                ),
+            },
+        ]
+    }
+})
+result8 = find_org_website_contact("Yayasan Konservasi Hutan Nusantara (Konservasi Hutan Nusantara)", mock_client_8)
+print(result8)
+print("Expect found=False -- long slug but third-party narrative, no label separator in title,")
+print("no copyright footer -- same protections as Case 4, now exercised via the short-name path.")

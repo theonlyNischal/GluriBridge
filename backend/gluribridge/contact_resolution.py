@@ -149,6 +149,27 @@ def _title_self_identifies(title: str, org: str) -> bool:
     return False
 
 
+def _extract_short_name(org: str) -> str | None:
+    """
+    Real Indonesian org names very often take the shape 'Yayasan <full
+    descriptive name> (<short/common name>)' — e.g. this exact real
+    candidate: 'Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green
+    Network)'. Traced on real data (2026-08-31): the org's OWN real
+    website (pili.or.id) reads "Email: piligreennetwork@gmail.com..." —
+    the real email is right there, but the FULL org slug
+    ('yayasanpusatinformasilingkunganindonesia') never appears anywhere
+    on the page, because the organization never spells out its own full
+    formal name in ordinary page copy — it just calls itself
+    "PILI-Green Network". _self_identifies_as previously only ever
+    checked the full name, so this genuine self-identification was
+    invisible to it. Returns the parenthetical content when the org name
+    ends with one, None otherwise — never invented, never a fuzzy guess,
+    just the literal substring already present in the org field.
+    """
+    m = re.search(r"\(([^)]+)\)\s*$", org)
+    return m.group(1).strip() if m else None
+
+
 def _self_identifies_as(text: str, org: str, title: str = "") -> dict:
     """
     Checks whether the page CONTENT self-identifies as the organization,
@@ -159,6 +180,24 @@ def _self_identifies_as(text: str, org: str, title: str = "") -> dict:
     the news outlet, not the company it's reporting on, and its language
     describes the org in third person, not first person.
 
+    Tries the full org name first, then its extracted short/common name
+    (see _extract_short_name) as a fallback ONLY if the full name found
+    nothing — same signal hierarchy, same thresholds, same proximity
+    window for either name, just a second literal string to check against
+    (2026-08-31, traced on the real PILI-Green Network case above). Not a
+    loosening of any existing rule: a short name that itself lands below
+    SHORT_SLUG_THRESHOLD still only gets Signal 1, exactly like the full
+    name would in the same situation — see _self_identifies_as_single.
+    """
+    short_name = _extract_short_name(org)
+    result = _self_identifies_as_single(text, org, title)
+    if result["self_identifies"] or not short_name:
+        return result
+    return _self_identifies_as_single(text, short_name, title)
+
+
+def _self_identifies_as_single(text: str, org: str, title: str = "") -> dict:
+    """
     title and text are checked SEPARATELY, deliberately — see
     _title_self_identifies's docstring for why blending them into one
     proximity-window search (an earlier version of this fix) was itself a
