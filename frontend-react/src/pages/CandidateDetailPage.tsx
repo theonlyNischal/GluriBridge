@@ -151,33 +151,33 @@ export function CandidateDetailPage() {
         <h1 className="font-display text-2xl font-semibold leading-tight text-stone-900">{identity.name}</h1>
         <div className="mt-1 text-[14px] text-stone-500">{identity.org ?? "—"}</div>
 
-        {/* Quick-glance label — the SAME score_label already calibrated
-            against real data for the list view, reused here rather than a
-            new "Priority: HIGH/MEDIUM/LOW" scale invented for this page.
-            Numbers aren't repeated next to it here (showNumbers=false):
-            the two equal-size score cards right below already show both
-            real numbers at full weight. */}
-        <div className="mt-2.5">
-          <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} />
-        </div>
-
-        {/* The recommendation — placed here, BEFORE the score cards below,
-            not after them. The cards' reason lists are themselves
-            supporting evidence (can run long for a well-documented
-            candidate like Katingan, ~7 stacked reasons), so putting the
-            recommendation after them would bury it below a screen of
-            detail for exactly the richest candidates — the opposite of
-            "first substantive thing you see." */}
+        {/* ---------- WHY CONTACT THIS CANDIDATE — the page's real visual
+            hero (2026-08-30 restructure). Gluri's own stated Q&A framing
+            ("why a given candidate should be contacted first", "what to
+            propose in that first outreach") is now the first substantive
+            thing visible, not something read into two score cards or a
+            wall of evidence panels below. Every word and badge inside
+            WhyContactFirst is the same real field already used elsewhere
+            on this page (score_label, compliance badge,
+            dossier.suggested_poc, contact_route) — this only changes HOW
+            prominently they're shown, never what they say. The bare
+            ScoreLabelPill that used to sit here on its own, duplicating
+            the one inside the box below, is gone. */}
         <div className="mt-3">
-          <SuggestedNextStep scoring={scoring} dossier={dossier} />
+          <WhyContactFirst scoring={scoring} dossier={dossier} />
         </div>
 
         {/* Need and Credibility — deliberately identical size, weight, and
-            treatment. Never ranked against each other: a candidate can be
-            low on one and high on the other (Katingan: need 11.1,
-            credibility 88.2, this project's single best-evidenced
-            candidate all session) and neither number is "worse." */}
-        <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+            treatment RELATIVE TO EACH OTHER. Never ranked against each
+            other: a candidate can be low on one and high on the other
+            (Katingan: need 11.1, credibility 88.2, this project's single
+            best-evidenced candidate all session) and neither number is
+            "worse". Demoted as a PAIR to a secondary position below the
+            recommendation above (smaller figures, thinner accent border,
+            tighter card — see ScoreStatCard) so the page's dominant
+            visual element is "why contact this candidate", not the raw
+            numbers — but the two cards remain identical to each other. */}
+        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
           <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay">
             <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" />
           </ScoreStatCard>
@@ -480,23 +480,29 @@ export function CandidateDetailPage() {
 }
 
 /**
- * Item 4 — a real recommendation panel, built entirely from fields that
- * already exist and are already computed honestly: dossier.suggested_poc
- * (the real generated text), contact_route, the real compliance badge,
- * and the same score_label shown in the hero. No LLM call here, no
- * invented confidence percentage — every word and badge on this panel
- * traces to a real field already used elsewhere on this exact page.
+ * The page's real visual hero (2026-08-30 restructure — previously a
+ * quiet monospace note below the title called "Suggested next step",
+ * sitting beside two much louder score cards). Answers Gluri's own
+ * stated Q&A framing directly: WHY this candidate should be contacted
+ * first (score_label + compliance badge — the same calibrated signals
+ * shown everywhere else in the app) and WHAT to propose in that first
+ * outreach (dossier.suggested_poc, contact_route — the same real
+ * generated text already shown on the Dossier tab's "Contact route" /
+ * "Suggested point of contact" panels). No LLM call here, no invented
+ * confidence percentage, no new sentence anywhere — every word and badge
+ * on this panel traces to a real field already used elsewhere on this
+ * exact page; only its size, position, and visual weight changed.
  */
-function SuggestedNextStep({ scoring, dossier }: { scoring: CandidateDetail["scoring"]; dossier: CandidateDetail["dossier"] }) {
+function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scoring"]; dossier: CandidateDetail["dossier"] }) {
   return (
-    <div className="rounded-xl border border-forest-200 bg-forest-50/40 p-4">
-      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-forest-700">Suggested next step</div>
-      <div className="mt-2 flex flex-wrap items-center gap-2">
+    <div className="rounded-xl border-2 border-forest-300 bg-forest-50 p-5">
+      <div className="text-[11.5px] font-bold uppercase tracking-wide text-forest-700">Why contact this candidate first</div>
+      <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
         <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} />
         <ComplianceBadge badge={scoring.compliance.badge} />
       </div>
-      <p className="mt-3 text-[14px] font-medium leading-relaxed text-stone-800">{dossier.structured.suggested_poc}</p>
-      <p className="mt-2 text-[13px] leading-relaxed text-stone-600">{dossier.structured.contact_route}</p>
+      <p className="mt-3 font-display text-[19px] font-semibold leading-snug text-stone-900">{dossier.structured.suggested_poc}</p>
+      <p className="mt-2 text-[14px] leading-relaxed text-stone-700">{dossier.structured.contact_route}</p>
     </div>
   );
 }
