@@ -28,6 +28,14 @@ export function DashboardPage() {
   // email at all). Conflating the two in the summary sentence was
   // exactly the "resolved contact" language this fixes.
   const hasEmail = candidates.filter((r) => r.has_email).length;
+  // A real, manual spot-check found one of those 4 emails (a huge
+  // conglomerate's generic contact page, "medium" confidence, not
+  // clearly tied to the specific candidate) genuinely real but weaker
+  // than the other three (each "high" confidence, confirmed via the
+  // org's own copyright-footer self-identification) — kept as its own
+  // distinct, separately-labeled bucket rather than lumped into hasEmail
+  // above or silently dropped from the record entirely.
+  const lowConfidenceEmail = candidates.filter((r) => r.has_low_confidence_email).length;
 
   const richness: Record<string, number> = { rich: 0, corroborated: 0, thin: 0 };
   candidates.forEach((r) => {
@@ -75,8 +83,10 @@ export function DashboardPage() {
           <SummaryLink to="/candidates?minNeed=70">{highNeed}</SummaryLink> show high need (need_score ≥ 70) and{" "}
           <SummaryLink to="/candidates?minCred=70">{highCred}</SummaryLink> show high credibility (credibility_score ≥ 70) — independent axes,
           never combined into one ranking. <SummaryLink to="/candidates?contactResolved=yes">{resolvedContact}</SummaryLink> have some contact on
-          file (a registry name or an email), but only <SummaryLink to="/candidates?hasEmail=yes">{hasEmail}</SummaryLink> of those have an actual
-          email address ready for outreach — the rest are a name on file with nothing to send to. And{" "}
+          file (a registry name or an email), but only <SummaryLink to="/candidates?hasEmail=yes">{hasEmail}</SummaryLink> of those have a
+          confidently-resolved email ready for outreach (plus{" "}
+          <SummaryLink to="/candidates?lowConfidenceEmail=yes">{lowConfidenceEmail}</SummaryLink> more with a real email that's a weaker,
+          lower-confidence match — worth a manual check before relying on it) — the rest are a name on file with nothing to send to. And{" "}
           <SummaryLink to="/candidates?compliance=approaching">{approachingDeadline}</SummaryLink> face an
           approaching Pasal 61 compliance deadline (amber/red).
         </p>

@@ -295,10 +295,23 @@ def _detail_to_list_row(d: dict, status: dict = None) -> dict:
         # "resolved contact" is true for a Tier A registrant NAME with no
         # email at all (the overwhelming majority: 83 of 144 real
         # candidates), which is NOT "ready for outreach" the way the
-        # Dashboard's summary sentence used to imply. This is the one real
-        # field that means "there is an actual email address on file,"
-        # true only for real Tier B (org_website) resolutions today.
-        "has_email": bool(contact and contact.get("email")),
+        # Dashboard's summary sentence used to imply.
+        #
+        # has_email requires contact_confidence == "high" specifically
+        # (2026-08-31 follow-up) — a real, manual spot-check found one real
+        # Tier B resolution (PT Pertamina, via a generic phe.pertamina.com
+        # contact page) that's genuinely NOT a false positive (real domain,
+        # real email, not a third party) but is only "medium" confidence
+        # and not clearly tied to the specific candidate's own forestry
+        # program, unlike the other three (all "high" confidence, each
+        # confirmed via the org's own copyright-footer self-identification).
+        # Counting it in the same "ready for outreach" bucket as those
+        # three would overstate how solid that number is, so it's counted
+        # separately below instead of silently dropped from the record —
+        # the real email stays on file and visible on that candidate's own
+        # page, just not in this confident aggregate.
+        "has_email": bool(contact and contact.get("email") and contact.get("contact_confidence") == "high"),
+        "has_low_confidence_email": bool(contact and contact.get("email") and contact.get("contact_confidence") != "high"),
         "document_count": len(d.get("documents") or []),
         "news_evidence_count": len(d.get("news_evidence") or []),
         "status": status["status"],

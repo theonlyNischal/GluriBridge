@@ -122,9 +122,16 @@ export interface CandidateListRow {
   // Distinct from has_resolved_contact (2026-08-31 audit) — resolved
   // contact is true for a Tier A registrant NAME with no email at all
   // (83 of 144 real candidates today), which is NOT "ready for
-  // outreach." True only when a real email address is actually on
-  // file (currently just the real Tier B / org_website resolutions).
+  // outreach." True only when a real email is on file AND
+  // contact_confidence is "high" — see has_low_confidence_email for the
+  // real-but-weaker matches this deliberately excludes.
   has_email: boolean;
+  // A real email is on file, but contact_confidence is NOT "high" (a
+  // genuine Tier B match, not a false positive, just not clearly tied
+  // to this specific candidate — e.g. a huge conglomerate's generic
+  // contact page). Kept as its own distinct bucket, never silently
+  // merged into has_email or dropped from the record.
+  has_low_confidence_email: boolean;
   document_count: number;
   news_evidence_count: number;
   status: CandidateStatusValue;

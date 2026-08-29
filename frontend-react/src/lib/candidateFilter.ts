@@ -25,6 +25,13 @@ export interface CandidateFilterParams {
   // which is not "ready for outreach." This is the one param that means
   // an actual email address is on file.
   hasEmail: string;
+  // "" | "yes" | "no" (has_low_confidence_email) — a real email that's
+  // genuinely on file but NOT "high" confidence (2026-08-31 follow-up:
+  // a manual spot-check found one real Tier B match too generic/weak to
+  // count alongside the confident ones in hasEmail, but not a false
+  // positive either, so it's its own distinct bucket, not silently
+  // dropped).
+  lowConfidenceEmail: string;
   // "" | a normalizeProvince() output label (e.g. "Kalimantan Tengah",
   // "Not available") — Territory Discovery's left filter panel and its
   // province-region selection both drive this same param, never a
@@ -44,6 +51,7 @@ export const DEFAULT_FILTER_PARAMS: CandidateFilterParams = {
   complianceFlag: "",
   contactResolved: "",
   hasEmail: "",
+  lowConfidenceEmail: "",
   province: "",
   brwaOverlap: "",
   sortKey: null,
@@ -79,6 +87,8 @@ export function applyCandidateFilter(candidates: CandidateListRow[], params: Can
   if (params.contactResolved === "no") out = out.filter((r) => !r.has_resolved_contact);
   if (params.hasEmail === "yes") out = out.filter((r) => r.has_email);
   if (params.hasEmail === "no") out = out.filter((r) => !r.has_email);
+  if (params.lowConfidenceEmail === "yes") out = out.filter((r) => r.has_low_confidence_email);
+  if (params.lowConfidenceEmail === "no") out = out.filter((r) => !r.has_low_confidence_email);
   if (params.province) out = out.filter((r) => normalizeProvince(r.province) === params.province);
   if (params.brwaOverlap === "yes") out = out.filter((r) => r.has_brwa_evidence);
   if (params.brwaOverlap === "no") out = out.filter((r) => !r.has_brwa_evidence);
@@ -107,6 +117,7 @@ export function filterParamsToSearchParams(params: CandidateFilterParams): URLSe
   if (params.complianceFlag) sp.set("compliance", params.complianceFlag);
   if (params.contactResolved) sp.set("contactResolved", params.contactResolved);
   if (params.hasEmail) sp.set("hasEmail", params.hasEmail);
+  if (params.lowConfidenceEmail) sp.set("lowConfidenceEmail", params.lowConfidenceEmail);
   if (params.province) sp.set("province", params.province);
   if (params.brwaOverlap) sp.set("brwaOverlap", params.brwaOverlap);
   if (params.sortKey) {
@@ -137,6 +148,7 @@ export function searchParamsToFilterParams(sp: URLSearchParams): CandidateFilter
     complianceFlag: sp.get("compliance") ?? "",
     contactResolved: sp.get("contactResolved") ?? "",
     hasEmail: sp.get("hasEmail") ?? "",
+    lowConfidenceEmail: sp.get("lowConfidenceEmail") ?? "",
     province: sp.get("province") ?? "",
     brwaOverlap: sp.get("brwaOverlap") ?? "",
     sortKey: sortKey === "need_score" || sortKey === "credibility_score" ? sortKey : null,
