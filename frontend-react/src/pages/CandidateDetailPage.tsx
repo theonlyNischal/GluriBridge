@@ -28,6 +28,43 @@ function isTab(v: string | null): v is Tab {
   return v !== null && (TABS as readonly string[]).includes(v);
 }
 
+type RailSection = { id: string; label: string; tab: Tab | null };
+
+// The page's real sections, in real page order. `tab: null` sections are
+// always mounted (hero, scores); everything else only actually exists in
+// the DOM while its own tab is selected, so a click on one of those first
+// switches to that tab, then scrolls — never jumps to something that
+// isn't really there yet.
+const RAIL_SECTIONS: RailSection[] = [
+  { id: "sec-hero", label: "Why Contact First", tab: null },
+  { id: "sec-scores", label: "Scores", tab: null },
+  { id: "sec-land-rights", label: "Land Rights", tab: "overview" },
+  { id: "sec-documents", label: "Documents", tab: "overview" },
+  { id: "sec-evidence", label: "Evidence", tab: "overview" },
+  { id: "sec-compliance", label: "Compliance", tab: "compliance" },
+  { id: "sec-dossier", label: "Dossier", tab: "dossier" },
+  { id: "sec-contact", label: "Contact", tab: "dossier" },
+  { id: "sec-outreach", label: "Outreach", tab: "outreach" },
+];
+
+// The section each top TABS-bar button jumps to — 2026-08-31 fix. The
+// tabs bar used to just call setTab(t) directly, a SEPARATE code path
+// from the rail's own jump(), so switching tabs via the plain tabs bar
+// changed `tab` (correct) but never touched the rail's own activeId
+// (only nudged by scroll position) — the rail could stay stuck on
+// whatever it last showed (typically "Scores", since hero/scores sit
+// ABOVE every tab's content and don't move when the tab underneath them
+// changes) even though the tabs bar itself had already switched. Fixed
+// by making the tabs bar call the EXACT SAME jump() the rail uses,
+// targeting each tab's own designated entry section — one function,
+// one resulting (tab, activeId, scrollY), used identically by both.
+const TAB_ENTRY_SECTION: Record<Tab, string> = {
+  overview: "sec-land-rights",
+  compliance: "sec-compliance",
+  dossier: "sec-dossier",
+  outreach: "sec-outreach",
+};
+
 export function CandidateDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -54,6 +91,136 @@ export function CandidateDetailPage() {
   // rail to scroll into.
   const [bottomSpacerPx, setBottomSpacerPx] = useState(0);
   const bottomSpacerPxRef = useRef(0);
+  // The rail's real sections for THIS candidate (Documents/Evidence only
+  // when this candidate actually has any) — the one shared list used by
+  // the rail's own rendering, computeActive() below, jump(), and the
+  // bottom-spacer effect, so none of them can silently diverge on what
+  // "the sections that exist" even means.
+  const visibleSections = useMemo(
+    () =>
+      RAIL_SECTIONS.filter((s) => {
+        if (s.id === "sec-documents") return rec ? rec.documents.length > 0 : false;
+        if (s.id === "sec-evidence") return rec ? rec.news_evidence.length > 0 : false;
+        return true;
+      }),
+    [rec]
+  );
+  // Which rail item is highlighted — 2026-08-31 fix: this used to be
+  // SectionRail's own LOCAL state, kept in sync with `tab` only via the
+  // rail's own click handler + a scroll-position listener. The top TABS
+  // bar changed `tab` through a completely separate path (a plain
+  // setTab(t) with no connection to this), so switching tabs via the
+  // tabs bar correctly updated `tab` (and the tabs bar itself, which
+  // reads `tab` directly) but left this stuck on whatever it last
+  // showed — typically "Scores", since hero/scores sit ABOVE every tab's
+  // actual content and don't move when the tab underneath them changes,
+  // so they can keep satisfying the scroll-position check even after the
+  // tab switched. Now this state (and the jump()/computeActive() logic
+  // that drives it) lives here, in the same component as `tab` itself,
+  // and the tabs bar calls the EXACT SAME jump() the rail uses — one
+  // source of truth, one code path, for both.
+  const [activeId, setActiveId] = useState(RAIL_SECTIONS[0].id);
+  // While a click-triggered smooth-scroll is in flight, the organic
+  // scroll listener below is suppressed (see jump()) so it can't
+  // overwrite the just-clicked section with something computed from an
+  // in-between scroll position mid-animation.
+  const suppressSpyRef = useRef(false);
+  const resumeSpyTimerRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    function computeActive() {
+      if (suppressSpyRef.current) return;
+      const mounted = visibleSections.filter((s) => s.tab === null || s.tab === tab);
+      let current = mounted[0]?.id;
+      for (const s of mounted) {
+        const el = document.getElementById(s.id);
+        // 140px accounts for the sticky header (48px) + this rail
+        // (~44px) + a small margin — a section counts as "current" once
+        // its top has scrolled up past that real fixed chrome.
+        if (el && el.getBoundingClientRect().top <= 140) current = s.id;
+      }
+      // A section near the bottom of a short tab (or the last section in
+      // ANY tab) can have less real content below its own header than
+      // the 140px rule above needs to ever scroll flush under the rail —
+      // confirmed via manual testing on both Katingan's Documents panel
+      // (91 real documents, still the LAST section in its tab) and a
+      // thin candidate's Land Rights/Evidence panels, which sit close
+      // enough together that neither could reach 140px. Once the page
+      // truly can't scroll any further, re-sweep with a much more
+      // generous line (60% down the viewport) so whichever section
+      // actually dominates the visible screen at that point wins,
+      // instead of leaving the highlight stuck on whatever was last
+      // reachable under the strict 140px rule. A section too short to
+      // ever cross even that generous line (a one-line "Evidence" panel
+      // trailing right at the very bottom, for example) simply won't
+      // out-rank the section above it that's filling most of the
+      // screen — clicking that section's own rail item still jumps to
+      // and correctly highlights it every time; only pure mouse-wheel
+      // scrolling past it is affected, not navigation.
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+      if (atBottom) {
+        const generousLine = window.innerHeight * 0.6;
+        for (const s of mounted) {
+          const el = document.getElementById(s.id);
+          if (el && el.getBoundingClientRect().top <= generousLine) current = s.id;
+        }
+      }
+      if (current) setActiveId(current);
+    }
+    computeActive();
+    window.addEventListener("scroll", computeActive, { passive: true });
+    return () => window.removeEventListener("scroll", computeActive);
+  }, [tab, visibleSections]);
+
+  function jump(section: RailSection) {
+    function scrollToIt() {
+      const el = document.getElementById(section.id);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 92;
+      // Reflect the CLICKED section immediately and honestly, regardless
+      // of whether the physical scroll can actually reach "flush below
+      // the rail" — on a short tab, the browser clamps the scroll short
+      // of that target (there isn't enough page left to scroll), and
+      // without this, the rail would end up highlighting a different
+      // (often the wrong) section once the organic scroll-spy above
+      // recomputed from wherever the clamped scroll actually landed.
+      setActiveId(section.id);
+      suppressSpyRef.current = true;
+      window.clearTimeout(resumeSpyTimerRef.current);
+      window.scrollTo({ top: y, behavior: "smooth" });
+      // Real smooth-scrolls of the distances on this page settle well
+      // within this window; once it's up, organic scrolling (mouse
+      // wheel, trackpad, keyboard) resumes driving the highlight as
+      // normal, including the at-bottom rule above.
+      resumeSpyTimerRef.current = window.setTimeout(() => {
+        suppressSpyRef.current = false;
+      }, 700);
+    }
+    if (section.tab && section.tab !== tab) {
+      // Set the highlight AND suppress organic scroll-spy the instant the
+      // click happens, not after the tab switch settles — found via a
+      // real screenshot taken ~50ms into a cross-tab click: the OLD
+      // section was still shown active for a brief moment (the tab's
+      // content had already switched underneath it, just the rail hadn't
+      // caught up yet). Switching `tab` re-runs the scroll-spy effect
+      // immediately on this same commit, and without suppressing it here
+      // too (not just inside scrollToIt below, which only runs after the
+      // double rAF delay), that effect would recompute from wherever the
+      // page happened to be scrolled BEFORE the intended scroll, briefly
+      // showing something other than the clicked section.
+      setActiveId(section.id);
+      suppressSpyRef.current = true;
+      window.clearTimeout(resumeSpyTimerRef.current);
+      // Switch tabs first, then scroll once the new tab's content has
+      // actually mounted (one rAF for React's commit, one more for the
+      // browser's next paint/layout) — scrolling immediately would
+      // target an element that doesn't exist in the DOM yet.
+      setTab(section.tab);
+      requestAnimationFrame(() => requestAnimationFrame(scrollToIt));
+    } else {
+      scrollToIt();
+    }
+  }
 
   useEffect(() => {
     if (!id) return;
@@ -79,12 +246,7 @@ export function CandidateDetailPage() {
   useEffect(() => {
     if (!rec) return;
     function recompute() {
-      const mounted = RAIL_SECTIONS.filter((s) => {
-        if (s.tab !== null && s.tab !== tab) return false;
-        if (s.id === "sec-documents") return rec!.documents.length > 0;
-        if (s.id === "sec-evidence") return rec!.news_evidence.length > 0;
-        return true;
-      });
+      const mounted = visibleSections.filter((s) => s.tab === null || s.tab === tab);
       let maxTop = 0;
       for (const s of mounted) {
         const el = document.getElementById(s.id);
@@ -104,7 +266,7 @@ export function CandidateDetailPage() {
     recompute();
     window.addEventListener("resize", recompute);
     return () => window.removeEventListener("resize", recompute);
-  }, [rec, tab, docsExpanded]);
+  }, [rec, tab, docsExpanded, visibleSections]);
 
   // Prev/next through the EXACT curated set the user was actually looking
   // at on the Candidates list — not the raw 144 in default order. Reuses
@@ -195,7 +357,7 @@ export function CandidateDetailPage() {
         )}
       </div>
 
-      <SectionRail rec={rec} tab={tab} setTab={setTab} />
+      <SectionRail visibleSections={visibleSections} activeId={activeId} onJump={jump} />
 
       {/* ---------- hero ---------- */}
       <div className="rounded-xl border border-stone-200 bg-white p-5">
@@ -304,7 +466,12 @@ export function CandidateDetailPage() {
         {TABS.map((t) => (
           <button
             key={t}
-            onClick={() => setTab(t)}
+            // Calls the EXACT SAME jump() the rail uses (2026-08-31 fix),
+            // targeting this tab's own designated entry section, instead
+            // of a bare setTab(t) — see TAB_ENTRY_SECTION's comment for
+            // why the two need to be identical, not just both writing
+            // the same `tab` state.
+            onClick={() => jump(RAIL_SECTIONS.find((s) => s.id === TAB_ENTRY_SECTION[t])!)}
             className={`px-4 py-2.5 text-[13px] font-semibold capitalize transition ${
               tab === t ? "border-b-2 border-forest-600 text-forest-700" : "text-stone-400 hover:text-stone-600"
             }`}
@@ -589,25 +756,6 @@ function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scori
   );
 }
 
-type RailSection = { id: string; label: string; tab: Tab | null };
-
-// The page's real sections, in real page order. `tab: null` sections are
-// always mounted (hero, scores); everything else only actually exists in
-// the DOM while its own tab is selected, so a click on one of those first
-// switches to that tab, then scrolls — never jumps to something that
-// isn't really there yet.
-const RAIL_SECTIONS: RailSection[] = [
-  { id: "sec-hero", label: "Why Contact First", tab: null },
-  { id: "sec-scores", label: "Scores", tab: null },
-  { id: "sec-land-rights", label: "Land Rights", tab: "overview" },
-  { id: "sec-documents", label: "Documents", tab: "overview" },
-  { id: "sec-evidence", label: "Evidence", tab: "overview" },
-  { id: "sec-compliance", label: "Compliance", tab: "compliance" },
-  { id: "sec-dossier", label: "Dossier", tab: "dossier" },
-  { id: "sec-contact", label: "Contact", tab: "dossier" },
-  { id: "sec-outreach", label: "Outreach", tab: "outreach" },
-];
-
 /**
  * Pure wayfinding, NOT a workflow/pipeline stepper — the same distinction
  * already made for the Dashboard (data_richness/scores are independent
@@ -618,133 +766,24 @@ const RAIL_SECTIONS: RailSection[] = [
  * Compliance -> Outreach in sequence. It's just a way to jump around an
  * admittedly dense page.
  *
- * Tabs stay (their real job — reducing how much of this dense page is
- * mounted at once — is unchanged); this rail switches tabs on the
- * caller's behalf when a section lives in a different one, then scrolls.
- * Scroll-spy only ever inspects ids that are actually mounted for the
- * CURRENT tab, so the highlighted item never claims a section is visible
- * when it isn't.
+ * Purely presentational (2026-08-31 refactor) — `activeId`/the actual
+ * jump() logic now live in CandidateDetailPage itself, alongside `tab`,
+ * so the top TABS bar and this rail share the EXACT SAME state and the
+ * EXACT SAME click handler (see TAB_ENTRY_SECTION), instead of the rail
+ * owning its own separate `activeId` that only the rail's own clicks
+ * kept in sync. Tabs stay (their real job — reducing how much of this
+ * dense page is mounted at once — is unchanged); this rail switches tabs
+ * on the caller's behalf when a section lives in a different one, then
+ * scrolls.
  */
-function SectionRail({ rec, tab, setTab }: { rec: CandidateDetail; tab: Tab; setTab: (t: Tab) => void }) {
-  const visibleSections = useMemo(
-    () =>
-      RAIL_SECTIONS.filter((s) => {
-        if (s.id === "sec-documents") return rec.documents.length > 0;
-        if (s.id === "sec-evidence") return rec.news_evidence.length > 0;
-        return true;
-      }),
-    [rec.documents.length, rec.news_evidence.length]
-  );
-  const [activeId, setActiveId] = useState(visibleSections[0].id);
-  // While a click-triggered smooth-scroll is in flight, the organic
-  // scroll listener below is suppressed (see jump()) so it can't
-  // overwrite the just-clicked section with something computed from an
-  // in-between scroll position mid-animation.
-  const suppressSpyRef = useRef(false);
-  const resumeSpyTimerRef = useRef<number | undefined>(undefined);
-
-  useEffect(() => {
-    function computeActive() {
-      if (suppressSpyRef.current) return;
-      const mounted = visibleSections.filter((s) => s.tab === null || s.tab === tab);
-      let current = mounted[0]?.id;
-      for (const s of mounted) {
-        const el = document.getElementById(s.id);
-        // 140px accounts for the sticky header (48px) + this rail
-        // (~44px) + a small margin — a section counts as "current" once
-        // its top has scrolled up past that real fixed chrome.
-        if (el && el.getBoundingClientRect().top <= 140) current = s.id;
-      }
-      // A section near the bottom of a short tab (or the last section in
-      // ANY tab) can have less real content below its own header than
-      // the 140px rule above needs to ever scroll flush under the rail —
-      // confirmed via manual testing on both Katingan's Documents panel
-      // (91 real documents, still the LAST section in its tab) and a
-      // thin candidate's Land Rights/Evidence panels, which sit close
-      // enough together that neither could reach 140px. Once the page
-      // truly can't scroll any further, re-sweep with a much more
-      // generous line (60% down the viewport) so whichever section
-      // actually dominates the visible screen at that point wins,
-      // instead of leaving the highlight stuck on whatever was last
-      // reachable under the strict 140px rule. A section too short to
-      // ever cross even that generous line (a one-line "Evidence" panel
-      // trailing right at the very bottom, for example) simply won't
-      // out-rank the section above it that's filling most of the
-      // screen — clicking that section's own rail item still jumps to
-      // and correctly highlights it every time; only pure mouse-wheel
-      // scrolling past it is affected, not navigation.
-      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
-      if (atBottom) {
-        const generousLine = window.innerHeight * 0.6;
-        for (const s of mounted) {
-          const el = document.getElementById(s.id);
-          if (el && el.getBoundingClientRect().top <= generousLine) current = s.id;
-        }
-      }
-      if (current) setActiveId(current);
-    }
-    computeActive();
-    window.addEventListener("scroll", computeActive, { passive: true });
-    return () => window.removeEventListener("scroll", computeActive);
-  }, [tab, visibleSections]);
-
-  function jump(section: RailSection) {
-    function scrollToIt() {
-      const el = document.getElementById(section.id);
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.scrollY - 92;
-      // Reflect the CLICKED section immediately and honestly, regardless
-      // of whether the physical scroll can actually reach "flush below
-      // the rail" — on a short tab, the browser clamps the scroll short
-      // of that target (there isn't enough page left to scroll), and
-      // without this, the rail would end up highlighting a different
-      // (often the wrong) section once the organic scroll-spy above
-      // recomputed from wherever the clamped scroll actually landed.
-      setActiveId(section.id);
-      suppressSpyRef.current = true;
-      window.clearTimeout(resumeSpyTimerRef.current);
-      window.scrollTo({ top: y, behavior: "smooth" });
-      // Real smooth-scrolls of the distances on this page settle well
-      // within this window; once it's up, organic scrolling (mouse
-      // wheel, trackpad, keyboard) resumes driving the highlight as
-      // normal, including the at-bottom rule above.
-      resumeSpyTimerRef.current = window.setTimeout(() => {
-        suppressSpyRef.current = false;
-      }, 700);
-    }
-    if (section.tab && section.tab !== tab) {
-      // Set the highlight AND suppress organic scroll-spy the instant the
-      // click happens, not after the tab switch settles — found via a
-      // real screenshot taken ~50ms into a cross-tab click: the OLD
-      // section was still shown active for a brief moment (the tab's
-      // content had already switched underneath it, just the rail hadn't
-      // caught up yet). Switching `tab` re-runs the scroll-spy effect
-      // immediately on this same commit, and without suppressing it here
-      // too (not just inside scrollToIt below, which only runs after the
-      // double rAF delay), that effect would recompute from wherever the
-      // page happened to be scrolled BEFORE the intended scroll, briefly
-      // showing something other than the clicked section.
-      setActiveId(section.id);
-      suppressSpyRef.current = true;
-      window.clearTimeout(resumeSpyTimerRef.current);
-      // Switch tabs first, then scroll once the new tab's content has
-      // actually mounted (one rAF for React's commit, one more for the
-      // browser's next paint/layout) — scrolling immediately would
-      // target an element that doesn't exist in the DOM yet.
-      setTab(section.tab);
-      requestAnimationFrame(() => requestAnimationFrame(scrollToIt));
-    } else {
-      scrollToIt();
-    }
-  }
-
+function SectionRail({ visibleSections, activeId, onJump }: { visibleSections: RailSection[]; activeId: string; onJump: (s: RailSection) => void }) {
   return (
     <nav aria-label="Jump to section" className="sticky top-12 z-[5] -mx-6 mb-3 border-b border-stone-200 bg-white/95 px-6 backdrop-blur">
       <div className="flex flex-wrap gap-1 overflow-x-auto py-2 text-[12px]">
         {visibleSections.map((s) => (
           <button
             key={s.id}
-            onClick={() => jump(s)}
+            onClick={() => onJump(s)}
             className={`whitespace-nowrap rounded-full px-2.5 py-1 font-semibold transition ${
               activeId === s.id ? "bg-forest-600 text-white" : "text-stone-500 hover:bg-stone-100 hover:text-stone-700"
             }`}
