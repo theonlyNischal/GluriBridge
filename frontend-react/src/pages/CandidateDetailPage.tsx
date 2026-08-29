@@ -462,7 +462,17 @@ export function CandidateDetailPage() {
       </div>
 
       {/* ---------- tabs ---------- */}
-      <div className="mt-4 flex gap-1 border-b border-stone-200">
+      {/* 2026-08-31 restyle — a thin 2px underline on a borderless row read
+          as one more line of content, not a navigation control (real user
+          feedback, checked fresh against the just-fixed tab-bar/rail state
+          unification rather than assumed correct). Now a real segmented
+          control: a bordered stone band gives it breathing room from the
+          hero above and the tab content below, and the active tab gets an
+          actual filled treatment (white pill + shadow), not just a color
+          change — same forest/stone palette used everywhere else on this
+          page (the rail's own active-pill treatment, ComplianceBadge,
+          ScoreLabelPill), no new colors introduced. */}
+      <div className="mt-4 flex gap-1 rounded-lg border border-stone-200 bg-stone-100 p-1">
         {TABS.map((t) => (
           <button
             key={t}
@@ -472,8 +482,8 @@ export function CandidateDetailPage() {
             // why the two need to be identical, not just both writing
             // the same `tab` state.
             onClick={() => jump(RAIL_SECTIONS.find((s) => s.id === TAB_ENTRY_SECTION[t])!)}
-            className={`px-4 py-2.5 text-[13px] font-semibold capitalize transition ${
-              tab === t ? "border-b-2 border-forest-600 text-forest-700" : "text-stone-400 hover:text-stone-600"
+            className={`flex-1 rounded-md px-4 py-2 text-[13px] font-semibold capitalize transition ${
+              tab === t ? "bg-white text-forest-700 shadow-sm" : "text-stone-500 hover:text-stone-700"
             }`}
           >
             {t}
