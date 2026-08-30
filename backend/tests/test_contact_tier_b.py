@@ -182,3 +182,29 @@ result8 = find_org_website_contact("Yayasan Konservasi Hutan Nusantara (Konserva
 print(result8)
 print("Expect found=False -- long slug but third-party narrative, no label separator in title,")
 print("no copyright footer -- same protections as Case 4, now exercised via the short-name path.")
+
+print()
+print("=== Case 9 (ADVERSARIAL, guards GENERIC_SHORT_NAME_SUFFIXES): '(PP)' role-marker")
+print(" suffix must NEVER be extracted as a short name -- proves a real coincidental-substring")
+print(" false positive this WOULD cause without the guard (real risk: 'pp' is a substring of")
+print(" the ordinary English word 'Approved', which can appear in any unrelated copyright line)")
+mock_client_9 = MockTavilyClient({
+    "PT Hutan Amanah Lestari": {
+        "results": [
+            {
+                "url": "https://approvedproducts.example.id/about",
+                "title": "About Us - Approved Products Indonesia",
+                "content": (
+                    "Approved Products Indonesia adalah distributor produk pertanian. "
+                    "© 2026 PT Approved Products Indonesia. All rights reserved."
+                ),
+            },
+        ]
+    }
+})
+result9 = find_org_website_contact("PT Hutan Amanah Lestari (PP)", mock_client_9)
+print(result9)
+print("Expect found=False -- '(PP)' must never be treated as a short name at all (it's a")
+print("Verra-track role marker, 'Project Proponent', shared across dozens of unrelated real")
+print("candidates), so this unrelated company's page must be rejected outright, not")
+print("accidentally accepted because its copyright line happens to contain the substring 'pp'.")

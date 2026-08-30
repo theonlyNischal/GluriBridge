@@ -149,6 +149,26 @@ def _title_self_identifies(title: str, org: str) -> bool:
     return False
 
 
+# Generic legal-entity/role-marker suffixes that real org names often
+# carry as a trailing parenthetical (e.g. "PT Hutan Amanah Lestari (PP)",
+# "Vlinder Austria GmbH (PP)") but that are NOT a legitimate short/common
+# name any real website would self-identify with — they're shared across
+# many unrelated organizations, not specific to any one of them. Found
+# while reviewing the 2026-08-31 re-run: roughly two dozen real
+# candidates end in "(PP)" (Project Proponent, a Verra-track role
+# marker, not a name at all). Without this guard, _extract_short_name
+# would hand a 2-character slug like "pp" to Signal 1 (copyright
+# footer) unguarded by SHORT_SLUG_THRESHOLD (which only gates Signals 1b
+# and 2) — a real latent false-positive risk, even though it didn't fire
+# on this exact batch (0 new resolutions). Matched case-insensitively
+# with periods/spaces stripped, so "Ltd.", "LTD", "Sdn Bhd" all match
+# their bare forms below.
+GENERIC_SHORT_NAME_SUFFIXES = {
+    "pp", "ltd", "inc", "llc", "gmbh", "sas", "co", "corp", "plc",
+    "sarl", "sdnbhd", "bv", "nv", "ag", "sa", "pte", "pty",
+}
+
+
 def _extract_short_name(org: str) -> str | None:
     """
     Real Indonesian org names very often take the shape 'Yayasan <full
@@ -164,10 +184,18 @@ def _extract_short_name(org: str) -> str | None:
     checked the full name, so this genuine self-identification was
     invisible to it. Returns the parenthetical content when the org name
     ends with one, None otherwise — never invented, never a fuzzy guess,
-    just the literal substring already present in the org field.
+    just the literal substring already present in the org field — EXCEPT
+    when that parenthetical is a generic legal-entity/role-marker suffix
+    (see GENERIC_SHORT_NAME_SUFFIXES), which is never a real short name.
     """
     m = re.search(r"\(([^)]+)\)\s*$", org)
-    return m.group(1).strip() if m else None
+    if not m:
+        return None
+    short_name = m.group(1).strip()
+    normalized = re.sub(r"[.\s]", "", short_name).lower()
+    if normalized in GENERIC_SHORT_NAME_SUFFIXES:
+        return None
+    return short_name
 
 
 def _self_identifies_as(text: str, org: str, title: str = "") -> dict:
