@@ -208,3 +208,95 @@ print("Expect found=False -- '(PP)' must never be treated as a short name at all
 print("Verra-track role marker, 'Project Proponent', shared across dozens of unrelated real")
 print("candidates), so this unrelated company's page must be rejected outright, not")
 print("accidentally accepted because its copyright line happens to contain the substring 'pp'.")
+
+print()
+print("=== Case 10-13 (2026-08-31 raw-pass follow-up): confirms EXISTING logic already")
+print(" rejects the 4 real 'wrong entity mentioned on a legitimately relevant page' cases")
+print(" found in the unverified raw regex pass -- NOT a new bug, no code change was needed.")
+print(" Locked in as permanent regression tests using the real page content traced live.")
+
+print()
+print("--- Case 10: PT. Annisa Surya Kencana -- MOU-partner's email on an Instagram post ---")
+mock_client_10 = MockTavilyClient({
+    "PT. Annisa Surya Kencana": {
+        "results": [
+            {
+                "url": "https://www.instagram.com/p/DQ8JL_pkhU8?hl=en",
+                "title": "Pada 11 November 2025, PT. Annisa Surya Kencana (ASK ...",
+                "content": "PT. Annisa Surya Kencana (ASK) menandatangani MOU dengan LPHD Lauk Bersatu. Kontak: lphdlaukbersatu@gmail.com",
+            },
+        ]
+    }
+})
+result10 = find_org_website_contact("PT. Annisa Surya Kencana", mock_client_10)
+print(result10)
+print("Expect found=False -- instagram.com is already domain-blocklisted, so this never")
+print("even reaches content verification, regardless of what the post says.")
+
+print()
+print("--- Case 11: PT Menggala Rambu Utama -- university's own MOU announcement page ---")
+mock_client_11 = MockTavilyClient({
+    "Menggala Rambu Utama": {
+        "results": [
+            {
+                "url": "https://fahutan.untan.ac.id/penandatanganan-kerjasama-dengan-pt-menggala-rambu-utama",
+                "title": "Penandatanganan kerjasama dengan PT. Menggala Rambu Utama",
+                "content": (
+                    "Fakultas Kehutanan Universitas Tanjungpura hari ini menandatangani nota "
+                    "kesepahaman dengan PT Menggala Rambu Utama. Untuk informasi lebih lanjut "
+                    "hubungi fahutan_untan@yahoo.com. "
+                    "© 2026 Fakultas Kehutanan Universitas Tanjungpura."
+                ),
+            },
+        ]
+    }
+})
+result11 = find_org_website_contact("Menggala Rambu Utama", mock_client_11)
+print(result11)
+print("Expect found=False -- the copyright footer names the UNIVERSITY, not Menggala Rambu")
+print("Utama, even though the page is genuinely, legitimately about this real company.")
+
+print()
+print("--- Case 12: PT Danantara Sumberdaya Indonesia -- real news coverage, journalist's email ---")
+mock_client_12 = MockTavilyClient({
+    "PT Danantara Sumberdaya Indonesia": {
+        "results": [
+            {
+                "url": "https://www.hukumonline.com/berita/a/danantara-resmikan-pt-dsi",
+                "title": "Danantara Resmikan PT DSI Jadi BUMN Ekspor SDA",
+                "content": (
+                    "Danantara secara resmi meluncurkan PT Danantara Sumberdaya Indonesia "
+                    "sebagai BUMN baru. Menurut pengamat hukum, langkah ini membawa risiko "
+                    "kontrak dan investasi. Laporan oleh redaksi, hubungi redaksi@hukumonline.com."
+                ),
+            },
+        ]
+    }
+})
+result12 = find_org_website_contact("PT Danantara Sumberdaya Indonesia", mock_client_12)
+print(result12)
+print("Expect found=False -- third-party news narration about the company, not the")
+print("company's own page; the only email present belongs to the news outlet's editorial desk.")
+
+print()
+print("--- Case 13: PT Gaja Pati -- certification body's own public-announcement letterhead ---")
+mock_client_13 = MockTavilyClient({
+    "PT Gaja Pati": {
+        "results": [
+            {
+                "url": "https://ajaindonesia.com/PA/IFCC/20.PT%20Suntara%20Gajapati/announcement.pdf",
+                "title": "PT. AJA Sertifikasi Indonesia",
+                "content": (
+                    "PT. AJA Sertifikasi Indonesia. Email: admin@ajaindonesia.com. "
+                    "PENGUMUMAN PUBLIK RENCANA PELAKSANAAN SERTIFIKASI PENGELOLAAN HUTAN LESTARI "
+                    "Nama Perusahaan: PT Suntara Gajapati."
+                ),
+            },
+        ]
+    }
+})
+result13 = find_org_website_contact("PT Gaja Pati", mock_client_13)
+print(result13)
+print("Expect found=False -- this is the CERTIFYING AUDITOR's own letterhead/contact info,")
+print("not the company being audited -- same pattern already caught by earlier hardening")
+print("(the certification-body class of false positive), now locked in for this exact case.")

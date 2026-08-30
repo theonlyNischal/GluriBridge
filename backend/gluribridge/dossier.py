@@ -22,6 +22,14 @@ def _contact_route_text(candidate: UnifiedCandidateRecord) -> str:
                 f"(Tier B, {conf} confidence) — {contact.contact_source_url}")
     if contact.contact_source == "news_mention":
         return f"{contact.name}, mentioned in a news article (Tier C — lowest confidence, verify before relying on it)."
+    if contact.contact_source == "manual_review":
+        # A human-reviewed find (2026-08-31), NOT resolve_contact_tier_b()'s
+        # automated match -- deliberately a distinct source value so it's
+        # never confused with an automated org_website resolution. Handles
+        # either a name, an email, or both, same as the automated tiers.
+        who = contact.email or contact.name or "contact"
+        conf = contact.contact_confidence or "unknown"
+        return (f"{who}, found via manual research (human-reviewed, {conf} confidence) — {contact.contact_source_url}")
     return "Contact status unclear — check registrant_contact directly."
 
 
