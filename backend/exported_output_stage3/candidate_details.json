@@ -39270,6 +39270,13 @@
           "source_id": "3446",
           "match_score": 100,
           "match_status": "primary"
+        },
+        {
+          "source": "manual_review",
+          "source_id": "https://www.cakerja.com/pt-pasifik-agro-sentosa",
+          "match_status": "human_reviewed_contact_resolved",
+          "email": "recruitment@pasifikagrosentosa.com",
+          "name": null
         }
       ]
     },
@@ -39331,10 +39338,10 @@
     "contact": {
       "name": null,
       "org": "PT Pasifik Agro Sentosa",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "recruitment@pasifikagrosentosa.com",
+      "contact_source": "manual_review",
+      "contact_source_url": "https://www.cakerja.com/pt-pasifik-agro-sentosa",
+      "contact_confidence": "high"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -39627,7 +39634,7 @@
           },
           "compliance_text": "Permenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track)."
         },
-        "contact_route": "No contact found by any tier — needs manual research before outreach.",
+        "contact_route": "recruitment@pasifikagrosentosa.com, found via manual research (human-reviewed, high confidence) — https://www.cakerja.com/pt-pasifik-agro-sentosa",
         "suggested_poc": "Insufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.",
         "next_questions": [
           "What's currently blocking submission of technical/monitoring documentation?",
@@ -39637,24 +39644,24 @@
         ],
         "dpp_validation_proxy": []
       },
-      "markdown": "**Kayong Utara Conservation and Restoration Project**\nPT Pasifik Agro Sentosa · need 22.2 / credibility 47.1 · rich\n\n**Why Gluri**\n- *(fact)* Verra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\n**Land & regulatory position**\nChecked against available BRWA data — no overlap found within threshold distance.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nNo contact found by any tier — needs manual research before outreach.\n\n**Suggested PoC**\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. Is this site within or adjacent to any customary/indigenous (adat) territory?\n4. Who's the best point of contact for technical/MRV discussions?"
+      "markdown": "**Kayong Utara Conservation and Restoration Project**\nPT Pasifik Agro Sentosa · need 22.2 / credibility 47.1 · rich\n\n**Why Gluri**\n- *(fact)* Verra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\n**Land & regulatory position**\nChecked against available BRWA data — no overlap found within threshold distance.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nrecruitment@pasifikagrosentosa.com, found via manual research (human-reviewed, high confidence) — https://www.cakerja.com/pt-pasifik-agro-sentosa\n\n**Suggested PoC**\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. Is this site within or adjacent to any customary/indigenous (adat) territory?\n4. Who's the best point of contact for technical/MRV discussions?"
     },
     "outreach": {
       "structured": {
-        "candidate_id": "354b602c-994a-49b3-8de0-cec595d0dd98",
-        "recipient_status": "insufficient_contact",
-        "subject": null,
-        "subject_en": null,
-        "subject_id": null,
-        "body": null,
-        "body_en": null,
-        "body_id": null,
-        "to": null,
+        "candidate_id": "8d8dfb4b-3575-49e7-9323-04af26da3f72",
+        "recipient_status": "email_only_no_name",
+        "subject": "Partnership inquiry — PT Pasifik Agro Sentosa / Penjajakan Kemitraan — PT Pasifik Agro Sentosa",
+        "subject_en": "Partnership inquiry — PT Pasifik Agro Sentosa",
+        "subject_id": "Penjajakan Kemitraan — PT Pasifik Agro Sentosa",
+        "body": "Dear PT Pasifik Agro Sentosa,\n\nVerra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT Pasifik Agro Sentosa,\n\nVerra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri",
+        "body_en": "Dear PT Pasifik Agro Sentosa,\n\nVerra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team",
+        "body_id": "Yth. Tim PT Pasifik Agro Sentosa,\n\nVerra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri",
+        "to": "recruitment@pasifikagrosentosa.com",
         "warnings": [
-          "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+          "No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending."
         ]
       },
-      "text": "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+      "text": "[!] No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending.\n\nTo: recruitment@pasifikagrosentosa.com\nSubject: Partnership inquiry — PT Pasifik Agro Sentosa / Penjajakan Kemitraan — PT Pasifik Agro Sentosa\n\nDear PT Pasifik Agro Sentosa,\n\nVerra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT Pasifik Agro Sentosa,\n\nVerra status is early-stage (Pipeline listing requested (under development)) with no further progress recorded.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nInsufficient signal to suggest a specific pilot scope yet — recommend a discovery call first.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri"
     }
   },
   "7f39df61-50c6-43a7-bce5-6835b94bea09": {
@@ -43066,6 +43073,13 @@
           "source_id": "4782",
           "match_score": 100,
           "match_status": "primary"
+        },
+        {
+          "source": "manual_review",
+          "source_id": "https://www.instagram.com/p/DBSo6AETJBK",
+          "match_status": "human_reviewed_contact_resolved",
+          "email": "ketrinaameriasta@nusantararayasolusi.com",
+          "name": null
         }
       ]
     },
@@ -43127,10 +43141,10 @@
     "contact": {
       "name": null,
       "org": "PT Nusantara Raya Solusi (PP)",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "ketrinaameriasta@nusantararayasolusi.com",
+      "contact_source": "manual_review",
+      "contact_source_url": "https://www.instagram.com/p/DBSo6AETJBK",
+      "contact_confidence": "high"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -43411,7 +43425,7 @@
           },
           "compliance_text": "Permenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track)."
         },
-        "contact_route": "No contact found by any tier — needs manual research before outreach.",
+        "contact_route": "ketrinaameriasta@nusantararayasolusi.com, found via manual research (human-reviewed, high confidence) — https://www.instagram.com/p/DBSo6AETJBK",
         "suggested_poc": "No clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.",
         "next_questions": [
           "What's currently blocking submission of technical/monitoring documentation?",
@@ -43427,24 +43441,24 @@
           }
         ]
       },
-      "markdown": "**South Barito Kapuas Project**\nPT Nusantara Raya Solusi (PP) · need 0.0 / credibility 47.1 · rich\n\n**Why Gluri**\n- *(fact)* No specific documentation gaps detected across the registries actually checked for this candidate.\n\n**Land & regulatory position**\nChecked against available BRWA data — no overlap found within threshold distance.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nNo contact found by any tier — needs manual research before outreach.\n\n**Suggested PoC**\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\n**DPP validation proxy (unscored evidence — not a compliance check)**\n- *(hypothesis)* Verra's own validation process shows RINA Services S.p.A reviewed this project under VCS, which MAY be relevant to Pasal 22's independent-validation requirement, but this is evidence from Verra's process, not a confirmed Indonesian Ministry filing. The other 3 Pasal 22 requirements (implementation per DPP, independent verification, verification-results report) have no evidence either way.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. Is this site within or adjacent to any customary/indigenous (adat) territory?\n4. Who's the best point of contact for technical/MRV discussions?"
+      "markdown": "**South Barito Kapuas Project**\nPT Nusantara Raya Solusi (PP) · need 0.0 / credibility 47.1 · rich\n\n**Why Gluri**\n- *(fact)* No specific documentation gaps detected across the registries actually checked for this candidate.\n\n**Land & regulatory position**\nChecked against available BRWA data — no overlap found within threshold distance.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nketrinaameriasta@nusantararayasolusi.com, found via manual research (human-reviewed, high confidence) — https://www.instagram.com/p/DBSo6AETJBK\n\n**Suggested PoC**\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\n**DPP validation proxy (unscored evidence — not a compliance check)**\n- *(hypothesis)* Verra's own validation process shows RINA Services S.p.A reviewed this project under VCS, which MAY be relevant to Pasal 22's independent-validation requirement, but this is evidence from Verra's process, not a confirmed Indonesian Ministry filing. The other 3 Pasal 22 requirements (implementation per DPP, independent verification, verification-results report) have no evidence either way.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. Is this site within or adjacent to any customary/indigenous (adat) territory?\n4. Who's the best point of contact for technical/MRV discussions?"
     },
     "outreach": {
       "structured": {
-        "candidate_id": "fa96d7fe-05cd-4b02-ab9a-6530861826f3",
-        "recipient_status": "insufficient_contact",
-        "subject": null,
-        "subject_en": null,
-        "subject_id": null,
-        "body": null,
-        "body_en": null,
-        "body_id": null,
-        "to": null,
+        "candidate_id": "6fede8b1-54c3-4881-a0da-d92329c2369d",
+        "recipient_status": "email_only_no_name",
+        "subject": "Partnership inquiry — PT Nusantara Raya Solusi (PP) / Penjajakan Kemitraan — PT Nusantara Raya Solusi (PP)",
+        "subject_en": "Partnership inquiry — PT Nusantara Raya Solusi (PP)",
+        "subject_id": "Penjajakan Kemitraan — PT Nusantara Raya Solusi (PP)",
+        "body": "Dear PT Nusantara Raya Solusi (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT Nusantara Raya Solusi (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri",
+        "body_en": "Dear PT Nusantara Raya Solusi (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team",
+        "body_id": "Yth. Tim PT Nusantara Raya Solusi (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri",
+        "to": "ketrinaameriasta@nusantararayasolusi.com",
         "warnings": [
-          "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+          "No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending."
         ]
       },
-      "text": "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+      "text": "[!] No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending.\n\nTo: ketrinaameriasta@nusantararayasolusi.com\nSubject: Partnership inquiry — PT Nusantara Raya Solusi (PP) / Penjajakan Kemitraan — PT Nusantara Raya Solusi (PP)\n\nDear PT Nusantara Raya Solusi (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT Nusantara Raya Solusi (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri"
     }
   },
   "f9db0b60-cd7d-4057-b275-3181f4b8f298": {
@@ -47709,6 +47723,13 @@
           "source_id": "5545",
           "match_score": 100,
           "match_status": "primary"
+        },
+        {
+          "source": "manual_review",
+          "source_id": "https://www.yakopi.org/career",
+          "match_status": "human_reviewed_contact_resolved",
+          "email": "admin@yakopi.org",
+          "name": null
         }
       ]
     },
@@ -47778,10 +47799,10 @@
     "contact": {
       "name": null,
       "org": "Yayasan Konservasi Pesisir Indonesia (YAKOPI)",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "admin@yakopi.org",
+      "contact_source": "manual_review",
+      "contact_source_url": "https://www.yakopi.org/career",
+      "contact_confidence": "high"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -48062,7 +48083,7 @@
           },
           "compliance_text": "Permenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track)."
         },
-        "contact_route": "No contact found by any tier — needs manual research before outreach.",
+        "contact_route": "admin@yakopi.org, found via manual research (human-reviewed, high confidence) — https://www.yakopi.org/career",
         "suggested_poc": "No clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.",
         "next_questions": [
           "What's currently blocking submission of technical/monitoring documentation?",
@@ -48072,24 +48093,24 @@
         ],
         "dpp_validation_proxy": []
       },
-      "markdown": "**YAKOPI Mangrove Restoration Project**\nYayasan Konservasi Pesisir Indonesia (YAKOPI) · need 0.0 / credibility 47.1 · rich\n\n**Why Gluri**\n- *(fact)* No specific documentation gaps detected across the registries actually checked for this candidate.\n\n**Land & regulatory position**\nChecked against available BRWA data — no overlap found within threshold distance.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nNo contact found by any tier — needs manual research before outreach.\n\n**Suggested PoC**\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. Is this site within or adjacent to any customary/indigenous (adat) territory?\n4. Who's the best point of contact for technical/MRV discussions?"
+      "markdown": "**YAKOPI Mangrove Restoration Project**\nYayasan Konservasi Pesisir Indonesia (YAKOPI) · need 0.0 / credibility 47.1 · rich\n\n**Why Gluri**\n- *(fact)* No specific documentation gaps detected across the registries actually checked for this candidate.\n\n**Land & regulatory position**\nChecked against available BRWA data — no overlap found within threshold distance.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nadmin@yakopi.org, found via manual research (human-reviewed, high confidence) — https://www.yakopi.org/career\n\n**Suggested PoC**\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. Is this site within or adjacent to any customary/indigenous (adat) territory?\n4. Who's the best point of contact for technical/MRV discussions?"
     },
     "outreach": {
       "structured": {
-        "candidate_id": "31775060-fa02-4695-b2b5-271d861bcd50",
-        "recipient_status": "insufficient_contact",
-        "subject": null,
-        "subject_en": null,
-        "subject_id": null,
-        "body": null,
-        "body_en": null,
-        "body_id": null,
-        "to": null,
+        "candidate_id": "9aeea982-df44-4285-9db5-04f27de1a905",
+        "recipient_status": "email_only_no_name",
+        "subject": "Partnership inquiry — Yayasan Konservasi Pesisir Indonesia (YAKOPI) / Penjajakan Kemitraan — Yayasan Konservasi Pesisir Indonesia (YAKOPI)",
+        "subject_en": "Partnership inquiry — Yayasan Konservasi Pesisir Indonesia (YAKOPI)",
+        "subject_id": "Penjajakan Kemitraan — Yayasan Konservasi Pesisir Indonesia (YAKOPI)",
+        "body": "Dear Yayasan Konservasi Pesisir Indonesia (YAKOPI),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim Yayasan Konservasi Pesisir Indonesia (YAKOPI),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri",
+        "body_en": "Dear Yayasan Konservasi Pesisir Indonesia (YAKOPI),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team",
+        "body_id": "Yth. Tim Yayasan Konservasi Pesisir Indonesia (YAKOPI),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri",
+        "to": "admin@yakopi.org",
         "warnings": [
-          "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+          "No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending."
         ]
       },
-      "text": "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+      "text": "[!] No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending.\n\nTo: admin@yakopi.org\nSubject: Partnership inquiry — Yayasan Konservasi Pesisir Indonesia (YAKOPI) / Penjajakan Kemitraan — Yayasan Konservasi Pesisir Indonesia (YAKOPI)\n\nDear Yayasan Konservasi Pesisir Indonesia (YAKOPI),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim Yayasan Konservasi Pesisir Indonesia (YAKOPI),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- Is this site within or adjacent to any customary/indigenous (adat) territory?\n\nSalam hormat,\nTim Gluri"
     }
   },
   "e4646499-b7f4-4157-a440-1f4808377db6": {
@@ -49380,6 +49401,13 @@
           "source_id": "5695",
           "match_score": 100,
           "match_status": "primary"
+        },
+        {
+          "source": "manual_review",
+          "source_id": "https://www.linkedin.com/company/pt-annisa-surya-kencana",
+          "match_status": "human_reviewed_contact_resolved",
+          "email": "info@annisasuryakencana.com",
+          "name": null
         }
       ]
     },
@@ -49441,10 +49469,10 @@
     "contact": {
       "name": null,
       "org": "PT. Annisa Surya Kencana (PP)",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "info@annisasuryakencana.com",
+      "contact_source": "manual_review",
+      "contact_source_url": "https://www.linkedin.com/company/pt-annisa-surya-kencana",
+      "contact_confidence": "high"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -49759,7 +49787,7 @@
           },
           "compliance_text": "Permenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track)."
         },
-        "contact_route": "No contact found by any tier — needs manual research before outreach.",
+        "contact_route": "info@annisasuryakencana.com, found via manual research (human-reviewed, high confidence) — https://www.linkedin.com/company/pt-annisa-surya-kencana",
         "suggested_poc": "No clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.",
         "next_questions": [
           "What's currently blocking submission of technical/monitoring documentation?",
@@ -49775,24 +49803,24 @@
           }
         ]
       },
-      "markdown": "**Siluk Peatlands Conservation Project (SPCP)**\nPT. Annisa Surya Kencana (PP) · need 0.0 / credibility 58.8 · rich\n\n**Why Gluri**\n- *(fact)* No specific documentation gaps detected across the registries actually checked for this candidate.\n\n**Land & regulatory position**\nNear (0.23km) a customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin', penetapan tier) — real evidence, but not yet a formal category.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nNo contact found by any tier — needs manual research before outreach.\n\n**Suggested PoC**\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\n**DPP validation proxy (unscored evidence — not a compliance check)**\n- *(hypothesis)* Verra's own validation process shows Earthood Services Limited reviewed this project under VCS, which MAY be relevant to Pasal 22's independent-validation requirement, but this is evidence from Verra's process, not a confirmed Indonesian Ministry filing. The other 3 Pasal 22 requirements (implementation per DPP, independent verification, verification-results report) have no evidence either way.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n4. Who's the best point of contact for technical/MRV discussions?"
+      "markdown": "**Siluk Peatlands Conservation Project (SPCP)**\nPT. Annisa Surya Kencana (PP) · need 0.0 / credibility 58.8 · rich\n\n**Why Gluri**\n- *(fact)* No specific documentation gaps detected across the registries actually checked for this candidate.\n\n**Land & regulatory position**\nNear (0.23km) a customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin', penetapan tier) — real evidence, but not yet a formal category.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\ninfo@annisasuryakencana.com, found via manual research (human-reviewed, high confidence) — https://www.linkedin.com/company/pt-annisa-surya-kencana\n\n**Suggested PoC**\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\n**DPP validation proxy (unscored evidence — not a compliance check)**\n- *(hypothesis)* Verra's own validation process shows Earthood Services Limited reviewed this project under VCS, which MAY be relevant to Pasal 22's independent-validation requirement, but this is evidence from Verra's process, not a confirmed Indonesian Ministry filing. The other 3 Pasal 22 requirements (implementation per DPP, independent verification, verification-results report) have no evidence either way.\n\n**Next questions**\n1. What's currently blocking submission of technical/monitoring documentation?\n2. Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n3. We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n4. Who's the best point of contact for technical/MRV discussions?"
     },
     "outreach": {
       "structured": {
-        "candidate_id": "4034fa01-586b-4dbb-a914-1950ceedfc12",
-        "recipient_status": "insufficient_contact",
-        "subject": null,
-        "subject_en": null,
-        "subject_id": null,
-        "body": null,
-        "body_en": null,
-        "body_id": null,
-        "to": null,
+        "candidate_id": "c3a330c6-8aaa-4716-acf7-daf9d73142c0",
+        "recipient_status": "email_only_no_name",
+        "subject": "Partnership inquiry — PT. Annisa Surya Kencana (PP) / Penjajakan Kemitraan — PT. Annisa Surya Kencana (PP)",
+        "subject_en": "Partnership inquiry — PT. Annisa Surya Kencana (PP)",
+        "subject_id": "Penjajakan Kemitraan — PT. Annisa Surya Kencana (PP)",
+        "body": "Dear PT. Annisa Surya Kencana (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT. Annisa Surya Kencana (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n\nSalam hormat,\nTim Gluri",
+        "body_en": "Dear PT. Annisa Surya Kencana (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n\nBest regards,\nThe Gluri team",
+        "body_id": "Yth. Tim PT. Annisa Surya Kencana (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n\nSalam hormat,\nTim Gluri",
+        "to": "info@annisasuryakencana.com",
         "warnings": [
-          "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+          "No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending."
         ]
       },
-      "text": "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+      "text": "[!] No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending.\n\nTo: info@annisasuryakencana.com\nSubject: Partnership inquiry — PT. Annisa Surya Kencana (PP) / Penjajakan Kemitraan — PT. Annisa Surya Kencana (PP)\n\nDear PT. Annisa Surya Kencana (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nA few things it'd help us understand on an initial call:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT. Annisa Surya Kencana (PP),\n\nNo specific documentation gaps detected across the registries actually checked for this candidate.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNo clear documentation gap detected — if there's still an opportunity here, it's likely on the measurement/verification side rather than baseline reporting. Worth a direct conversation about their current MRV approach before proposing a specific pilot.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- What's currently blocking submission of technical/monitoring documentation?\n- Do you have a georeferenced project boundary (KML/shapefile) beyond a single point location?\n- We found a nearby customary territory ('Tamambalo Apalin Banua Nyabo Ketemanggungan Tamambalo Apalin') — can you confirm whether the project site overlaps it?\n\nSalam hormat,\nTim Gluri"
     }
   },
   "a4264780-5760-479f-a523-78a1cb18a5f6": {
@@ -56845,6 +56873,13 @@
           "match_score": 58.82352941176471,
           "match_status": "thin_candidate",
           "query": "MRV forest carbon technology partner Indonesia BANTEN"
+        },
+        {
+          "source": "manual_review",
+          "source_id": "https://www.danantaraindonesia.co.id/media-center/press-releases/danantara-dsi-natural-resource-export",
+          "match_status": "human_reviewed_contact_flagged_medium",
+          "email": "media@danantaraindonesia.com",
+          "name": null
         }
       ]
     },
@@ -56859,10 +56894,10 @@
     "contact": {
       "name": null,
       "org": "PT Danantara Sumberdaya Indonesia",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "media@danantaraindonesia.com",
+      "contact_source": "manual_review",
+      "contact_source_url": "https://www.danantaraindonesia.co.id/media-center/press-releases/danantara-dsi-natural-resource-export",
+      "contact_confidence": "medium"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -57115,7 +57150,7 @@
           },
           "compliance_text": "Permenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track)."
         },
-        "contact_route": "No contact found by any tier — needs manual research before outreach.",
+        "contact_route": "media@danantaraindonesia.com, found via manual research (human-reviewed, medium confidence) — https://www.danantaraindonesia.co.id/media-center/press-releases/danantara-dsi-natural-resource-export",
         "suggested_poc": "Not enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.",
         "next_questions": [
           "Has a DRAM or DPP been started yet, even in draft form?",
@@ -57126,24 +57161,24 @@
         ],
         "dpp_validation_proxy": []
       },
-      "markdown": "**Innovation in MRV technology for enhancing carbon trading governance - Academia - The Jakarta Post**\nPT Danantara Sumberdaya Indonesia · need 0.0 / credibility 5.9 · thin\n\n**Why Gluri**\n- *(hypothesis)* Not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\n**Land & regulatory position**\nNot yet checked — no coordinates on file to test against customary-territory data.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nNo contact found by any tier — needs manual research before outreach.\n\n**Suggested PoC**\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\n**Next questions**\n1. Has a DRAM or DPP been started yet, even in draft form?\n2. What's currently blocking submission of technical/monitoring documentation?\n3. Could you share the exact project site coordinates or boundary?\n4. Is this site within or adjacent to any customary/indigenous (adat) territory?\n5. Who's the best point of contact for technical/MRV discussions?"
+      "markdown": "**Innovation in MRV technology for enhancing carbon trading governance - Academia - The Jakarta Post**\nPT Danantara Sumberdaya Indonesia · need 0.0 / credibility 5.9 · thin\n\n**Why Gluri**\n- *(hypothesis)* Not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\n**Land & regulatory position**\nNot yet checked — no coordinates on file to test against customary-territory data.\nPermenhut 6/2026 Pasal 61's transitional filing deadline does not apply — no SRUK/SRN-PPI registration (Pasal 61 doesn't cover the international/Verra track).\n\n**Contact route**\nmedia@danantaraindonesia.com, found via manual research (human-reviewed, medium confidence) — https://www.danantaraindonesia.co.id/media-center/press-releases/danantara-dsi-natural-resource-export\n\n**Suggested PoC**\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\n**Next questions**\n1. Has a DRAM or DPP been started yet, even in draft form?\n2. What's currently blocking submission of technical/monitoring documentation?\n3. Could you share the exact project site coordinates or boundary?\n4. Is this site within or adjacent to any customary/indigenous (adat) territory?\n5. Who's the best point of contact for technical/MRV discussions?"
     },
     "outreach": {
       "structured": {
         "candidate_id": "afcc1192-ade1-4854-8514-0e804e0680a5",
-        "recipient_status": "insufficient_contact",
-        "subject": null,
-        "subject_en": null,
-        "subject_id": null,
-        "body": null,
-        "body_en": null,
-        "body_id": null,
-        "to": null,
+        "recipient_status": "email_only_no_name",
+        "subject": "Partnership inquiry — PT Danantara Sumberdaya Indonesia / Penjajakan Kemitraan — PT Danantara Sumberdaya Indonesia",
+        "subject_en": "Partnership inquiry — PT Danantara Sumberdaya Indonesia",
+        "subject_id": "Penjajakan Kemitraan — PT Danantara Sumberdaya Indonesia",
+        "body": "Dear PT Danantara Sumberdaya Indonesia,\n\nBased on what we've found so far, it appears that not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\nA few things it'd help us understand on an initial call:\n- Has a DRAM or DPP been started yet, even in draft form?\n- What's currently blocking submission of technical/monitoring documentation?\n- Could you share the exact project site coordinates or boundary?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT Danantara Sumberdaya Indonesia,\n\nBerdasarkan temuan kami sejauh ini, tampaknya not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- Has a DRAM or DPP been started yet, even in draft form?\n- What's currently blocking submission of technical/monitoring documentation?\n- Could you share the exact project site coordinates or boundary?\n\nSalam hormat,\nTim Gluri",
+        "body_en": "Dear PT Danantara Sumberdaya Indonesia,\n\nBased on what we've found so far, it appears that not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\nA few things it'd help us understand on an initial call:\n- Has a DRAM or DPP been started yet, even in draft form?\n- What's currently blocking submission of technical/monitoring documentation?\n- Could you share the exact project site coordinates or boundary?\n\nBest regards,\nThe Gluri team",
+        "body_id": "Yth. Tim PT Danantara Sumberdaya Indonesia,\n\nBerdasarkan temuan kami sejauh ini, tampaknya not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- Has a DRAM or DPP been started yet, even in draft form?\n- What's currently blocking submission of technical/monitoring documentation?\n- Could you share the exact project site coordinates or boundary?\n\nSalam hormat,\nTim Gluri",
+        "to": "media@danantaraindonesia.com",
         "warnings": [
-          "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+          "No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending."
         ]
       },
-      "text": "Insufficient contact information — outreach cannot be generated until a contact is resolved. No named individual and no email address on file for this candidate."
+      "text": "[!] No named individual on file for this contact — addressed generically to the organization. Confirm a specific recipient if possible before sending.\n\nTo: media@danantaraindonesia.com\nSubject: Partnership inquiry — PT Danantara Sumberdaya Indonesia / Penjajakan Kemitraan — PT Danantara Sumberdaya Indonesia\n\nDear PT Danantara Sumberdaya Indonesia,\n\nBased on what we've found so far, it appears that not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\nGluri operates treXchange, a satellite- and AI-based monitoring, reporting, and verification (dMRV) platform for forest-carbon projects. We're reaching out to organizations across Indonesia's forestry-carbon sector to explore whether treXchange could support your project's measurement and verification needs alongside your existing registry process.\n\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\nA few things it'd help us understand on an initial call:\n- Has a DRAM or DPP been started yet, even in draft form?\n- What's currently blocking submission of technical/monitoring documentation?\n- Could you share the exact project site coordinates or boundary?\n\nBest regards,\nThe Gluri team\n\n-----\nVersi Bahasa Indonesia / Indonesian version below\n-----\n\nYth. Tim PT Danantara Sumberdaya Indonesia,\n\nBerdasarkan temuan kami sejauh ini, tampaknya not enough registry data exists yet to detect specific documentation gaps — this lead is unverified and comes from a single news mention, not a registry check.\n\nGluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi (dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses registrasi yang sudah berjalan.\n\nNot enough is known yet to suggest a specific pilot — this is an unverified news-sourced lead. Manual research (confirm the organization, find a real contact) needs to happen before any PoC discussion.\n\nBeberapa hal yang ingin kami pahami dalam panggilan awal:\n- Has a DRAM or DPP been started yet, even in draft form?\n- What's currently blocking submission of technical/monitoring documentation?\n- Could you share the exact project site coordinates or boundary?\n\nSalam hormat,\nTim Gluri"
     }
   },
   "bb5fd2fa-4984-4d37-a2c3-798f0389c44d": {

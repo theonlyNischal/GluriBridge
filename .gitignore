@@ -108,3 +108,9 @@ secrets.json
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Claude Code's own local tool-runtime state (e.g. scheduled_tasks.lock —
+# a session-id/PID/timestamp lock file created by this session's own
+# background-task scheduling) — local machine/session state, zero project
+# relevance, confirmed safe.
+.claude/
