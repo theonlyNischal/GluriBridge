@@ -378,6 +378,17 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
+// Shorter than POLICY_TIER_LABEL's full phrasing (2026-08-31) — this
+// component's narrow one-line search row was still truncating with the
+// full label ("In regulatory process" alone is longer than the whole row
+// used to be), so this dense context gets its own compact wording; the
+// full phrase remains one hover away via this row's own title attribute.
+const COMPACT_POLICY_TIER_LABEL: Record<string, string> = {
+  penetapan: "Decreed",
+  pengaturan: "In process",
+  belum_ada: "None yet",
+};
+
 function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx: string) => Promise<void> }) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<TerritoryListEntry[] | null>(null);
@@ -416,8 +427,11 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
         {results?.map((t) => (
           <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
             <div className="truncate font-medium text-stone-800">{t.name}</div>
-            <div className="truncate text-[11.5px] text-stone-400">
-              {t.province ?? "—"} · {POLICY_TIER_LABEL[t.policy_tier] ?? t.policy_tier} · {t.has_geometry ? "boundary shape on file" : "no boundary shape on file"}
+            <div
+              className="truncate text-[11.5px] text-stone-400"
+              title={`${t.province ?? "no province on file"} · ${POLICY_TIER_LABEL[t.policy_tier] ?? t.policy_tier} · ${t.has_geometry ? "boundary shape on file" : "no boundary shape on file"}`}
+            >
+              {t.province ?? "—"} · {COMPACT_POLICY_TIER_LABEL[t.policy_tier] ?? t.policy_tier} · {t.has_geometry ? "on file" : "no boundary"}
             </div>
           </button>
         ))}
