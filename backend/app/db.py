@@ -312,6 +312,11 @@ def _detail_to_list_row(d: dict, status: dict = None) -> dict:
         # page, just not in this confident aggregate.
         "has_email": bool(contact and contact.get("email") and contact.get("contact_confidence") == "high"),
         "has_low_confidence_email": bool(contact and contact.get("email") and contact.get("contact_confidence") != "high"),
+        # Audit-trail flag (2026-08-31) — true only when a Tier B org-website
+        # search was actually run for this candidate (see RegistrantContact.
+        # contact_tier_b_attempted_at), distinguishing "never searched" from
+        # "searched and found nothing" for the contact-readiness UI.
+        "contact_tier_b_attempted": bool(contact and contact.get("contact_tier_b_attempted_at")),
         # Real activity-type classification (2026-08-31) — see
         # gluribridge/activity_type.py. activity_categories is always []
         # when activity_not_applicable is True; an empty list with

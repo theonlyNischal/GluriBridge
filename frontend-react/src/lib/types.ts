@@ -149,6 +149,10 @@ export interface CandidateListRow {
   // contact page). Kept as its own distinct bucket, never silently
   // merged into has_email or dropped from the record.
   has_low_confidence_email: boolean;
+  // True only when a Tier B org-website search was actually run for this
+  // candidate (2026-08-31 audit trail) — distinguishes "never searched for
+  // an email" from "searched and found nothing" in contact-readiness text.
+  contact_tier_b_attempted: boolean;
   // Real activity-type classification, list form (see ActivityCategory
   // above) — always [] when activity_not_applicable is true. An empty
   // list with activity_not_applicable false is the distinct "unclassified"
@@ -254,7 +258,14 @@ export interface CandidateDetail {
   identity_resolution: { merge_history: MergeHistoryEntry[] };
   carbon_tracks: { dram: unknown; dpp: Record<string, unknown> | null; lcam: unknown; verra_status: string | null; verra_units: unknown };
   documents: DocumentRef[];
-  contact: { name: string | null; org: string | null; email: string | null; contact_source: string | null; contact_source_url: string | null; contact_confidence: string | null } | null;
+  contact: {
+    name: string | null; org: string | null; email: string | null; contact_source: string | null;
+    contact_source_url: string | null; contact_confidence: string | null;
+    // Audit trail (2026-08-31) — present only when a Tier B org-website
+    // search was explicitly run for this candidate; absent (not just null)
+    // otherwise. See RegistrantContact.contact_tier_b_attempted_at.
+    contact_tier_b_attempted_at?: string | null; contact_tier_b_attempt_result?: string | null;
+  } | null;
   activity_type: ActivityTypeResult;
   land_rights: { land_rights_category: string | null; brwa_overlap: BRWAOverlap | null };
   news_evidence: NewsEvidence[];

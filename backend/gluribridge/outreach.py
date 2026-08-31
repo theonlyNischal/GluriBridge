@@ -223,10 +223,21 @@ def generate_outreach(candidate: UnifiedCandidateRecord, dossier: dict) -> dict:
 
     warnings = []
     if status == "name_only_no_email":
-        warnings.append(
-            f"Recipient email address not on file for {contact.name} — needs manual lookup "
-            f"before this can actually be sent."
-        )
+        # Distinguishes "never searched for an email" from "searched and
+        # found nothing" (2026-08-31 audit trail) — same wording pattern as
+        # ContactReadinessIndicator and the Key Gaps sidebar's Contact
+        # readiness line.
+        if contact.contact_tier_b_attempted_at:
+            warnings.append(
+                f"Recipient email address not on file for {contact.name} — a web search did "
+                f"not find a public email; manual lookup would need a different channel "
+                f"(e.g. contacting the organization directly)."
+            )
+        else:
+            warnings.append(
+                f"Recipient email address not on file for {contact.name} — needs manual lookup "
+                f"before this can actually be sent."
+            )
     if status == "email_only_no_name":
         warnings.append(
             "No named individual on file for this contact — addressed generically to the "

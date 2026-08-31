@@ -901,7 +901,7 @@ type KeyGap = { icon: LucideIcon; label: string; text: string; sectionId: string
  * else in this app.
  */
 function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectionId: string) => void }) {
-  const { carbon_tracks, location, scoring, outreach } = rec;
+  const { carbon_tracks, location, scoring, outreach, contact } = rec;
   const gaps: KeyGap[] = [];
 
   if (!carbon_tracks.dram && !carbon_tracks.dpp) {
@@ -922,7 +922,13 @@ function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectio
   if (!outreach || recipientStatus === "insufficient_contact") {
     gaps.push({ icon: Mail, label: "Contact readiness", text: "No contact resolved yet.", sectionId: "sec-outreach" });
   } else if (recipientStatus === "name_only_no_email") {
-    gaps.push({ icon: Mail, label: "Contact readiness", text: "Email not on file — needs manual lookup.", sectionId: "sec-outreach" });
+    // Distinguishes "never searched for an email" from "searched and found
+    // nothing" (2026-08-31) — same wording pattern as ContactReadinessIndicator
+    // and the Outreach warning; reuses this exact gap line, no new element.
+    const text = contact?.contact_tier_b_attempted_at
+      ? "Email not on file — a web search did not find a public email; manual lookup would need a different channel."
+      : "Email not on file — needs manual lookup.";
+    gaps.push({ icon: Mail, label: "Contact readiness", text, sectionId: "sec-outreach" });
   }
 
   return (

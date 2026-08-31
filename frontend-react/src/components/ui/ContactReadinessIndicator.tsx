@@ -26,8 +26,15 @@ export function ContactReadinessIndicator({ row }: { row: CandidateListRow }) {
     );
   }
   if (row.has_resolved_contact) {
+    // Distinguishes "never searched for an email" from "searched and found
+    // nothing" (2026-08-31) — same wording pattern as the Key Gaps sidebar
+    // and the Outreach warning; reuses this exact indicator's existing
+    // treatment, no new visual element.
+    const title = row.contact_tier_b_attempted
+      ? "A name is on file, but no email — a web search did not find a public email; manual lookup would need a different channel (e.g. contacting the org directly)"
+      : "A name is on file, but no email — needs manual lookup before outreach";
     return (
-      <span title="A name is on file, but no email — needs manual lookup before outreach" className="flex h-6 w-6 items-center justify-center rounded-full bg-compliance-amberBg text-compliance-amber">
+      <span title={title} className="flex h-6 w-6 items-center justify-center rounded-full bg-compliance-amberBg text-compliance-amber">
         <AlertTriangle size={13} strokeWidth={2.25} />
       </span>
     );
