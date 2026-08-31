@@ -27,7 +27,7 @@ export function ContactReadinessIndicator({ row }: { row: CandidateListRow }) {
   }
   if (row.has_resolved_contact) {
     return (
-      <span title="A name is on file (Tier A registrant), but no email — needs manual lookup before outreach" className="flex h-6 w-6 items-center justify-center rounded-full bg-compliance-amberBg text-compliance-amber">
+      <span title="A name is on file, but no email — needs manual lookup before outreach" className="flex h-6 w-6 items-center justify-center rounded-full bg-compliance-amberBg text-compliance-amber">
         <AlertTriangle size={13} strokeWidth={2.25} />
       </span>
     );

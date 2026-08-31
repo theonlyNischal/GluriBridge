@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Info } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { fmtScore } from "../../lib/format";
 
@@ -27,6 +28,7 @@ export function ScoreStatCard({
   label,
   value,
   capped,
+  cappedReason,
   accent,
   icon: Icon,
   children,
@@ -35,6 +37,11 @@ export function ScoreStatCard({
   label: string;
   value: number;
   capped?: boolean;
+  // Real explanation for the "capped" badge (2026-08-31) — a bare "capped"
+  // word gave a first-time viewer no way to know why or at what value, the
+  // same problem this whole round is fixing everywhere else. Optional since
+  // only the credibility axis ever caps.
+  cappedReason?: string;
   accent: "clay" | "forest";
   // Optional icon (2026-08-31 visual polish) — same badge-circle treatment
   // as the Dashboard's KpiCard icons, reused rather than a new pattern.
@@ -60,7 +67,10 @@ export function ScoreStatCard({
       <div className="mt-1.5 flex items-center gap-2">
         <h3 className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">{label}</h3>
         {capped && (
-          <span className="rounded bg-compliance-amberBg px-1.5 py-0.5 font-mono text-[10px] font-semibold text-compliance-amber">capped</span>
+          <span title={cappedReason} className="inline-flex items-center gap-0.5 rounded bg-compliance-amberBg px-1.5 py-0.5 font-mono text-[10px] font-semibold text-compliance-amber">
+            capped
+            {cappedReason && <Info size={10} aria-hidden />}
+          </span>
         )}
       </div>
       <div className="mt-2.5 space-y-2 border-t border-stone-100 pt-2.5">{children}</div>

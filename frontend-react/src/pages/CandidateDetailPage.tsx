@@ -22,7 +22,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { api } from "../lib/api";
 import { useCandidates } from "../lib/CandidatesContext";
-import { fmtScore } from "../lib/format";
+import { fmtScore, POLICY_TIER_LABEL, MATCH_STATUS_LABEL } from "../lib/format";
 import { applyCandidateFilter, searchParamsToFilterParams } from "../lib/candidateFilter";
 import { PROVINCE_NOT_AVAILABLE } from "../lib/provinceNormalize";
 import type { CandidateDetail, DocumentRef } from "../lib/types";
@@ -473,7 +473,15 @@ export function CandidateDetailPage() {
           <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay" icon={Target}>
             <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" citationDisplay="popover" />
           </ScoreStatCard>
-          <ScoreStatCard axis="credibility" label="Credibility score" value={scoring.credibility_score} capped={scoring.credibility_capped} accent="forest" icon={ShieldCheck}>
+          <ScoreStatCard
+            axis="credibility"
+            label="Credibility score"
+            value={scoring.credibility_score}
+            capped={scoring.credibility_capped}
+            cappedReason="Capped at 30 — this candidate's data is thin (e.g. a single uncorroborated news mention), so a higher score isn't trustworthy enough to show uncapped."
+            accent="forest"
+            icon={ShieldCheck}
+          >
             <ScoreComponentBar label="Registry status" component={scoring.credibility_components.registry_status} />
             <ScoreComponentBar label="Land rights" component={scoring.credibility_components.land_rights} />
             <ScoreComponentBar label="Geospatial" component={scoring.credibility_components.geospatial} />
@@ -627,8 +635,8 @@ export function CandidateDetailPage() {
                     <dd className="text-stone-800 capitalize">
                       {land_rights.brwa_overlap.relationship} ({land_rights.brwa_overlap.distance_km} km)
                     </dd>
-                    <dt className="text-stone-500">Policy tier</dt>
-                    <dd className="text-stone-800">{land_rights.brwa_overlap.policy_tier}</dd>
+                    <dt className="text-stone-500">Legal recognition status</dt>
+                    <dd className="text-stone-800">{POLICY_TIER_LABEL[land_rights.brwa_overlap.policy_tier] ?? land_rights.brwa_overlap.policy_tier}</dd>
                   </dl>
                 </div>
               ) : (
@@ -649,7 +657,7 @@ export function CandidateDetailPage() {
                 <div key={i} className="flex items-center gap-3 py-1.5 text-[13px]">
                   <SourceBadge source={m.source} />
                   <span className="text-stone-500">
-                    {m.match_status}
+                    {MATCH_STATUS_LABEL[m.match_status] ?? m.match_status}
                     {m.match_score !== undefined && <> · score {fmtScore(m.match_score)}</>}
                   </span>
                 </div>
@@ -717,7 +725,6 @@ export function CandidateDetailPage() {
             <ul className="space-y-1.5">
               {scoring.compliance.not_wired_rules.map((r) => (
                 <li key={r.rule_id} className="flex items-center gap-3 text-[12.5px]">
-                  <span className="shrink-0 font-mono text-[11px] font-semibold text-stone-400">{r.rule_id}</span>
                   {r.pasal !== "-" && <span className="shrink-0 whitespace-nowrap rounded bg-stone-100 px-1.5 py-0.5 font-mono text-[10.5px] text-stone-500">{r.pasal}</span>}
                   <span className="text-stone-400 italic">Not wired</span>
                   <InfoPopover>
@@ -1041,11 +1048,14 @@ function DocumentsPanel({ documents, expanded, onToggle }: { documents: Document
   );
 }
 
-function ComplianceRuleRow({ rule_id, badge, reason, primary }: { rule_id: string; badge: CandidateDetail["scoring"]["compliance"]["badge"]; reason: string; primary?: boolean }) {
+// rule_id (e.g. "R016") kept as a prop purely for React's key/identity —
+// deliberately not rendered: it's a raw internal rule identifier with no
+// meaning to a user, and the real citation is already embedded in `reason`'s
+// own prose (e.g. "...Pasal 10's precondition for trading carbon is met.").
+function ComplianceRuleRow({ badge, reason, primary }: { rule_id: string; badge: CandidateDetail["scoring"]["compliance"]["badge"]; reason: string; primary?: boolean }) {
   return (
     <div className={`rounded-lg border px-3.5 py-2.5 ${primary ? "border-forest-200 bg-forest-50/40" : "border-stone-200"}`}>
       <div className="flex items-center gap-2">
-        <span className="font-mono text-[11px] font-semibold text-stone-500">{rule_id}</span>
         <ComplianceBadge badge={badge} />
       </div>
       <p className="mt-1.5 text-[13px] text-stone-700">{reason}</p>

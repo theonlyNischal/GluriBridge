@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCandidates } from "../lib/CandidatesContext";
 import { api } from "../lib/api";
-import { fmtScore } from "../lib/format";
+import { fmtScore, POLICY_TIER_LABEL } from "../lib/format";
 import { Panel } from "../components/ui/Panel";
 import { FilterSelect } from "../components/ui/FilterSelect";
 import { HonestState } from "../components/ui/HonestState";
@@ -417,7 +417,7 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
           <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
             <div className="truncate font-medium text-stone-800">{t.name}</div>
             <div className="truncate text-[11.5px] text-stone-400">
-              {t.province ?? "—"} · {t.policy_tier} · {t.has_geometry ? "has real geometry" : "no geometry on file"}
+              {t.province ?? "—"} · {POLICY_TIER_LABEL[t.policy_tier] ?? t.policy_tier} · {t.has_geometry ? "boundary shape on file" : "no boundary shape on file"}
             </div>
           </button>
         ))}

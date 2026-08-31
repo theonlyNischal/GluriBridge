@@ -15,13 +15,19 @@ def _contact_route_text(candidate: UnifiedCandidateRecord) -> str:
     if not contact or not contact.contact_source:
         return "No contact found by any tier — needs manual research before outreach."
     if "registrant" in contact.contact_source:
-        return f"{contact.name}, via {contact.contact_source} record (Tier A — direct from the registry, no guessing)."
+        return f"{contact.name}, found directly in the official registry record."
     if contact.contact_source == "org_website":
         conf = contact.contact_confidence or "unknown"
+        # Deliberately {contact.email}, not {contact.name} — Tier B only ever
+        # resolves an email (see resolve_contact_tier_b), never a name, so
+        # {contact.name} here would render blank/"None" for virtually every
+        # real Tier B candidate. Caught during the 2026-08-31 plain-language
+        # pass when the proposed wording swap would have silently dropped
+        # the one real piece of information this sentence exists to convey.
         return (f"{contact.email}, found via the organization's own website "
-                f"(Tier B, {conf} confidence) — {contact.contact_source_url}")
+                f"({conf} confidence) — {contact.contact_source_url}")
     if contact.contact_source == "news_mention":
-        return f"{contact.name}, mentioned in a news article (Tier C — lowest confidence, verify before relying on it)."
+        return f"{contact.name}, mentioned in a news article — this is the lowest-confidence lead, verify before relying on it."
     if contact.contact_source == "manual_review":
         # A human-reviewed find (2026-08-31), NOT resolve_contact_tier_b()'s
         # automated match -- deliberately a distinct source value so it's
