@@ -797,3 +797,91 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   those two to fixed minimum widths instead, letting the table grow wider than its wrapper and
   scroll horizontally within it (already had an `overflow-auto` wrapper for exactly this) rather
   than ever crushing the two most identity-critical columns in the table.
+- **Live production deployment now exists** (Render, free tier) — a real Static Site
+  (`frontend-react/dist`) plus a real Web Service (`backend/`, FastAPI). Not documented anywhere
+  in this file until now, a genuine gap. `frontend-react/src/lib/api.ts`'s `API_BASE` was
+  hardcoded to `localhost:8000`; fixed to read `import.meta.env.VITE_API_BASE` so the deployed
+  static build can point at the real live backend URL. Render does **not** support Netlify's
+  `_redirects` SPA-fallback convention at all — confirmed via WebFetch of Render's own docs after
+  a `_redirects` file was added, deployed, and empirically did nothing; the working mechanism is
+  a dashboard-configured rewrite rule (`/*` → `/index.html`, Rewrite action), verified via curl
+  against 4 real routes returning real 200s instead of 404s.
+- **A real, significant BRWA data gap shipped to production and went undetected until live
+  backend logs were checked** — the single biggest data-completeness bug found this session.
+  `.gitignore`'s blanket `backend/data/raw/` exclusion (originally added only to keep the ~9.8GB
+  BRWA PDF archive out of git) also excluded `backend/data/raw/brwa_geojson/geojson/` (149MB,
+  1,756 real polygon files) and `backend/data/raw/brwa_profiles/wa_list.json` (1.1MB, the full
+  2,283-row BRWA list) — both genuinely read live, per-request, by `app/territories.py`. Neither
+  was ever pushed to GitHub, so the live Render deployment silently ran with `brwa_territories:
+  {total: 0, with_geometry: 0}` instead of the real `{2283, 1756}` — every `/territories/{idx}/
+  geometry` request 404'd, `/territories?search=` returned `[]`, for the entire time the site was
+  live before this was caught. Fixed with precise multi-level gitignore negation (blanket
+  exclude, then re-include the two needed subpaths, then re-exclude everything else under
+  `brwa_profiles/` except `wa_list.json` specifically — the ~9.8GB PDF archive stays excluded),
+  verified via `git add -n` dry-runs on 8 separate paths (both should-ship and should-stay-
+  excluded) before committing, not just visual pattern-reading. 1,758 files (~150MB) pushed.
+- **Frontend underwent a substantial mockup-driven visual overhaul this session** (Dashboard,
+  Candidates List, Candidate Detail) — not previously logged here at all. Dashboard: icon-bearing
+  KPI cards, collapsible sidebar, panel footer links. Candidates List: replaced the table with a
+  responsive card grid (3-column wide / 1-column narrow), pagination (24/page), a Sort-by control,
+  a 3-state `ContactReadinessIndicator`. Candidate Detail: `WhyContactFirst` promoted to a real
+  visual hero (score_label + suggested action + contact route + top why_gluri reason cards, all
+  merged into ONE bordered container, not split across two — an early version had them as two
+  separate boxes, corrected same session), a persistent `KeyGapsSidebar` (4 real gap signals,
+  click-to-jump), a `TrackingSummaryCard` (status/registry badges, moved out of the main content
+  column into the sidebar — was sitting inline with pipeline-computed evidence it had no thematic
+  relationship to). Evidence display across the page uses progressive disclosure (3 levels: an
+  always-visible fact/hypothesis-tagged claim; an opt-in "ⓘ" `InfoPopover` for the full citation
+  detail; the Dossier tab's already-existing full evidence trail, left untouched) — built for the
+  Need/Credibility score reason lists and the 21 unwired compliance rules (demoted to a single
+  muted sentence + expand-to-see-detail, no longer competing visually with the 4 wired rules).
+  `HonestState`'s compact chips gained a visible "ⓘ" info-icon symbol whenever real hidden content
+  (a `title` tooltip) exists — previously a compact chip's only signal of hover-content was
+  invisible. A new `WarningBanner` component (headline + muted supporting line, `AlertTriangle`
+  icon) replaced an ad-hoc "⚠ {one run-on sentence}" div for the Outreach tab's real actionable
+  warnings — deliberately NOT built on `HonestState`, which is explicitly not styled like an
+  alarm (the wrong register for a real blocker).
+- **A real internal-jargon-to-plain-language translation pass** (frontend + one backend
+  copy-generation function) — a full grep-based inventory was done first, confirmed with the
+  user, before any wording changed. Fixed: "Tier A/B/C" language dropped from all user-facing
+  text, including `dossier.py`'s `_contact_route_text()` (the source of "found directly in the
+  official registry record" / "found via the organization's own website" / "mentioned in a news
+  article" wording, rendered on every candidate's hero panel and Dossier tab); raw internal
+  `rule_id` codes (e.g. `"R016"`) dropped from both the 4 wired compliance rules and the 21
+  not-wired ones, since the real Pasal citation is already embedded in each rule's own reason
+  text; BRWA's raw `policy_tier` enum (`penetapan`/`pengaturan`/`belum_ada`) translated to plain
+  English everywhere it renders; `match_status` (`auto_merged`) translated; a bare, unexplained
+  "capped" badge on the Credibility score gained a real tooltip. **One deliberate correction to
+  the user's own proposed wording, caught during verification**: Tier B's contact-route sentence
+  was proposed to use `{contact.name}`, but Tier B (`resolve_contact_tier_b`) only ever resolves
+  an email, never a name — using `{contact.name}` there would have rendered blank/"None" for
+  virtually every real Tier B candidate. Kept `{contact.email}` instead, documented at the fix
+  site. Regenerating the export for this required care: a full `run_pipeline()` re-run has no
+  live Tavily client in this environment and would have silently dropped the 16 news-derived
+  thin candidates (144→128) — caught via `git diff` before it was ever committed, reverted, and
+  redone as a surgical patch of just the affected text fields instead.
+- **`RegistrantContact` gained a Tier B contact-search audit trail** (`contact_tier_b_attempted_at`,
+  `contact_tier_b_attempt_result`) — purely additive, doesn't feed scoring/compliance/
+  `recipient_status`. Exists because a real question came up ("has manual/Tavily research
+  already been attempted against the top-need candidates?") that the data model had no way to
+  answer: a "no email on file" candidate looked identical whether Tier B was never tried or was
+  tried and genuinely found nothing. A real, live, targeted Tier B pass was run against the 19
+  candidates tied at `need_score=100.0` (all Tier A, name-only) — **0 of 19 found an email**,
+  applying the same self-identification+extractable-email bar Tier B always uses, not a loosened
+  one. Contact-readiness wording (the small list-view indicator, the Key Gaps sidebar, the
+  Outreach warning) now distinguishes "never searched" from "searched, found nothing" using this
+  field — same visual treatment everywhere, wording only. **`preserve_contacts_by_registry_key`'s
+  real production entry point was verified end-to-end for the first time this session** (see
+  Section 6's contact-resolution-export-drift entry for its original, standalone-script-only
+  verification) — called the actual `scheduler.run_refresh_cycle(skip_scrape=True)` production
+  function chain (not a hand-rolled simulation), with `orchestrate.EXPORT_DIR`/`db.DB_PATH`
+  monkey-patched to disposable temp locations so nothing live was touched (confirmed via SHA-256
+  hash comparison of the real export/DB files, unchanged before/after); the real `POST /refresh`
+  endpoint was separately confirmed, live, to correctly return HTTP 423 while `data/.freeze` is
+  in place. **Known gap, safe to leave until after Demo Day**:
+  `contact_tier_b_attempted_at`/`contact_tier_b_attempt_result` aren't covered by
+  `preserve_contacts_by_registry_key` — a future registry-only refresh would silently drop this
+  audit trail for previously-attempted candidates (Tier A contacts are always freshly rebuilt
+  from raw registry data on every run, never treated as needing preservation, so this field never
+  gets a chance to be restored). Safe to leave since data is frozen through Demo Day and no
+  refresh will run before then.

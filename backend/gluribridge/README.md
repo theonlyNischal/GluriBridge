@@ -52,7 +52,7 @@ that's a real regression worth investigating, not an expected flake.
 | `compliance.py` | 4 of 25 encoded Permenhut rules wired: R003 (Pasal 6(1), Pelaku Usaha category), R006 (Pasal 10, Unit Karbon precondition), R016 (Pasal 61, deadline badge), R022 (Pasal 20, DPP-track precondition) | Tested against real candidates; **no `red` case exists for R016 in any real test** since today's date is before the 13 Oct 2026 deadline |
 | `scoring.py` | Two-axis scoring: need_score + credibility_score, split deliberately (see below) | Tested against all real candidates across every profile shape encountered |
 | `dossier.py` | Template-based (no LLM) one-page dossier per candidate | Tested against 3 contrasting real profiles; found and fixed a real bug (thin candidates showing a misleading "no gaps" message) |
-| `pipeline.py` | One orchestrating function: normalize -> resolve -> BRWA -> news -> Tier B -> score -> dossier. Also carries `preserve_contacts_by_registry_key` (2026-08-31, additive, default `None`) — restores a prior run's Tier B/manual contact for a candidate a registry-only rerun resolves none of its own, keyed on `registry_ids`, NOT `candidate_id` (see Known Bugs below for why) | Tested end-to-end, reproduces every individual module's output exactly; the new param verified via a full simulated registry-only reseed against real raw data, not just unit tests |
+| `pipeline.py` | One orchestrating function: normalize -> resolve -> BRWA -> news -> Tier B -> score -> dossier. Also carries `preserve_contacts_by_registry_key` (2026-08-31, additive, default `None`) — restores a prior run's Tier B/manual contact for a candidate a registry-only rerun resolves none of its own, keyed on `registry_ids`, NOT `candidate_id` (see Known Bugs below for why) | Tested end-to-end, reproduces every individual module's output exactly; the new param verified via a full simulated registry-only reseed against real raw data AND (2026-08-31, follow-up) via the real `scheduler.run_refresh_cycle()` production entry point with write paths redirected to disposable temp locations — not just unit tests either time. `RegistrantContact` also gained a purely additive Tier B search audit trail (`contact_tier_b_attempted_at`/`contact_tier_b_attempt_result`, 2026-08-31) — see Open Items #17 for a real gap in how it interacts with this preservation function |
 | `export.py` | Frontend-shaped JSON (`ranked_candidates.json`, `candidate_details.json`, etc.) | Tested; caught one real bug (Verra epoch-ms date field) |
 | `outreach.py` | English-only v1 outreach email generation, template-based/no-LLM (see `dossier.py`'s design philosophy) | Tested against 5 contrasting real profiles (Tier A, Tier B, no-contact thin, Katingan, mixed fact+hypothesis reasons) |
 | `citations.py` | Resolves a real, checkable source for every need/credibility reason — document URL, BRWA decree, news article, or an honest no-document note; never a fabricated link | Tested against 4 contrasting real cases + a full-128-candidate sweep in an actual browser (not just JSON) — 0 broken links, 0 empty notes |
@@ -197,15 +197,19 @@ Sort by either axis depending on what you're trying to find.
    follow-up, not done here. The Indonesian hedge ("Berdasarkan temuan kami sejauh ini,
    tampaknya...") is pinned down with the same kind of explicit assertion as the English one,
    not eyeballed.
-7. **No FastAPI service, no database, still true.** Everything here is a Python function called
-   from a test script; `export.py` writes flat JSON files once, on demand. **Partially
-   addressed**: `orchestrate.py` (repo root, above this package) is now a thin scheduler-like
-   layer with a real per-source cadence table (SRUK/Verra daily, SRN-PPI monthly, BRWA manual)
-   and a `data/.freeze` mechanism to hold data stable across a demo window — this is a designed
-   product capability now, just invoked manually rather than by an actual cron/service. No
-   database still means no persistence between runs beyond the flat JSON files themselves.
-8. **No real frontend.** One static HTML mockup was shown once in conversation, built from real
-   exported data but never turned into an actual app.
+7. ~~No FastAPI service, no database, still true.~~ **Resolved.** `backend/app/` (FastAPI +
+   SQLite, `main.py`/`db.py`/`scheduler.py`/`routes.py`) is a real running service — see
+   PROJECT_CONTEXT.md Section 7 for the reorg entry. `orchestrate.py`'s cadence table
+   (SRUK/Verra daily, SRN-PPI monthly, BRWA manual) and `data/.freeze` mechanism are reused
+   directly by the background scheduler, not reimplemented. **Now also actually deployed**
+   (2026-08-31, Render free tier) — a real Static Site + Web Service, not just running locally;
+   see PROJECT_CONTEXT.md Section 7 for the deployment entry and the real BRWA-data-gitignore bug
+   found and fixed on first deploy.
+8. ~~No real frontend.~~ **Resolved.** A full React + Vite + TypeScript + Tailwind app
+   (`frontend-react/`) exists, calling the live API — Dashboard, Candidates List (card grid,
+   paginated), Candidate Detail (hero, scores, Land Rights/Compliance/Dossier/Outreach tabs, a
+   Key Gaps sidebar), Territory Discovery, Tracked/Partnerships, and a Design System reference
+   page. See PROJECT_CONTEXT.md Section 7 for the mockup-driven visual-overhaul entry.
 9. **The org-extraction regex (`news_matching.py`) and the self-identification content checks
    (`contact_resolution.py`) are both keyword/pattern-based** — this prediction already came
    true this session: once real Tavily data actually flowed through, it surfaced concrete new
@@ -319,6 +323,12 @@ Sort by either axis depending on what you're trying to find.
     future pass. Deferred pending confirmation the need is real, not assumed: the actual question
     to resolve first is whether the CEO genuinely cannot review English dossier/summary text, not
     whether a Korean UI would be nicer to have.
+17. **`contact_tier_b_attempted_at`/`contact_tier_b_attempt_result` fields aren't covered by
+    `preserve_contacts_by_registry_key`** — a future registry-only refresh would silently drop
+    this audit trail for previously-attempted candidates (Tier A contacts are always freshly
+    rebuilt from raw registry data on every run, never treated as needing preservation in the
+    first place, so this field never gets a chance to be restored). Safe to leave since data is
+    frozen through Demo Day and no refresh will run before then.
 
 ## Sample data included in this package
 
