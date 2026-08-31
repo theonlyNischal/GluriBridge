@@ -6,17 +6,42 @@ customary-territory evidence + Tavily news signals into one ranked, evidence-bac
 list — with generated dossiers, bilingual (EN/ID) outreach drafts, and a real, checkable source
 citation behind every claim — served by a live FastAPI + SQLite backend and a real frontend.
 
-**This README reflects the actual, tested state as of 2026-08-27 — not the plan, the state.**
+**This README reflects the actual, tested state as of 2026-08-31 — not the plan, the state.**
 Every claim below has a corresponding test file, or a live curl/browser check, that was run and
 produced the stated result. (This file was significantly stale before 2026-08-27 — see
 `PROJECT_CONTEXT.md` Section 7 if you're wondering why the git-blame-equivalent history looks
-uneven; it's now been given the same full-accuracy pass as everything else here.)
+uneven; it's now been given the same full-accuracy pass as everything else here, and is kept
+current as the real frontend has moved since.)
+
+## Setup — works the same on Linux/WSL and macOS
+
+This project has no OS-specific code paths (checked directly, not assumed) — the only difference
+is how you install Python/Node. You need:
+
+- **Python 3.10+** and **Node 18+** on your `PATH`. Confirm with `python3 --version` and
+  `node --version` — this project was last verified against Python 3.12 and Node 18.19.
+  - **macOS**: if you don't already have these, `brew install python node` (Homebrew). If
+    `pip install -r requirements.txt` fails specifically on `shapely` (a geometry library with a
+    native dependency), install its underlying library first: `brew install geos`, then re-run
+    pip install — modern shapely ships a prebuilt wheel for both Intel and Apple Silicon Macs, so
+    this is only a fallback, not the expected path.
+  - **Linux/WSL**: `python3`/`pip3` and Node via your distro's package manager or `nvm` are both
+    fine; this is the environment this project has been developed and tested in day to day.
+- **No `.env` file is required for local development** — the frontend defaults to
+  `http://localhost:8000` for the API, and the backend has no required environment variables.
+  (`VITE_API_BASE` only matters for a production build pointed at a deployed backend — see
+  `PROJECT_CONTEXT.md` Section 7's deployment entry if you need that.)
 
 ## Directory layout
 
 ```
 repo root/
-├── frontend/                  index.html, screenshots/ — static, calls the live API
+├── frontend-react/            the real, current frontend — React + Vite + TypeScript + Tailwind
+│   │                           (7 pages: Dashboard, Candidates, Territory Discovery, Candidate
+│   │                           Detail, Partnerships/Tracked, How this works, Design System)
+├── frontend/                  legacy static prototype (index.html) — superseded by
+│                               frontend-react, kept only for historical reference, not run
+│                               day to day
 ├── backend/
 │   ├── app/                   FastAPI service — main.py, db.py, scheduler.py, routes.py
 │   ├── gluribridge/            core package — normalizers, match, scoring, dossier, outreach,
@@ -32,7 +57,9 @@ repo root/
 └── README.md                  this file
 ```
 
-## Running the live service (one command)
+## Running the live service — two terminals
+
+**Terminal 1 — backend:**
 
 ```bash
 cd backend
@@ -47,14 +74,19 @@ existing cadence/freeze logic (imported directly, not reimplemented) to check ho
 source is due for a re-scrape, respecting `data/.freeze` exactly as the CLI always has.
 Interactive API docs at `http://localhost:8000/docs` once running.
 
-Then, in a second terminal, serve the frontend (a plain static file server, calling the live API
-instead of static JSON):
+**Terminal 2 — frontend** (the real one, `frontend-react/`, not the legacy `frontend/` static
+prototype):
 
 ```bash
-cd frontend
-python3 -m http.server 8751
-# open http://localhost:8751/index.html
+cd frontend-react
+npm install
+npm run dev
+# open the URL Vite prints — http://localhost:5173 by default
 ```
+
+Vite's dev server proxies nothing special — the app calls the live backend directly at
+`http://localhost:8000` (see `frontend-react/src/lib/api.ts`), so both terminals need to be
+running together.
 
 **API endpoints (v1)**: `GET /candidates` (`?sort_by=need_score|credibility_score`),
 `GET /candidates/{id}` (+ `/dossier`, `/outreach`, `/citations`), `GET /tentative-links`,
@@ -80,10 +112,14 @@ python3 test_citations.py      # citation linking, 4 contrasting real cases + fu
 python3 test_pipeline.py       # full pipeline, BRWA-only variant
 python3 test_full_pipeline.py  # full pipeline: normalize -> resolve -> BRWA -> news -> Tier B -> score -> dossier
 python3 test_export.py         # frontend-shaped JSON export (writes to exported_output/)
+python3 test_activity_type.py  # activity-type classification (Peatland/Reforestation/Social forestry/Conservation/IFM), multi-tag real cases
+python3 test_compliance.py     # Permenhut 6/2026 rule evaluation against real pipeline output
 ```
 
-All 13 pass from this location as of 2026-08-27, immediately after the `backend/` reorg. If any
-fail on your machine, that's a real regression worth investigating, not an expected flake.
+All 15 pass from this location as of 2026-08-31 (13 immediately after the `backend/` reorg on
+2026-08-27, plus `test_activity_type.py` and `test_compliance.py` added since — re-run directly,
+not assumed, before writing this number). If any fail on your machine, that's a real regression
+worth investigating, not an expected flake.
 
 ## What's built and tested against real data
 
@@ -106,7 +142,8 @@ fail on your machine, that's a real regression worth investigating, not an expec
 | `export.py` | Frontend-shaped JSON (`ranked_candidates.json`, `candidate_details.json`, etc.) | Tested; the display-order-only tiebreaker (need_score desc, credibility_score desc, has_resolved_contact desc, document_count desc) never touches the scores themselves |
 | `backend/orchestrate.py` | Thin scheduler-like layer above ingestion + `run_pipeline()` — per-source cadence (SRUK/Verra daily, SRN-PPI monthly, BRWA manual), `data/.freeze` to hold data stable across a demo window | Live-verified: correctly resolves paths from its new `backend/` location, `--dry-run` blocks under freeze exactly as designed, `--skip-scrape` runs pipeline+export end-to-end |
 | `backend/app/` (FastAPI + SQLite) | Live API serving the same data the frontend used to read from static files — `db.py`, `scheduler.py` (reuses `orchestrate.py`'s cadence/freeze, doesn't reimplement it), `routes.py`, `main.py` | Live-verified: all 9 endpoints tested with real requests; API responses for real candidates are byte-for-byte identical to the source export; `POST /refresh` returns 423 while frozen; a full 128-candidate frontend sweep against the *live* API (not static files), 0 errors |
-| `frontend/index.html` | Single-file dashboard + detail page, calls the live API, lazy per-candidate detail fetch | Full-128 sweep in an actual browser at every stage this project added (dashboard, outreach panel, citation links, bilingual text, dataset-staleness banner) |
+| `frontend-react/` (React + Vite + TS + Tailwind) — **the current, real frontend** | 7 pages: Dashboard, Candidates List, Territory Discovery, Candidate Detail, Partnerships/Tracked, How this works (`/how-it-works` — live data-sources/methodology explanation), Design System (reference page). Calls the live API directly, lazy per-candidate detail fetch, own instrument-panel/paper/watermark visual language rolled out across every page | Live-verified per page: `npx tsc --noEmit --project tsconfig.app.json` clean, real Playwright sweeps (no console errors, no horizontal overflow at 1280/1440/1600px) on every page, plus page-specific real-data checks (equal-height score cards measured via `getBoundingClientRect()`, rail/tab scroll-sync, filter/sort/pagination correctness, map marker rendering) |
+| `frontend/index.html` — **legacy static prototype, superseded** | Single-file dashboard + detail page, calls the live API, lazy per-candidate detail fetch. Kept only for historical reference — `frontend-react/` is what actually runs now, this is not maintained or re-verified alongside it | Full-128 sweep in an actual browser, as of when this was still the live frontend (dashboard, outreach panel, citation links, bilingual text, dataset-staleness banner) |
 
 ## Why need_score and credibility_score are separate, not one number
 

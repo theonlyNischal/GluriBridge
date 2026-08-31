@@ -885,3 +885,80 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   from raw registry data on every run, never treated as needing preservation, so this field never
   gets a chance to be restored). Safe to leave since data is frozen through Demo Day and no
   refresh will run before then.
+- **A purposeful, subtle motion pass was added across the app** (2026-08-31) — pure CSS plus a
+  small `useCountUp` hook, no new dependency. Dashboard KPI cards count up from 0 on mount
+  (~500ms ease-out, `requestAnimationFrame`-based, opt-in via a new `animateValue` prop scoped to
+  the Dashboard's 4 `lg` cards only); Opportunity Matrix dots fade+scale in on load, staggered
+  ~3ms/dot capped at 300ms total; a shared `.hover-lift` utility (scale 1.015 + shadow) applied
+  identically across Dashboard KPI cards, Candidates List cards, and Territory Discovery's two
+  clickable row types (search results, confirmed-overlap territories); Candidates List cards fade
+  in on mount/filter/page change, staggered ~15ms/card capped at 250ms, keyed by `candidate_id` so
+  a row that persists across a filter change doesn't replay the animation, only rows genuinely new
+  to the visible set do. `prefers-reduced-motion` respected throughout — collapses every
+  animation/transition to near-instant, never hides the end state outright. Verified: tsc clean;
+  sequential screenshots confirmed the KPI count-up mid-animation (142→144, 52→53 across frames)
+  and the hover-lift's shadow+scale on a real card of each of the three types; 0 console errors /
+  0 overflow across 9 pages × 3 widths.
+- **The citation no-document label was reworded** from "No single source document" to "Confirmed
+  — from a live record, no file to link" (2026-08-31, the user's own wording, chosen over an
+  initially-proposed alternative) — the old phrasing read more negative than the real situation:
+  this is a citation-system limitation (the underlying fact IS sourced — a registry field or a
+  computed signal — just not backed by a single downloadable file), not a data gap. Scoped tight
+  per explicit instruction: only `HonestState.tsx`'s `no_source` default label changed; every
+  other honest-disclosure state (not yet checked, no coordinates, no contact found, not_trusted,
+  insufficient) kept its direct "no"-led phrasing untouched, since that bluntness is this app's
+  actual trust mechanism, not something to soften. Confirmed via a full grep first that the only
+  other match anywhere was an unrendered code comment in `citations.py`'s own docstring.
+  `DesignSystemPage.tsx`'s 2 reference examples updated to match, so the page doesn't show an
+  internally-contradictory example (a "Confirmed" chip whose hover tooltip still said the old
+  phrase). Verified: tsc clean; screenshot + title-attribute check on Katingan confirmed the new
+  label renders and the original full reasoning text is preserved verbatim in the tooltip.
+- **The whole frontend was rolled out onto a new "field-instrument" visual direction** (satellite
+  telemetry meets field cartography, 2026-08-31) — approved first as a single Dashboard-only test,
+  then extended page by page with an explicit per-page re-verification checklist, because the app
+  "still read as a generic SaaS dashboard despite many rounds of polish" and the ask was for
+  something rooted in what this product actually is, not another round of generic polish. Sharp
+  corners, hairline borders, no drop shadow (`.instrument-panel`, opt-in via `variant="instrument"`
+  on `Panel`/`KpiCard`, every default unchanged everywhere else); live-pulse dots on numbers that
+  are read fresh from the API on every page load; a paper background plus a hand-authored tileable
+  topographic-contour SVG watermark (`.bg-field-paper`/`.topo-watermark`, scoped to each page's
+  scrolling content area — confirmed via a direct card/gutter-boundary screenshot to never render
+  under opaque white card content); and "accent restraint" — each screen keeps exactly one warm
+  clay accent on its single most important need/action number, muting every other decorative
+  forest/teal/amber usage to ink/stone, while never touching functional data-encoding color (score
+  -axis colors, map marker/legend colors, status/evidence tags, teal as this app's own established
+  geospatial-evidence signal, genuine primary-action buttons). Rolled out in order: Dashboard (the
+  approved test) → Candidates List (KPI toolbar, filter chips, pagination) → Territory Discovery
+  (all 7 panels, map container, exec summary; teal deliberately kept on the BRWA-overlap badge and
+  map legend) → Candidate Detail (the highest-risk page, re-verified on 2 contrasting candidates:
+  equal-height score cards measured via real `getBoundingClientRect()`, rail/tab scroll-sync in
+  both directions, mailto presence/absence, popovers, the hero merge, compliance demotion) →
+  Tracked/Partnerships (caught and fixed a real 2-accent competition — "Contacted" and "Done" were
+  both forest) → Design System (a new "Field instrument variant" section documenting default vs.
+  instrument `Panel`/`KpiCard` side by side, both background options, and the accent-restraint rule
+  in prose). **One real CSS bug found and fixed mid-rollout**: `.instrument-panel`'s own
+  `border-width: 1px` rule would race against Tailwind's own `border-t-2` utility on CSS
+  source-order specificity, silently flattening a colored accent stripe back to 1px — caught before
+  it shipped, fixed by removing `border-width` from the shared class entirely (now only
+  `border-radius`/`box-shadow`) and auditing every usage site to confirm it brings its own explicit
+  Tailwind border-width utility. Held deliberately uncommitted across many rounds per explicit
+  instruction until every page was done and confirmed as one coherent whole, then committed as a
+  single rollout commit. Verified: tsc clean; a final 8-route Playwright sweep at 1600px — 0
+  console errors, 0 horizontal overflow on every route.
+- **A permanent "How this works" / data-sources page now exists** (`/how-it-works`, 2026-08-31) —
+  a single page, reusing the existing design system with no new visual language, built
+  specifically so it can't silently drift the way this project's own docs have drifted before
+  (see the repeated "found stale, corrected" entries throughout this section). Every number on it
+  is fetched live (`GET /stats`, the shared `useCandidates()` hook, and one `GET /candidates/{id}`
+  call for the live wired-vs-total Permenhut rule count) rather than typed in as static text.
+  Five sections: data sources (SRUK/SRN-PPI/Verra/BRWA/Tavily, one sentence each, real live
+  per-source candidate counts — honestly notes that `sruk_and_srn_ppi_input` is a combined raw
+  count the backend doesn't currently split by source); how scoring works (need vs. credibility,
+  never combined into one ranking, the real N1-N6 need rules and the 4 credibility components in
+  plain language, no rule codes); how compliance is checked (the live 4-of-25 wired-rule count,
+  read from a real candidate's own `scoring.compliance` response, not hardcoded); why no LLM is
+  used anywhere in scoring/dossier/outreach (the deliberate trust decision, one paragraph);
+  contact resolution (the established three-tier plain-language explanation plus the real,
+  current has-email/weak-match/name-only/nothing breakdown, which sums exactly to the total real
+  candidate count). Verified: tsc clean; Playwright sweep at 1600/1440/1280px, 0 console
+  errors/overflow at any width; sidebar nav link confirmed clickable from another page.
