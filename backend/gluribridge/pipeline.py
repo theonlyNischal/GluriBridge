@@ -20,6 +20,31 @@ from .news_matching import process_hit, apply_corroboration, new_thin_candidate_
 from .contact_resolution import resolve_contact_tier_b
 from .scoring import score_candidate
 from .dossier import build_dossier
+from .schema import RegistrantContact
+
+# contact_source values a registry-only run (no tavily_client) can never
+# itself produce — see run_pipeline()'s preserve_contacts_by_registry_key
+# docstring. Tier A ('sruk_registrant' / 'srn_ppi_registrant') is
+# recomputed fresh and correctly from raw registry data on every run, so
+# it's deliberately never in this set: a preserved value must never be
+# allowed to shadow a fresh, correct Tier A hit.
+PRESERVABLE_CONTACT_SOURCES = {"org_website", "manual_review"}
+
+# The fields of UnifiedCandidateRecord.registry_ids that are genuinely
+# stable across separate run_pipeline() invocations — each is the
+# registry's OWN identifier, read straight from the raw source file every
+# time. candidate_id itself is NOT stable (see preserve_contacts_by_
+# registry_key's docstring) and must never be used as this kind of key.
+REGISTRY_ID_FIELDS = ("sruk_registry_no", "srn_ppi_registry_no", "verra_project_id")
+
+
+def _registry_keys(registry_ids: dict) -> list:
+    """Every non-null registry id on a candidate, as stable lookup keys
+    ('verra_project_id:674', ...). A cross-registry merged candidate (e.g.
+    Katingan: sruk+srn_ppi+verra all merged into one) can have more than
+    one of these set at once — matching against ANY one of them is
+    enough, since they all identify the same real underlying record."""
+    return [f"{field}:{registry_ids[field]}" for field in REGISTRY_ID_FIELDS if (registry_ids or {}).get(field)]
 
 
 def _is_forestry_sector(sector: str) -> bool:
@@ -117,7 +142,8 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
                   tavily_client=None, news_queries: list = None,
                   news_hits_override: dict = None, run_scoring: bool = True,
                   resolve_contacts_tier_b: bool = False, run_dossiers: bool = True,
-                  source_freshness: dict = None, reference_date: date = None) -> PipelineResult:
+                  source_freshness: dict = None, reference_date: date = None,
+                  preserve_contacts_by_registry_key: dict = None) -> PipelineResult:
     """
     filter_test_data: drops candidates whose own name/org contains an
       explicit test/placeholder keyword ("uji coba", "dummy", "test",
@@ -160,6 +186,41 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
       doesn't already have a Tier A contact. Defaults to False — this
       costs a real Tavily search credit per candidate lacking Tier A, so
       it's opt-in rather than run automatically on every pipeline call.
+    preserve_contacts_by_registry_key: optional {registry_key: contact_dict}
+      — a snapshot of a PRIOR run's resolved contacts (same shape as
+      dataclasses.asdict(RegistrantContact), i.e. detail_json["contact"]
+      from a previous export), keyed by a STABLE registry identifier
+      string ('verra_project_id:674', 'sruk_registry_no:...', etc. — see
+      _registry_keys()), NOT by candidate_id. CONFIRMED real bug
+      (2026-08-30 health-check sweep, root-caused 2026-08-31): a
+      registry-only run (no tavily_client, the normal unattended
+      scheduler.py cadence) can never reproduce a Tier B ('org_website') or
+      human-reviewed ('manual_review') contact — those aren't derivable
+      from raw registry data at all. Without this, re-running the pipeline
+      on unchanged raw data SILENTLY ERASES any such contact a prior richer
+      run had found, because run_pipeline() always rebuilds candidates from
+      scratch. candidate_id is deliberately NOT used as the key here: it is
+      NOT stable across separate run_pipeline() invocations (schema.py's
+      UnifiedCandidateRecord assigns a fresh uuid4() to every record on
+      every construction, and nothing downstream overrides it
+      deterministically) — empirically confirmed the same real record gets
+      a different candidate_id on every rerun of identical raw data, which
+      would make a candidate_id-keyed version of this fix silently match
+      nothing. registry_ids (the registry's own identifier) IS stable
+      across runs, so that's the join key instead. When provided, any
+      final candidate with NO registrant_contact of its own (Tier A always
+      wins and is recomputed correctly every time, so this never shadows a
+      fresh Tier A hit) whose registry_ids matches a preserved entry has
+      that prior org_website/manual_review contact restored, and
+      result.stats["contacts_preserved_from_prior_export"] counts how many
+      — surfaced, never a silent recovery. A candidate with no registry_ids
+      at all (a thin/news-sourced candidate) can never match here — those
+      aren't recreated by a registry-only run in the first place (a
+      separate, pre-existing, already-documented limitation — see
+      scheduler.py's last_registry_refresh vs last_full_refresh_with_news
+      — out of scope for this fix). Defaults to None, in which case
+      behavior is identical to before this param existed — every existing
+      caller/test is unaffected.
     tavily_client: a TavilyClient instance — if provided, news_queries are
       actually searched live. NOT tested from this environment (no network
       access to api.tavily.com here) — smoke-test the live call yourself.
@@ -363,6 +424,38 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
             if resolve_contact_tier_b(candidate, tavily_client):
                 tier_b_resolved += 1
 
+    # --- Step 6c: restore Tier B / manual contacts a registry-only run
+    # can't itself derive (see preserve_contacts_by_registry_key's
+    # docstring — keyed by registry_ids, NOT candidate_id, since
+    # candidate_id isn't stable across runs) ---
+    contacts_preserved = 0
+    if preserve_contacts_by_registry_key:
+        for candidate in final_candidates:
+            # Same pattern as Tier B's own existing_source check just above —
+            # registrant_contact is frequently a non-None RegistrantContact
+            # with contact_source=None (e.g. every Verra-sourced candidate,
+            # per normalize_verra.py: "Verra gives no named individual
+            # contact" but still constructs the dataclass to carry `org`).
+            # `is not None` alone would wrongly treat that as "already
+            # resolved" and never restore anything for Verra candidates.
+            existing_source = candidate.registrant_contact.contact_source if candidate.registrant_contact else None
+            if existing_source:
+                continue  # never shadow a contact this run already resolved itself
+            prior = None
+            for key in _registry_keys(candidate.registry_ids):
+                prior = preserve_contacts_by_registry_key.get(key)
+                if prior:
+                    break
+            if not prior or prior.get("contact_source") not in PRESERVABLE_CONTACT_SOURCES:
+                continue
+            candidate.registrant_contact = RegistrantContact(
+                name=prior.get("name"), org=prior.get("org"), email=prior.get("email"),
+                contact_source=prior.get("contact_source"),
+                contact_source_url=prior.get("contact_source_url"),
+                contact_confidence=prior.get("contact_confidence"),
+            )
+            contacts_preserved += 1
+
     # --- Step 7: scoring (need vs. credibility, split per the design
     # decision — see conversation) ---
     if run_scoring:
@@ -396,6 +489,7 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
         "news_corroborations": sum(1 for a in result.news_actions if a["action"] == "corroborate"),
         "tier_b_contact_attempted": tier_b_attempted,
         "tier_b_contact_resolved": tier_b_resolved,
+        "contacts_preserved_from_prior_export": contacts_preserved,
         "dossiers_generated": len(result.dossiers),
         "data_freshness": _compute_data_freshness(source_freshness, reference_date),
     }

@@ -398,6 +398,48 @@ def remove_freeze() -> bool:
 # every other run this project has done.
 # --------------------------------------------------------------------------
 
+def _read_preserve_contacts_by_registry_key() -> dict:
+    """
+    Reads whatever contact each candidate has on file in the export we're
+    about to overwrite, keeping only Tier B ('org_website') / human-
+    reviewed ('manual_review') contacts — the two kinds a registry-only
+    run below can never itself re-derive (see run_pipeline()'s
+    preserve_contacts_by_registry_key docstring for why this exists:
+    CONFIRMED real bug, 2026-08-30 health-check sweep, where exactly this
+    class of contact was silently dropped by a registry-only re-export).
+
+    Keyed by registry_ids ('verra_project_id:674', etc.), NOT candidate_id
+    — candidate_id is a fresh uuid4() on every run_pipeline() invocation
+    (nothing makes it deterministic across reruns; confirmed empirically
+    2026-08-31: the same real record got a different candidate_id in two
+    back-to-back runs on identical raw data), so a candidate_id-keyed
+    lookup would silently match nothing here. registry_ids is the
+    registry's own identifier, read straight from the raw source file
+    every time — genuinely stable across runs.
+
+    Returns {} on a first-ever run (no export yet) or a malformed/missing
+    file — fails open to "nothing to preserve," never blocks the run itself.
+    """
+    details_path = os.path.join(EXPORT_DIR, "candidate_details.json")
+    if not os.path.exists(details_path):
+        return {}
+    try:
+        details_by_id = _read_json(details_path)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    out = {}
+    for detail in details_by_id.values():
+        contact = detail.get("contact")
+        if not contact or contact.get("contact_source") not in ("org_website", "manual_review"):
+            continue
+        registry_ids = (detail.get("identity") or {}).get("registry_ids") or {}
+        for field in ("sruk_registry_no", "srn_ppi_registry_no", "verra_project_id"):
+            value = registry_ids.get(field)
+            if value:
+                out[f"{field}:{value}"] = contact
+    return out
+
+
 def run_normalization_and_export(freshness: dict) -> dict:
     sruk_files = sorted(glob.glob(os.path.join(DATA_RAW, "sruk", "raw_details", "*.json")))
     srn_ppi_files = sorted(glob.glob(os.path.join(DATA_RAW, "srn_ppi", "raw_details", "*.json")))
@@ -420,6 +462,7 @@ def run_normalization_and_export(freshness: dict) -> dict:
         brwa_geojson_dir=os.path.join(DATA_RAW, "brwa_geojson", "geojson"),
         brwa_profile_dir=os.path.join(DATA_RAW, "brwa_profiles", "profiles"),
         source_freshness=freshness,
+        preserve_contacts_by_registry_key=_read_preserve_contacts_by_registry_key(),
     )
 
     export_summary = export_pipeline_result(result, output_dir=EXPORT_DIR)

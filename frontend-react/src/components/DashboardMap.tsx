@@ -60,7 +60,7 @@ export function DashboardMap({ candidates }: { candidates: CandidateListRow[] })
       marker.bindPopup(
         `<strong>${escapeHtml(r.name)}</strong><br>${escapeHtml(r.org ?? "")}<br>` +
           `N ${fmtScore(r.need_score)} / C ${fmtScore(r.credibility_score)}<br>` +
-          `<a href="#" data-candidate-id="${r.candidate_id}">View candidate &rarr;</a>`
+          `<a href="/candidates/${r.candidate_id}" data-candidate-id="${r.candidate_id}">View candidate &rarr;</a>`
       );
       markers.push(marker);
     });

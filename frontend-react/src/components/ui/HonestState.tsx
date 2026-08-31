@@ -42,6 +42,7 @@ export function HonestState({
           —
         </span>
         {label ?? KIND_LABEL[kind]}
+        {children && <span className="not-italic">: {children}</span>}
       </span>
     );
   }

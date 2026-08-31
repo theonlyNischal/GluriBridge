@@ -2524,7 +2524,7 @@
     "brwa_idx": null,
     "land_rights_category": null,
     "has_named_contact": false,
-    "has_resolved_contact": false,
+    "has_resolved_contact": true,
     "document_count": 58,
     "news_evidence_count": 0
   },
@@ -3431,7 +3431,7 @@
     "has_brwa_evidence": false,
     "land_rights_category": null,
     "has_named_contact": false,
-    "has_resolved_contact": false,
+    "has_resolved_contact": true,
     "document_count": 0,
     "news_evidence_count": 0,
     "brwa_idx": null

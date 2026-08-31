@@ -84,7 +84,7 @@ export function TerritoryDiscoveryPage() {
       marker.bindPopup(
         `<strong>${escapeHtml(r.name)}</strong><br>${escapeHtml(r.org ?? "")}<br>` +
           `N ${fmtScore(r.need_score)} / C ${fmtScore(r.credibility_score)}<br>` +
-          `<a href="#" data-candidate-id="${r.candidate_id}">View candidate &rarr;</a>`
+          `<a href="/candidates/${r.candidate_id}" data-candidate-id="${r.candidate_id}">View candidate &rarr;</a>`
       );
       markers.push(marker);
     });
@@ -125,7 +125,7 @@ export function TerritoryDiscoveryPage() {
   const withOverlap = candidates.filter((r) => r.has_brwa_evidence).length;
   const mappableCount = filteredRows.filter((r) => r.latitude != null && r.longitude != null).length;
   const provinceGroups = groupByProvince(candidates);
-  const namedProvinceCount = [...provinceGroups.keys()].filter((p) => p !== PROVINCE_NOT_AVAILABLE).length;
+  const namedProvinceCount = [...provinceGroups.keys()].filter((p) => p !== PROVINCE_NOT_AVAILABLE && p !== PROVINCE_MULTI_REGION).length;
   const notAvailableCount = provinceGroups.get(PROVINCE_NOT_AVAILABLE)?.length ?? 0;
   const brwaTotal = stats?.brwa_territories.total ?? null;
   const brwaWithGeometry = stats?.brwa_territories.with_geometry ?? null;

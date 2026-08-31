@@ -55859,10 +55859,10 @@
     "contact": {
       "name": null,
       "org": "InfiniteEARTH",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "infiniteearthpulsar@gmail.com",
+      "contact_source": "org_website",
+      "contact_source_url": "https://theinfiniteearth.com",
+      "contact_confidence": "high"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -56560,10 +56560,10 @@
     "contact": {
       "name": null,
       "org": "PT Pembangunan Aceh",
-      "email": null,
-      "contact_source": null,
-      "contact_source_url": null,
-      "contact_confidence": null
+      "email": "contact@pema.co.id",
+      "contact_source": "org_website",
+      "contact_source_url": "https://pema.co.id/profil",
+      "contact_confidence": "high"
     },
     "land_rights": {
       "land_rights_category": null,
