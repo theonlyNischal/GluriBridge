@@ -1,6 +1,9 @@
 import type { CandidateDetail, CandidateListRow, CandidateStatusValue, StatusUpdateResult, StatsResponse, TerritoryListEntry } from "./types";
 
-export const API_BASE = "http://localhost:8000";
+// Build-time override for deployment (e.g. Render's Static Site build env
+// vars) — Vite only exposes client-bundle env vars prefixed VITE_. Falls
+// back to localhost:8000 for local dev, unchanged from before.
+export const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
 async function get<T>(path: string): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`);
