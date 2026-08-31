@@ -487,41 +487,6 @@ export function CandidateDetailPage() {
           )}
         </div>
 
-        {/* Tracking summary card, not the full editor (2026-08-28 restructure).
-            Real division of responsibility: this page answers "is this
-            candidate worth pursuing" — need, credibility, evidence, land
-            rights, contact, all real pipeline-computed data. "What are we
-            doing with them right now" (status/note/history — real,
-            user-owned, persisted data) belongs on the Tracked page, so a
-            status change can never be started here and finished there, or
-            vice versa, silently drifting apart. */}
-        <div className="mt-3 flex flex-wrap items-center gap-3 rounded-lg border border-stone-200 bg-stone-50 px-3.5 py-2.5">
-          <StatusBadge status={status.status} />
-          <span className="text-[12px] text-stone-500">{status.status_changed_at ? `Updated ${status.status_changed_at}` : "No status changes recorded yet"}</span>
-          <Link to={`/tracked?candidate=${rec.candidate_id}`} className="ml-auto text-[12.5px] font-semibold text-forest-700 hover:underline">
-            View tracking →
-          </Link>
-        </div>
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          {sources.map((s) => (
-            <SourceBadge key={s} source={s} />
-          ))}
-        </div>
-        {idBits.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11.5px] text-stone-500">
-            {idBits.map(({ label, value, url }) =>
-              url ? (
-                <a key={label} href={url} target="_blank" rel="noopener noreferrer" title={`View on ${label}'s own registry`} className="inline-flex items-center gap-1">
-                  {label} <code className="rounded bg-teal-50 px-1 py-0.5 text-teal-700 underline decoration-teal-300 underline-offset-2">{value} ↗</code>
-                </a>
-              ) : (
-                <span key={label}>
-                  {label} <code className="rounded bg-stone-100 px-1 py-0.5 text-stone-700">{value}</code>
-                </span>
-              )
-            )}
-          </div>
-        )}
       </div>
 
       {/* ---------- tabs ---------- */}
@@ -821,7 +786,16 @@ export function CandidateDetailPage() {
       )}
       </div>
 
-      <KeyGapsSidebar rec={rec} onJump={(id) => jump(RAIL_SECTIONS.find((s) => s.id === id)!)} />
+      {/* Tracking status + source/registry badges (2026-08-31 — moved out of
+          the main content column). This is administrative/reference
+          metadata about the record itself, not pipeline-computed evidence
+          about whether the candidate is worth pursuing — it belongs beside
+          Key Gaps/Risks in the sidebar, not stacked inline with the
+          hero/scores content it was previously sitting under. */}
+      <div className="w-72 shrink-0 space-y-4">
+        <KeyGapsSidebar rec={rec} onJump={(id) => jump(RAIL_SECTIONS.find((s) => s.id === id)!)} />
+        <TrackingSummaryCard rec={rec} status={status} sources={sources} idBits={idBits} />
+      </div>
       </div>
 
       {/* Invisible bottom spacer — see the bottomSpacerPx effect above.
@@ -937,7 +911,7 @@ function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectio
   }
 
   return (
-    <aside className="w-72 shrink-0">
+    <aside>
       <div className="sticky top-[92px] rounded-xl border border-stone-200 bg-white p-4">
         <div className="flex items-center gap-1.5 text-[13px] font-bold text-stone-800">
           <AlertTriangle size={15} className="text-compliance-amber" /> Key Gaps / Risks
@@ -966,6 +940,63 @@ function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectio
         )}
       </div>
     </aside>
+  );
+}
+
+/**
+ * Tracking status + source/registry badges (2026-08-31 — moved out of the
+ * main content column into the sidebar, stacked below Key Gaps/Risks).
+ * Real division of responsibility, same as before the move: this page
+ * answers "is this candidate worth pursuing" — need, credibility,
+ * evidence, land rights, contact, all real pipeline-computed data. "What
+ * are we doing with them right now" (status/note/history — real,
+ * user-owned, persisted data) belongs on the Tracked page, so a status
+ * change can never be started here and finished there, or vice versa,
+ * silently drifting apart. Same card visual language as Key Gaps/Risks
+ * (white, bordered, rounded-xl) for a consistent sidebar column, not the
+ * old inline stone-50 treatment that assumed a content-flow context.
+ */
+function TrackingSummaryCard({
+  rec,
+  status,
+  sources,
+  idBits,
+}: {
+  rec: CandidateDetail;
+  status: CandidateDetail["status"];
+  sources: string[];
+  idBits: { label: string; value: string; url: string | null }[];
+}) {
+  return (
+    <div className="rounded-xl border border-stone-200 bg-white p-4">
+      <div className="flex flex-wrap items-center gap-3">
+        <StatusBadge status={status.status} />
+        <span className="text-[12px] text-stone-500">{status.status_changed_at ? `Updated ${status.status_changed_at}` : "No status changes recorded yet"}</span>
+      </div>
+      <Link to={`/tracked?candidate=${rec.candidate_id}`} className="mt-1.5 inline-block text-[12.5px] font-semibold text-forest-700 hover:underline">
+        View tracking →
+      </Link>
+      <div className="mt-3 flex flex-wrap gap-1.5 border-t border-stone-100 pt-3">
+        {sources.map((s) => (
+          <SourceBadge key={s} source={s} />
+        ))}
+      </div>
+      {idBits.length > 0 && (
+        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11.5px] text-stone-500">
+          {idBits.map(({ label, value, url }) =>
+            url ? (
+              <a key={label} href={url} target="_blank" rel="noopener noreferrer" title={`View on ${label}'s own registry`} className="inline-flex items-center gap-1">
+                {label} <code className="rounded bg-teal-50 px-1 py-0.5 text-teal-700 underline decoration-teal-300 underline-offset-2">{value} ↗</code>
+              </a>
+            ) : (
+              <span key={label}>
+                {label} <code className="rounded bg-stone-100 px-1 py-0.5 text-stone-700">{value}</code>
+              </span>
+            )
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
