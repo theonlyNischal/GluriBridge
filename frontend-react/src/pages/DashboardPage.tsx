@@ -36,6 +36,13 @@ export function DashboardPage() {
   // distinct, separately-labeled bucket rather than lumped into hasEmail
   // above or silently dropped from the record entirely.
   const lowConfidenceEmail = candidates.filter((r) => r.has_low_confidence_email).length;
+  // The real "resolved contact, but genuinely nothing to email" bucket —
+  // resolvedContact minus both real-email buckets, NOT resolvedContact
+  // itself (a rewrite of this line first drafted "the rest" as
+  // resolvedContact's own number, which double-counts the two email
+  // buckets it already contains — caught before shipping, same "state
+  // the real distinct number" discipline as the split above).
+  const nameOnlyNoEmail = resolvedContact - hasEmail - lowConfidenceEmail;
 
   const richness: Record<string, number> = { rich: 0, corroborated: 0, thin: 0 };
   candidates.forEach((r) => {
@@ -70,11 +77,11 @@ export function DashboardPage() {
         <h1 className="mt-2 font-display text-4xl font-bold text-stone-900">{total} real candidates in the pipeline</h1>
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
-          <KpiCard label="Total candidates" value={total} sub="live from the API" to="/candidates" size="lg" />
-          <KpiCard label="High need (≥70)" value={highNeed} sub="real need_score, own axis" accent="clay" to="/candidates?minNeed=70" size="lg" />
-          <KpiCard label="High credibility (≥70)" value={highCred} sub="real credibility_score, own axis" accent="forest" to="/candidates?minCred=70" size="lg" />
+          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" />
+          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" />
+          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" accent="forest" to="/candidates?minCred=70" size="lg" />
           <KpiCard
-            label="Compliance deadline approaching"
+            label="Compliance Risk"
             value={approachingDeadline}
             sub="Pasal 61 amber/red badge"
             accent="amber"
@@ -86,26 +93,23 @@ export function DashboardPage() {
         <p className="mt-5 text-[13px] text-stone-500">Independent axes · never combined into one ranking · live from the registry</p>
       </div>
 
-      {/* Contact-resolution detail — the same real, clickable numbers the
-          hero used to carry directly (see the 2026-08-31 audit fix note
-          below), now a supporting panel rather than the page's opening
-          line, so the hero itself can stay to one short sentence.
-
-          2026-08-31 audit fix: this used to say "{resolvedContact} have a
-          resolved contact ready for outreach" — false. has_resolved_contact
-          is true for a Tier A registrant NAME with no email at all (83 of
-          144 real candidates) — not ready for outreach in any real sense.
-          Now states both numbers with their real, distinct meanings, and
-          links each to its own accurately-filtered view (contactResolved=yes
-          vs. hasEmail=yes are different filters — see candidateFilter.ts). */}
-      <div className="mb-5 rounded-xl border border-stone-200 bg-white px-5 py-4">
-        <p className="text-[13.5px] leading-relaxed text-stone-600">
-          <SummaryLink to="/candidates?contactResolved=yes">{resolvedContact}</SummaryLink> have some contact on file (a registry name or an
-          email), but only <SummaryLink to="/candidates?hasEmail=yes">{hasEmail}</SummaryLink> of those have a confidently-resolved email ready
-          for outreach (plus <SummaryLink to="/candidates?lowConfidenceEmail=yes">{lowConfidenceEmail}</SummaryLink> more with a real email
-          that's a weaker, lower-confidence match — worth a manual check before relying on it) — the rest are a name on file with nothing to
-          send to.
-        </p>
+      {/* Contact-resolution detail — a slim, scannable line (2026-08-31
+          polish pass), not the dense paragraph this used to be. Same 3
+          real, distinct, clickable numbers as before, still each linking
+          to its own accurately-filtered view — just no longer prose. The
+          4th real number (resolvedContact, "any contact at all") isn't
+          restated here since it's exactly nameOnlyNoEmail + hasEmail +
+          lowConfidenceEmail — showing it too would be redundant, not a
+          dropped fact. */}
+      <div className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-lg bg-stone-100/70 px-4 py-2.5 text-[13px] text-stone-600">
+        <span className="font-medium text-stone-500">Contact ready:</span>
+        <SummaryLink to="/candidates?hasEmail=yes">{hasEmail} confidently-resolved emails</SummaryLink>
+        <span className="text-stone-300">·</span>
+        <SummaryLink to="/candidates?lowConfidenceEmail=yes">{lowConfidenceEmail} weaker matches</SummaryLink>
+        <span className="text-stone-300">·</span>
+        <SummaryLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}>
+          {nameOnlyNoEmail} name only, no email yet
+        </SummaryLink>
       </div>
 
       {/* The dashboard's main content — the matrix and map get the bulk of

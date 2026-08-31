@@ -31,7 +31,22 @@ export function KpiCard({
   // same component, not a duplicate) is completely unaffected.
   size?: "sm" | "lg";
 }) {
-  const valueColor = accent === "clay" ? "text-clay-700" : accent === "forest" ? "text-forest-700" : accent === "amber" ? "text-compliance-amber" : "text-stone-900";
+  // "lg" (the Dashboard hero) uses a lighter step on the same clay/forest
+  // scale (500, not 700) — 700 reads as near-black at this size (real
+  // user feedback, 2026-08-31: "only the compliance card has strong
+  // color"), because clay-700/forest-700 are muted DARK shades by design
+  // for regular body/label text elsewhere in the app, not built to carry
+  // a big standalone number. clay-500/forest-500 match compliance-amber/
+  // compliance-green's own lightness (confirmed: forest-500 IS the exact
+  // hex compliance.green uses), giving all 3 colored hero numbers the
+  // same visual weight. The "sm" toolbar usage keeps the original 700
+  // shades unchanged — not the same visual problem at that size, and not
+  // something this round was asked to touch.
+  const valueColor =
+    accent === "clay" ? (size === "lg" ? "text-clay-500" : "text-clay-700")
+    : accent === "forest" ? (size === "lg" ? "text-forest-500" : "text-forest-700")
+    : accent === "amber" ? "text-compliance-amber"
+    : "text-stone-900";
   const padding = size === "lg" ? "px-5 py-5" : "px-4 py-3";
   const className = `block rounded-lg border border-stone-200 bg-white ${padding} ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40" : ""}`;
   const content = (
