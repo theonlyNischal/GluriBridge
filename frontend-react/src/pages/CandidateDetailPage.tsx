@@ -39,6 +39,7 @@ import { CitationLink } from "../components/ui/CitationLink";
 import { EvidenceTag } from "../components/ui/EvidenceTag";
 import { ComplianceBadge } from "../components/ui/ComplianceBadge";
 import { ActivityTypeBadges } from "../components/ui/ActivityTypeBadges";
+import { WarningBanner } from "../components/ui/WarningBanner";
 import { TerritoryMap } from "../components/TerritoryMap";
 
 const TABS = ["overview", "compliance", "dossier", "outreach"] as const;
@@ -733,9 +734,7 @@ export function CandidateDetailPage() {
                 {outreach.structured.warnings.length > 0 && (
                   <div className="mb-3 space-y-1.5">
                     {outreach.structured.warnings.map((w, i) => (
-                      <div key={i} className="rounded-lg border border-compliance-amber/30 bg-compliance-amberBg px-3 py-2 text-[12.5px] text-compliance-amber">
-                        ⚠ {w}
-                      </div>
+                      <WarningBanner key={i} message={w} />
                     ))}
                   </div>
                 )}
