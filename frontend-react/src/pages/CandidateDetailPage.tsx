@@ -397,16 +397,21 @@ export function CandidateDetailPage() {
         <div className="mt-1 text-[14px] text-stone-500">{identity.org ?? "—"}</div>
 
         {/* Top badge row (2026-08-31) — real activity-type classification
-            (see activity_type.py's module docstring) plus a real province
-            badge, together, right under the identity header: both are
-            real facts about what/where this candidate's project actually
-            is, read before the why-contact-first recommendation below.
-            Province already showed further down this page (the
-            RichnessBadge row) — this is additive, not a move. */}
+            (see activity_type.py's module docstring) plus a real
+            province+district badge, together, right under the identity
+            header: both are real facts about what/where this candidate's
+            project actually is, read before the why-contact-first
+            recommendation below. Province used to ALSO show again further
+            down this page (the RichnessBadge row) — real duplication, not
+            a deliberate two-purpose design; district (which had no home
+            up here) now joins it, and the bottom row drops both, keeping
+            only what's actually about that row's own theme (data
+            richness/verification), not location. */}
         <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
           <span className="inline-flex items-center gap-1 whitespace-nowrap rounded bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600">
             <MapPin size={11} />
             {identity.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
+            {identity.district ? ` · ${identity.district}` : ""}
           </span>
           {/* compact (2026-08-31 fix) — this badge row sits right below
               the identity header, alongside the province chip (already
@@ -466,26 +471,13 @@ export function CandidateDetailPage() {
           </ScoreStatCard>
         </div>
 
+        {/* Data-quality row, location-free (2026-08-31) — province/district
+            used to also render here, duplicating the top badge row with no
+            real reason to; this row's own theme is data richness/
+            verification status, not location, so it now shows only that. */}
         <div className="mt-3 flex flex-wrap items-center gap-2.5 border-t border-stone-100 pt-3">
           <RichnessBadge richness={identity.data_richness} />
           <span className="rounded bg-stone-100 px-2 py-0.5 text-[11px] font-semibold capitalize text-stone-500">{identity.verification_status.replace(/_/g, " ")}</span>
-          {/* Same HonestState treatment as the Dashboard's province panel,
-              Candidates list, and Territory Discovery, not the old plain
-              "no province on file" text — one real "we don't know the
-              province" pattern app-wide. */}
-          {identity.province ? (
-            <span className="text-[13px] text-stone-500">
-              {identity.province}
-              {identity.district ? ` · ${identity.district}` : ""}
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5">
-              <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />
-              {/* compact HonestState doesn't render children — district,
-                  when present without a province, is shown alongside it. */}
-              {identity.district && <span className="text-[13px] text-stone-500">{identity.district}</span>}
-            </span>
-          )}
         </div>
 
       </div>
