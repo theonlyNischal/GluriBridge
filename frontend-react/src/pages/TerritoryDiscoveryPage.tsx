@@ -425,7 +425,7 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
         {!searchError && search.trim().length < 2 && <p className="text-[12.5px] text-stone-400">Type at least 2 characters — searches real BRWA territory names.</p>}
         {!searchError && results && results.length === 0 && <p className="text-[12.5px] text-stone-400">No real BRWA territory matches "{search}".</p>}
         {results?.map((t) => (
-          <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
+          <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="hover-lift block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
             <div className="truncate font-medium text-stone-800">{t.name}</div>
             <div
               className="truncate text-[11.5px] text-stone-400"
@@ -487,7 +487,7 @@ function ConfirmedOverlapPanel({ candidates, onSelectTerritory }: { candidates: 
         <ol className="space-y-1">
           {ranked.map(([idx, rows]) => (
             <li key={idx}>
-              <button onClick={() => onSelectTerritory(idx)} className="flex w-full items-center justify-between gap-2 rounded px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
+              <button onClick={() => onSelectTerritory(idx)} className="hover-lift flex w-full items-center justify-between gap-2 rounded px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
                 <span className="truncate font-medium text-stone-700">{names.get(idx) ?? `Loading… (${idx})`}</span>
                 <span className="shrink-0 rounded-full bg-teal-100 px-2 py-0.5 font-mono text-[11px] text-teal-800">{rows.length}</span>
               </button>

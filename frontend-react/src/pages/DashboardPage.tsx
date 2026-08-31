@@ -90,9 +90,9 @@ export function DashboardPage() {
         <h1 className="mt-2 font-display text-4xl font-bold text-stone-900">{total} real candidates in the pipeline</h1>
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
-          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} />
-          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} />
-          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" accent="forest" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} />
+          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} animateValue />
+          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue />
+          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" accent="forest" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue />
           <KpiCard
             label="Compliance Risk"
             value={approachingDeadline}
@@ -101,6 +101,7 @@ export function DashboardPage() {
             to="/candidates?compliance=approaching"
             size="lg"
             icon={AlertTriangle}
+            animateValue
           />
         </div>
 

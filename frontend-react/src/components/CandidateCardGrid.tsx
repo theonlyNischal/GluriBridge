@@ -27,11 +27,12 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
   const navigate = useNavigate();
   return (
     <div className="grid grid-cols-1 gap-4 p-5 md:grid-cols-2 xl:grid-cols-3">
-      {rows.map((r) => (
+      {rows.map((r, i) => (
         <div
           key={r.candidate_id}
           onClick={() => navigate(`/candidates/${r.candidate_id}${currentQuery ? `?${currentQuery}` : ""}`)}
-          className="flex cursor-pointer flex-col rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-forest-300 hover:bg-forest-50/30"
+          className="hover-lift animate-row-in flex cursor-pointer flex-col rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-forest-300 hover:bg-forest-50/30"
+          style={{ animationDelay: `${Math.min(i * 15, 250)}ms` }}
         >
           <div className="truncate font-semibold text-stone-800" title={r.name}>
             {r.name}

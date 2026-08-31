@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { LucideIcon } from "lucide-react";
+import { useCountUp } from "../../lib/useCountUp";
 
 /**
  * Dashboard-metric-card treatment — large bold number, small muted label,
@@ -20,6 +21,7 @@ export function KpiCard({
   to,
   size = "sm",
   icon: Icon,
+  animateValue = false,
 }: {
   label: string;
   value: number;
@@ -36,6 +38,11 @@ export function KpiCard({
   // Dashboard's "lg" cards; the Candidates-list toolbar's "sm" usage
   // never passes one, so it's visually untouched.
   icon?: LucideIcon;
+  // Count-up-on-mount motion (2026-08-31) — opt-in, scoped to the
+  // Dashboard's "lg" cards only (per the explicit ask); the Candidates-
+  // list toolbar and Tracked page's "sm" usage never pass this, so
+  // they're visually and behaviorally unaffected.
+  animateValue?: boolean;
 }) {
   // "lg" (the Dashboard hero) uses a lighter step on the same clay/forest
   // scale (500, not 700) — 700 reads as near-black at this size (real
@@ -59,7 +66,11 @@ export function KpiCard({
     : accent === "amber" ? "bg-compliance-amberBg text-compliance-amber"
     : "bg-stone-100 text-stone-500";
   const padding = size === "lg" ? "px-5 py-5" : "px-4 py-3";
-  const className = `block rounded-lg border border-stone-200 bg-white ${padding} ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40" : ""}`;
+  // Hook always called (React rules), result only used when opted in —
+  // cheap (a single rAF loop), never runs for the "sm" toolbar usages.
+  const animated = useCountUp(value);
+  const displayValue = animateValue ? animated : value;
+  const className = `block rounded-lg border border-stone-200 bg-white ${padding} ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40 hover-lift" : ""}`;
   const content = (
     <>
       <div className="flex items-start justify-between gap-2">
@@ -70,7 +81,7 @@ export function KpiCard({
           </span>
         )}
       </div>
-      <div className={`mt-1.5 font-mono ${size === "lg" ? "text-figure" : "text-figure-sm"} tabular ${valueColor}`}>{value}</div>
+      <div className={`mt-1.5 font-mono ${size === "lg" ? "text-figure" : "text-figure-sm"} tabular ${valueColor}`}>{displayValue}</div>
       {sub && <div className="mt-1 text-[11.5px] text-stone-400">{sub}</div>}
     </>
   );

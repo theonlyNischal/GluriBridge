@@ -17,4 +17,68 @@
   .tabular {
     font-variant-numeric: tabular-nums;
   }
+
+  /* Purposeful motion pass (2026-08-31) — restrained, professional tone:
+     short durations, ease-out, no bounce/spring. Respects
+     prefers-reduced-motion by collapsing every animation/transition here
+     to near-instant, never by hiding the motion classes outright (the
+     end state — visible, in place — must still be reached the same way). */
+
+  /* Opportunity Matrix dots: fade + scale in on load, staggered per-dot
+     via an inline animation-delay (see ScatterPlot.tsx) — not a page-load
+     spectacle, just enough to read as "populating," not "already there." */
+  .animate-dot-in {
+    animation: dot-fade-scale-in 260ms ease-out backwards;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes dot-fade-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.35);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Shared hover-lift, reused identically across Dashboard/Candidates/
+     Territory Discovery cards+rows — same treatment everywhere so the
+     "this is interactive" signal reads consistently app-wide. */
+  .hover-lift {
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+  }
+  .hover-lift:hover {
+    transform: scale(1.015);
+    box-shadow: 0 4px 14px -4px rgb(0 0 0 / 0.12);
+  }
+
+  /* Candidates list rows: fade in on filter/page change (see
+     CandidateCardGrid.tsx) — same duration/easing as the hover lift for
+     one consistent motion language, not a second bespoke timing. */
+  .animate-row-in {
+    animation: row-fade-in 220ms ease-out backwards;
+  }
+  @keyframes row-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-dot-in,
+    .animate-row-in {
+      animation-duration: 1ms;
+      animation-delay: 0ms !important;
+    }
+    .hover-lift,
+    .hover-lift:hover {
+      transition-duration: 1ms;
+      transform: none;
+    }
+  }
 }

@@ -63,10 +63,12 @@ export function ScatterPlot({ candidates }: { candidates: CandidateListRow[] }) 
         <line x1={PAD} y1={PAD} x2={PAD} y2={PAD + plotH} stroke="#a89577" strokeWidth={1.5} />
         <line x1={PAD} y1={PAD + plotH} x2={PAD + plotW} y2={PAD + plotH} stroke="#a89577" strokeWidth={1.5} />
 
-        {/* points */}
+        {/* points — fade+scale in on load, staggered per-dot (2026-08-31
+            motion pass): delay capped at 300ms total spread so 144 real
+            dots still read as "populating quickly," not a slow reveal. */}
         {candidates
           .filter((r) => r.need_score != null && r.credibility_score != null)
-          .map((r) => {
+          .map((r, i) => {
             const jx = jitter(r.candidate_id, 6);
             const jy = jitter(r.candidate_id + "y", 6);
             const cx = PAD + (r.need_score / 100) * plotW + jx;
@@ -81,7 +83,8 @@ export function ScatterPlot({ candidates }: { candidates: CandidateListRow[] }) 
                 fillOpacity={0.65}
                 stroke="white"
                 strokeWidth={0.75}
-                className="cursor-pointer transition-[r] hover:r-[6]"
+                className="animate-dot-in cursor-pointer transition-[r] hover:r-[6]"
+                style={{ animationDelay: `${Math.min(i * 3, 300)}ms` }}
                 onClick={() => navigate(`/candidates/${r.candidate_id}`)}
               >
                 <title>
