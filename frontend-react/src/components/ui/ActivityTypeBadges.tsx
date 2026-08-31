@@ -22,7 +22,21 @@ import { HonestState } from "./HonestState";
  */
 const UNCLASSIFIED_REASON = "A real candidate — this classifier's current keyword/field coverage doesn't match its title.";
 
-export function ActivityTypeBadges({ activityType, compact = false }: { activityType: ActivityTypeResult; compact?: boolean }) {
+export function ActivityTypeBadges({
+  activityType,
+  compact = false,
+  maxVisible,
+}: {
+  activityType: ActivityTypeResult;
+  compact?: boolean;
+  // Caps how many real category pills render before the rest collapse
+  // into a "+N" pill (2026-08-31, the Candidates list's card grid) —
+  // real classification data is never silently dropped, just deferred to
+  // hover: the "+N" pill's title lists every hidden category by name.
+  // Omitted (default) renders every category, unchanged for every
+  // existing caller (the table, the Candidate Detail page).
+  maxVisible?: number;
+}) {
   if (activityType.not_applicable) {
     // Compact (table-cell) instance: the real reason is too long to
     // inline without ballooning the row's height — kept reachable via
@@ -41,13 +55,23 @@ export function ActivityTypeBadges({ activityType, compact = false }: { activity
       <HonestState kind="no_data" label="Unclassified">{UNCLASSIFIED_REASON}</HonestState>
     );
   }
+  const visible = maxVisible ? activityType.categories.slice(0, maxVisible) : activityType.categories;
+  const hidden = maxVisible ? activityType.categories.slice(maxVisible) : [];
   return (
     <div className="flex flex-wrap gap-1.5">
-      {activityType.categories.map((cat) => (
+      {visible.map((cat) => (
         <span key={cat} className="inline-block whitespace-nowrap rounded bg-teal-100 px-2 py-0.5 text-[11px] font-semibold text-teal-800">
           {cat}
         </span>
       ))}
+      {hidden.length > 0 && (
+        <span
+          title={hidden.join(", ")}
+          className="inline-block cursor-help whitespace-nowrap rounded bg-stone-200 px-2 py-0.5 text-[11px] font-semibold text-stone-600"
+        >
+          +{hidden.length}
+        </span>
+      )}
     </div>
   );
 }

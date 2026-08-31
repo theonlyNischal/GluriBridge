@@ -149,7 +149,10 @@ export function CandidateTable({
   );
 }
 
-function RowActions({ candidateId, canOutreach, query }: { candidateId: string; canOutreach: boolean; query: string }) {
+// Exported (2026-08-31) so the Candidates list's card-grid view can reuse
+// the exact same View/Dossier/Outreach logic rather than a second copy —
+// same real navigation, same real outreach-disabled condition.
+export function RowActions({ candidateId, canOutreach, query }: { candidateId: string; canOutreach: boolean; query: string }) {
   const navigate = useNavigate();
   function go(tab?: string) {
     return (e: React.MouseEvent) => {

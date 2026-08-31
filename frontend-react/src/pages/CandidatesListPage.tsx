@@ -2,11 +2,37 @@ import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import { useCandidates } from "../lib/CandidatesContext";
-import { CandidateTable } from "../components/CandidateTable";
+import { CandidateCardGrid } from "../components/CandidateCardGrid";
 import { KpiCard } from "../components/ui/KpiCard";
 import { FilterSelect } from "../components/ui/FilterSelect";
 import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
-import { applyCandidateFilter, filterParamsToSearchParams, searchParamsToFilterParams, type SortKey } from "../lib/candidateFilter";
+import { applyCandidateFilter, filterParamsToSearchParams, searchParamsToFilterParams } from "../lib/candidateFilter";
+
+// Card-grid layout (2026-08-31) has no column headers to click, so
+// sorting moves to an explicit control here — same real sortKey/sortDir
+// state candidateFilter.ts already owns, just a different UI surface for
+// setting it. Opaque values (not sortKey names directly) since
+// "need_score"/"credibility_score" both already contain underscores.
+const SORT_OPTIONS: { value: string; label: string }[] = [
+  { value: "needDesc", label: "Need score (high to low)" },
+  { value: "needAsc", label: "Need score (low to high)" },
+  { value: "credDesc", label: "Credibility score (high to low)" },
+  { value: "credAsc", label: "Credibility score (low to high)" },
+];
+
+function sortValueFor(sortKey: string | null, sortDir: string): string {
+  if (!sortKey) return "";
+  if (sortKey === "need_score") return sortDir === "asc" ? "needAsc" : "needDesc";
+  return sortDir === "asc" ? "credAsc" : "credDesc";
+}
+
+function applySortValue(v: string): { sortKey: "need_score" | "credibility_score" | null; sortDir: "asc" | "desc" } {
+  if (v === "needDesc") return { sortKey: "need_score", sortDir: "desc" };
+  if (v === "needAsc") return { sortKey: "need_score", sortDir: "asc" };
+  if (v === "credDesc") return { sortKey: "credibility_score", sortDir: "desc" };
+  if (v === "credAsc") return { sortKey: "credibility_score", sortDir: "asc" };
+  return { sortKey: null, sortDir: "desc" };
+}
 
 export function CandidatesListPage() {
   const { candidates, error } = useCandidates();
@@ -21,12 +47,6 @@ export function CandidatesListPage() {
 
   function updateFilter(patch: Partial<typeof filterParams>) {
     setSearchParams(filterParamsToSearchParams({ ...filterParams, ...patch }), { replace: true });
-  }
-
-  function toggleSort(key: SortKey) {
-    if (filterParams.sortKey !== key) updateFilter({ sortKey: key, sortDir: "desc" });
-    else if (filterParams.sortDir === "desc") updateFilter({ sortDir: "asc" });
-    else updateFilter({ sortKey: null, sortDir: "desc" });
   }
 
   // The exact query string every row links to — carries this list's
@@ -77,7 +97,14 @@ export function CandidatesListPage() {
           now lives in the URL (not local component state) specifically
           so it survives navigating into a candidate and back — see
           lib/candidateFilter.ts. */}
-      <div className="flex shrink-0 items-center gap-2 border-b border-stone-200 bg-white px-5 py-3">
+      {/* flex-wrap (2026-08-31 fix) — adding the Sort-by control as a 5th
+          inline control (after richness/status/activity-type) pushed this
+          row's total width past 1280px's available space, a real
+          horizontal-overflow regression caught by re-running the standard
+          1280/1440/1600 sweep, not assumed fixed by eye. Wrapping to a
+          second line at narrow widths costs nothing real — every control
+          stays fully visible and usable, just stacked. */}
+      <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-stone-200 bg-white px-5 py-3">
         <div className="flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-2.5 py-1.5 shadow-sm focus-within:border-forest-500 focus-within:ring-1 focus-within:ring-forest-200">
           <Search size={14} className="shrink-0 text-stone-400" />
           <input
@@ -109,6 +136,12 @@ export function CandidatesListPage() {
             { value: "not_applicable", label: "Not applicable" },
           ]}
         />
+        <FilterSelect
+          value={sortValueFor(filterParams.sortKey, filterParams.sortDir)}
+          onChange={(v) => updateFilter(applySortValue(v))}
+          placeholder="Default order"
+          options={SORT_OPTIONS}
+        />
         <span className="ml-auto whitespace-nowrap rounded-full bg-stone-100 px-2.5 py-1 text-[12px] font-medium text-stone-500">
           {rows.length} of {candidates.length}
         </span>
@@ -131,13 +164,9 @@ export function CandidatesListPage() {
         </div>
       )}
 
-      <CandidateTable
-        rows={rows}
-        currentQuery={currentQuery}
-        sortKey={filterParams.sortKey}
-        sortDir={filterParams.sortDir}
-        onToggleSort={toggleSort}
-      />
+      <div className="flex-1 overflow-auto">
+        <CandidateCardGrid rows={rows} currentQuery={currentQuery} />
+      </div>
     </div>
   );
 }
