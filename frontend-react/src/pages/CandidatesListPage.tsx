@@ -1,12 +1,21 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { useCandidates } from "../lib/CandidatesContext";
 import { CandidateCardGrid } from "../components/CandidateCardGrid";
 import { KpiCard } from "../components/ui/KpiCard";
 import { FilterSelect } from "../components/ui/FilterSelect";
 import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
 import { applyCandidateFilter, filterParamsToSearchParams, searchParamsToFilterParams } from "../lib/candidateFilter";
+
+// Pagination (2026-08-31) — the card grid costs far more vertical space
+// per candidate than the table it replaced (roughly 240px/card vs ~55px/
+// row): the full unfiltered 144 at 3 columns is ~48 rows of cards, over
+// 13 screen-heights of scroll. Not a performance problem (144 real DOM
+// cards is trivial for any browser) — purely a "don't make someone
+// scroll through 13 screens to browse everything" problem. 24 = a clean
+// multiple of the 3-column grid (8 rows/page).
+const PAGE_SIZE = 24;
 
 // Card-grid layout (2026-08-31) has no column headers to click, so
 // sorting moves to an explicit control here — same real sortKey/sortDir
@@ -45,9 +54,31 @@ export function CandidatesListPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [candidates, searchParams.toString()]);
 
+  // Rebuilds the URL from filterParamsToSearchParams — deliberately drops
+  // any existing "page" param (that function doesn't know about it),
+  // which is exactly the wanted behavior: changing a filter/search/sort
+  // resets to page 1 rather than leaving the user stranded on, say, page
+  // 4 of a set that only has 1 page after the new filter applies.
   function updateFilter(patch: Partial<typeof filterParams>) {
     setSearchParams(filterParamsToSearchParams({ ...filterParams, ...patch }), { replace: true });
   }
+
+  // Page navigation — preserves every current filter/sort param, only
+  // ever touches "page".
+  function goToPage(p: number) {
+    const sp = filterParamsToSearchParams(filterParams);
+    sp.set("page", String(p));
+    setSearchParams(sp, { replace: true });
+  }
+
+  const totalPages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  const rawPage = parseInt(searchParams.get("page") ?? "1", 10);
+  // Clamped, not trusted directly — a filter narrowing the set (or a
+  // hand-edited/stale URL) can leave a "page" param pointing past the
+  // real last page; falling back to the real last page rather than
+  // rendering an empty grid with no explanation.
+  const page = Math.min(Math.max(1, Number.isFinite(rawPage) ? rawPage : 1), totalPages);
+  const pagedRows = rows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   // The exact query string every row links to — carries this list's
   // current filter/sort into the detail page, so prev/next there can
@@ -165,8 +196,46 @@ export function CandidatesListPage() {
       )}
 
       <div className="flex-1 overflow-auto">
-        <CandidateCardGrid rows={rows} currentQuery={currentQuery} />
+        <CandidateCardGrid rows={pagedRows} currentQuery={currentQuery} />
       </div>
+
+      {/* Pagination footer — always visible (shrink-0, outside the
+          scrolling card area), never scrolls away. Only rendered when
+          there's real pagination to do (a single-page filtered set gets
+          no confusing "Page 1 of 1" clutter). */}
+      {rows.length > 0 && totalPages > 1 && (
+        <div className="flex shrink-0 items-center justify-between gap-3 border-t border-stone-200 bg-white px-5 py-3">
+          <span className="text-[12.5px] text-stone-500">
+            Showing <span className="font-semibold text-stone-700">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, rows.length)}</span> of{" "}
+            <span className="font-semibold text-stone-700">{rows.length}</span>
+          </span>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => goToPage(page - 1)}
+              disabled={page <= 1}
+              className="flex items-center gap-1 rounded-md border border-stone-300 px-2.5 py-1.5 text-[12.5px] font-medium text-stone-600 hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              <ChevronLeft size={14} /> Prev
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+              <button
+                key={p}
+                onClick={() => goToPage(p)}
+                className={`h-8 w-8 rounded-md text-[12.5px] font-medium ${p === page ? "bg-forest-600 text-white" : "text-stone-600 hover:bg-stone-100"}`}
+              >
+                {p}
+              </button>
+            ))}
+            <button
+              onClick={() => goToPage(page + 1)}
+              disabled={page >= totalPages}
+              className="flex items-center gap-1 rounded-md border border-stone-300 px-2.5 py-1.5 text-[12.5px] font-medium text-stone-600 hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Next <ChevronRight size={14} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
