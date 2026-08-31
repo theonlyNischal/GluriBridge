@@ -21,7 +21,14 @@ const KIND_LABEL: Record<string, string> = {
   no_data: "No data on file",
   not_applicable: "Not applicable",
   not_trusted: "On file, not trusted",
-  no_source: "No single source document",
+  // Reworded (2026-08-31) — this is a citation-system limitation (the
+  // real fact IS sourced, e.g. a registry field or a computed signal,
+  // just not backed by a single downloadable file), not a data gap.
+  // "No single source document" read more negative than the real
+  // situation; kept every other kind's direct "no"-led phrasing
+  // untouched — that bluntness is this app's actual trust mechanism,
+  // not something to soften.
+  no_source: "Confirmed — from a live record, no file to link",
   insufficient: "Insufficient data",
 };
 

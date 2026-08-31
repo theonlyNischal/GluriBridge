@@ -113,7 +113,7 @@ export function DesignSystemPage() {
           <HonestState kind="not_trusted">Single-source Verra coordinate falls outside Indonesia's real bounding box — treated as not yet available rather than trusted.</HonestState>
           <HonestState kind="insufficient">No contact information available at all.</HonestState>
           <div className="flex items-center">
-            <HonestState kind="no_source" label="no single source document" compact />
+            <HonestState kind="no_source" compact title="Confirmed via a registry field — no downloadable document exists to cite." />
           </div>
         </div>
       </section>
@@ -123,7 +123,7 @@ export function DesignSystemPage() {
         <h2 className="font-display text-lg font-semibold text-stone-800">Citations</h2>
         <div className="mt-3 flex items-center gap-6 rounded-xl border border-stone-200 bg-white p-6">
           <CitationLink citation={{ source_type: "SRUK registry record", url: "https://example.org/doc.pdf", retrieved_at: null, note: null }} />
-          <CitationLink citation={{ source_type: "N/A", url: null, retrieved_at: null, note: "no single source document" }} />
+          <CitationLink citation={{ source_type: "N/A", url: null, retrieved_at: null, note: "Confirmed via a registry field — no downloadable document exists to cite." }} />
         </div>
       </section>
 
