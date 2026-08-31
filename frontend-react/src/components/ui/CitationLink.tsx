@@ -17,5 +17,5 @@ export function CitationLink({ citation }: { citation: Citation | null }) {
       </a>
     );
   }
-  return <HonestState kind="no_source" label={citation.note ?? citation.source_type ?? "no single source document"} compact />;
+  return <HonestState kind="no_source" compact title={citation.note ?? citation.source_type ?? undefined} />;
 }
