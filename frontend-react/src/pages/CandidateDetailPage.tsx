@@ -1,6 +1,25 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useSearchParams, Link, useNavigate } from "react-router-dom";
-import { FileText, FileSpreadsheet, MapPinned, File as FileIcon, ExternalLink, ArrowLeft, ChevronLeft, ChevronRight, Mail } from "lucide-react";
+import {
+  FileText,
+  FileSpreadsheet,
+  MapPinned,
+  File as FileIcon,
+  ExternalLink,
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
+  Mail,
+  Target,
+  ShieldCheck,
+  MapPin,
+  CheckCircle2,
+  Lightbulb,
+  AlertTriangle,
+  FolderX,
+  CalendarClock,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { api } from "../lib/api";
 import { useCandidates } from "../lib/CandidatesContext";
 import { fmtScore } from "../lib/format";
@@ -360,17 +379,32 @@ export function CandidateDetailPage() {
 
       <SectionRail visibleSections={visibleSections} activeId={activeId} onJump={jump} />
 
+      {/* Two-column layout (2026-08-31) — the Key Gaps sidebar is
+          persistent across every tab (not just Overview), so the split
+          wraps the hero + tabs + tab-content together, not any one tab's
+          content alone. The bottom spacer stays outside this row — it's
+          about the overall page's scrollable height for the rail's
+          scroll-to mechanism, which only ever measures sections inside
+          the main column anyway. */}
+      <div className="flex gap-5">
+      <div className="min-w-0 flex-1">
       {/* ---------- hero ---------- */}
       <div className="rounded-xl border border-stone-200 bg-white p-5">
         <h1 className="font-display text-2xl font-semibold leading-tight text-stone-900">{identity.name}</h1>
         <div className="mt-1 text-[14px] text-stone-500">{identity.org ?? "—"}</div>
 
-        {/* Real activity-type classification (2026-08-31) — see
-            activity_type.py's module docstring. Placed right under the
-            identity header since it's a real fact about what this
-            candidate's project actually is, read before the
-            why-contact-first recommendation below. */}
-        <div className="mt-2.5">
+        {/* Top badge row (2026-08-31) — real activity-type classification
+            (see activity_type.py's module docstring) plus a real province
+            badge, together, right under the identity header: both are
+            real facts about what/where this candidate's project actually
+            is, read before the why-contact-first recommendation below.
+            Province already showed further down this page (the
+            RichnessBadge row) — this is additive, not a move. */}
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+          <span className="inline-flex items-center gap-1 whitespace-nowrap rounded bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600">
+            <MapPin size={11} />
+            {identity.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
+          </span>
           <ActivityTypeBadges activityType={activity_type} />
         </div>
 
@@ -390,6 +424,30 @@ export function CandidateDetailPage() {
           <WhyContactFirst scoring={scoring} dossier={dossier} />
         </div>
 
+        {/* Top reason cards (2026-08-31) — 2-3 of dossier.structured.
+            why_gluri's own reasons, promoted near the hero as bordered
+            icon-cards instead of only appearing lower on the page (the
+            Dossier tab's "Why Gluri" panel still shows the complete
+            list — this is a preview, not a move, deliberately reusing the
+            exact same real fact/hypothesis-tagged text rather than
+            writing new summary copy). Icon is keyed to the real
+            evidence_level field (fact -> check, hypothesis -> lightbulb),
+            not an invented per-reason category — there's no real signal
+            to pick a "tree/people/checklist"-style icon per reason. */}
+        {dossier.structured.why_gluri.length > 0 && (
+          <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+            {dossier.structured.why_gluri.slice(0, 3).map((r, i) => {
+              const Icon = (r.evidence_level ?? "fact") === "fact" ? CheckCircle2 : Lightbulb;
+              return (
+                <div key={i} className="rounded-lg border border-stone-200 bg-white p-3">
+                  <Icon size={16} className={(r.evidence_level ?? "fact") === "fact" ? "text-forest-600" : "text-clay-600"} />
+                  <p className="mt-1.5 text-[12.5px] leading-snug text-stone-700">{r.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {/* Need and Credibility — deliberately identical size, weight, and
             treatment RELATIVE TO EACH OTHER. Never ranked against each
             other: a candidate can be low on one and high on the other
@@ -401,10 +459,10 @@ export function CandidateDetailPage() {
             visual element is "why contact this candidate", not the raw
             numbers — but the two cards remain identical to each other. */}
         <div id="sec-scores" className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-          <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay">
+          <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay" icon={Target}>
             <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" />
           </ScoreStatCard>
-          <ScoreStatCard axis="credibility" label="Credibility score" value={scoring.credibility_score} capped={scoring.credibility_capped} accent="forest">
+          <ScoreStatCard axis="credibility" label="Credibility score" value={scoring.credibility_score} capped={scoring.credibility_capped} accent="forest" icon={ShieldCheck}>
             <ScoreComponentBar label="Registry status" component={scoring.credibility_components.registry_status} />
             <ScoreComponentBar label="Land rights" component={scoring.credibility_components.land_rights} />
             <ScoreComponentBar label="Geospatial" component={scoring.credibility_components.geospatial} />
@@ -738,6 +796,10 @@ export function CandidateDetailPage() {
           </Panel>
         </div>
       )}
+      </div>
+
+      <KeyGapsSidebar rec={rec} onJump={(id) => jump(RAIL_SECTIONS.find((s) => s.id === id)!)} />
+      </div>
 
       {/* Invisible bottom spacer — see the bottomSpacerPx effect above.
           Real, measured dead space, never a guessed constant; 0px on any
@@ -773,6 +835,79 @@ function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scori
       <p className="mt-3 font-display text-[19px] font-semibold leading-snug text-stone-900">{dossier.structured.suggested_poc}</p>
       <p className="mt-2 text-[14px] leading-relaxed text-stone-700">{dossier.structured.contact_route}</p>
     </div>
+  );
+}
+
+type KeyGap = { icon: LucideIcon; label: string; text: string; sectionId: string };
+
+/**
+ * Key Gaps / Risks (2026-08-31) — a persistent sidebar consolidating 4
+ * real gap signals this page already computes and shows in full detail
+ * elsewhere (DRAM/DPP from carbon_tracks, coordinate status from
+ * land_rights/location, the compliance deadline, contact readiness from
+ * outreach). Deliberately SHORT summary lines, not a second copy of the
+ * full paragraphs those other sections already show — this panel's job
+ * is "what's missing, at a glance, click through for detail," never a
+ * duplicate. A gap only appears here when it genuinely applies (an
+ * empty list renders an honest "no key gaps" line, not a blank panel) —
+ * same "don't show a claim that doesn't apply" discipline as everywhere
+ * else in this app.
+ */
+function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectionId: string) => void }) {
+  const { carbon_tracks, location, scoring, outreach } = rec;
+  const gaps: KeyGap[] = [];
+
+  if (!carbon_tracks.dram && !carbon_tracks.dpp) {
+    gaps.push({ icon: FolderX, label: "Missing DRAM/DPP", text: "No DRAM or DPP on file yet.", sectionId: "sec-dossier" });
+  }
+  if (location.latitude == null) {
+    gaps.push({ icon: MapPin, label: "No coordinates", text: "BRWA not checked — location not verified.", sectionId: "sec-land-rights" });
+  }
+  if (scoring.compliance.badge === "amber" || scoring.compliance.badge === "red") {
+    gaps.push({
+      icon: CalendarClock,
+      label: "Compliance deadline",
+      text: `${scoring.compliance.days_until_deadline} days remaining.`,
+      sectionId: "sec-compliance",
+    });
+  }
+  const recipientStatus = outreach?.structured.recipient_status;
+  if (!outreach || recipientStatus === "insufficient_contact") {
+    gaps.push({ icon: Mail, label: "Contact readiness", text: "No contact resolved yet.", sectionId: "sec-outreach" });
+  } else if (recipientStatus === "name_only_no_email") {
+    gaps.push({ icon: Mail, label: "Contact readiness", text: "Email not on file — needs manual lookup.", sectionId: "sec-outreach" });
+  }
+
+  return (
+    <aside className="w-72 shrink-0">
+      <div className="sticky top-[92px] rounded-xl border border-stone-200 bg-white p-4">
+        <div className="flex items-center gap-1.5 text-[13px] font-bold text-stone-800">
+          <AlertTriangle size={15} className="text-compliance-amber" /> Key Gaps / Risks
+        </div>
+        {gaps.length === 0 ? (
+          <p className="mt-3 text-[12.5px] text-stone-500">No key gaps flagged for this candidate.</p>
+        ) : (
+          <div className="mt-3 space-y-2.5">
+            {gaps.map((g, i) => {
+              const Icon = g.icon;
+              return (
+                <button
+                  key={i}
+                  onClick={() => onJump(g.sectionId)}
+                  className="block w-full rounded-lg border border-stone-200 bg-stone-50 p-2.5 text-left transition-colors hover:border-forest-300 hover:bg-forest-50/40"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <Icon size={13} className="text-clay-600" />
+                    <span className="text-[11.5px] font-semibold text-stone-700">{g.label}</span>
+                  </div>
+                  <p className="mt-1 text-[12px] leading-snug text-stone-600">{g.text}</p>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </aside>
   );
 }
 

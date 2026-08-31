@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { LucideIcon } from "lucide-react";
 import { fmtScore } from "../../lib/format";
 
 /**
@@ -27,6 +28,7 @@ export function ScoreStatCard({
   value,
   capped,
   accent,
+  icon: Icon,
   children,
 }: {
   axis: "need" | "credibility";
@@ -34,15 +36,26 @@ export function ScoreStatCard({
   value: number;
   capped?: boolean;
   accent: "clay" | "forest";
+  // Optional icon (2026-08-31 visual polish) — same badge-circle treatment
+  // as the Dashboard's KpiCard icons, reused rather than a new pattern.
+  icon?: LucideIcon;
   children: ReactNode;
 }) {
   const ring = accent === "clay" ? "border-t-clay-500" : "border-t-forest-500";
   const text = accent === "clay" ? "text-clay-700" : "text-forest-700";
+  const iconBadge = accent === "clay" ? "bg-clay-50 text-clay-500" : "bg-forest-50 text-forest-500";
   return (
     <div className={`rounded-xl border border-stone-200 border-t-4 bg-white p-4 ${ring}`} data-axis={axis}>
-      <div className={`font-mono text-figure tabular ${text}`}>
-        {fmtScore(value)}
-        <span className="ml-1.5 text-base font-medium text-stone-400">/ 100</span>
+      <div className="flex items-start justify-between gap-2">
+        <div className={`font-mono text-figure tabular ${text}`}>
+          {fmtScore(value)}
+          <span className="ml-1.5 text-base font-medium text-stone-400">/ 100</span>
+        </div>
+        {Icon && (
+          <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${iconBadge}`}>
+            <Icon size={18} strokeWidth={2.25} />
+          </span>
+        )}
       </div>
       <div className="mt-1.5 flex items-center gap-2">
         <h3 className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">{label}</h3>
