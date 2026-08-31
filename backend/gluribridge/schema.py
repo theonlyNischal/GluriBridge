@@ -33,6 +33,21 @@ class RegistrantContact:
     contact_source: Optional[str] = None   # 'sruk_registrant' | 'srn_ppi_registrant' | 'org_website' | 'news_mention' | None
     contact_source_url: Optional[str] = None
     contact_confidence: Optional[str] = None   # 'high' | 'medium' — only set for Tier B; Tier A is implicitly high
+    # Audit trail (2026-08-31) — a Tier B (org-website) search CAN be run
+    # against a candidate that already has a Tier A name-only contact (a
+    # deliberate, manual override of resolve_contact_tier_b()'s normal
+    # skip-if-Tier-A-already-resolved gate — see contact_resolution.py's
+    # module docstring) specifically to check whether an email is ALSO
+    # findable beyond the name Tier A already found. Without this, a
+    # "no email on file" candidate looks identical whether Tier B was
+    # never tried or was tried and genuinely found nothing — those two
+    # states must never be indistinguishable to anyone reading the data
+    # later. Purely additive/informational: neither field feeds scoring,
+    # compliance, or recipient_status (still driven only by name/email
+    # presence, see outreach.py's _recipient_status) — this is audit
+    # trail only, same category as the existing field_sources mechanism.
+    contact_tier_b_attempted_at: Optional[str] = None   # ISO date, set only when Tier B was explicitly run for this candidate
+    contact_tier_b_attempt_result: Optional[str] = None   # human-readable outcome of that attempt
 
 
 @dataclass
