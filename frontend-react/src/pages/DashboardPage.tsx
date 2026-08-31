@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Users, Flame, ShieldCheck, AlertTriangle, ArrowRight } from "lucide-react";
 import { SummaryLink } from "../components/ui/SummaryLink";
 import { useCandidates } from "../lib/CandidatesContext";
 import { Panel } from "../components/ui/Panel";
@@ -10,6 +11,18 @@ import { ProvinceBreakdown } from "../components/ProvinceBreakdown";
 import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
 import { filterParamsToSearchParams, DEFAULT_FILTER_PARAMS } from "../lib/candidateFilter";
 import type { CandidateListRow, CandidateStatusValue } from "../lib/types";
+
+// A real, working navigational footer for a panel — every one of these
+// leads somewhere real (never a dead/decorative "learn more"). 2026-08-31
+// visual-polish round, added to all 7 Dashboard panels below the hero.
+function PanelLink({ to, children }: { to: string; children: string }) {
+  return (
+    <Link to={to} className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-forest-700 hover:text-forest-800">
+      {children}
+      <ArrowRight size={12} strokeWidth={2.5} />
+    </Link>
+  );
+}
 
 export function DashboardPage() {
   const { candidates, error } = useCandidates();
@@ -77,9 +90,9 @@ export function DashboardPage() {
         <h1 className="mt-2 font-display text-4xl font-bold text-stone-900">{total} real candidates in the pipeline</h1>
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
-          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" />
-          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" />
-          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" accent="forest" to="/candidates?minCred=70" size="lg" />
+          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} />
+          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} />
+          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" accent="forest" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} />
           <KpiCard
             label="Compliance Risk"
             value={approachingDeadline}
@@ -87,6 +100,7 @@ export function DashboardPage() {
             accent="amber"
             to="/candidates?compliance=approaching"
             size="lg"
+            icon={AlertTriangle}
           />
         </div>
 
@@ -123,12 +137,15 @@ export function DashboardPage() {
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
         <Panel title={`Opportunity matrix — need vs. credibility, all ${total} real candidates`}>
           <ScatterPlot candidates={candidates} />
+          <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
         <Panel title="Real candidate locations + real BRWA territory overlaps">
           <DashboardMap candidates={candidates} />
+          <PanelLink to="/territories">View in Territory Discovery</PanelLink>
         </Panel>
         <Panel title="Candidates by province (real, normalized)">
           <ProvinceBreakdown candidates={candidates} />
+          <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
       </div>
 
@@ -141,9 +158,11 @@ export function DashboardPage() {
       <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr,1.3fr,1fr,1fr]">
         <Panel title="Top 5 by need score">
           <RankedList rows={topNeed} />
+          <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "need_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
         <Panel title="Top 5 by credibility score">
           <RankedList rows={topCred} />
+          <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
         <Panel title="Data richness">
           <div className="space-y-2.5">
@@ -151,6 +170,7 @@ export function DashboardPage() {
               <BarRow key={k} label={`${k} (${richness[k] ?? 0})`} value={richness[k] ?? 0} max={maxRichness} total={total} />
             ))}
           </div>
+          <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
         <Panel title="Outreach status">
           <div className="space-y-2.5">
@@ -161,7 +181,20 @@ export function DashboardPage() {
             ))}
           </div>
           <p className="mt-2.5 text-[12px] text-stone-500">Real, persisted state — set from a candidate's detail page, survives every data refresh.</p>
+          <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
+      </div>
+
+      {/* Closing trust-badge row (2026-08-31 visual polish) — three real,
+          already-true statements about this pipeline (see
+          PROJECT_CONTEXT.md's design principles), not marketing copy
+          invented for this row. */}
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-stone-200 pt-5 text-[12px] font-medium text-stone-500">
+        <span>Fact vs. hypothesis, always labeled</span>
+        <span className="text-stone-300">·</span>
+        <span>No LLM for scoring or matching</span>
+        <span className="text-stone-300">·</span>
+        <span>Need and credibility scored independently</span>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import type { LucideIcon } from "lucide-react";
 
 /**
  * Dashboard-metric-card treatment — large bold number, small muted label,
@@ -18,6 +19,7 @@ export function KpiCard({
   accent,
   to,
   size = "sm",
+  icon: Icon,
 }: {
   label: string;
   value: number;
@@ -30,6 +32,10 @@ export function KpiCard({
   // Candidates-list toolbar usage (a real, different shared use of this
   // same component, not a duplicate) is completely unaffected.
   size?: "sm" | "lg";
+  // Optional icon (2026-08-31 visual polish) — only ever passed by the
+  // Dashboard's "lg" cards; the Candidates-list toolbar's "sm" usage
+  // never passes one, so it's visually untouched.
+  icon?: LucideIcon;
 }) {
   // "lg" (the Dashboard hero) uses a lighter step on the same clay/forest
   // scale (500, not 700) — 700 reads as near-black at this size (real
@@ -47,11 +53,23 @@ export function KpiCard({
     : accent === "forest" ? (size === "lg" ? "text-forest-500" : "text-forest-700")
     : accent === "amber" ? "text-compliance-amber"
     : "text-stone-900";
+  const iconBadge =
+    accent === "clay" ? "bg-clay-50 text-clay-500"
+    : accent === "forest" ? "bg-forest-50 text-forest-500"
+    : accent === "amber" ? "bg-compliance-amberBg text-compliance-amber"
+    : "bg-stone-100 text-stone-500";
   const padding = size === "lg" ? "px-5 py-5" : "px-4 py-3";
   const className = `block rounded-lg border border-stone-200 bg-white ${padding} ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40" : ""}`;
   const content = (
     <>
-      <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">{label}</div>
+      <div className="flex items-start justify-between gap-2">
+        <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">{label}</div>
+        {Icon && (
+          <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${iconBadge}`}>
+            <Icon size={14} strokeWidth={2.25} />
+          </span>
+        )}
+      </div>
       <div className={`mt-1.5 font-mono ${size === "lg" ? "text-figure" : "text-figure-sm"} tabular ${valueColor}`}>{value}</div>
       {sub && <div className="mt-1 text-[11.5px] text-stone-400">{sub}</div>}
     </>

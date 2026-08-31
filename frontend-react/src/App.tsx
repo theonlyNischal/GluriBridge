@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Routes, Route, NavLink, useLocation } from "react-router-dom";
-import { LayoutGrid, MapPin, Table2, ListChecks } from "lucide-react";
+import { LayoutGrid, MapPin, Table2, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
 import { CandidatesProvider } from "./lib/CandidatesContext";
 import { StalenessBanner } from "./components/StalenessBanner";
 import { DesignSystemPage } from "./pages/DesignSystemPage";
@@ -37,14 +38,22 @@ function pageTitle(pathname: string): string {
 
 export default function App() {
   const location = useLocation();
+  // Sidebar collapse (2026-08-31 visual polish) — plain component state,
+  // not persisted: this is a within-session convenience toggle, not a
+  // standing preference worth surviving a reload (no real request for
+  // that either). Collapsed shows icon-only nav with a native `title`
+  // tooltip per item, standing in for the now-hidden label text.
+  const [collapsed, setCollapsed] = useState(false);
+  const sidebarWidth = collapsed ? "w-16" : "w-60";
+  const contentOffset = collapsed ? "ml-16" : "ml-60";
 
   return (
     <CandidatesProvider>
       {/* Sidebar — fixed, never scrolls away, regardless of page content height. */}
-      <aside className="fixed inset-y-0 left-0 z-20 flex w-60 flex-col bg-forest-950 text-stone-200">
-        <div className="flex items-center gap-2 px-5 py-4">
-          <span className="h-2 w-2 rounded-full bg-forest-400" />
-          <span className="font-display text-[15px] font-semibold text-white">GluriBridge</span>
+      <aside className={`fixed inset-y-0 left-0 z-20 flex ${sidebarWidth} flex-col bg-forest-950 text-stone-200 transition-[width]`}>
+        <div className={`flex items-center gap-2 px-5 py-4 ${collapsed ? "justify-center px-0" : ""}`}>
+          <span className="h-2 w-2 shrink-0 rounded-full bg-forest-400" />
+          {!collapsed && <span className="font-display text-[15px] font-semibold text-white">GluriBridge</span>}
         </div>
         <nav className="mt-1 flex flex-col gap-0.5 px-3">
           {NAV.map((item) => {
@@ -54,32 +63,45 @@ export default function App() {
                 key={item.to}
                 to={item.to}
                 end={item.end}
+                title={collapsed ? item.label : undefined}
                 className={({ isActive }) =>
-                  `flex items-center gap-2.5 rounded-md px-3 py-2 text-[13px] font-medium transition ${
+                  `flex items-center gap-2.5 rounded-md px-3 py-2 text-[13px] font-medium transition ${collapsed ? "justify-center px-2" : ""} ${
                     isActive ? "bg-forest-800 text-white" : "text-stone-300 hover:bg-forest-900 hover:text-white"
                   }`
                 }
               >
                 <Icon size={15} strokeWidth={2} />
-                {item.label}
+                {!collapsed && item.label}
               </NavLink>
             );
           })}
         </nav>
-        <div className="mt-auto px-5 py-4 text-[11px] leading-relaxed text-stone-500">
-          Indonesia forestry-carbon
-          <br />
-          partner discovery
-          <div className="mt-2">
-            <NavLink to="/design-system" className="text-stone-500 underline decoration-stone-700 underline-offset-2 hover:text-stone-300">
-              Design system
-            </NavLink>
+        {!collapsed && (
+          <div className="mt-auto px-5 py-4 text-[11px] leading-relaxed text-stone-500">
+            Indonesia forestry-carbon
+            <br />
+            partner discovery
+            <div className="mt-2">
+              <NavLink to="/design-system" className="text-stone-500 underline decoration-stone-700 underline-offset-2 hover:text-stone-300">
+                Design system
+              </NavLink>
+            </div>
           </div>
-        </div>
+        )}
+        <button
+          onClick={() => setCollapsed((c) => !c)}
+          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          className={`flex items-center gap-2 border-t border-forest-900 px-5 py-3 text-[12px] font-medium text-stone-400 hover:bg-forest-900 hover:text-white ${
+            collapsed ? "mt-auto justify-center px-2" : ""
+          }`}
+        >
+          {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+          {!collapsed && "Collapse"}
+        </button>
       </aside>
 
       {/* Content column — offset by the sidebar's fixed width, scrolls independently. */}
-      <div className="ml-60 flex min-h-screen flex-col bg-stone-50">
+      <div className={`${contentOffset} flex min-h-screen flex-col bg-stone-50 transition-[margin]`}>
         {/* Top bar — full-width chrome belonging to the shell, not page content.
             No search box here: it was a decorative control with no
             onChange/filter logic wired to it — a real, working search
