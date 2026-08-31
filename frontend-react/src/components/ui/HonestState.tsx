@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Info } from "lucide-react";
 
 /**
  * THE honest-disclosure pattern — one visual treatment for every "we're
@@ -45,12 +46,19 @@ export function HonestState({
 }) {
   if (compact) {
     return (
-      <span title={title} className="inline-flex items-center gap-1.5 rounded border border-dashed border-stone-300 bg-stone-100 px-2 py-0.5 text-[12px] italic text-stone-500">
+      <span title={title} className="inline-flex items-center gap-1 rounded border border-dashed border-stone-300 bg-stone-100 px-2 py-0.5 text-[12px] italic text-stone-500">
         <span aria-hidden className="not-italic">
           —
         </span>
         {label ?? KIND_LABEL[kind]}
         {children && <span className="not-italic">: {children}</span>}
+        {/* A real visual affordance (2026-08-31) — real user feedback:
+            a compact chip whose only signal of hidden content was an
+            invisible `title` attribute gave no hint that hovering
+            reveals anything at all. Only shown when there's actually
+            something to reveal (title set) — never a fake "more info"
+            promise on a chip with nothing behind it. */}
+        {title && <Info size={11} className="not-italic" aria-hidden />}
       </span>
     );
   }

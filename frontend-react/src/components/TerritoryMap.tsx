@@ -65,7 +65,7 @@ export function TerritoryMap({
 
   if (latitude == null || longitude == null) {
     if (geoFlaggedReason) {
-      return <HonestState kind="not_trusted" label="Coordinate on file but not trusted">{geoFlaggedReason}</HonestState>;
+      return <HonestState kind="not_trusted" label="Coordinate on file but not trusted" compact title={geoFlaggedReason} />;
     }
     return <HonestState kind="no_data" label="No location data on file for this candidate" />;
   }

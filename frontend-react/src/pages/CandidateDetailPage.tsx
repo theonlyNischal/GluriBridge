@@ -632,9 +632,12 @@ export function CandidateDetailPage() {
                   </dl>
                 </div>
               ) : (
-                <HonestState kind="not_checked" label="Not yet checked">
-                  No coordinates on file to test against BRWA customary-territory data — this is not the same as "no overlap found."
-                </HonestState>
+                <HonestState
+                  kind="not_checked"
+                  label="Not yet checked"
+                  compact
+                  title='No coordinates on file to test against BRWA customary-territory data — this is not the same as "no overlap found."'
+                />
               )}
               <TerritoryMap latitude={location.latitude} longitude={location.longitude} geoFlaggedReason={location.geo_flagged_reason} brwaOverlap={land_rights.brwa_overlap} />
             </div>
@@ -771,9 +774,12 @@ export function CandidateDetailPage() {
         <div id="sec-outreach" className="mt-4">
           <Panel title="Outreach draft" className="!p-4">
             {!outreach || outreach.structured.recipient_status === "insufficient_contact" ? (
-              <HonestState kind="insufficient" label="Cannot generate outreach yet">
-                {outreach?.structured.warnings?.[0] ?? "Insufficient contact information."}
-              </HonestState>
+              <HonestState
+                kind="insufficient"
+                label="Cannot generate outreach yet"
+                compact
+                title={outreach?.structured.warnings?.[0] ?? "Insufficient contact information."}
+              />
             ) : (
               <div>
                 {outreach.structured.warnings.length > 0 && (
