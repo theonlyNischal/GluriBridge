@@ -99,6 +99,7 @@ export function CandidateDetailPage() {
   const [tab, setTab] = useState<Tab>(() => (isTab(searchParams.get("tab")) ? (searchParams.get("tab") as Tab) : "overview"));
   const [lang, setLang] = useState<"en" | "id">("en");
   const [docsExpanded, setDocsExpanded] = useState(false);
+  const [notWiredExpanded, setNotWiredExpanded] = useState(false);
   // Invisible bottom spacer (2026-08-31) — the section rail can only ever
   // scroll a section flush under it if there's enough real page below
   // that section to physically scroll into; a short tab's last section(s)
@@ -287,7 +288,7 @@ export function CandidateDetailPage() {
     recompute();
     window.addEventListener("resize", recompute);
     return () => window.removeEventListener("resize", recompute);
-  }, [rec, tab, docsExpanded, visibleSections]);
+  }, [rec, tab, docsExpanded, notWiredExpanded, visibleSections]);
 
   // Prev/next through the EXACT curated set the user was actually looking
   // at on the Candidates list — not the raw 144 in default order. Reuses
@@ -406,7 +407,16 @@ export function CandidateDetailPage() {
             <MapPin size={11} />
             {identity.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
           </span>
-          <ActivityTypeBadges activityType={activity_type} />
+          {/* compact (2026-08-31 fix) — this badge row sits right below
+              the identity header, alongside the province chip (already
+              compact); the Unclassified/Not-applicable case was the one
+              badge here still rendering its full explanation as a big
+              inline box instead of the same tooltip-on-hover treatment
+              used everywhere else this component appears (the Candidates
+              table, the card grid). The real categories (when present)
+              render identically either way — compact only changes the
+              Unclassified/Not-applicable fallback. */}
+          <ActivityTypeBadges activityType={activity_type} compact />
         </div>
 
         {/* ---------- WHY CONTACT THIS CANDIDATE — the page's real visual
@@ -681,15 +691,26 @@ export function CandidateDetailPage() {
               ))}
             </div>
           </Panel>
-          {/* Progressive disclosure (2026-08-31) — the rule id + pasal
-              reference + "Not wired" status stay exactly as visible as
-              before (Level 1); the full "why it's not wired" explanation
-              (real text, averaging ~200 real characters across these 21
-              rules — confirmed against live data before redesigning
-              this, not assumed) moves behind an "ⓘ" (Level 2), verbatim,
-              never reworded. This is the section the "too much text"
-              complaint was specifically about. */}
-          <Panel title={`Not wired into scoring (${scoring.compliance.not_wired_rules.length} rules)`} className="!p-4">
+          {/* Demoted (2026-08-31) — real user feedback: this section,
+              even after progressive disclosure trimmed each row to one
+              line, was still a bordered panel with equal visual weight
+              to the 4 rules actually wired into this candidate's real
+              score. Honest and worth keeping for auditability, but
+              shouldn't compete for attention with what's actually
+              scored. No Panel wrapper, no border, no expand toggle
+              visible by default — a single small, muted sentence; the
+              full per-rule detail (real, specific reason text, same
+              InfoPopover treatment as before) is still reachable, just
+              one deliberate click further away, via a de-emphasized text
+              link rather than a second bordered section. */}
+          <p className="text-[12px] leading-relaxed text-stone-400">
+            {scoring.compliance.not_wired_rules.length} additional Permenhut rules exist but aren't yet computable from available data — mostly
+            regulations that bind the Ministry directly, or require fields not yet normalized.{" "}
+            <button onClick={() => setNotWiredExpanded((v) => !v)} className="font-medium text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-forest-700">
+              {notWiredExpanded ? "Hide" : "Show"} full rule coverage
+            </button>
+          </p>
+          {notWiredExpanded && (
             <ul className="space-y-1.5">
               {scoring.compliance.not_wired_rules.map((r) => (
                 <li key={r.rule_id} className="flex items-center gap-3 text-[12.5px]">
@@ -703,7 +724,7 @@ export function CandidateDetailPage() {
                 </li>
               ))}
             </ul>
-          </Panel>
+          )}
         </div>
       )}
 
