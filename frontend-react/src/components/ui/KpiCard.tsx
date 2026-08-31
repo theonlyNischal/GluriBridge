@@ -17,20 +17,28 @@ export function KpiCard({
   sub,
   accent,
   to,
+  size = "sm",
 }: {
   label: string;
   value: number;
   sub?: string;
   accent?: "clay" | "forest" | "amber";
   to?: string;
+  // "lg" — Dashboard's hero treatment (2026-08-31): bigger number, more
+  // internal breathing room, the metric cards ARE the main visual focus
+  // rather than a compact toolbar strip. Defaults to "sm" so the existing
+  // Candidates-list toolbar usage (a real, different shared use of this
+  // same component, not a duplicate) is completely unaffected.
+  size?: "sm" | "lg";
 }) {
   const valueColor = accent === "clay" ? "text-clay-700" : accent === "forest" ? "text-forest-700" : accent === "amber" ? "text-compliance-amber" : "text-stone-900";
-  const className = `block rounded-lg border border-stone-200 bg-white px-4 py-3 ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40" : ""}`;
+  const padding = size === "lg" ? "px-5 py-5" : "px-4 py-3";
+  const className = `block rounded-lg border border-stone-200 bg-white ${padding} ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40" : ""}`;
   const content = (
     <>
       <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">{label}</div>
-      <div className={`mt-1 font-mono text-figure-sm tabular ${valueColor}`}>{value}</div>
-      {sub && <div className="mt-0.5 text-[11.5px] text-stone-400">{sub}</div>}
+      <div className={`mt-1.5 font-mono ${size === "lg" ? "text-figure" : "text-figure-sm"} tabular ${valueColor}`}>{value}</div>
+      {sub && <div className="mt-1 text-[11.5px] text-stone-400">{sub}</div>}
     </>
   );
   if (to)

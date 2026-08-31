@@ -58,17 +58,38 @@ export function DashboardPage() {
 
   return (
     <div className="px-6 py-6">
-      <div className="mb-5">
-        <h1 className="font-display text-2xl font-semibold text-stone-900">Dashboard</h1>
-        <p className="mt-1 text-[13.5px] text-stone-500">Real, evidence-backed candidate discovery overview</p>
+      {/* Hero — eyebrow + bold headline (the real total baked directly into
+          the title, not a generic page label) + the 4 metric cards as the
+          main visual focus + one short supporting line. Redesigned
+          2026-08-31 for more breathing room; the detailed contact-
+          resolution breakdown that used to live in this spot moved to its
+          own panel right below (same real numbers, same real links —
+          demoted, not dropped). */}
+      <div className="mb-10 pt-2 text-center">
+        <p className="text-[13px] font-semibold uppercase tracking-wide text-forest-600">Real, evidence-backed candidate discovery</p>
+        <h1 className="mt-2 font-display text-4xl font-bold text-stone-900">{total} real candidates in the pipeline</h1>
+
+        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
+          <KpiCard label="Total candidates" value={total} sub="live from the API" to="/candidates" size="lg" />
+          <KpiCard label="High need (≥70)" value={highNeed} sub="real need_score, own axis" accent="clay" to="/candidates?minNeed=70" size="lg" />
+          <KpiCard label="High credibility (≥70)" value={highCred} sub="real credibility_score, own axis" accent="forest" to="/candidates?minCred=70" size="lg" />
+          <KpiCard
+            label="Compliance deadline approaching"
+            value={approachingDeadline}
+            sub="Pasal 61 amber/red badge"
+            accent="amber"
+            to="/candidates?compliance=approaching"
+            size="lg"
+          />
+        </div>
+
+        <p className="mt-5 text-[13px] text-stone-500">Independent axes · never combined into one ranking · live from the registry</p>
       </div>
 
-      {/* Executive summary — the same real counts as the KPI cards below,
-          framed as plain sentences rather than only cards, plus two real
-          counts (resolved contact, has email) that don't have their own
-          cards. Every number here is clickable and links to the exact
-          filtered Candidates view it describes — never a static,
-          unverifiable claim.
+      {/* Contact-resolution detail — the same real, clickable numbers the
+          hero used to carry directly (see the 2026-08-31 audit fix note
+          below), now a supporting panel rather than the page's opening
+          line, so the hero itself can stay to one short sentence.
 
           2026-08-31 audit fix: this used to say "{resolvedContact} have a
           resolved contact ready for outreach" — false. has_resolved_contact
@@ -77,32 +98,14 @@ export function DashboardPage() {
           Now states both numbers with their real, distinct meanings, and
           links each to its own accurately-filtered view (contactResolved=yes
           vs. hasEmail=yes are different filters — see candidateFilter.ts). */}
-      <div className="mb-4 rounded-xl border border-stone-200 bg-white px-5 py-4">
-        <p className="text-[14px] leading-relaxed text-stone-700">
-          <SummaryLink to="/candidates">{total} real candidates</SummaryLink> are tracked in this pipeline.{" "}
-          <SummaryLink to="/candidates?minNeed=70">{highNeed}</SummaryLink> show high need (need_score ≥ 70) and{" "}
-          <SummaryLink to="/candidates?minCred=70">{highCred}</SummaryLink> show high credibility (credibility_score ≥ 70) — independent axes,
-          never combined into one ranking. <SummaryLink to="/candidates?contactResolved=yes">{resolvedContact}</SummaryLink> have some contact on
-          file (a registry name or an email), but only <SummaryLink to="/candidates?hasEmail=yes">{hasEmail}</SummaryLink> of those have a
-          confidently-resolved email ready for outreach (plus{" "}
-          <SummaryLink to="/candidates?lowConfidenceEmail=yes">{lowConfidenceEmail}</SummaryLink> more with a real email that's a weaker,
-          lower-confidence match — worth a manual check before relying on it) — the rest are a name on file with nothing to send to. And{" "}
-          <SummaryLink to="/candidates?compliance=approaching">{approachingDeadline}</SummaryLink> face an
-          approaching Pasal 61 compliance deadline (amber/red).
+      <div className="mb-5 rounded-xl border border-stone-200 bg-white px-5 py-4">
+        <p className="text-[13.5px] leading-relaxed text-stone-600">
+          <SummaryLink to="/candidates?contactResolved=yes">{resolvedContact}</SummaryLink> have some contact on file (a registry name or an
+          email), but only <SummaryLink to="/candidates?hasEmail=yes">{hasEmail}</SummaryLink> of those have a confidently-resolved email ready
+          for outreach (plus <SummaryLink to="/candidates?lowConfidenceEmail=yes">{lowConfidenceEmail}</SummaryLink> more with a real email
+          that's a weaker, lower-confidence match — worth a manual check before relying on it) — the rest are a name on file with nothing to
+          send to.
         </p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <KpiCard label="Total candidates" value={total} sub="live from the API" to="/candidates" />
-        <KpiCard label="High need (≥70)" value={highNeed} sub="real need_score, own axis" accent="clay" to="/candidates?minNeed=70" />
-        <KpiCard label="High credibility (≥70)" value={highCred} sub="real credibility_score, own axis" accent="forest" to="/candidates?minCred=70" />
-        <KpiCard
-          label="Compliance deadline approaching"
-          value={approachingDeadline}
-          sub="Pasal 61 amber/red badge"
-          accent="amber"
-          to="/candidates?compliance=approaching"
-        />
       </div>
 
       {/* The dashboard's main content — the matrix and map get the bulk of
