@@ -51,8 +51,14 @@ export function ScoreStatCard({
   const ring = accent === "clay" ? "border-t-clay-500" : "border-t-forest-500";
   const text = accent === "clay" ? "text-clay-700" : "text-forest-700";
   const iconBadge = accent === "clay" ? "bg-clay-50 text-clay-500" : "bg-forest-50 text-forest-500";
+  // Instrument-panel shape (2026-08-31 visual-direction rollout): sharp
+  // corners, thinner border/accent-stripe (was rounded-xl + border-t-4).
+  // Equal height between Need/Credibility is untouched by this — both
+  // cards are still the exact same className expression, just with
+  // different color tokens, in the same CSS grid row; nothing about the
+  // shape change is asymmetric between the two.
   return (
-    <div className={`rounded-xl border border-stone-200 border-t-4 bg-white p-4 ${ring}`} data-axis={axis}>
+    <div className={`instrument-panel border border-stone-300 border-t-2 bg-white p-4 ${ring}`} data-axis={axis}>
       <div className="flex items-start justify-between gap-2">
         <div className={`font-mono text-figure tabular ${text}`}>
           {fmtScore(value)}

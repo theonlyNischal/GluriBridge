@@ -61,7 +61,7 @@ export function StatusEditor({
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
       <div>
         <h4 className="mb-3 text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">Update status</h4>
-        <div className="space-y-4 rounded-lg border border-stone-200 bg-stone-50 p-5">
+        <div className="instrument-panel space-y-4 border border-stone-300 bg-stone-50 p-5">
           <div>
             <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-stone-500">Status</label>
             <select
@@ -102,7 +102,7 @@ export function StatusEditor({
           as everywhere else in this app. */}
       <div>
         <h4 className="mb-3 text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">Status history</h4>
-        <div className="rounded-lg border border-stone-200 bg-stone-50 p-5">
+        <div className="instrument-panel border border-stone-300 bg-stone-50 p-5">
           {history.length === 0 ? (
             <HonestState kind="not_checked" label="No status changes recorded yet" compact />
           ) : (

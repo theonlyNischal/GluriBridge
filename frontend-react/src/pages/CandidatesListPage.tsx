@@ -114,12 +114,15 @@ export function CandidatesListPage() {
 
   return (
     <div className="flex h-[calc(100vh-3rem)] flex-col bg-stone-50">
-      {/* KPI row — real metric cards, not more table rows. */}
+      {/* KPI row — real metric cards, not more table rows. Visual-direction
+          rollout (2026-08-31, approved on Dashboard first): instrument-panel
+          cards, accent reserved for High need only (same axis-color choice
+          as Dashboard), live-pulse dot on Total candidates. */}
       <div className="grid shrink-0 grid-cols-4 gap-3 border-b border-stone-200 bg-white px-5 py-4">
-        <KpiCard label="Total candidates" value={total} />
-        <KpiCard label="High need (≥70)" value={highNeed} accent="clay" />
-        <KpiCard label="High credibility (≥70)" value={highCred} accent="forest" />
-        <KpiCard label="Amber compliance" value={amberCompliance} accent="amber" />
+        <KpiCard label="Total candidates" value={total} variant="instrument" live />
+        <KpiCard label="High need (≥70)" value={highNeed} accent="clay" variant="instrument" />
+        <KpiCard label="High credibility (≥70)" value={highCred} variant="instrument" />
+        <KpiCard label="Amber compliance" value={amberCompliance} variant="instrument" />
       </div>
 
       {/* One real, working search (the old top-bar search box was
@@ -179,23 +182,32 @@ export function CandidatesListPage() {
       </div>
 
       {activeChips.length > 0 && (
-        <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-stone-200 bg-forest-50/50 px-5 py-2.5">
+        // Muted stone, not forest-green (2026-08-31 accent-restraint
+        // rollout) — a filter chip is a state indicator, not a place that
+        // needs its own competing accent color.
+        <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-stone-200 bg-stone-100/50 px-5 py-2.5">
           <span className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">Active filter{activeChips.length > 1 ? "s" : ""}:</span>
           {activeChips.map((c) => (
             <button
               key={c.key}
               onClick={() => updateFilter(c.clear)}
-              className="flex items-center gap-1.5 rounded-full border border-forest-300 bg-white px-2.5 py-1 text-[12px] font-medium text-forest-800 hover:bg-forest-50"
+              className="flex items-center gap-1.5 rounded-full border border-stone-300 bg-white px-2.5 py-1 text-[12px] font-medium text-stone-700 hover:bg-stone-50"
               title="Click to remove this filter"
             >
               {c.label}
-              <span className="text-forest-500">×</span>
+              <span className="text-stone-500">×</span>
             </button>
           ))}
         </div>
       )}
 
-      <div className="flex-1 overflow-auto">
+      {/* Paper background + topographic watermark scoped to the scrolling
+          content area only (2026-08-31 visual-direction rollout) — the
+          toolbar/filter bars above stay white, reading as a fixed
+          instrument-control strip above the "field document" underneath,
+          same relationship as the app shell's own white header sitting
+          above this page's body. */}
+      <div className="topo-watermark bg-field-paper flex-1 overflow-auto">
         <CandidateCardGrid rows={pagedRows} currentQuery={currentQuery} />
       </div>
 
@@ -221,7 +233,10 @@ export function CandidatesListPage() {
               <button
                 key={p}
                 onClick={() => goToPage(p)}
-                className={`h-8 w-8 rounded-md text-[12.5px] font-medium ${p === page ? "bg-forest-600 text-white" : "text-stone-600 hover:bg-stone-100"}`}
+                // Ink, not forest-green (2026-08-31 accent-restraint
+                // rollout) — "current page" is state, not a place that
+                // needs a competing accent color on this screen.
+                className={`h-8 w-8 rounded-md text-[12.5px] font-medium ${p === page ? "bg-stone-800 text-white" : "text-stone-600 hover:bg-stone-100"}`}
               >
                 {p}
               </button>

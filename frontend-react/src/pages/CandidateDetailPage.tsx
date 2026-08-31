@@ -338,7 +338,7 @@ export function CandidateDetailPage() {
   const backHref = `/candidates${backSearchParams.toString() ? `?${backSearchParams.toString()}` : ""}`;
 
   return (
-    <div className="px-6 py-6">
+    <div className="topo-watermark bg-field-paper px-6 py-6">
       <div className="mb-3 flex items-center justify-between">
         {/* Real navigation back to the list — previously missing entirely
             (the sidebar's "Candidates" link was the only way out, and it
@@ -392,7 +392,7 @@ export function CandidateDetailPage() {
       <div className="flex gap-5">
       <div className="min-w-0 flex-1">
       {/* ---------- hero ---------- */}
-      <div className="rounded-xl border border-stone-200 bg-white p-5">
+      <div className="instrument-panel border border-stone-300 bg-white p-5">
         <h1 className="font-display text-2xl font-semibold leading-tight text-stone-900">{identity.name}</h1>
         <div className="mt-1 text-[14px] text-stone-500">{identity.org ?? "—"}</div>
 
@@ -515,7 +515,7 @@ export function CandidateDetailPage() {
       {/* ---------- overview ---------- */}
       {tab === "overview" && (
         <div className="mt-4 space-y-4">
-          <Panel id="sec-land-rights" title="Land rights" className="!p-4">
+          <Panel id="sec-land-rights" title="Land rights" className="!p-4" variant="instrument">
             <div className="space-y-3">
               {land_rights.land_rights_category ? (
                 <div className="rounded-lg border border-forest-200 bg-forest-50 px-3.5 py-2.5">
@@ -585,7 +585,7 @@ export function CandidateDetailPage() {
             </div>
           </Panel>
 
-          <Panel title="Identity resolution" className="!p-4">
+          <Panel title="Identity resolution" className="!p-4" variant="instrument">
             <div className="divide-y divide-stone-100">
               {identity_resolution.merge_history.map((m, i) => (
                 <div key={i} className="flex items-center gap-3 py-1.5 text-[13px]">
@@ -602,7 +602,7 @@ export function CandidateDetailPage() {
           {documents.length > 0 && <DocumentsPanel documents={documents} expanded={docsExpanded} onToggle={() => setDocsExpanded((v) => !v)} />}
 
           {news_evidence.length > 0 && (
-            <Panel id="sec-evidence" title={`News evidence (${news_evidence.length})`} className="!p-4">
+            <Panel id="sec-evidence" title={`News evidence (${news_evidence.length})`} className="!p-4" variant="instrument">
               <ul className="space-y-2">
                 {news_evidence.map((n, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px]">
@@ -628,7 +628,7 @@ export function CandidateDetailPage() {
               <div className="mt-1 text-[13px] text-stone-600">days remaining until {scoring.compliance.deadline} (Permenhut 6/2026 Pasal 61)</div>
             </div>
           )}
-          <Panel title="Compliance (Permenhut)" className="!p-4">
+          <Panel title="Compliance (Permenhut)" className="!p-4" variant="instrument">
             <div className="space-y-3">
               <ComplianceRuleRow rule_id={scoring.compliance.rule_id} badge={scoring.compliance.badge} reason={scoring.compliance.reason} primary />
               {scoring.compliance.other_rules.map((r, i) => (
@@ -675,11 +675,11 @@ export function CandidateDetailPage() {
       {/* ---------- dossier ---------- */}
       {tab === "dossier" && (
         <div className="mt-4 space-y-4">
-          <Panel id="sec-dossier" title="Why Gluri" className="!p-4">
+          <Panel id="sec-dossier" title="Why Gluri" className="!p-4" variant="instrument">
             <ReasonList reasons={dossier.structured.why_gluri} kind="need" />
           </Panel>
           {dossier.structured.land_and_regulatory && (
-            <Panel title="Land & regulatory position" className="!p-4">
+            <Panel title="Land & regulatory position" className="!p-4" variant="instrument">
               <div className="flex items-start justify-between gap-3">
                 <p className="text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.land_rights_text}</p>
                 <CitationLink citation={dossier.structured.land_and_regulatory.land_rights_citation} />
@@ -687,19 +687,19 @@ export function CandidateDetailPage() {
               <p className="mt-2 text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.compliance_text}</p>
             </Panel>
           )}
-          <Panel id="sec-contact" title="Contact route" className="!p-4">
+          <Panel id="sec-contact" title="Contact route" className="!p-4" variant="instrument">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.contact_route}</p>
           </Panel>
-          <Panel title="Suggested point of contact" className="!p-4">
+          <Panel title="Suggested point of contact" className="!p-4" variant="instrument">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.suggested_poc}</p>
           </Panel>
           {dossier.structured.dpp_validation_proxy.length > 0 && (
-            <Panel title="DPP validation proxy (unscored evidence — not a compliance check)" className="!p-4">
+            <Panel title="DPP validation proxy (unscored evidence — not a compliance check)" className="!p-4" variant="instrument">
               <ReasonList reasons={dossier.structured.dpp_validation_proxy} />
             </Panel>
           )}
           {dossier.structured.next_questions.length > 0 && (
-            <Panel title="Next questions" className="!p-4">
+            <Panel title="Next questions" className="!p-4" variant="instrument">
               <ol className="list-decimal space-y-1.5 pl-5 text-[13.5px] text-stone-700">
                 {dossier.structured.next_questions.map((q, i) => (
                   <li key={i}>{q}</li>
@@ -713,7 +713,7 @@ export function CandidateDetailPage() {
       {/* ---------- outreach ---------- */}
       {tab === "outreach" && (
         <div id="sec-outreach" className="mt-4">
-          <Panel title="Outreach draft" className="!p-4">
+          <Panel title="Outreach draft" className="!p-4" variant="instrument">
             {!outreach || outreach.structured.recipient_status === "insufficient_contact" ? (
               <HonestState
                 kind="insufficient"
@@ -827,7 +827,13 @@ export function CandidateDetailPage() {
 function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scoring"]; dossier: CandidateDetail["dossier"] }) {
   const topReasons = dossier.structured.why_gluri.slice(0, 3);
   return (
-    <div className="rounded-xl border-2 border-forest-300 bg-forest-50 p-5">
+    // Instrument-panel shape (2026-08-31 visual-direction rollout) —
+    // sharp corners, thinner hairline border (was border-2) instead of a
+    // thick rounded one. The forest tint stays: this box is deliberately
+    // THE one reserved accent on this page (same "one important element
+    // per screen" principle as Dashboard's clay KPI card), not a
+    // decorative color competing with anything else here.
+    <div className="instrument-panel border border-forest-300 bg-forest-50 p-5">
       <div className="text-[11.5px] font-bold uppercase tracking-wide text-forest-700">Why contact this candidate first</div>
       <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
         <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} />
@@ -903,7 +909,7 @@ function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectio
 
   return (
     <aside>
-      <div className="sticky top-[92px] rounded-xl border border-stone-200 bg-white p-4">
+      <div className="instrument-panel sticky top-[92px] border border-stone-300 bg-white p-4">
         <div className="flex items-center gap-1.5 text-[13px] font-bold text-stone-800">
           <AlertTriangle size={15} className="text-compliance-amber" /> Key Gaps / Risks
         </div>
@@ -959,7 +965,7 @@ function TrackingSummaryCard({
   idBits: { label: string; value: string; url: string | null }[];
 }) {
   return (
-    <div className="rounded-xl border border-stone-200 bg-white p-4">
+    <div className="instrument-panel border border-stone-300 bg-white p-4">
       <div className="flex flex-wrap items-center gap-3">
         <StatusBadge status={status.status} />
         <span className="text-[12px] text-stone-500">{status.status_changed_at ? `Updated ${status.status_changed_at}` : "No status changes recorded yet"}</span>
@@ -1042,7 +1048,7 @@ function documentIcon(url: string) {
 function DocumentsPanel({ documents, expanded, onToggle }: { documents: DocumentRef[]; expanded: boolean; onToggle: () => void }) {
   const shown = expanded ? documents : documents.slice(0, DOCS_COLLAPSED_COUNT);
   return (
-    <Panel id="sec-documents" title={`Documents (${documents.length})`} className="!p-4">
+    <Panel id="sec-documents" title={`Documents (${documents.length})`} className="!p-4" variant="instrument">
       {/* Real evidence, never truncated out of existence — Katingan
           genuinely has 91 real, unique documents (VCS 1477's own
           multi-year monitoring/verification history). Collapsed to a

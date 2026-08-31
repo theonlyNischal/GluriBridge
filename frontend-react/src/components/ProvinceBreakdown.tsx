@@ -50,7 +50,11 @@ export function ProvinceBreakdown({ candidates }: { candidates: CandidateListRow
         <div key={r.label} className="flex items-center gap-2 text-[12.5px]" title={r.title}>
           <span className={`w-[126px] shrink-0 truncate ${r.muted ? "italic text-stone-400" : "text-stone-600"}`}>{r.label}</span>
           <div className="h-2 flex-1 overflow-hidden rounded-full bg-stone-200">
-            <div className={`h-full rounded-full ${r.muted ? "bg-stone-300" : "bg-teal-700"}`} style={{ width: `${(r.count / maxCount) * 100}%` }} />
+            {/* Muted stone, not teal (2026-08-31, Dashboard visual-direction
+                test) — accent color reserved for only the one most
+                important element per screen; this bar chart doesn't need
+                its own separate hue to be readable. */}
+            <div className={`h-full rounded-full ${r.muted ? "bg-stone-300" : "bg-stone-500"}`} style={{ width: `${(r.count / maxCount) * 100}%` }} />
           </div>
           <span className="w-16 shrink-0 text-right font-mono text-stone-500">
             {r.count} ({total ? Math.round((r.count / total) * 100) : 0}%)

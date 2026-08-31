@@ -93,17 +93,24 @@ export function TrackedPage() {
 
   return (
     <div className="flex min-h-[calc(100vh-3rem)] flex-col bg-stone-50">
+      {/* Instrument-panel KPI row + accent restraint (2026-08-31 visual-
+          direction rollout, approved on Dashboard/Candidates List/Territory
+          Discovery first): "Contacted" and "Done" both used forest — two
+          competing accents on one screen. Kept clay on "Follow-up needed"
+          (matches Dashboard's High Need choice: the axis representing
+          action still outstanding), muted the rest to ink, added the
+          live-pulse dot to Tracked total. */}
       <div className="grid shrink-0 grid-cols-4 gap-3 border-b border-stone-200 bg-white px-5 py-4">
-        <KpiCard label="Tracked total" value={trackedTotal} sub={`of ${candidates.length} candidates`} />
-        <KpiCard label="Contacted" value={counts.contacted} accent="forest" />
-        <KpiCard label="Follow-up needed" value={counts.follow_up_needed} accent="clay" />
-        <KpiCard label="Done" value={counts.done} accent="forest" />
+        <KpiCard label="Tracked total" value={trackedTotal} sub={`of ${candidates.length} candidates`} variant="instrument" live />
+        <KpiCard label="Contacted" value={counts.contacted} variant="instrument" />
+        <KpiCard label="Follow-up needed" value={counts.follow_up_needed} accent="clay" variant="instrument" />
+        <KpiCard label="Done" value={counts.done} variant="instrument" />
       </div>
 
       <div className="flex shrink-0 items-center gap-2 border-b border-stone-200 bg-white px-5 py-3">
         {candidateParam ? (
-          <button onClick={clearCandidateFilter} className="flex items-center gap-1.5 rounded-full border border-forest-300 bg-white px-2.5 py-1 text-[12px] font-medium text-forest-800 hover:bg-forest-50">
-            Showing 1 candidate <span className="text-forest-500">×</span>
+          <button onClick={clearCandidateFilter} className="flex items-center gap-1.5 rounded-full border border-stone-300 bg-white px-2.5 py-1 text-[12px] font-medium text-stone-700 hover:bg-stone-50">
+            Showing 1 candidate <span className="text-stone-500">×</span>
           </button>
         ) : (
           <FilterSelect
@@ -118,24 +125,30 @@ export function TrackedPage() {
         </span>
       </div>
 
-      {rows.length === 0 ? (
-        <div className="flex flex-1 items-center justify-center text-[13px] text-stone-400">
-          No candidates have a status set yet — select one below to start tracking it.
-        </div>
-      ) : (
-        <CandidateTable
-          rows={rows}
-          currentQuery={currentQuery}
-          sortKey={filterParams.sortKey}
-          sortDir={filterParams.sortDir}
-          onToggleSort={toggleSort}
-          onRowClick={setSelectedId}
-          selectedId={selectedId}
-        />
-      )}
+      {/* Paper background + topographic watermark scoped to the scrolling
+          table area (2026-08-31 visual-direction rollout) — same "white
+          instrument-control strip above the field document" relationship
+          as Candidates List; the KPI/filter bars above stay white. */}
+      <div className="topo-watermark bg-field-paper flex flex-1 flex-col">
+        {rows.length === 0 ? (
+          <div className="flex flex-1 items-center justify-center text-[13px] text-stone-400">
+            No candidates have a status set yet — select one below to start tracking it.
+          </div>
+        ) : (
+          <CandidateTable
+            rows={rows}
+            currentQuery={currentQuery}
+            sortKey={filterParams.sortKey}
+            sortDir={filterParams.sortDir}
+            onToggleSort={toggleSort}
+            onRowClick={setSelectedId}
+            selectedId={selectedId}
+          />
+        )}
+      </div>
 
       {selectedId && (
-        <div className="shrink-0 border-t border-stone-200 bg-stone-100/60 p-6">
+        <div className="topo-watermark bg-field-paper shrink-0 border-t border-stone-300 p-6">
           {detailError && <p className="text-[13px] text-clay-700">Failed to load: {detailError}</p>}
           {!detailError && !selectedDetail && <p className="text-[13px] text-stone-400">Loading…</p>}
           {selectedDetail && (
@@ -143,13 +156,16 @@ export function TrackedPage() {
             // meant to feel bigger/richer than a normal panel, a
             // deliberate one-off, not a change to Panel's own defaults
             // (which every other panel in the app still uses unchanged).
-            <div className="overflow-hidden rounded-xl border border-stone-200 bg-white">
+            // Instrument-panel treatment (2026-08-31 rollout): sharp
+            // corners, hairline border, no shadow, matching every other
+            // card in the app now.
+            <div className="instrument-panel overflow-hidden border border-stone-300 bg-white">
               <div className="flex items-start justify-between gap-4 border-b border-stone-100 px-7 py-5">
                 <div>
                   <h3 className="font-display text-[18px] font-semibold text-stone-900">{selectedDetail.identity.name}</h3>
                   <p className="mt-1 text-[13px] text-stone-500">{selectedDetail.identity.org ?? "—"}</p>
                 </div>
-                <Link to={`/candidates/${selectedDetail.candidate_id}`} className="shrink-0 whitespace-nowrap text-[13px] font-semibold text-forest-700 hover:underline">
+                <Link to={`/candidates/${selectedDetail.candidate_id}`} className="shrink-0 whitespace-nowrap text-[13px] font-semibold text-stone-700 hover:underline">
                   Full detail →
                 </Link>
               </div>

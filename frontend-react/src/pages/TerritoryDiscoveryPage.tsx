@@ -131,7 +131,7 @@ export function TerritoryDiscoveryPage() {
   const brwaWithGeometry = stats?.brwa_territories.with_geometry ?? null;
 
   return (
-    <div className="px-6 py-6">
+    <div className="topo-watermark bg-field-paper px-6 py-6">
       <div className="mb-4">
         <h1 className="font-display text-2xl font-semibold text-stone-900">Territory Discovery</h1>
         <p className="mt-1 text-[13.5px] text-stone-500">Real candidate locations + real BRWA customary-territory geometry, fetched on demand</p>
@@ -139,11 +139,18 @@ export function TerritoryDiscoveryPage() {
 
       {/* Executive summary — every number real, from either the already-
           loaded candidate list or the /stats endpoint's real BRWA totals
-          (see backend/app/territories.py's count_stats()). */}
-      <div className="mb-5 rounded-xl border border-stone-200 bg-white px-5 py-4">
+          (see backend/app/territories.py's count_stats()). Instrument-panel
+          treatment + muted links (2026-08-31 visual-direction rollout,
+          approved on Dashboard/Candidates List first) — same reasoning:
+          forest-green on every link across the page competed with itself,
+          reserved instead for teal where it's already this app's
+          established geospatial/evidence color (see tailwind.config.js). */}
+      <div className="instrument-panel border border-stone-300 bg-white px-5 py-4">
         <p className="text-[14px] leading-relaxed text-stone-700">
-          <SummaryLink to="/candidates">{total} real candidates</SummaryLink> are mapped here, spanning <strong>{namedProvinceCount}</strong> real
-          provinces ({notAvailableCount} have no province on file).{" "}
+          <SummaryLink to="/candidates" muted>
+            {total} real candidates
+          </SummaryLink>{" "}
+          are mapped here, spanning <strong>{namedProvinceCount}</strong> real provinces ({notAvailableCount} have no province on file).{" "}
           {brwaTotal != null ? (
             <>
               <strong>{brwaTotal.toLocaleString()}</strong> real BRWA customary territories are tracked, of which{" "}
@@ -153,17 +160,19 @@ export function TerritoryDiscoveryPage() {
           ) : (
             "Real BRWA territory totals are loading… "
           )}
-          <SummaryLink to="/candidates?brwaOverlap=yes">{withOverlap}</SummaryLink> candidates have a confirmed land-rights overlap with a
-          specific territory.
+          <SummaryLink to="/candidates?brwaOverlap=yes" muted>
+            {withOverlap}
+          </SummaryLink>{" "}
+          candidates have a confirmed land-rights overlap with a specific territory.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-[240px,1fr]">
+      <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-[240px,1fr]">
         <FilterPanel filterParams={filterParams} candidates={candidates} shownCount={filteredRows.length} onChange={updateFilter} />
 
         <div className="space-y-5">
           <div>
-            <div ref={mapElRef} className="h-[520px] rounded-xl border border-stone-200" />
+            <div ref={mapElRef} className="instrument-panel h-[520px] border border-stone-300" />
             <div className="mt-2 flex flex-wrap items-center gap-4 text-[12px] text-stone-500">
               <span className="inline-flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-full bg-forest-500" />
@@ -245,7 +254,7 @@ function FilterPanel({
     filterParams.province || filterParams.richness || filterParams.brwaOverlap || filterParams.minNeed != null || filterParams.minCred != null;
 
   return (
-    <Panel title="Filter candidates" className="h-fit lg:sticky lg:top-[68px]">
+    <Panel title="Filter candidates" className="h-fit lg:sticky lg:top-[68px]" variant="instrument">
       <div className="space-y-3">
         <Field label="Province">
           <FilterSelect value={filterParams.province} onChange={(v) => onChange({ province: v })} placeholder="All provinces" options={provinceOptions} fullWidth />
@@ -308,7 +317,7 @@ function FilterPanel({
           {shownCount} of {candidates.length}
         </span>
         {hasActiveFilter && (
-          <button onClick={() => onChange({ province: "", richness: "", brwaOverlap: "", minNeed: null, minCred: null })} className="font-medium text-forest-700 hover:underline">
+          <button onClick={() => onChange({ province: "", richness: "", brwaOverlap: "", minNeed: null, minCred: null })} className="font-medium text-stone-700 hover:underline">
             Reset
           </button>
         )}
@@ -329,7 +338,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 function SelectedRegionPanel({ province, rows }: { province: string; rows: CandidateListRow[] }) {
   if (!province) {
     return (
-      <Panel title="Selected region">
+      <Panel title="Selected region" variant="instrument">
         <HonestState kind="not_checked" label="No region selected">
           Pick a province in the filter panel to see real aggregate stats for candidates there.
         </HonestState>
@@ -338,7 +347,7 @@ function SelectedRegionPanel({ province, rows }: { province: string; rows: Candi
   }
   if (rows.length === 0) {
     return (
-      <Panel title={`Selected region — ${province}`}>
+      <Panel title={`Selected region — ${province}`} variant="instrument">
         <HonestState kind="no_data" label="No candidates match">No real candidates in {province} match the other active filters.</HonestState>
       </Panel>
     );
@@ -351,7 +360,7 @@ function SelectedRegionPanel({ province, rows }: { province: string; rows: Candi
   const top = [...rows].sort((a, b) => b.need_score - a.need_score)[0];
 
   return (
-    <Panel title={`Selected region — ${province}`}>
+    <Panel title={`Selected region — ${province}`} variant="instrument">
       <div className="grid grid-cols-2 gap-3">
         <Stat label="Candidates" value={String(rows.length)} />
         <Stat label="Rich / thin" value={`${richness.rich} / ${richness.thin}`} />
@@ -361,7 +370,7 @@ function SelectedRegionPanel({ province, rows }: { province: string; rows: Candi
       {richness.corroborated > 0 && <p className="mt-2 text-[11px] text-stone-400">+{richness.corroborated} corroborated (real, not shown above)</p>}
       <div className="mt-3 border-t border-stone-100 pt-3">
         <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Top opportunity (highest need_score here)</div>
-        <Link to={`/candidates/${top.candidate_id}`} className="mt-1 block truncate text-[13px] font-medium text-forest-700 hover:underline" title={top.name}>
+        <Link to={`/candidates/${top.candidate_id}`} className="mt-1 block truncate text-[13px] font-medium text-stone-700 hover:underline" title={top.name}>
           {top.name} — need {fmtScore(top.need_score)}
         </Link>
       </div>
@@ -412,7 +421,7 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
   }, [search]);
 
   return (
-    <Panel title="Search real BRWA territories">
+    <Panel title="Search real BRWA territories" variant="instrument">
       <input
         type="text"
         value={search}
@@ -425,7 +434,7 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
         {!searchError && search.trim().length < 2 && <p className="text-[12.5px] text-stone-400">Type at least 2 characters — searches real BRWA territory names.</p>}
         {!searchError && results && results.length === 0 && <p className="text-[12.5px] text-stone-400">No real BRWA territory matches "{search}".</p>}
         {results?.map((t) => (
-          <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="hover-lift block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
+          <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="hover-lift block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-stone-100">
             <div className="truncate font-medium text-stone-800">{t.name}</div>
             <div
               className="truncate text-[11.5px] text-stone-400"
@@ -476,7 +485,7 @@ function ConfirmedOverlapPanel({ candidates, onSelectTerritory }: { candidates: 
   const withOverlap = candidates.filter((r) => r.has_brwa_evidence).length;
 
   return (
-    <Panel title="Territories with confirmed candidate overlap">
+    <Panel title="Territories with confirmed candidate overlap" variant="instrument">
       <p className="mb-2 text-[11px] text-stone-400">
         Real, confirmed land-rights checks only ({withOverlap} of {candidates.length} candidates) — a territory absent here hasn't necessarily
         been checked against every candidate, per gluribridge/README.md's Open Items.
@@ -487,7 +496,7 @@ function ConfirmedOverlapPanel({ candidates, onSelectTerritory }: { candidates: 
         <ol className="space-y-1">
           {ranked.map(([idx, rows]) => (
             <li key={idx}>
-              <button onClick={() => onSelectTerritory(idx)} className="hover-lift flex w-full items-center justify-between gap-2 rounded px-2 py-1.5 text-left text-[12.5px] hover:bg-forest-50">
+              <button onClick={() => onSelectTerritory(idx)} className="hover-lift flex w-full items-center justify-between gap-2 rounded px-2 py-1.5 text-left text-[12.5px] hover:bg-stone-100">
                 <span className="truncate font-medium text-stone-700">{names.get(idx) ?? `Loading… (${idx})`}</span>
                 <span className="shrink-0 rounded-full bg-teal-100 px-2 py-0.5 font-mono text-[11px] text-teal-800">{rows.length}</span>
               </button>
@@ -516,7 +525,7 @@ function TopTerritoriesList({ candidates, filterParams }: { candidates: Candidat
   const maxCount = Math.max(...ranked.map(([, rows]) => rows.length), 1);
 
   return (
-    <Panel title="Top territories — real candidate count by province">
+    <Panel title="Top territories — real candidate count by province" variant="instrument">
       <p className="mb-3 text-[11.5px] text-stone-400">
         Ranked by real candidate count, not average need score — a province with a single high-need candidate would otherwise misleadingly
         outrank one with genuine breadth. Reflects the other active filters (not the Province filter itself); click a row for its exact filtered
@@ -526,12 +535,12 @@ function TopTerritoriesList({ candidates, filterParams }: { candidates: Candidat
         {ranked.map(([province, rows]) => {
           const linkParams = filterParamsToSearchParams({ ...filterParams, province });
           return (
-            <Link key={province} to={`/candidates?${linkParams.toString()}`} className="flex items-center gap-3 rounded px-1 py-1 text-[12.5px] hover:bg-forest-50">
+            <Link key={province} to={`/candidates?${linkParams.toString()}`} className="flex items-center gap-3 rounded px-1 py-1 text-[12.5px] hover:bg-stone-100">
               <span className="w-36 shrink-0 truncate text-stone-700" title={province}>
                 {province}
               </span>
               <div className="h-2 flex-1 overflow-hidden rounded-full bg-stone-200">
-                <div className="h-full rounded-full bg-teal-700" style={{ width: `${(rows.length / maxCount) * 100}%` }} />
+                <div className="h-full rounded-full bg-stone-500" style={{ width: `${(rows.length / maxCount) * 100}%` }} />
               </div>
               <span className="w-8 shrink-0 text-right font-mono text-stone-500">{rows.length}</span>
             </Link>

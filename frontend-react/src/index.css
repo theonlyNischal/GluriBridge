@@ -81,4 +81,85 @@
       transform: none;
     }
   }
+
+  /* Live-data pulse dot (2026-08-31 visual-direction test, Dashboard
+     only) — signals "this number is reading from the live API right
+     now," not a static mockup. Restrained: a slow, low-amplitude pulse,
+     never a blinking alarm. */
+  @keyframes live-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  .animate-live-pulse {
+    animation: live-pulse 1.8s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-live-pulse {
+      animation: none;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Visual direction (tested on Dashboard 2026-08-31, approved, now
+     rolling out page by page). "Satellite telemetry meets field
+     cartography," not another rounded-card SaaS surface. Renamed from
+     .dashboard-bg-* to page-agnostic names at rollout time — same
+     values, no visual change on Dashboard itself.
+     --------------------------------------------------------------------- */
+
+  /* Warm paper tone — the confirmed direction. Slightly more saturated
+     than the app's existing stone-50 body background, enough to read as
+     a deliberate shift, not just "the same neutral, barely different." */
+  .bg-field-paper {
+    background-color: #f3ead8;
+  }
+
+  /* Charcoal option — built for comparison, not the confirmed direction,
+     kept here in case it's revisited later. Deep charcoal-green base,
+     light content cards float on top. */
+  .bg-field-charcoal {
+    background-color: #0e2318;
+  }
+
+  /* Faint topographic contour-line watermark — a hand-authored tileable
+     SVG (no sourced image asset), real terrain-survey register instead
+     of decoration. Stroke opacity baked into the SVG itself (0.09 on a
+     1px line, sparse coverage of the tile) lands the whole texture
+     around 2-3% effective visibility on screen — verified by eye via
+     screenshot, not just the math. Reusable as-is on any page later
+     (Territory Discovery, per the brief) — just add the class. */
+  .topo-watermark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%238a7658' stroke-width='1' stroke-opacity='0.09'%3E%3Cpath d='M0,30 Q100,18 200,30 Q300,42 400,30'/%3E%3Cpath d='M0,95 Q100,113 200,95 Q300,77 400,95'/%3E%3Cpath d='M0,160 Q100,150 200,160 Q300,170 400,160'/%3E%3Cpath d='M0,230 Q100,210 200,230 Q300,250 400,230'/%3E%3Cpath d='M0,300 Q100,286 200,300 Q300,314 400,300'/%3E%3Cpath d='M0,370 Q100,354 200,370 Q300,386 400,370'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 400px 400px;
+  }
+  /* On the dark charcoal option, the same contour lines need a light
+     stroke instead of the stone-toned one above (a dark-on-dark line is
+     invisible) — same pattern, different stroke color. */
+  .topo-watermark-on-dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23eef5f0' stroke-width='1' stroke-opacity='0.06'%3E%3Cpath d='M0,30 Q100,18 200,30 Q300,42 400,30'/%3E%3Cpath d='M0,95 Q100,113 200,95 Q300,77 400,95'/%3E%3Cpath d='M0,160 Q100,150 200,160 Q300,170 400,160'/%3E%3Cpath d='M0,230 Q100,210 200,230 Q300,250 400,230'/%3E%3Cpath d='M0,300 Q100,286 200,300 Q300,314 400,300'/%3E%3Cpath d='M0,370 Q100,354 200,370 Q300,386 400,370'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 400px 400px;
+  }
+
+  /* Structural shift — "field-survey instrument," not a consumer SaaS
+     card: sharp corners, a thin hairline border, no drop shadow. Opt-in
+     variant on Panel/KpiCard (see their own files) so this stays scoped
+     to the Dashboard's test, not applied app-wide by accident. */
+  /* Deliberately does NOT set border-width here (2026-08-31 fix, caught
+     before shipping) — this is a shorthand property; a usage site that
+     also needs a per-side override (e.g. ScoreStatCard's border-t-2
+     accent stripe) would have an unpredictable win between this
+     class's shorthand and Tailwind's own longhand utility, decided by
+     CSS source order, not intent. Every .instrument-panel usage must
+     bring its own explicit Tailwind border-width utility (border,
+     border-t-2, etc.) instead — this class only ever controls shape. */
+  .instrument-panel {
+    border-radius: 2px;
+    box-shadow: none;
+  }
 }

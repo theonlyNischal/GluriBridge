@@ -15,14 +15,27 @@ import type { CandidateListRow, CandidateStatusValue } from "../lib/types";
 // A real, working navigational footer for a panel — every one of these
 // leads somewhere real (never a dead/decorative "learn more"). 2026-08-31
 // visual-polish round, added to all 7 Dashboard panels below the hero.
+// Muted ink, not forest-green (2026-08-31 visual-direction test) — this
+// link appears 7 times on one screen; giving each its own colored accent
+// was exactly the "every panel has its own strong color" problem being
+// fixed here. Still clearly a link (font-semibold + hover state), just
+// not competing in hue with the one reserved accent.
 function PanelLink({ to, children }: { to: string; children: string }) {
   return (
-    <Link to={to} className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-forest-700 hover:text-forest-800">
+    <Link to={to} className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-stone-600 hover:text-stone-900">
       {children}
       <ArrowRight size={12} strokeWidth={2.5} />
     </Link>
   );
 }
+
+// Visual-direction test (2026-08-31) — Dashboard page only, per explicit
+// scope. Flip this one constant to compare the two background options;
+// nothing else in the file needs to change. See index.css's
+// .bg-field-paper / .bg-field-charcoal for the actual color
+// values and reasoning.
+const BG_VARIANT = "paper" as "paper" | "charcoal";
+const isDark = BG_VARIANT === "charcoal";
 
 export function DashboardPage() {
   const { candidates, error } = useCandidates();
@@ -77,35 +90,48 @@ export function DashboardPage() {
   const topCred = [...candidates].sort((a, b) => b.credibility_score - a.credibility_score).slice(0, 5);
 
   return (
-    <div className="px-6 py-6">
+    <div
+      className={`px-6 py-6 topo-watermark ${isDark ? "bg-field-charcoal topo-watermark-on-dark" : "bg-field-paper"}`}
+    >
       {/* Hero — eyebrow + bold headline (the real total baked directly into
           the title, not a generic page label) + the 4 metric cards as the
           main visual focus + one short supporting line. Redesigned
           2026-08-31 for more breathing room; the detailed contact-
           resolution breakdown that used to live in this spot moved to its
           own panel right below (same real numbers, same real links —
-          demoted, not dropped). */}
+          demoted, not dropped).
+
+          Visual-direction test (2026-08-31, Dashboard only): background,
+          topographic watermark, instrument-panel card treatment, and
+          accent-color reduction — see BG_VARIANT above and
+          index.css's "Visual-direction test" section for the full
+          reasoning. Only ONE KPI card (High Need) keeps a colored
+          accent now — clay, the product's own "need/opportunity" color —
+          the other three go monochrome ink/stone. The live-data pulse
+          dot sits on Total Candidates instead (a distinct signal from
+          "this is the important number": "this number is live right
+          now"), matching the brief's own example. */}
       <div className="mb-10 pt-2 text-center">
-        <p className="text-[13px] font-semibold uppercase tracking-wide text-forest-600">Real, evidence-backed candidate discovery</p>
-        <h1 className="mt-2 font-display text-4xl font-bold text-stone-900">{total} real candidates in the pipeline</h1>
+        <p className={`text-[13px] font-semibold uppercase tracking-wide ${isDark ? "text-forest-300" : "text-forest-600"}`}>Real, evidence-backed candidate discovery</p>
+        <h1 className={`mt-2 font-display text-4xl font-bold ${isDark ? "text-stone-50" : "text-stone-900"}`}>{total} real candidates in the pipeline</h1>
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
-          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} animateValue />
-          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue />
-          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" accent="forest" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue />
+          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} animateValue variant="instrument" live />
+          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue variant="instrument" />
+          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue variant="instrument" />
           <KpiCard
             label="Compliance Risk"
             value={approachingDeadline}
             sub="Pasal 61 amber/red badge"
-            accent="amber"
             to="/candidates?compliance=approaching"
             size="lg"
             icon={AlertTriangle}
             animateValue
+            variant="instrument"
           />
         </div>
 
-        <p className="mt-5 text-[13px] text-stone-500">Independent axes · never combined into one ranking · live from the registry</p>
+        <p className={`mt-5 text-[13px] ${isDark ? "text-stone-400" : "text-stone-500"}`}>Independent axes · never combined into one ranking · live from the registry</p>
       </div>
 
       {/* Contact-resolution detail — a slim, scannable line (2026-08-31
@@ -116,13 +142,20 @@ export function DashboardPage() {
           restated here since it's exactly nameOnlyNoEmail + hasEmail +
           lowConfidenceEmail — showing it too would be redundant, not a
           dropped fact. */}
-      <div className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-lg bg-stone-100/70 px-4 py-2.5 text-[13px] text-stone-600">
-        <span className="font-medium text-stone-500">Contact ready:</span>
-        <SummaryLink to="/candidates?hasEmail=yes">{hasEmail} confidently-resolved emails</SummaryLink>
-        <span className="text-stone-300">·</span>
-        <SummaryLink to="/candidates?lowConfidenceEmail=yes">{lowConfidenceEmail} weaker matches</SummaryLink>
-        <span className="text-stone-300">·</span>
-        <SummaryLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}>
+      <div className={`mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-sm border px-4 py-2.5 text-[13px] ${isDark ? "border-forest-800 bg-forest-900/40 text-stone-300" : "border-stone-300 bg-stone-100/70 text-stone-600"}`}>
+        <span className={`font-medium ${isDark ? "text-stone-400" : "text-stone-500"}`}>Contact ready:</span>
+        <SummaryLink to="/candidates?hasEmail=yes" muted>
+          {hasEmail} confidently-resolved emails
+        </SummaryLink>
+        <span className="text-stone-400">·</span>
+        <SummaryLink to="/candidates?lowConfidenceEmail=yes" muted>
+          {lowConfidenceEmail} weaker matches
+        </SummaryLink>
+        <span className="text-stone-400">·</span>
+        <SummaryLink
+          to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}
+          muted
+        >
           {nameOnlyNoEmail} name only, no email yet
         </SummaryLink>
       </div>
@@ -136,15 +169,15 @@ export function DashboardPage() {
           the map (not inside it) as its own real, normalized-from-real-data
           panel — see lib/provinceNormalize.ts. */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
-        <Panel title={`Opportunity matrix — need vs. credibility, all ${total} real candidates`}>
+        <Panel title={`Opportunity matrix — need vs. credibility, all ${total} real candidates`} variant="instrument">
           <ScatterPlot candidates={candidates} />
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
-        <Panel title="Real candidate locations + real BRWA territory overlaps">
+        <Panel title="Real candidate locations + real BRWA territory overlaps" variant="instrument">
           <DashboardMap candidates={candidates} />
           <PanelLink to="/territories">View in Territory Discovery</PanelLink>
         </Panel>
-        <Panel title="Candidates by province (real, normalized)">
+        <Panel title="Candidates by province (real, normalized)" variant="instrument">
           <ProvinceBreakdown candidates={candidates} />
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
@@ -157,15 +190,15 @@ export function DashboardPage() {
           real numbers beside them — never hiding a number just to fit a
           smaller demoted panel. */}
       <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr,1.3fr,1fr,1fr]">
-        <Panel title="Top 5 by need score">
+        <Panel title="Top 5 by need score" variant="instrument">
           <RankedList rows={topNeed} />
           <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "need_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
-        <Panel title="Top 5 by credibility score">
+        <Panel title="Top 5 by credibility score" variant="instrument">
           <RankedList rows={topCred} />
           <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
-        <Panel title="Data richness">
+        <Panel title="Data richness" variant="instrument">
           <div className="space-y-2.5">
             {(["rich", "corroborated", "thin"] as const).map((k) => (
               <BarRow key={k} label={`${k} (${richness[k] ?? 0})`} value={richness[k] ?? 0} max={maxRichness} total={total} />
@@ -173,7 +206,7 @@ export function DashboardPage() {
           </div>
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
-        <Panel title="Outreach status">
+        <Panel title="Outreach status" variant="instrument">
           <div className="space-y-2.5">
             {STATUS_OPTIONS.map((o) => (
               <Link key={o.value} to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, status: o.value }).toString()}`} className="block hover:opacity-80">
@@ -190,11 +223,11 @@ export function DashboardPage() {
           already-true statements about this pipeline (see
           PROJECT_CONTEXT.md's design principles), not marketing copy
           invented for this row. */}
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-stone-200 pt-5 text-[12px] font-medium text-stone-500">
+      <div className={`mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t pt-5 text-[12px] font-medium ${isDark ? "border-forest-800 text-stone-400" : "border-stone-300 text-stone-500"}`}>
         <span>Fact vs. hypothesis, always labeled</span>
-        <span className="text-stone-300">·</span>
+        <span className="text-stone-400">·</span>
         <span>No LLM for scoring or matching</span>
-        <span className="text-stone-300">·</span>
+        <span className="text-stone-400">·</span>
         <span>Need and credibility scored independently</span>
       </div>
     </div>
@@ -231,7 +264,9 @@ function BarRow({ label, value, max, total }: { label: string; value: number; ma
           by both Data richness and Outreach status, so both get the fix. */}
       <span className="w-[130px] shrink-0 truncate text-stone-600">{label}</span>
       <div className="h-2 flex-1 overflow-hidden rounded-full bg-stone-200">
-        <div className="h-full rounded-full bg-forest-500" style={{ width: `${max ? (value / max) * 100 : 0}%` }} />
+        {/* Muted stone, not forest-green (2026-08-31 visual-direction test) —
+            same accent-reduction reasoning as PanelLink/ProvinceBreakdown. */}
+        <div className="h-full rounded-full bg-stone-500" style={{ width: `${max ? (value / max) * 100 : 0}%` }} />
       </div>
       <span className="w-9 shrink-0 text-right font-mono text-stone-500">{pct}%</span>
     </div>

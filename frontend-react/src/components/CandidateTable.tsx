@@ -46,7 +46,7 @@ export function CandidateTable({
   const navigate = useNavigate();
   function arrow(key: SortKey) {
     if (sortKey !== key) return null;
-    return <span className="ml-1 text-forest-600">{sortDir === "desc" ? "▼" : "▲"}</span>;
+    return <span className="ml-1 text-stone-600">{sortDir === "desc" ? "▼" : "▲"}</span>;
   }
   return (
     <div className="flex-1 overflow-auto">
@@ -98,10 +98,10 @@ export function CandidateTable({
             <th className="whitespace-nowrap px-3 py-2.5">Province</th>
             <th className="whitespace-nowrap px-3 py-2.5">Activity type</th>
             <th className="whitespace-nowrap px-3 py-2.5">Status</th>
-            <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-forest-700" onClick={() => onToggleSort("need_score")}>
+            <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-stone-900" onClick={() => onToggleSort("need_score")}>
               Need{arrow("need_score")}
             </th>
-            <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-forest-700" onClick={() => onToggleSort("credibility_score")}>
+            <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-stone-900" onClick={() => onToggleSort("credibility_score")}>
               Credibility{arrow("credibility_score")}
             </th>
             <th className="whitespace-nowrap px-3 py-2.5">Actions</th>
@@ -112,7 +112,7 @@ export function CandidateTable({
             <tr
               key={r.candidate_id}
               onClick={() => (onRowClick ? onRowClick(r.candidate_id) : navigate(`/candidates/${r.candidate_id}${currentQuery ? `?${currentQuery}` : ""}`))}
-              className={`cursor-pointer border-b border-stone-200 transition-colors hover:bg-forest-50/70 ${selectedId === r.candidate_id ? "bg-forest-50" : ""}`}
+              className={`cursor-pointer border-b border-stone-200 transition-colors hover:bg-stone-100/70 ${selectedId === r.candidate_id ? "bg-stone-100" : ""}`}
             >
               <td className="whitespace-nowrap px-2 py-3 text-[11px] text-stone-400">{i + 1}</td>
               <td className="truncate px-3 py-3 font-semibold text-stone-800" title={r.name}>
@@ -165,14 +165,14 @@ export function RowActions({ candidateId, canOutreach, query }: { candidateId: s
   }
   return (
     <div className="flex items-center gap-1">
-      <button onClick={go()} title="View candidate" className="rounded p-1.5 text-stone-400 hover:bg-stone-100 hover:text-forest-700">
+      <button onClick={go()} title="View candidate" className="rounded p-1.5 text-stone-400 hover:bg-stone-100 hover:text-stone-800">
         <Eye size={15} />
       </button>
       {/* Dossier generation always succeeds (build_dossier() has no
           rejection case — even a thin candidate gets an honest, hedged
           dossier) so this is never disabled. Navigates to the real
           Dossier tab, not a placeholder preview. */}
-      <button onClick={go("dossier")} title="Generate dossier" className="rounded p-1.5 text-stone-400 hover:bg-stone-100 hover:text-forest-700">
+      <button onClick={go("dossier")} title="Generate dossier" className="rounded p-1.5 text-stone-400 hover:bg-stone-100 hover:text-stone-800">
         <FileText size={15} />
       </button>
       {/* Real feature, real constraint: outreach genuinely can't be
@@ -185,7 +185,7 @@ export function RowActions({ candidateId, canOutreach, query }: { candidateId: s
         onClick={canOutreach ? go("outreach") : (e) => e.stopPropagation()}
         disabled={!canOutreach}
         title={canOutreach ? "Add to outreach" : "No contact resolved for this candidate yet — needs manual lookup before outreach can be generated"}
-        className={`rounded p-1.5 ${canOutreach ? "text-stone-400 hover:bg-stone-100 hover:text-forest-700" : "cursor-not-allowed text-stone-200"}`}
+        className={`rounded p-1.5 ${canOutreach ? "text-stone-400 hover:bg-stone-100 hover:text-stone-800" : "cursor-not-allowed text-stone-200"}`}
       >
         <Send size={15} />
       </button>

@@ -31,7 +31,13 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
         <div
           key={r.candidate_id}
           onClick={() => navigate(`/candidates/${r.candidate_id}${currentQuery ? `?${currentQuery}` : ""}`)}
-          className="hover-lift animate-row-in flex cursor-pointer flex-col rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-forest-300 hover:bg-forest-50/30"
+          // Instrument-panel treatment (2026-08-31 visual-direction
+          // rollout, approved on Dashboard first): sharp corners, hairline
+          // border, no shadow (hover-lift's own shadow is the one
+          // exception — it signals "clickable," not decoration). Hover
+          // accent muted to stone, not forest — this is a "field survey
+          // document," not a colored-highlight consumer card.
+          className="instrument-panel hover-lift animate-row-in flex cursor-pointer flex-col border border-stone-300 bg-white p-4 transition-colors hover:border-stone-500 hover:bg-stone-100/40"
           style={{ animationDelay: `${Math.min(i * 15, 250)}ms` }}
         >
           <div className="truncate font-semibold text-stone-800" title={r.name}>

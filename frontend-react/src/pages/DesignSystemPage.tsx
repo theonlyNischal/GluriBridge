@@ -5,6 +5,7 @@ import { ComplianceBadge } from "../components/ui/ComplianceBadge";
 import { ScoreBadgeCompact } from "../components/ui/ScoreBadgeCompact";
 import { ScoreLabelPill } from "../components/ui/ScoreLabelPill";
 import { Panel } from "../components/ui/Panel";
+import { KpiCard } from "../components/ui/KpiCard";
 import type { ScoreLabel } from "../lib/types";
 
 const SWATCH_GROUPS: { name: string; scale: string; shades: number[] }[] = [
@@ -134,6 +135,67 @@ export function DesignSystemPage() {
             <p className="text-[13.5px] text-stone-700">Panels are the one consistent card shape — white surface, warm stone border, rounded-xl — used for every section on every page.</p>
           </Panel>
         </div>
+      </section>
+
+      {/* ---------- field instrument variant (2026-08-31 rollout) ---------- */}
+      <section>
+        <h2 className="font-display text-lg font-semibold text-stone-800">Field instrument variant</h2>
+        <p className="mt-1 max-w-2xl text-[13px] text-stone-500">
+          "Satellite telemetry meets field cartography" — the app's actual subject (Indonesia forestry-carbon monitoring) rather than a
+          generic SaaS look. Rolled out page-by-page across Dashboard, Candidates List, Territory Discovery, Candidate Detail, and
+          Partnerships. Opt-in via <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">variant="instrument"</code> on{" "}
+          <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">Panel</code> and{" "}
+          <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">KpiCard</code> — the default variant shown throughout
+          the rest of this page is untouched and still the right choice for anything not part of the rollout.
+        </p>
+
+        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div>
+            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">Default — rounded-xl, soft shadow</div>
+            <Panel title="Default panel">
+              <p className="text-[13px] text-stone-600">Used everywhere before the rollout, and anywhere the rollout hasn't reached.</p>
+            </Panel>
+          </div>
+          <div>
+            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">Instrument — sharp corners, hairline border, no shadow</div>
+            <Panel title="Instrument panel" variant="instrument">
+              <p className="text-[13px] text-stone-600">A printed field-instrument reads this way — flat, sharp-edged, no drop shadow.</p>
+            </Panel>
+          </div>
+        </div>
+
+        <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+          <KpiCard label="Default KPI" value={144} variant="default" />
+          <KpiCard label="Instrument KPI" value={144} variant="instrument" />
+          <KpiCard label="Instrument + live" value={144} variant="instrument" live />
+          <KpiCard label="Instrument + accent" value={19} accent="clay" variant="instrument" />
+        </div>
+        <p className="mt-2 max-w-2xl text-[12px] text-stone-500">
+          The live-pulse dot (top right, "Instrument + live") marks a number that's read fresh from the API on every page load — a
+          telemetry cue, not decoration. Only ever one clay accent per screen (see below).
+        </p>
+
+        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+          <div>
+            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">bg-field-paper + topo-watermark</div>
+            <div className="topo-watermark bg-field-paper flex h-24 items-center justify-center rounded border border-stone-300 text-[12px] text-stone-500">
+              The chosen background — every rolled-out page's scrolling content area
+            </div>
+          </div>
+          <div>
+            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">bg-field-charcoal + topo-watermark-on-dark</div>
+            <div className="topo-watermark-on-dark bg-field-charcoal flex h-24 items-center justify-center rounded border border-stone-700 text-[12px] text-stone-300">
+              Built for comparison during the Dashboard test, not chosen — kept for reference only
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-4 max-w-2xl text-[13px] leading-relaxed text-stone-600">
+          <strong>Accent restraint:</strong> each screen reserves exactly one warm accent (almost always clay, on whichever number
+          represents outstanding need/action) and mutes every other decorative forest/teal/amber usage to ink/stone. This is never
+          applied to functional, data-encoding color — score-axis colors, map marker/legend colors, status/evidence tags, teal as this
+          app's own geospatial-evidence signal, and genuine primary-action buttons all keep their real color regardless of this rule.
+        </p>
       </section>
     </div>
   );
