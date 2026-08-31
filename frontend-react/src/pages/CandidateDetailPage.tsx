@@ -435,30 +435,6 @@ export function CandidateDetailPage() {
           <WhyContactFirst scoring={scoring} dossier={dossier} />
         </div>
 
-        {/* Top reason cards (2026-08-31) — 2-3 of dossier.structured.
-            why_gluri's own reasons, promoted near the hero as bordered
-            icon-cards instead of only appearing lower on the page (the
-            Dossier tab's "Why Gluri" panel still shows the complete
-            list — this is a preview, not a move, deliberately reusing the
-            exact same real fact/hypothesis-tagged text rather than
-            writing new summary copy). Icon is keyed to the real
-            evidence_level field (fact -> check, hypothesis -> lightbulb),
-            not an invented per-reason category — there's no real signal
-            to pick a "tree/people/checklist"-style icon per reason. */}
-        {dossier.structured.why_gluri.length > 0 && (
-          <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-            {dossier.structured.why_gluri.slice(0, 3).map((r, i) => {
-              const Icon = (r.evidence_level ?? "fact") === "fact" ? CheckCircle2 : Lightbulb;
-              return (
-                <div key={i} className="rounded-lg border border-stone-200 bg-white p-3">
-                  <Icon size={16} className={(r.evidence_level ?? "fact") === "fact" ? "text-forest-600" : "text-clay-600"} />
-                  <p className="mt-1.5 text-[12.5px] leading-snug text-stone-700">{r.text}</p>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
         {/* Need and Credibility — deliberately identical size, weight, and
             treatment RELATIVE TO EACH OTHER. Never ranked against each
             other: a candidate can be low on one and high on the other
@@ -870,8 +846,21 @@ export function CandidateDetailPage() {
  * confidence percentage, no new sentence anywhere — every word and badge
  * on this panel traces to a real field already used elsewhere on this
  * exact page; only its size, position, and visual weight changed.
+ *
+ * The top why_gluri reason cards (2026-08-31, folded into this same
+ * container) used to sit in their own separate white box directly below
+ * this one — visually implying "recommendation" and "the facts behind
+ * it" were two unrelated things, when they're one continuous argument.
+ * Now both live inside ONE bordered/backgrounded container: the
+ * recommendation stays visually prominent at the top, a subtle internal
+ * divider marks where supporting evidence begins, and the reason cards
+ * (still their own white sub-cards, for internal legibility) sit below
+ * it — read top to bottom as a single argument, not two stacked panels.
+ * Same real data as before (dossier.structured.why_gluri, sliced to the
+ * top 3) — this is a container merge, not a content change.
  */
 function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scoring"]; dossier: CandidateDetail["dossier"] }) {
+  const topReasons = dossier.structured.why_gluri.slice(0, 3);
   return (
     <div className="rounded-xl border-2 border-forest-300 bg-forest-50 p-5">
       <div className="text-[11.5px] font-bold uppercase tracking-wide text-forest-700">Why contact this candidate first</div>
@@ -881,6 +870,22 @@ function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scori
       </div>
       <p className="mt-3 font-display text-[19px] font-semibold leading-snug text-stone-900">{dossier.structured.suggested_poc}</p>
       <p className="mt-2 text-[14px] leading-relaxed text-stone-700">{dossier.structured.contact_route}</p>
+
+      {topReasons.length > 0 && (
+        <div className="mt-4 border-t border-forest-200 pt-4">
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+            {topReasons.map((r, i) => {
+              const Icon = (r.evidence_level ?? "fact") === "fact" ? CheckCircle2 : Lightbulb;
+              return (
+                <div key={i} className="rounded-lg border border-forest-200/70 bg-white p-3">
+                  <Icon size={16} className={(r.evidence_level ?? "fact") === "fact" ? "text-forest-600" : "text-clay-600"} />
+                  <p className="mt-1.5 text-[12.5px] leading-snug text-stone-700">{r.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
