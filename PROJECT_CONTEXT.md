@@ -675,6 +675,24 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   no embedded geometry on BRWA's own site (not a crawl gap) — 77% is the real ceiling, not an
   in-progress number. All 2,283 have their policy tier classified from the list either way,
   which is a separate, cheaper thing.
+- **A meaningful share of "no coordinates on file" candidates on the map isn't a gap in this
+  pipeline at all — it's a systemic pattern in SRUK's own source data, quantified while tracing a
+  real user report (2026-08-31) that Jawa Barat and Jawa Tengah showed candidates in the province
+  breakdown but zero dots on the map.** Traced precisely, not guessed: all 14 Jawa Barat and all 5
+  Jawa Tengah candidates are single-source SRUK submissions whose raw `location.latitude/
+  longitude` is `-2.4, 118.8271` — a national-centroid placeholder, not a real per-project GPS
+  value — which `normalize_sruk.py`'s existing `KNOWN_PLACEHOLDER_COORDS` guard (added earlier
+  this session after the Garut/Cianjur/Katingan-Mentaya cases) already correctly detects and nulls
+  out rather than trusting. Checking this guard's real hit rate across all 92 raw SRUK files
+  found it isn't a rare edge case: **42 of 92 (46%) carry this exact same placeholder value**,
+  vs. 36 genuinely-`null` locations and only ~14 with distinct, plausible real coordinates —
+  meaning SRUK's own submission form doesn't always require (or doesn't always collect) a real
+  project location, and close to half of all SRUK-sourced candidates were never going to have one
+  on file regardless of anything this pipeline does. No code change needed — the guard is already
+  working correctly for both provinces, confirmed live (map + the "X of Y have no real
+  coordinates" disclosure chip both show the exact honest count for each). Worth having on hand
+  as a real number, not just "some candidates lack coordinates," any time the map's actual
+  coverage ceiling needs explaining.
 - **Permanent residual limitation, not an open task: very short/generic org-name fragments can
   still produce a wrong Tier B contact.** `contact_resolution.py` gates its two weaker
   self-identification signals off entirely for org slugs under 7 characters (fixed a real
