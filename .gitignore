@@ -11,7 +11,33 @@ backend/gluribridge.db
 # this path and ship normally — the regulatory rules are real source data
 # compliance.py reads at runtime, and the test fixtures are load-bearing
 # for the test suite.
-backend/data/raw/
+#
+# CORRECTION (2026-08-31, found via real 404s in the live Render
+# deployment's logs, not caught by local testing): the "confirmed unread"
+# reasoning above was only ever verified for the PDF archive specifically
+# — the blanket exclusion this rule used to be (a bare backend/data/raw/)
+# also swept up two paths app/territories.py DOES read, live, per
+# request: brwa_geojson/geojson/*.geojson (real BRWA polygon geometry —
+# GET /territories/{idx}/geometry) and brwa_profiles/wa_list.json (the
+# full 2,283-row BRWA list — GET /territories search and the /stats
+# brwa_territories count). Neither was ever pushed to GitHub, so the live
+# deployment silently ran with zero BRWA data: confirmed directly against
+# the live API — GET /stats returned brwa_territories:
+# {total:0,with_geometry:0} instead of the real {2283,1756}, EVERY
+# GET /territories/{idx}/geometry 404'd (not just the genuine ~23% real
+# gap), and GET /territories?search= returned []. Un-ignored below —
+# 149MB + 1.1MB, real and static (frozen with the rest of this project's
+# data through Demo Day), a one-time cost worth paying so the live
+# Territory Discovery feature actually works. brwa_profiles/pdfs/
+# (9.8GB), brwa_profiles/profiles/ (25MB, confirmed unread by any app/*.py
+# — only normalize_brwa.py during an offline pipeline run touches it),
+# and brwa_profiles/crawler.log stay excluded, still caught by the
+# unnegated backend/data/raw/* below.
+backend/data/raw/*
+!backend/data/raw/brwa_geojson/
+!backend/data/raw/brwa_profiles/
+backend/data/raw/brwa_profiles/*
+!backend/data/raw/brwa_profiles/wa_list.json
 
 # Raw bulk source material at the project root — the original manual
 # downloads (Verra Excel export, SRUK/SRN-PPI project-list zips) that
