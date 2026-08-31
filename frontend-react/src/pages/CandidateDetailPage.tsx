@@ -33,6 +33,7 @@ import { ScoreStatCard } from "../components/ui/ScoreStatCard";
 import { ScoreLabelPill } from "../components/ui/ScoreLabelPill";
 import { ScoreComponentBar } from "../components/ui/ScoreComponentBar";
 import { ReasonList } from "../components/ui/ReasonList";
+import { InfoPopover } from "../components/ui/InfoPopover";
 import { HonestState } from "../components/ui/HonestState";
 import { CitationLink } from "../components/ui/CitationLink";
 import { EvidenceTag } from "../components/ui/EvidenceTag";
@@ -460,7 +461,7 @@ export function CandidateDetailPage() {
             numbers — but the two cards remain identical to each other. */}
         <div id="sec-scores" className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
           <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay" icon={Target}>
-            <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" />
+            <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" citationDisplay="popover" />
           </ScoreStatCard>
           <ScoreStatCard axis="credibility" label="Credibility score" value={scoring.credibility_score} capped={scoring.credibility_capped} accent="forest" icon={ShieldCheck}>
             <ScoreComponentBar label="Registry status" component={scoring.credibility_components.registry_status} />
@@ -680,13 +681,25 @@ export function CandidateDetailPage() {
               ))}
             </div>
           </Panel>
+          {/* Progressive disclosure (2026-08-31) — the rule id + pasal
+              reference + "Not wired" status stay exactly as visible as
+              before (Level 1); the full "why it's not wired" explanation
+              (real text, averaging ~200 real characters across these 21
+              rules — confirmed against live data before redesigning
+              this, not assumed) moves behind an "ⓘ" (Level 2), verbatim,
+              never reworded. This is the section the "too much text"
+              complaint was specifically about. */}
           <Panel title={`Not wired into scoring (${scoring.compliance.not_wired_rules.length} rules)`} className="!p-4">
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {scoring.compliance.not_wired_rules.map((r) => (
-                <li key={r.rule_id} className="flex items-start gap-3 text-[12.5px]">
-                  <span className="mt-0.5 shrink-0 font-mono text-[11px] font-semibold text-stone-400">{r.rule_id}</span>
-                  {r.pasal !== "-" && <span className="mt-0.5 shrink-0 whitespace-nowrap rounded bg-stone-100 px-1.5 py-0.5 font-mono text-[10.5px] text-stone-500">{r.pasal}</span>}
-                  <span className="text-stone-500">{r.reason}</span>
+                <li key={r.rule_id} className="flex items-center gap-3 text-[12.5px]">
+                  <span className="shrink-0 font-mono text-[11px] font-semibold text-stone-400">{r.rule_id}</span>
+                  {r.pasal !== "-" && <span className="shrink-0 whitespace-nowrap rounded bg-stone-100 px-1.5 py-0.5 font-mono text-[10.5px] text-stone-500">{r.pasal}</span>}
+                  <span className="text-stone-400 italic">Not wired</span>
+                  <InfoPopover>
+                    <div className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Why</div>
+                    <p className="mt-1 text-stone-700">{r.reason}</p>
+                  </InfoPopover>
                 </li>
               ))}
             </ul>

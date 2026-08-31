@@ -16,7 +16,7 @@ export function ScoreComponentBar({ label, component }: { label: string; compone
         <div className="h-full rounded-full bg-forest-500" style={{ width: `${pct}%` }} />
       </div>
       <div className="mt-2">
-        <ReasonList reasons={component.reasons} kind="credibility" />
+        <ReasonList reasons={component.reasons} kind="credibility" citationDisplay="popover" />
       </div>
     </div>
   );
