@@ -25,6 +25,24 @@ export interface StatsResponse {
   // the ~77% geometry ceiling is a confirmed real data-source limit, not
   // an in-progress number).
   brwa_territories: { total: number; with_geometry: number };
+  // The real pipeline_stats.json content, verbatim (see
+  // app/routes.py's get_stats() — this is exactly what the last real
+  // run_pipeline() call recorded, not derived or re-computed here).
+  // Optional/nullable since a fresh DB with no export yet has none.
+  pipeline_stats: {
+    sruk_and_srn_ppi_input: number;
+    verra_input: number;
+    final_candidate_count: number;
+    brwa_territories_available: number;
+    brwa_territories_in_full_list: number;
+    candidates_with_brwa_overlap: number;
+    news_queries_run: number;
+    news_hits_processed: number;
+    news_thin_candidates_created: number;
+    news_corroborations: number;
+    tier_b_contact_attempted: number;
+    tier_b_contact_resolved: number;
+  } | null;
 }
 
 // Result of POST /candidates/{id}/status — mirrors db.set_status()'s

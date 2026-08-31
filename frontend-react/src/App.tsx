@@ -9,6 +9,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { CandidatesListPage } from "./pages/CandidatesListPage";
 import { TerritoryDiscoveryPage } from "./pages/TerritoryDiscoveryPage";
 import { TrackedPage } from "./pages/TrackedPage";
+import { HowItWorksPage } from "./pages/HowItWorksPage";
 
 const NAV = [
   { to: "/", label: "Dashboard", end: true, icon: LayoutGrid },
@@ -28,6 +29,7 @@ const TITLES: Record<string, string> = {
   // changed too).
   "/tracked": "Partnerships",
   "/design-system": "Design system",
+  "/how-it-works": "How this works",
 };
 
 function pageTitle(pathname: string): string {
@@ -81,7 +83,10 @@ export default function App() {
             Indonesia forestry-carbon
             <br />
             partner discovery
-            <div className="mt-2">
+            <div className="mt-2 flex flex-col gap-1">
+              <NavLink to="/how-it-works" className="text-stone-500 underline decoration-stone-700 underline-offset-2 hover:text-stone-300">
+                How this works
+              </NavLink>
               <NavLink to="/design-system" className="text-stone-500 underline decoration-stone-700 underline-offset-2 hover:text-stone-300">
                 Design system
               </NavLink>
@@ -120,6 +125,7 @@ export default function App() {
             <Route path="/candidates/:id" element={<CandidateDetailPage />} />
             <Route path="/territories" element={<TerritoryDiscoveryPage />} />
             <Route path="/design-system" element={<DesignSystemPage />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
           </Routes>
         </main>
       </div>
