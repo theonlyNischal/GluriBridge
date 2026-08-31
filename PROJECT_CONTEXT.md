@@ -746,3 +746,54 @@ a full consolidation is a real follow-up worth doing, not done here since it was
     outreach-status panel directly below them, which is wrapped in real
     `<a href="/candidates?status=...">` links. Same page, same visual pattern, inconsistent
     interactivity.
+- **Real activity-type classification, built 2026-08-31 — deliberately tested against real data
+  BEFORE building any UI, per the mentor's own stated threshold** ("if 40-50% falls into Unknown,
+  the category is weak"). First test: 43 real titles (25 SRUK/SRN-PPI + 18 Verra), hand-classified
+  by keyword, found 67% classify (42% single-category, 26% genuinely multi-tag — e.g. "PLUM Peat
+  and Mangrove Conservation and Restoration Project" is honestly Peatland + Conservation +
+  Reforestation all at once), 33% Unclear — below the failure threshold, not a comfortable margin.
+  Widened the keyword list (added `tutupan hutan`, `kebakaran hutan`+`patroli`/deforestation-
+  reduction language — each checked against all 144 real candidate names first to confirm no new
+  false positives before trusting them) → 72% classify, 28% Unclear on the same sample. Split
+  "Unclear" into two real, distinct states rather than one blended bucket (mirroring the same
+  "not yet checked" vs "no overlap found" honesty pattern used everywhere else in this app):
+  **Unclassified** (a real forestry candidate this classifier's keyword/field coverage doesn't
+  reach — a coverage gap) vs. **Not applicable** (the real underlying activity genuinely isn't a
+  forestry land-use type at all). The Not-applicable case is detected structurally, not guessed
+  from title text — Verra's own `afolu_activities` field (e.g. "ARR", "REDD,WRC"), confirmed real
+  against this project's own 45 final Verra candidates: 44 carry at least one forest-related code
+  (ARR/REDD/IFM/WRC), exactly 1 (AgriCapture Southeast Asia Rice Methane Project, methodology
+  VM0051, rice-paddy-irrigation methane reduction) carries only "ALM" with none. That same field
+  also revealed a genuine 5th category worth adding alongside the mentor's original 4 —
+  **Improved Forest Management (IFM)** — a real, common Verra activity type, not a keyword miss
+  (confirmed on "JATI DHARMA INDAH PLYWOOD INDUSTRIES IFM PROJECT 1", real code "IFM", not one of
+  the other 4 categories at all). **Final real numbers, all 144 live candidates, all 5
+  categories**: 95 classified (66.0%), 48 Unclassified (33.3%), 1 Not applicable (0.7%) — rich
+  candidates alone classify at 73% (Unclassified 26%), thin/news candidates at only 6% (94%
+  Unclassified) — expected and structural, not a keyword gap: a news-headline title just doesn't
+  communicate a specific forestry activity type the way a real project title does. Category
+  tally (candidates can carry several): Reforestation 55, Social forestry 33, Conservation 31,
+  Peatland 29, Improved Forest Management 11. **A real bug caught mid-build, not shipped**: the
+  first draft of `_not_applicable()` gated its check on `candidate.primary_source == "verra"`;
+  patching this classification onto the live 144-candidate dataset surfaced that some real
+  candidates' audit-trail `merge_history` mixes contact-resolution provenance tags
+  (`manual_review`, `tavily_contact_lookup`) in with genuine identity-source tags, making any
+  `primary_source` string derived from that history order-dependent and unreliable. Fixed by
+  gating purely on whether real `verra_afolu_activities` codes are present at all (SRUK/SRN-PPI/
+  news never populate that field, so the check is already correct for them with no source-label
+  dependency needed) — simpler AND correct regardless of how a candidate's identity was merged.
+  Built: `gluribridge/activity_type.py` (pure function, no LLM, multi-tag), a new
+  `verra_afolu_activities` field on `UnifiedCandidateRecord` (populated by `normalize_verra.py`
+  from Verra's own raw `overview.afolu_activities`), wired into `pipeline.py`/`export.py`/`db.py`,
+  a `Filter` + `ActivityTypeBadges` component pair on the frontend (Candidates list column +
+  filter dropdown, Candidate Detail page header, Unclassified/Not-applicable rendered via the
+  same `HonestState` pattern as everywhere else in this app, with two genuinely distinct labels/
+  reasons — never one blended "Other"). All 15 backend tests pass (14 prior + the new
+  `test_activity_type.py`); tsc clean; zero console errors and zero horizontal overflow at
+  1600/1440/1280px across every page. One real layout bug found and fixed during this same round:
+  the shared `CandidateTable` (Candidates list + Tracked/Partnerships) had two percentage-width
+  columns (Project name/Organization) that `table-fixed` was crushing to 48px/37px once the new
+  fixed-width Activity-type column pushed total fixed-pixel width too high — fixed by converting
+  those two to fixed minimum widths instead, letting the table grow wider than its wrapper and
+  scroll horizontally within it (already had an `overflow-auto` wrapper for exactly this) rather
+  than ever crushing the two most identity-critical columns in the table.

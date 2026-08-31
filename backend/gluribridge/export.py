@@ -15,6 +15,7 @@ from .scoring import score_candidate
 from .dossier import build_dossier, render_dossier_markdown
 from .outreach import generate_outreach, render_outreach_text
 from .citations import attach_need_citations, attach_credibility_citations
+from .activity_type import classify_activity_type
 
 
 def score_label(need_score: float, credibility_score: float) -> str:
@@ -113,6 +114,14 @@ def list_row(candidate) -> dict:
         "has_resolved_contact": bool(candidate.registrant_contact and candidate.registrant_contact.contact_source),
         "document_count": len(candidate.documents or []),
         "news_evidence_count": len(candidate.news_evidence or []),
+        # Real activity-type classification (2026-08-31) — see
+        # activity_type.py's module docstring. activity_categories is
+        # ALWAYS [] when activity_not_applicable is True; an empty list
+        # with not_applicable=False is the separate "unclassified" state
+        # (a real candidate this classifier's keyword/field coverage
+        # doesn't yet reach) — the frontend must render these as two
+        # visually distinct honest states, never one blended "Other."
+        **{f"activity_{k}": v for k, v in classify_activity_type(candidate).items() if k != "not_applicable_reason"},
     }
 
 
@@ -185,6 +194,14 @@ def detail_view(candidate) -> dict:
         },
         "documents": _serialize_documents(candidate),
         "contact": asdict(candidate.registrant_contact) if candidate.registrant_contact else None,
+        # Real activity-type classification (2026-08-31) — see
+        # activity_type.py's module docstring for the real test this is
+        # built from. "categories" can hold 2-3 real tags at once (e.g. a
+        # peatland-restoration-conservation project genuinely is all
+        # three) — never forced into one primary type. not_applicable and
+        # an empty (unclassified) categories list are deliberately
+        # distinct, both surfaced honestly, never blended.
+        "activity_type": classify_activity_type(candidate),
         # WHY the land-rights evidence is what it is — full BRWA match
         # detail (which territory, how far, what tier, the actual citable
         # decree URLs) — never just the final category with no trail.

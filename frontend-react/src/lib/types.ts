@@ -82,6 +82,23 @@ export interface ComplianceResult extends ComplianceRule {
 
 export type ScoreLabel = "opportunity" | "confirmed" | "strong_lead" | "early_signal" | "mixed";
 
+// Real activity-type classification (2026-08-31) — see
+// backend/gluribridge/activity_type.py's module docstring for the real
+// classification test this is built from. A candidate can carry 0, 1, or
+// several of these 5 real tags at once (multi-tag is deliberate, not a
+// shortcut — confirmed real: 11 of 29 classifiable titles in the original
+// test carried 2-3 tags simultaneously). "Unclassified" (empty
+// categories, not_applicable false) and "Not applicable" (not_applicable
+// true) are two DISTINCT honest states, never blended into one generic
+// "Other" — see ActivityTypeBadges.tsx.
+export type ActivityCategory = "Peatland" | "Reforestation" | "Social forestry" | "Conservation" | "Improved Forest Management";
+
+export interface ActivityTypeResult {
+  categories: ActivityCategory[];
+  not_applicable: boolean;
+  not_applicable_reason: string | null;
+}
+
 // Real 5-value outreach-status enum (backend/app/db.py's VALID_STATUSES) —
 // replaces the original single `contacted` boolean (2026-08-28). None of
 // these are inherently "bad" — not_contacted just means no action has
@@ -132,6 +149,12 @@ export interface CandidateListRow {
   // contact page). Kept as its own distinct bucket, never silently
   // merged into has_email or dropped from the record.
   has_low_confidence_email: boolean;
+  // Real activity-type classification, list form (see ActivityCategory
+  // above) — always [] when activity_not_applicable is true. An empty
+  // list with activity_not_applicable false is the distinct "unclassified"
+  // state.
+  activity_categories: ActivityCategory[];
+  activity_not_applicable: boolean;
   document_count: number;
   news_evidence_count: number;
   status: CandidateStatusValue;
@@ -232,6 +255,7 @@ export interface CandidateDetail {
   carbon_tracks: { dram: unknown; dpp: Record<string, unknown> | null; lcam: unknown; verra_status: string | null; verra_units: unknown };
   documents: DocumentRef[];
   contact: { name: string | null; org: string | null; email: string | null; contact_source: string | null; contact_source_url: string | null; contact_confidence: string | null } | null;
+  activity_type: ActivityTypeResult;
   land_rights: { land_rights_category: string | null; brwa_overlap: BRWAOverlap | null };
   news_evidence: NewsEvidence[];
   scoring: {

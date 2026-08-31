@@ -1,5 +1,5 @@
 import { normalizeProvince } from "./provinceNormalize";
-import type { CandidateListRow, CandidateStatusValue } from "./types";
+import type { CandidateListRow, CandidateStatusValue, ActivityCategory } from "./types";
 
 export type SortKey = "need_score" | "credibility_score";
 export type SortDir = "asc" | "desc";
@@ -38,6 +38,11 @@ export interface CandidateFilterParams {
   // separate province-grouping concept.
   province: string;
   brwaOverlap: string; // "" | "yes" | "no" (has_brwa_evidence)
+  // "" | one of the 5 real ActivityCategory values | "unclassified" |
+  // "not_applicable" (2026-08-31) — see activity_type.py. "unclassified"
+  // and "not_applicable" are two distinct real states, never merged into
+  // one "Other" filter value.
+  activityCategory: string;
   sortKey: SortKey | null;
   sortDir: SortDir;
 }
@@ -54,6 +59,7 @@ export const DEFAULT_FILTER_PARAMS: CandidateFilterParams = {
   lowConfidenceEmail: "",
   province: "",
   brwaOverlap: "",
+  activityCategory: "",
   sortKey: null,
   sortDir: "desc",
 };
@@ -92,6 +98,9 @@ export function applyCandidateFilter(candidates: CandidateListRow[], params: Can
   if (params.province) out = out.filter((r) => normalizeProvince(r.province) === params.province);
   if (params.brwaOverlap === "yes") out = out.filter((r) => r.has_brwa_evidence);
   if (params.brwaOverlap === "no") out = out.filter((r) => !r.has_brwa_evidence);
+  if (params.activityCategory === "unclassified") out = out.filter((r) => !r.activity_not_applicable && r.activity_categories.length === 0);
+  else if (params.activityCategory === "not_applicable") out = out.filter((r) => r.activity_not_applicable);
+  else if (params.activityCategory) out = out.filter((r) => r.activity_categories.includes(params.activityCategory as ActivityCategory));
   if (params.sortKey) {
     const key = params.sortKey;
     out = [...out].sort((a, b) => (a[key] - b[key]) * (params.sortDir === "asc" ? 1 : -1));
@@ -120,6 +129,7 @@ export function filterParamsToSearchParams(params: CandidateFilterParams): URLSe
   if (params.lowConfidenceEmail) sp.set("lowConfidenceEmail", params.lowConfidenceEmail);
   if (params.province) sp.set("province", params.province);
   if (params.brwaOverlap) sp.set("brwaOverlap", params.brwaOverlap);
+  if (params.activityCategory) sp.set("activityCategory", params.activityCategory);
   if (params.sortKey) {
     sp.set("sort", params.sortKey);
     sp.set("dir", params.sortDir);
@@ -151,6 +161,7 @@ export function searchParamsToFilterParams(sp: URLSearchParams): CandidateFilter
     lowConfidenceEmail: sp.get("lowConfidenceEmail") ?? "",
     province: sp.get("province") ?? "",
     brwaOverlap: sp.get("brwaOverlap") ?? "",
+    activityCategory: sp.get("activityCategory") ?? "",
     sortKey: sortKey === "need_score" || sortKey === "credibility_score" ? sortKey : null,
     sortDir: sp.get("dir") === "asc" ? "asc" : "desc",
   };

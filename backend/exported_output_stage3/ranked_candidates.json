@@ -23,7 +23,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "f31181f7-bac3-4898-9ab4-218a0937ea73",
@@ -49,7 +51,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "ddfd234e-7e55-4be8-b532-7b619167a571",
@@ -75,7 +82,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "f7b7cb2c-0d81-4554-b8a9-cb6fbf3d9aa2",
@@ -101,7 +113,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "b34b125b-17ed-4534-b1aa-ac4e2539e997",
@@ -127,7 +144,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "81947e9f-cf43-4a24-94aa-b3e68033dc0e",
@@ -153,7 +175,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a0f23152-f94d-4cc9-ab52-6708aceefe2a",
@@ -179,7 +206,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "66f46cd7-3c54-4b8c-be49-1dbfed26da9f",
@@ -205,7 +237,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "1b22d160-a03b-4775-89fe-1511abc82faa",
@@ -231,7 +268,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5fb124f0-79fe-4b71-81c6-2671cb50e3c3",
@@ -257,7 +298,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5ad905e5-c4d4-4b21-a629-197d71e43854",
@@ -283,7 +329,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "2a401a71-2438-460c-aea8-47cb536f98a5",
@@ -309,7 +360,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "752bb1dc-7c8a-4b46-8d1a-dddeaaebad9e",
@@ -335,7 +388,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "49c7d351-bdc6-409e-ba9d-d2f476f57462",
@@ -361,7 +416,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "f0a5618f-f26a-4e03-9119-96ab20addd1b",
@@ -387,7 +444,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "66e77d12-5ed1-434e-acd7-f0bcbae42be4",
@@ -413,7 +474,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "e37fefce-9170-4029-9594-e6b053842e58",
@@ -439,7 +504,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "448dba7f-8dd5-4714-8f71-37706351f9b3",
@@ -465,7 +535,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "49d7499e-7257-4d68-bdfa-56048fbff653",
@@ -491,7 +566,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9c821793-bbd6-4e9e-abad-f2451b74bc33",
@@ -517,7 +596,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "cc268f36-6f69-46ce-9190-4b128612df20",
@@ -544,7 +628,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "b7860fda-2b6b-42d7-94fc-3faa294e5aaa",
@@ -570,7 +658,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "17106061-7c95-4a8e-b71b-f09868d3d1f6",
@@ -596,7 +688,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5d7ab7c2-105f-4e7d-8ad7-288738dbeeca",
@@ -622,7 +718,13 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "b2c4839c-f941-43cb-a113-46564b93cb26",
@@ -648,7 +750,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a1891228-e558-44af-a5fc-f6f0d4de6798",
@@ -674,7 +781,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "d59f2c25-eb7b-46a3-8384-ffd98b73240c",
@@ -700,7 +812,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "d496a69a-68bb-4110-b825-fe4b7f7e6d7b",
@@ -726,7 +840,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "af188391-83ca-4f5e-9f00-555900e24092",
@@ -752,7 +871,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Social forestry",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "489b6468-e56f-4c0a-8728-a72ec30d5b56",
@@ -778,7 +902,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "33593efd-d893-4e1c-bc2f-1df77db2cbef",
@@ -804,7 +930,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "1e4662c4-0753-4816-8c5e-bde249aa9f69",
@@ -830,7 +961,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "0860bc50-d2fc-4505-82dd-073ff5dac212",
@@ -856,7 +991,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 16,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9f0e5323-4143-4ac0-b87c-80a3bb727140",
@@ -882,7 +1022,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "0ac0f634-fd49-4dac-8e70-1395c0803374",
@@ -908,7 +1053,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "cbe016db-992c-4de7-a1ec-d315068564b0",
@@ -934,7 +1081,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 15,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "db169093-d2c7-4de6-a605-dfc4548f6697",
@@ -960,7 +1112,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 14,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "6f955c8b-3c29-4083-9ffa-b02cdea53a9d",
@@ -986,7 +1143,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 13,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "507cbead-ee0f-4fbf-a18b-a06998b6ce11",
@@ -1012,7 +1174,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 12,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "dcdae2a3-da34-41cc-989e-889ee5cdfaca",
@@ -1038,7 +1205,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 11,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "d4860c07-0ce5-450b-b895-84e0aa46aaa9",
@@ -1065,7 +1234,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 9,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "add4ece5-73f7-4ee8-9564-b38f6d826296",
@@ -1091,7 +1265,13 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 8,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "b9156949-8bd1-4bc9-9310-79086f0471e4",
@@ -1117,7 +1297,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 7,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Social forestry",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7c72ada1-0a8a-460c-914d-01be24fa7f50",
@@ -1143,7 +1328,13 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7f99f488-3a0a-46ee-a99b-54d65cab782c",
@@ -1169,7 +1360,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "3e5ec0dd-b211-4ba4-9b36-0152f1f39092",
@@ -1195,7 +1391,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "4d186bac-de0a-4555-bd4d-7abac93608b4",
@@ -1221,7 +1422,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "fe60cf23-b362-4952-b5fc-18c918987b71",
@@ -1247,7 +1453,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7e3da161-84c9-4e08-9792-dcacc42f283d",
@@ -1273,7 +1484,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9a2c291b-0263-4cd7-9c19-4ed3632b8b11",
@@ -1300,7 +1516,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7d3ebecf-734e-4983-a9a2-beb2216a68d3",
@@ -1326,7 +1547,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "68020a7e-b73a-46ee-9221-76cd7a31eb63",
@@ -1352,7 +1578,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "28e8249a-5b86-4567-8470-6068e64260f1",
@@ -1378,7 +1609,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "6236dd0e-c611-4a5b-8aca-edbda108e79c",
@@ -1404,7 +1640,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "82ec3c30-3a0e-4fee-b8f5-02d60cc41efb",
@@ -1430,7 +1668,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 2,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "fcc5acae-419f-4905-afb6-2939518905a6",
@@ -1456,7 +1699,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "16411b53-3b91-4489-b0b5-50148048036e",
@@ -1482,7 +1729,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "939425e9-a006-4c81-8041-30181fdb931f",
@@ -1508,7 +1757,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7eca020d-94de-4e6d-8652-a7de0a3673cd",
@@ -1534,7 +1785,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "e2238ccc-5eff-42fc-8f5b-00cbfd283ade",
@@ -1560,7 +1813,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "19abe5a4-4ecc-4914-8daf-7a3e123ac093",
@@ -1586,7 +1841,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "08567ce3-4e3a-427d-b1e2-1a6e197572b3",
@@ -1612,7 +1871,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "bac482d5-1894-49d4-a5ee-7c77bc1c6e08",
@@ -1638,7 +1901,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "921c7294-4516-4bd8-94fc-029d4a7533c0",
@@ -1664,7 +1929,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9432e0b2-6592-47cc-9efd-7478599f4221",
@@ -1690,7 +1957,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "f551e719-5870-4911-a757-8c69db33eb28",
@@ -1716,7 +1987,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "8d8dfb4b-3575-49e7-9323-04af26da3f72",
@@ -1742,7 +2017,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "e30598c7-ae85-4034-845c-4145262edb7a",
@@ -1768,7 +2048,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7f39df61-50c6-43a7-bce5-6835b94bea09",
@@ -1794,7 +2078,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "95b82a95-46b3-497a-8c48-5cdf99bbac51",
@@ -1820,7 +2108,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "c733393e-2343-47d8-bbd4-0a47dfef7240",
@@ -1846,7 +2136,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a8db3b42-97fa-4fd7-a5f1-d28612f44558",
@@ -1874,7 +2168,13 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 91,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "239ffa16-7838-4a66-a091-be2790880c54",
@@ -1900,7 +2200,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5a1a45e9-610c-4922-a61b-f5c6653eb2b3",
@@ -1927,7 +2229,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 49,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "30818613-fd6d-431a-ac2a-6d6d14ffe44d",
@@ -1954,7 +2260,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 13,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "cb2c3e70-05fa-4706-8802-dcb796e5d660",
@@ -1980,7 +2290,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "8014cc4e-9f8a-4e6e-a2e6-2494f4effb8a",
@@ -2006,7 +2320,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "05e27f87-af33-49e4-9669-952ed04f5fd9",
@@ -2032,7 +2351,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Social forestry",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "2ba7bcbc-938d-4c06-b157-bccbb50c0474",
@@ -2058,7 +2382,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "3d2d7075-3386-48ad-99cf-05636bf4b897",
@@ -2084,7 +2410,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 1,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "1d473fb9-ae43-46de-9638-f5fefde0c37e",
@@ -2110,7 +2440,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "33954955-b826-4e2e-9229-afe24dd8ccbf",
@@ -2136,7 +2470,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "14410d31-be1f-4c1b-9207-d517357eac1a",
@@ -2162,7 +2498,12 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a5c53cff-cb1a-4cd3-a308-854a316d925a",
@@ -2188,7 +2529,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7be0ff16-d7eb-456e-ae5b-743ddd7da434",
@@ -2214,7 +2557,14 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation",
+      "Social forestry",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "ca2b7cf9-8a08-49b7-a53e-c9d192c3b763",
@@ -2240,7 +2590,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "6428a51e-0330-4bfe-bcf5-07fb1b7bd64e",
@@ -2266,7 +2620,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "1eb1d02d-e36f-4678-a803-b8102f20afc8",
@@ -2292,7 +2648,9 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a2b7a75e-ae0c-49d7-9696-916cf02d2dd6",
@@ -2318,7 +2676,11 @@
     "has_named_contact": true,
     "has_resolved_contact": true,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5cd24c74-d31e-4ba7-9dd9-7e3b9f02f943",
@@ -2344,7 +2706,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "c3a330c6-8aaa-4716-acf7-daf9d73142c0",
@@ -2370,7 +2737,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "00c02585-8580-4be0-a40d-c74b8e70ddb2",
@@ -2396,7 +2768,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5492bd18-f523-4860-962b-cb95f81f89d4",
@@ -2422,7 +2798,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "df324622-74ad-4044-8f27-e8d4abd896b0",
@@ -2448,7 +2826,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9bc25d91-0a8b-465c-a99a-5892621e064e",
@@ -2474,7 +2856,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": true
   },
   {
     "candidate_id": "6716e668-3264-4d2a-8baf-bdbf3a1fee8e",
@@ -2500,7 +2884,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9a965e64-e543-4d3e-8f2f-d76c995958a7",
@@ -2526,7 +2914,9 @@
     "has_named_contact": false,
     "has_resolved_contact": true,
     "document_count": 58,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "61c36734-a347-479c-83c4-ac86527c96d2",
@@ -2552,7 +2942,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 21,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "93782ee2-f3b7-415e-b6ae-c289af6f672b",
@@ -2578,7 +2973,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 16,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a7d0cccf-aeea-4546-8a53-4200d541e441",
@@ -2604,7 +3003,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 14,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "838a54b8-08a5-4482-a04b-ed97545e9430",
@@ -2630,7 +3033,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 7,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "b0ad37ae-ed4c-44c3-aeb0-dcb476e4a332",
@@ -2656,7 +3063,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 7,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "52fa31fa-f780-4535-994c-98459abf6e78",
@@ -2682,7 +3091,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "d717e695-34e4-4236-b038-699862972d59",
@@ -2708,7 +3119,13 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Conservation",
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "41e600bd-2956-4a75-ba37-f08038f21963",
@@ -2734,7 +3151,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "08f98fd7-f4c5-4c05-b660-9fbd9e052117",
@@ -2760,7 +3181,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Social forestry"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "003c469d-b1ee-4693-9ce3-cf691a448cb6",
@@ -2786,7 +3212,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 6,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "f9db0b60-cd7d-4057-b275-3181f4b8f298",
@@ -2812,7 +3242,13 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9aeea982-df44-4285-9db5-04f27de1a905",
@@ -2838,7 +3274,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "84d62843-208f-4053-89d8-3f4fee2d3520",
@@ -2864,7 +3305,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "66f11b65-b566-4616-b4cc-b15d48403f37",
@@ -2890,7 +3336,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "6fede8b1-54c3-4881-a0da-d92329c2369d",
@@ -2916,7 +3364,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "72a8ae62-8db0-4a17-8196-c7631aee44fe",
@@ -2942,7 +3392,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "1ac68952-7b93-43a4-abe0-ecdef1de954f",
@@ -2968,7 +3422,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Reforestation",
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a4264780-5760-479f-a523-78a1cb18a5f6",
@@ -2994,7 +3453,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "d41ece6c-5ea7-4544-a511-d38edaec98bc",
@@ -3020,7 +3483,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "fc04842f-e253-4699-83f9-695607eb6503",
@@ -3046,7 +3513,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "623d47dd-54e3-421f-9503-655a1cf72a47",
@@ -3072,7 +3541,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "cc01b189-7667-4357-a497-10c6ce113ca6",
@@ -3098,7 +3571,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "d898aaa6-2fdb-4131-a65f-4de11dea78e1",
@@ -3124,7 +3601,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation",
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "7abfad04-8d5d-4bd5-8dc0-8df2c1c68412",
@@ -3150,7 +3632,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland",
+      "Reforestation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "5c1cb292-7052-4dd0-a1d6-525f505311a7",
@@ -3176,7 +3663,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Peatland"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "e4646499-b7f4-4157-a440-1f4808377db6",
@@ -3202,7 +3693,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "e3d91f86-3111-4403-9751-6616ef146a6e",
@@ -3228,7 +3721,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "10ae4d44-e04c-419f-acf2-36cc2438830e",
@@ -3254,7 +3749,11 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 3,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "387c92a1-7996-4e74-bd2a-8eab0c15b3b5",
@@ -3280,7 +3779,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 0,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "42d8b4d9-1ca7-42db-b09e-16ee94c6f061",
@@ -3306,7 +3807,9 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 5,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "ee3628a3-b5bb-4a0a-80ea-fc626c7cccd3",
@@ -3332,7 +3835,12 @@
     "has_named_contact": false,
     "has_resolved_contact": false,
     "document_count": 4,
-    "news_evidence_count": 0
+    "news_evidence_count": 0,
+    "activity_categories": [
+      "Conservation",
+      "Improved Forest Management"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "04a60c69-14d0-44ba-943f-b898b3c23659",
@@ -3358,7 +3866,9 @@
     "has_resolved_contact": true,
     "document_count": 0,
     "news_evidence_count": 1,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "86c3ceb4-ca4a-4b86-92a7-cbf8fe14edf2",
@@ -3384,7 +3894,9 @@
     "has_resolved_contact": true,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "711ee949-862c-4117-9197-adfc31ab6dc0",
@@ -3409,7 +3921,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "f253b524-a270-409e-8b8a-c7a08e00fa78",
@@ -3434,7 +3948,9 @@
     "has_resolved_contact": true,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "afcc1192-ade1-4854-8514-0e804e0680a5",
@@ -3459,7 +3975,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 1,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "bb5fd2fa-4984-4d37-a2c3-798f0389c44d",
@@ -3484,7 +4002,11 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 1,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [
+      "Conservation"
+    ],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "52b44f13-ec9c-4e21-9b14-4a8ddee6bb8d",
@@ -3509,7 +4031,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "9062b5e8-04cb-4949-ae24-a13324fa3f4a",
@@ -3534,7 +4058,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 1,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "8cd32d23-829d-4723-b17c-3318609fdde6",
@@ -3559,7 +4085,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 1,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "2f087508-5dee-4afd-9d17-ab6b95d0e96b",
@@ -3584,7 +4112,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 1,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "b0b24eec-fa27-4a79-a4b1-583bd0a326d8",
@@ -3609,7 +4139,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "8ba9a9b3-9d8f-4272-b991-3f74ec598981",
@@ -3634,7 +4166,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "3c98cda9-c3c4-4a76-8fec-b4764ba2480f",
@@ -3659,7 +4193,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "fcca5601-b808-4c83-b4a6-d747b14bd9e9",
@@ -3684,7 +4220,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 2,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "16508a22-ed3b-40f1-875b-a702aa167e04",
@@ -3709,7 +4247,9 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   },
   {
     "candidate_id": "a587136f-38ca-4bce-a9fb-9028a1798772",
@@ -3734,6 +4274,8 @@
     "has_resolved_contact": false,
     "document_count": 0,
     "news_evidence_count": 0,
-    "brwa_idx": null
+    "brwa_idx": null,
+    "activity_categories": [],
+    "activity_not_applicable": false
   }
 ]

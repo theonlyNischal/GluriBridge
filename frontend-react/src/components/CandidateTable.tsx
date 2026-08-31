@@ -3,6 +3,7 @@ import { Eye, FileText, Send } from "lucide-react";
 import { ScoreLabelPill } from "./ui/ScoreLabelPill";
 import { HonestState } from "./ui/HonestState";
 import { StatusBadge } from "./ui/StatusBadge";
+import { ActivityTypeBadges } from "./ui/ActivityTypeBadges";
 import { PROVINCE_NOT_AVAILABLE } from "../lib/provinceNormalize";
 import { fmtScore } from "../lib/format";
 import type { CandidateListRow } from "../lib/types";
@@ -52,8 +53,20 @@ export function CandidateTable({
       <table className="w-full table-fixed border-collapse text-left text-[13px]">
         <colgroup>
           <col className="w-10" />
-          <col className="w-[17%]" />
-          <col className="w-[13%]" />
+          {/* Fixed px, not percentage (2026-08-31 fix) — table-fixed
+              divides percentage columns out of whatever's left AFTER
+              every fixed-px column is honored in full; adding the
+              Activity-type column below crushed these two to 48px/37px
+              (unreadable, text visually overlapping the next header) even
+              though nothing about Project name/Organization themselves
+              changed. Fixed minimums never get crushed regardless of how
+              many other fixed columns exist — the table can grow wider
+              than its wrapper and scroll horizontally within it (the
+              wrapper's own overflow-auto already exists for exactly this),
+              rather than silently squeezing the two most identity-critical
+              columns in the whole table. */}
+          <col className="w-[220px]" />
+          <col className="w-[160px]" />
           {/* 320px — measured: "Opportunity  need 100.0 / cred 41.2" needs
               ~311px and was silently clipped (overflow-hidden, no
               ellipsis) at narrower widths; a real bug caught while
@@ -61,6 +74,12 @@ export function CandidateTable({
               alongside it. */}
           <col className="w-[320px]" />
           <col className="w-[140px]" />
+          {/* 200px — sized for the widest real single tag,
+              "Improved Forest Management" (27 chars), plus room for a
+              second badge to sit beside it before wrapping; a multi-tag
+              candidate (up to 3 real tags) wraps onto a second line
+              rather than clipping. */}
+          <col className="w-[200px]" />
           {/* 132px, not 112px — "Follow-up needed" (the longest status
               label) measured at ~127px and was clipped at 112; caught the
               same way as the Signal-column bug above, by measuring real
@@ -77,6 +96,7 @@ export function CandidateTable({
             <th className="whitespace-nowrap px-3 py-2.5">Organization</th>
             <th className="whitespace-nowrap px-3 py-2.5">Signal</th>
             <th className="whitespace-nowrap px-3 py-2.5">Province</th>
+            <th className="whitespace-nowrap px-3 py-2.5">Activity type</th>
             <th className="whitespace-nowrap px-3 py-2.5">Status</th>
             <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-forest-700" onClick={() => onToggleSort("need_score")}>
               Need{arrow("need_score")}
@@ -106,6 +126,12 @@ export function CandidateTable({
               </td>
               <td className="truncate px-3 py-3 text-stone-600" title={r.province ?? undefined}>
                 {r.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
+              </td>
+              <td className="px-3 py-3">
+                <ActivityTypeBadges
+                  activityType={{ categories: r.activity_categories, not_applicable: r.activity_not_applicable, not_applicable_reason: null }}
+                  compact
+                />
               </td>
               <td className="px-3 py-3">
                 <StatusBadge status={r.status} />

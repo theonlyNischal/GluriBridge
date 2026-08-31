@@ -60,6 +60,7 @@ def normalize_verra_record(raw: dict) -> UnifiedCandidateRecord:
     rec.registry_source_urls["verra"] = overview.get("public_comment_period_url")
 
     rec.verra_status = overview.get("status")
+    rec.verra_afolu_activities = overview.get("afolu_activities")
     rec.verra_units = {
         "issued": units.get("vcus_issued"),
         "active": units.get("vcus_active"),

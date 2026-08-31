@@ -20,6 +20,7 @@ from .news_matching import process_hit, apply_corroboration, new_thin_candidate_
 from .contact_resolution import resolve_contact_tier_b
 from .scoring import score_candidate
 from .dossier import build_dossier
+from .activity_type import classify_activity_type
 from .schema import RegistrantContact
 
 # contact_source values a registry-only run (no tavily_client) can never
@@ -94,6 +95,7 @@ class PipelineResult:
     news_actions: list = field(default_factory=list)         # what happened to each news hit processed
     scores: dict = field(default_factory=dict)               # candidate_id -> score_candidate() output
     dossiers: dict = field(default_factory=dict)              # candidate_id -> build_dossier() output
+    activity_types: dict = field(default_factory=dict)       # candidate_id -> classify_activity_type() output
     stats: dict = field(default_factory=dict)
 
 
@@ -468,6 +470,21 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
         for candidate in final_candidates:
             result.dossiers[candidate.candidate_id] = build_dossier(candidate, result.scores[candidate.candidate_id])
 
+    # --- Step 8b: real-activity-type classification (deterministic
+    # keyword/field rules, no LLM — see activity_type.py's module
+    # docstring for the real 2026-08-31 test this is built from).
+    # Unconditional, cheap, no dependency on scoring/dossier. ---
+    activity_type_counts = {"classified": 0, "unclassified": 0, "not_applicable": 0}
+    for candidate in final_candidates:
+        classification = classify_activity_type(candidate)
+        result.activity_types[candidate.candidate_id] = classification
+        if classification["not_applicable"]:
+            activity_type_counts["not_applicable"] += 1
+        elif classification["categories"]:
+            activity_type_counts["classified"] += 1
+        else:
+            activity_type_counts["unclassified"] += 1
+
     result.candidates = final_candidates
     result.stats = {
         "sruk_and_srn_ppi_input": len([f for f in sruk_files]),
@@ -491,6 +508,9 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
         "tier_b_contact_resolved": tier_b_resolved,
         "contacts_preserved_from_prior_export": contacts_preserved,
         "dossiers_generated": len(result.dossiers),
+        "activity_type_classified": activity_type_counts["classified"],
+        "activity_type_unclassified": activity_type_counts["unclassified"],
+        "activity_type_not_applicable": activity_type_counts["not_applicable"],
         "data_freshness": _compute_data_freshness(source_freshness, reference_date),
     }
     return result

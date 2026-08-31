@@ -95,6 +95,20 @@ export function CandidatesListPage() {
           options={[{ value: "rich", label: "Rich" }, { value: "corroborated", label: "Corroborated" }, { value: "thin", label: "Thin" }]}
         />
         <FilterSelect value={filterParams.status} onChange={(v) => updateFilter({ status: v as typeof filterParams.status })} placeholder="All statuses" options={STATUS_OPTIONS} />
+        <FilterSelect
+          value={filterParams.activityCategory}
+          onChange={(v) => updateFilter({ activityCategory: v })}
+          placeholder="All activity types"
+          options={[
+            { value: "Peatland", label: "Peatland" },
+            { value: "Reforestation", label: "Reforestation" },
+            { value: "Social forestry", label: "Social forestry" },
+            { value: "Conservation", label: "Conservation" },
+            { value: "Improved Forest Management", label: "Improved Forest Management" },
+            { value: "unclassified", label: "Unclassified" },
+            { value: "not_applicable", label: "Not applicable" },
+          ]}
+        />
         <span className="ml-auto whitespace-nowrap rounded-full bg-stone-100 px-2.5 py-1 text-[12px] font-medium text-stone-500">
           {rows.length} of {candidates.length}
         </span>

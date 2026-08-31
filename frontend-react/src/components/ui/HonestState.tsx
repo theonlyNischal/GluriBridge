@@ -29,15 +29,23 @@ export function HonestState({
   label,
   children,
   compact = false,
+  title,
 }: {
   kind: keyof typeof KIND_LABEL;
   label?: string;
   children?: ReactNode;
   compact?: boolean;
+  // Native title attribute (hover tooltip) — for a compact instance whose
+  // real explanation is too long to inline without ballooning a table
+  // row's height (2026-08-31: activity-type badges in a 200px table
+  // column). Applies to both branches; a caller can pass this INSTEAD of
+  // children in the compact case and still keep the full reason
+  // reachable on hover, not silently dropped.
+  title?: string;
 }) {
   if (compact) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded border border-dashed border-stone-300 bg-stone-100 px-2 py-0.5 text-[12px] italic text-stone-500">
+      <span title={title} className="inline-flex items-center gap-1.5 rounded border border-dashed border-stone-300 bg-stone-100 px-2 py-0.5 text-[12px] italic text-stone-500">
         <span aria-hidden className="not-italic">
           —
         </span>
@@ -47,7 +55,7 @@ export function HonestState({
     );
   }
   return (
-    <div className="rounded-lg border border-dashed border-stone-300 bg-stone-100/70 px-4 py-3">
+    <div title={title} className="rounded-lg border border-dashed border-stone-300 bg-stone-100/70 px-4 py-3">
       <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
         <span aria-hidden>—</span>
         {label ?? KIND_LABEL[kind]}

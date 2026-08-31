@@ -312,6 +312,13 @@ def _detail_to_list_row(d: dict, status: dict = None) -> dict:
         # page, just not in this confident aggregate.
         "has_email": bool(contact and contact.get("email") and contact.get("contact_confidence") == "high"),
         "has_low_confidence_email": bool(contact and contact.get("email") and contact.get("contact_confidence") != "high"),
+        # Real activity-type classification (2026-08-31) — see
+        # gluribridge/activity_type.py. activity_categories is always []
+        # when activity_not_applicable is True; an empty list with
+        # not_applicable False is the separate "unclassified" state —
+        # the frontend must render these as two distinct honest states.
+        "activity_categories": (d.get("activity_type") or {}).get("categories", []),
+        "activity_not_applicable": bool((d.get("activity_type") or {}).get("not_applicable")),
         "document_count": len(d.get("documents") or []),
         "news_evidence_count": len(d.get("news_evidence") or []),
         "status": status["status"],

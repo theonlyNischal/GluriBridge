@@ -18,6 +18,7 @@ import { HonestState } from "../components/ui/HonestState";
 import { CitationLink } from "../components/ui/CitationLink";
 import { EvidenceTag } from "../components/ui/EvidenceTag";
 import { ComplianceBadge } from "../components/ui/ComplianceBadge";
+import { ActivityTypeBadges } from "../components/ui/ActivityTypeBadges";
 import { TerritoryMap } from "../components/TerritoryMap";
 
 const TABS = ["overview", "compliance", "dossier", "outreach"] as const;
@@ -294,7 +295,7 @@ export function CandidateDetailPage() {
   if (error) return <div className="p-8 text-clay-700">Failed to load candidate: {error}</div>;
   if (!rec) return <div className="p-8 text-stone-400">Loading…</div>;
 
-  const { identity, scoring, land_rights, location, identity_resolution, documents, news_evidence, dossier, outreach, status } = rec;
+  const { identity, scoring, land_rights, location, identity_resolution, documents, news_evidence, dossier, outreach, status, activity_type } = rec;
   const ids = identity.registry_ids;
   const urls = identity.registry_source_urls;
   // url is null whenever the source has no real per-record public page in
@@ -363,6 +364,15 @@ export function CandidateDetailPage() {
       <div className="rounded-xl border border-stone-200 bg-white p-5">
         <h1 className="font-display text-2xl font-semibold leading-tight text-stone-900">{identity.name}</h1>
         <div className="mt-1 text-[14px] text-stone-500">{identity.org ?? "—"}</div>
+
+        {/* Real activity-type classification (2026-08-31) — see
+            activity_type.py's module docstring. Placed right under the
+            identity header since it's a real fact about what this
+            candidate's project actually is, read before the
+            why-contact-first recommendation below. */}
+        <div className="mt-2.5">
+          <ActivityTypeBadges activityType={activity_type} />
+        </div>
 
         {/* ---------- WHY CONTACT THIS CANDIDATE — the page's real visual
             hero (2026-08-30 restructure). Gluri's own stated Q&A framing

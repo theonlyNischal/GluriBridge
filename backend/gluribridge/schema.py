@@ -136,6 +136,17 @@ class UnifiedCandidateRecord:
     # carbon status (Verra side)
     verra_status: Optional[str] = None
     verra_units: Optional[dict] = None      # issued/active/retired/cancelled/buffer
+    # Verra's own raw activity-type code(s) for this project (e.g. "ARR",
+    # "ARR,REDD,WRC") — comma-separated exactly as Verra's own overview
+    # field gives it, never reformatted. This is a REAL structural signal,
+    # not a keyword guess: activity_type.py uses it directly to detect
+    # "Improved Forest Management" (code "IFM") and the "not applicable"
+    # case (no forest-related code at all — confirmed real, 2026-08-31:
+    # AgriCapture Southeast Asia Rice Methane Project carries only "ALM",
+    # Agricultural Land Management, genuinely not a forestry land-use
+    # activity). None for SRUK/SRN-PPI/news candidates — that registry
+    # schema has no equivalent field.
+    verra_afolu_activities: Optional[str] = None
 
     # documents (union across all merged sources)
     documents: list = field(default_factory=list)   # list[DocumentRef]
