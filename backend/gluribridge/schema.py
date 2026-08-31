@@ -37,6 +37,22 @@ class RegistrantContact:
 
 @dataclass
 class UnifiedCandidateRecord:
+    # NOT STABLE ACROSS SEPARATE run_pipeline() INVOCATIONS — a fresh
+    # uuid4() every time a record is constructed, and nothing in
+    # normalize_sruk.py/normalize_verra.py/match.py overrides it
+    # deterministically. Confirmed real (2026-08-31, during the
+    # contact-resolution export-drift fix in pipeline.py/orchestrate.py):
+    # the exact same real InfiniteEARTH/Verra-674 record got candidate_id
+    # '9a965e64-...' in one run and '95100ce8-...' in an immediately-
+    # following rerun on byte-identical raw data. Anything that needs to
+    # recognize "the same real candidate" across two separate pipeline
+    # runs — persisted per-candidate state (contact resolution, tracked/
+    # partnership status, notes, bookmarked URLs) — must key on something
+    # from registry_ids instead (e.g. verra_project_id, sruk_registry_no),
+    # which comes straight from the raw registry file and IS stable
+    # across reruns. See PROJECT_CONTEXT.md Section 6 (contact-resolution
+    # export drift) for the full story, including a first draft of that
+    # exact fix that keyed on candidate_id and silently matched nothing.
     candidate_id: str = field(default_factory=lambda: str(uuid.uuid4()))
 
     # provenance of the record as a whole (the *primary* source that anchors identity)

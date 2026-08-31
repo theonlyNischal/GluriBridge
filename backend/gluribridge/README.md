@@ -52,7 +52,7 @@ that's a real regression worth investigating, not an expected flake.
 | `compliance.py` | 4 of 25 encoded Permenhut rules wired: R003 (Pasal 6(1), Pelaku Usaha category), R006 (Pasal 10, Unit Karbon precondition), R016 (Pasal 61, deadline badge), R022 (Pasal 20, DPP-track precondition) | Tested against real candidates; **no `red` case exists for R016 in any real test** since today's date is before the 13 Oct 2026 deadline |
 | `scoring.py` | Two-axis scoring: need_score + credibility_score, split deliberately (see below) | Tested against all real candidates across every profile shape encountered |
 | `dossier.py` | Template-based (no LLM) one-page dossier per candidate | Tested against 3 contrasting real profiles; found and fixed a real bug (thin candidates showing a misleading "no gaps" message) |
-| `pipeline.py` | One orchestrating function: normalize -> resolve -> BRWA -> news -> Tier B -> score -> dossier | Tested end-to-end, reproduces every individual module's output exactly |
+| `pipeline.py` | One orchestrating function: normalize -> resolve -> BRWA -> news -> Tier B -> score -> dossier. Also carries `preserve_contacts_by_registry_key` (2026-08-31, additive, default `None`) — restores a prior run's Tier B/manual contact for a candidate a registry-only rerun resolves none of its own, keyed on `registry_ids`, NOT `candidate_id` (see Known Bugs below for why) | Tested end-to-end, reproduces every individual module's output exactly; the new param verified via a full simulated registry-only reseed against real raw data, not just unit tests |
 | `export.py` | Frontend-shaped JSON (`ranked_candidates.json`, `candidate_details.json`, etc.) | Tested; caught one real bug (Verra epoch-ms date field) |
 | `outreach.py` | English-only v1 outreach email generation, template-based/no-LLM (see `dossier.py`'s design philosophy) | Tested against 5 contrasting real profiles (Tier A, Tier B, no-contact thin, Katingan, mixed fact+hypothesis reasons) |
 | `citations.py` | Resolves a real, checkable source for every need/credibility reason — document URL, BRWA decree, news article, or an honest no-document note; never a fabricated link | Tested against 4 contrasting real cases + a full-128-candidate sweep in an actual browser (not just JSON) — 0 broken links, 0 empty notes |
@@ -81,6 +81,24 @@ Sort by either axis depending on what you're trying to find.
 - Org-name extraction from news headlines grabbing trailing headline verbs ("...Reports Progress")
 - Verra `registration_date` field arriving as raw Unix epoch-ms instead of an ISO date string
 - Dossier's zero-need fallback message reading as false confidence for unverified thin candidates
+- **Contact-resolution export drift (2026-08-30/31), found by a full health-check sweep, not a
+  targeted fix.** `orchestrate.py`'s `run_normalization_and_export()` never passes a
+  `tavily_client` to `run_pipeline()`, so a registry-only run (the normal unattended
+  `scheduler.py` hourly cadence) rebuilds every candidate from raw data alone and silently drops
+  any Tier B (`org_website`) or human-reviewed (`manual_review`) contact a prior richer run had
+  found — those aren't derivable from raw registry data at all. Fixed with
+  `pipeline.py`'s new `preserve_contacts_by_registry_key` (see module table above). **Important:
+  the first draft of this fix keyed the preserved-contacts dict on `candidate_id` and would have
+  silently done nothing in production** — caught only by testing an actual simulated registry-
+  only reseed, not by trusting that all 14 existing tests still passed (none of them exercise
+  this param). `candidate_id` is a fresh `uuid.uuid4()` on every `run_pipeline()` invocation, not
+  a stable identifier across runs — confirmed empirically (same real record, two different
+  `candidate_id`s across two runs on identical raw input) and now documented directly on the
+  field itself in `schema.py`, and as its own design-principle entry in PROJECT_CONTEXT.md Section
+  5, not just here. Re-keyed on `registry_ids` (e.g. `verra_project_id`), which IS stable across
+  runs. Full story, including a second bug caught in the same draft (a `RegistrantContact`
+  `is not None` guard wrongly treating Verra's always-non-`None`-but-empty contact object as
+  "already resolved"), in PROJECT_CONTEXT.md Section 6.
 
 ## Open items — genuinely not done, not just "could be nicer"
 

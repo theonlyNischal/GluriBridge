@@ -113,6 +113,16 @@ All of this is one function call: `gluribridge.pipeline.run_pipeline(...)`.
 - **When a check can't run, say so — don't default to a negative result.** E.g. BRWA land-rights
   evidence: if a candidate has no coordinates, the correct output is "not yet checked," not "no
   overlap found." `compliance.py`'s `not_applicable` badge follows the same principle.
+- **`candidate_id` is NOT a stable identifier across separate pipeline runs — never key
+  cross-run state on it.** `schema.py` assigns a fresh `uuid.uuid4()` to every
+  `UnifiedCandidateRecord` on construction, and nothing downstream makes it deterministic; the
+  exact same real record gets a different `candidate_id` on every `run_pipeline()` rerun, even on
+  byte-identical raw input. Anything that needs to recognize "the same real candidate" across two
+  separate runs — persisted contact resolution, tracked/partnership status, notes, bookmarked
+  URLs — must key on `registry_ids` instead (e.g. `verra_project_id`, `sruk_registry_no`), which
+  comes straight from the raw registry file and genuinely is stable. Found the hard way: see
+  Section 6's contact-resolution export-drift entry, where a first draft of that exact fix was
+  keyed on `candidate_id` and would have silently matched nothing in production.
 
 ## 6. Known real bugs already found and fixed (context for why certain code looks defensive)
 
@@ -442,6 +452,85 @@ All of this is one function call: `gluribridge.pipeline.run_pipeline(...)`.
   exact reason instead of a wrong pin; all 14 tests still pass; full Playwright sweep (dashboard,
   candidates, territory map, 15+ sampled candidate detail pages) shows zero console errors.
 
+- **A full, systematic health-check sweep (2026-08-30/31) — the first of its kind this session,
+  covering every backend test script + a DB/export consistency check + a page-by-page frontend
+  click-through, explicitly framed as a discovery pass, not another targeted fix — found two real
+  bugs, one of which uncovered a structural fact about the codebase worth knowing before touching
+  candidate identity across pipeline runs again.**
+  1. **Contact-resolution export drift, medium severity.** `candidate_details.json`/
+     `ranked_candidates.json` on disk had 2 fewer resolved Tier B contacts (InfiniteEARTH,
+     PT Pembangunan Aceh) than the live DB, discovered by an independent tally comparison, not a
+     manual spot-check. Root cause: `orchestrate.py`'s `run_normalization_and_export()` never
+     passes a `tavily_client` to `run_pipeline()` (by design — see Section 7's note on this same
+     function), so `resolve_contacts_tier_b` never fires and every registry-only run rebuilds
+     `final_candidates` from raw scraper data alone. A Tier B (`org_website`) or human-reviewed
+     (`manual_review`) contact only ever exists as a fact recorded by a prior richer run — it
+     isn't derivable from raw registry data at all — so a registry-only re-export silently drops
+     it. This isn't just a stale-data risk: `scheduler.py`'s background loop runs this cycle
+     hourly, and sruk/verra have a 1-day cadence, so an unattended registry-only refresh could
+     fire any day and wipe every Tier-B/manual contact resolved so far, not just these 2.
+  2. **The first draft of the fix, keyed on `candidate_id`, would have silently done nothing —
+     caught by testing against a real simulated reseed, not by trusting the test suite.**
+     `pipeline.py` gained a new optional `preserve_contacts_by_registry_key` param (default
+     `None`, so all 14 existing test scripts stay byte-identical): restore a prior contact for any
+     final candidate that resolved none of its own this run. The very first version of this keyed
+     the preserved-contacts dict by `candidate_id` — it passed every existing test (none of them
+     exercise this param at all) and looked correct on paper. Running an actual simulated
+     registry-only reseed (not just unit tests) to verify it before calling this done surfaced
+     that **`candidate_id` is not a stable identifier across separate `run_pipeline()`
+     invocations** — `schema.py`'s `UnifiedCandidateRecord.candidate_id` is a fresh `uuid.uuid4()`
+     on every construction, and nothing in `normalize_sruk.py`/`normalize_verra.py`/`match.py`
+     overrides it deterministically. Confirmed empirically: the exact same real InfiniteEARTH/
+     Verra-674 record got `candidate_id` `9a965e64-...` in the live data and `95100ce8-...` in an
+     immediately-following rerun on byte-identical raw input — a candidate_id-keyed lookup would
+     never match anything real. Re-keyed the fix on `registry_ids` instead (e.g.
+     `verra_project_id`), which comes straight from the raw registry file and genuinely is stable
+     across runs — confirmed both runs show `"674"`. Also caught a second bug in the same draft
+     while re-verifying: `normalize_verra.py` always constructs a non-`None` `RegistrantContact`
+     for every Verra candidate (with `contact_source=None` when nothing was found, since "Verra
+     gives no named individual contact" per its own comment) — an `is not None` guard on
+     `registrant_contact` wrongly treated that as "already resolved" and skipped every Verra
+     candidate. Fixed to check `contact_source` truthiness instead, the same pattern the adjacent
+     Tier B code already used two lines above it. **Verified for real after both fixes**: a full
+     simulated registry-only reseed against a temp export dir (using the real live raw data,
+     nothing mocked) restored all 13 of the 13 registry-sourced preserved contacts correctly,
+     confirmed by direct before/after comparison per candidate, not just a preserved-count number.
+     The other 6 of 19 preservable contacts on file are thin/news-sourced candidates, which a
+     registry-only run can't recreate as a candidate at all (a separate, pre-existing, already-
+     documented limitation — see Section 7's `run_normalization_and_export()` note — out of scope
+     for this fix, and structurally can't be reached by any registry_ids-based key since thin/news
+     candidates have none). This is now a permanent structural fact worth internalizing, not just
+     a one-off bug: **`candidate_id` must never be assumed stable across pipeline reruns** — any
+     future code needing to recognize "the same real candidate" across two separate runs
+     (persisted per-candidate state, tracked/partnership status, bookmarked URLs, anything else)
+     must key on `registry_ids` instead. Also written directly onto the `candidate_id` field
+     itself in `schema.py`, not just here, so it's visible at the exact place someone would look
+     when writing code that touches candidate identity.
+  3. **`HonestState`'s `compact` variant silently discarded its `children` prop** (frontend,
+     `frontend-react/src/components/ui/HonestState.tsx`) — confirmed live on Territory Discovery,
+     dropping two real computed disclosure sentences ("86 of 144 candidates have no coordinates
+     on file", a geometry-not-found explanation) down to a bare label with no explanation at all.
+     The non-`compact` branch already rendered `children` correctly; the `compact` branch simply
+     never referenced it. Fixed to render inline (`— Label: children`).
+  4. **Two trivial fixes bundled into the same round**: Territory Discovery's "real provinces"
+     count was double-counting the `PROVINCE_MULTI_REGION` ("spans multiple provinces") bucket as
+     a real named province (fixed 21 → 20, the true distinct-named-province count); the Dashboard/
+     Territory Discovery map popup's "View candidate →" link used `href="#"` with a JS-only click
+     handler, so middle-click/open-in-new-tab silently did nothing — now a real `/candidates/{id}`
+     href, left-click still uses the SPA `navigate()` handler as before.
+  5. **Two real, but lower-priority, findings deliberately left open, not forgotten**: the
+     Candidates list page has no on-page UI control for province/compliance/contact-resolved/
+     need-credibility-threshold filtering — all four work correctly via URL query params
+     (inherited from Dashboard KPI-card links) but aren't discoverable from the Candidates page
+     itself; and the Dashboard's province/richness breakdown rows aren't clickable, unlike the
+     outreach-status panel directly below them which is. Both flagged as real UX gaps during the
+     sweep, deliberately deferred rather than fixed in the same round — genuine follow-up work,
+     not an oversight.
+  All 14 backend tests pass; tsc clean; zero console errors and zero horizontal overflow at
+  1600/1440/1280px confirmed across Dashboard, Candidates, Candidate Detail (3 contrasting real
+  profiles), Territory Discovery, Tracked/Partnerships, and the Design System page both before and
+  after these fixes.
+
 ## 7. Current state — what's real, what isn't
 
 See `backend/gluribridge/README.md` for the full, current module-by-module state table — that
@@ -626,3 +715,16 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   broader than the pre-existing `has_named_contact` field: Tier B (`org_website`) resolutions
   only ever populate `.email`, never `.name`, so `has_named_contact` alone would misread a real
   resolved Tier B contact as "no contact."
+- **Two real UX gaps found during the 2026-08-30/31 health-check sweep, deliberately left open,
+  not fixed in the same round — genuine follow-up work, not forgotten.**
+  - The Candidates list page (`frontend-react/src/pages/CandidatesListPage.tsx`) exposes only
+    richness/status dropdowns and a search box. Province, compliance-flag, contact-resolved, and
+    need/credibility-threshold filtering all work correctly as URL query params
+    (`minNeed=`, `compliance=`, `hasEmail=`, etc. — confirmed via direct navigation and combined-
+    filter AND-logic tests) but have no on-page control; they're only reachable today via a
+    pre-built Dashboard KPI-card link. A user starting from the Candidates page directly can't
+    discover or apply them.
+  - The Dashboard's province and data-richness breakdown panels aren't clickable, unlike the
+    outreach-status panel directly below them, which is wrapped in real
+    `<a href="/candidates?status=...">` links. Same page, same visual pattern, inconsistent
+    interactivity.
