@@ -102,7 +102,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own website/social found; real existence strongly corroborated via Astra EcoBiz partnership press coverage"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -547,7 +551,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own website/social found; real existence strongly corroborated via Astra EcoBiz partnership press coverage"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -1000,7 +1008,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real",
+      "website_url": "https://yagasu.or.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched — a landline was found on the org's own site (Malang/East Java address, 62-341 prefix) but deliberately NOT written: geographically inconsistent with this well-known Sumatra-based org, reads like an unedited site-template artifact rather than a trustworthy number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -2322,7 +2337,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own website/social found; real existence strongly corroborated via Astra EcoBiz partnership press coverage"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -2818,7 +2837,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real",
+      "website_url": "https://yagasu.or.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched — a landline was found on the org's own site (Malang/East Java address, 62-341 prefix) but deliberately NOT written: geographically inconsistent with this well-known Sumatra-based org, reads like an unedited site-template artifact rather than a trustworthy number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -3263,7 +3289,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — 'Mekar Sari' is too generic, every hit was a different, wrongly-located group",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — two differently-handled Facebook pages exist under similar names but neither has distinguishing bio/location info to confirm either is this specific candidate"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -3732,7 +3762,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real",
+      "website_url": "https://yagasu.or.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched — a landline was found on the org's own site (Malang/East Java address, 62-341 prefix) but deliberately NOT written: geographically inconsistent with this well-known Sumatra-based org, reads like an unedited site-template artifact rather than a trustworthy number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -4137,7 +4174,17 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search, not a separate fallback query — own official website and Instagram confirmed real",
+      "website_url": "https://ubforest.ub.ac.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "instagram_handle": "ub.forest",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — org's own 'Kontak Kami' page exists but no number was crawled from it; website/Instagram found instead (see public presence fields)"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -4539,7 +4586,17 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search, not a separate fallback query — own official website and Instagram confirmed real",
+      "website_url": "https://ubforest.ub.ac.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "instagram_handle": "ub.forest",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — org's own 'Kontak Kami' page exists but no number was crawled from it; website/Instagram found instead (see public presence fields)"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -4950,7 +5007,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel found despite well-documented real existence"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -5354,7 +5415,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — 'EcoRanger Indonesia' is a real program but the 'HETEL' prefix in this candidate's org name doesn't match anything found; likely an org-name data-quality issue in the raw registry, not a search failure"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -5745,7 +5810,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own channel found"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -6125,7 +6194,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — 'Tegal Wangi' is a common unrelated place/hotel/spa name",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, no genuine match"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -6505,7 +6578,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — every hit was a differently-named 'Agro Lestari' company",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, no genuine own channel found"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -6897,7 +6974,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found despite real, well-documented existence (certification records, court/corruption-case news)",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel found either"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -7278,7 +7359,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+6285395211509",
+      "phone_source": "org_website",
+      "phone_source_url": "https://scf.or.id/about",
+      "phone_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official domain footer — legally registered org, real akta/NPWP shown on the same page"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -7658,7 +7745,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — own Instagram confirmed real, bio matches org name exactly",
+      "instagram_handle": "hbm25_",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found; Instagram found instead — LinkedIn separately shows 'Hanif Rahman - COO of PT Hutani Berkah Mulia,' matching this candidate's registrant name exactly"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -8047,7 +8141,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real",
+      "website_url": "https://antang.org",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — dedicated contact page exists but only team emails shown; website found instead"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -8459,7 +8560,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 251 8657002",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.instagram.com/piligreennetwork",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "reused from the prior Tier C round (candidates 2837fc42/1b22d160) — same real org (Yayasan PILI-Green Network), not re-searched; landline general office number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -8893,7 +9000,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "081374289756",
+      "phone_source": "org_website",
+      "phone_source_url": "https://grantmanagement.warsi.or.id/kontak",
+      "phone_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own subdomain — explicitly labeled 'WA only'; corroborated by a LinkedIn listing for Emmy Primadona at KKI WARSI matching the candidate's registrant name exactly"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -9423,7 +9536,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — multiple Facebook pages exist under similar names but none confirmable as official"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -10239,7 +10356,17 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — own website and Instagram confirmed real, strong identity corroboration (a real carbon-permit work-plan/RKU document specifically for this company)",
+      "website_url": "https://globalalamlestari.wordpress.com",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "instagram_handle": "global_alam_lestari",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found; website/Instagram found instead — note a different, unrelated coal-trading company 'PT Global Lestari Alam' (reversed word order) also surfaced during the base phone search and was correctly rejected as a different entity"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -10649,7 +10776,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel with a usable number; real identity corroborated via a LinkedIn listing connecting it to the Seram Climate and Conservation (SERCOVA) project"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -11062,7 +11193,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 251 8657002",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.instagram.com/piligreennetwork",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "reused from the prior Tier C round (candidates 2837fc42/1b22d160) — same real org (Yayasan PILI-Green Network), not re-searched; landline general office number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -11482,7 +11619,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — every hit was a differently-worded name permutation (e.g. 'Nusantara Alam Sejahtera Tour Travel')",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, no genuine match"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -12677,7 +12818,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real (the well-known Katingan Mentaya Project)",
+      "website_url": "https://katinganmentaya.com",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — only an email shown on the org's own site; website found instead"
     },
     "land_rights": {
       "land_rights_category": "hutan_adat",
@@ -13092,7 +13240,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 251 8657002",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.instagram.com/piligreennetwork",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "reused from the prior Tier C round (candidates 2837fc42/1b22d160) — same real org (Yayasan PILI-Green Network), not re-searched; landline general office number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -13513,7 +13667,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 251 8657002",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.instagram.com/piligreennetwork",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "reused from the prior Tier C round (candidates 2837fc42/1b22d160) — same real org (Yayasan PILI-Green Network), not re-searched; landline general office number"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -13976,7 +14136,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — the one number found belonged to a certification body (Lambodja Sertifikasi), not the company",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own channel; only differently-named 'Bintang X Makmur' companies found"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -14469,7 +14633,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — real existence confirmed (Open Timber Portal listing) but no confirmable own channel"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -14911,7 +15079,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no distinct number found — all coverage belongs to parent group Astra Agro Lestari's official channels",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, no distinct own channel"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -15438,7 +15610,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own account; real existence corroborated via local Samosir news (a getah pinus/resin embezzlement case), only found via a third party's personal Facebook video, not the group's own"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -15842,7 +16018,17 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website and Instagram confirmed real",
+      "website_url": "https://www.carbontrading.co.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "instagram_handle": "pt_panduwijayanegara",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — only a support email shown; website/Instagram found instead"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -16250,7 +16436,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 (021) 392 4568",
+      "phone_source": "org_website",
+      "phone_source_url": "https://trustindonesia.co.id/about-us",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official domain, branded 'TRUSTINDONESIA | PT. ASIA PASIFIK ASSET PERCAYAAN INDONESIA' — exact name match; landline, applies to both this org's SRUK records"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -16671,7 +16863,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 (021) 392 4568",
+      "phone_source": "org_website",
+      "phone_source_url": "https://trustindonesia.co.id/about-us",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official domain, branded 'TRUSTINDONESIA | PT. ASIA PASIFIK ASSET PERCAYAAN INDONESIA' — exact name match; landline, applies to both this org's SRUK records"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -17091,7 +17289,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel; real existence corroborated via district government and local news coverage"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -17503,7 +17705,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 851-7509-7452",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.youtube.com/watch?v=yZ9qdvgo6dQ",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via a self-published company profile video ('Kontak kami,' labeled 'marketing') — downgraded from an initial medium-high read to general_office_line, since self-published video is weaker sourcing than an org's own official contact page; applies to both SRUK records for this org, though they list different individual registrant names"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -17925,7 +18133,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match found — pure noise",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, pure noise, no real match at all"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -19685,7 +19897,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched — only masked/redacted directory listings found (digits hidden behind 'XX'), rejected as unusable",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — several Facebook pages exist but none confirmable as official"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -20098,7 +20314,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found on the org's own real website (binabalantak.com)",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — a Facebook page matching this org's name exists, but Facebook's own metadata explicitly labels it an unofficial/fan page (not company-managed); rejected, not written"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -21387,7 +21607,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own channel; many differently-named 'Karya Persada' companies, none an exact match"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -22805,7 +23029,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own website/social found; real existence strongly corroborated via Astra EcoBiz partnership press coverage"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -23226,7 +23454,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — every 'Hijau Lestari' hit was a differently-named org",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, no genuine match"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -23683,7 +23915,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel found"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -24105,7 +24341,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — the one number found belonged to a news outlet's own tag-page contact block",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel; real existence corroborated via Yayasan KEHATI and Pertamina CSR news coverage"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -24510,7 +24750,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real",
+      "website_url": "https://www.thryve.earth",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — contact forms only collect the visitor's own phone number, never disclose the org's; website found instead"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -24931,7 +25178,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no confirmed own account; the one name-adjacent Instagram post's actual content is a generic multi-KTH event post, not specific to this group"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -27173,7 +27424,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no confirmed official village government account found"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -28029,7 +28284,17 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — own official website and Facebook confirmed real",
+      "website_url": "https://www.astra-daihatsu.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "facebook_url": "https://www.facebook.com/DaihatsuAstraID",
+      "facebook_source": "org_social_media",
+      "facebook_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone publicly disclosed on official channels; website/Facebook found instead"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -28448,7 +28713,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own channel; every 'Rimba Lestari' hit is a different, specifically-named LMDH/PT"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -28910,7 +29179,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — every 'Wana Lestari' hit was a different, wrongly-located LMDH",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own channel; closest name match ('Wana Karya Lestari') is a different specific org"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -29882,7 +30155,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own channel found"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -30319,7 +30596,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "(021) 780 5730",
+      "phone_source": "org_website",
+      "phone_source_url": "https://eppid.perhutani.co.id/kontak",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official PPID page — HQ landline; used HQ number specifically since the regional KPH covering this candidate's district (Bumiaji) could not be confirmed"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -30853,7 +31136,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no confirmed own account; the one name-adjacent Instagram post's actual content is a generic multi-KTH event post, not specific to this group"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -31386,7 +31673,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 811-1441-211",
+      "phone_source": "org_website",
+      "phone_source_url": "https://pertaminafoundation.org/contact",
+      "phone_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official 'Kontak Kami' page — explicit WhatsApp label, high confidence"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -32675,7 +32968,14 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "found incidentally during phone/WhatsApp search — own official website confirmed real",
+      "website_url": "https://terangi.or.id",
+      "website_source": "org_website",
+      "website_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found — org's own contact form is broken (ReCaptcha misconfiguration error); website found instead"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -33077,7 +33377,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 21 508 73000",
+      "phone_source": "org_website",
+      "phone_source_url": "https://adhi.co.id/hubungi-kami",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official 'Hubungi Kami' page — a landline HQ switchboard (real BUMN), not personal/WhatsApp"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -33481,7 +33787,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 822-5408-0751",
+      "phone_source": "org_website",
+      "phone_source_url": "https://naturalkapital.or.id/kontak-kami",
+      "phone_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own official domain, dedicated 'Kontak Kami' page, mobile/WhatsApp-capable format"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -33863,7 +34175,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched — only a masked/redacted directory listing found (digits hidden behind 'XX'), rejected as unusable",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no usable own channel found either"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -34721,7 +35037,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel found despite strong identity corroboration (registrant name 'Kisman' matches local news coverage exactly)"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -35103,7 +35423,13 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "phone": "+62 85333858596",
+      "phone_source": "org_website",
+      "phone_source_url": "https://wanagama.fkt.ugm.ac.id/event/praktikum-ilmu-tanah-hutan",
+      "phone_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own UGM Faculty of Forestry subdomain — explicit 'Telp:' label, high confidence"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -35524,7 +35850,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — hits were unrelated companies or generic KTH resources",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no genuine own website/social account found either"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -35906,7 +36236,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — every hit was 'Yayasan Konservasi Alam Nusantara' (YKAN), a different, well-known org",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — same result, no genuine match"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -36755,7 +37089,11 @@
       "email": null,
       "contact_source": "sruk_registrant",
       "contact_source_url": null,
-      "contact_confidence": null
+      "contact_confidence": null,
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — the only numbers found belonged to UICI (a university), not the company",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — no own channel found; all coverage is UICI's or provincial government press, not the company's own"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -44362,7 +44700,13 @@
       "email": null,
       "contact_source": "manual_review",
       "contact_source_url": "https://www.cnbcindonesia.com/news/20251103165314-4-681861/mengenal-rio-christiawan-sosok-di-balik-sukses-pagatan-usaha-makmur",
-      "contact_confidence": "high"
+      "contact_confidence": "high",
+      "phone": "+62 851-7509-7452",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.youtube.com/watch?v=yZ9qdvgo6dQ",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via a self-published company profile video ('Kontak kami,' labeled 'marketing') — downgraded from an initial medium-high read to general_office_line, since self-published video is weaker sourcing than an org's own official contact page; applies to both SRUK records for this org, though they list different individual registrant names"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -48210,7 +48554,14 @@
       "email": null,
       "contact_source": "manual_review",
       "contact_source_url": "https://id.linkedin.com/in/hanifzain",
-      "contact_confidence": "high"
+      "contact_confidence": "high",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — own Instagram confirmed real, bio matches org name exactly",
+      "instagram_handle": "hbm25_",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found; Instagram found instead — LinkedIn separately shows 'Hanif Rahman - COO of PT Hutani Berkah Mulia,' matching this candidate's registrant name exactly"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -49923,7 +50274,14 @@
       "email": null,
       "contact_source": "manual_review",
       "contact_source_url": "https://id.linkedin.com/in/budi-harsana-ab09383b",
-      "contact_confidence": "high"
+      "contact_confidence": "high",
+      "public_presence_attempted_at": "2026-09-01",
+      "public_presence_attempt_result": "fallback search run — own Instagram confirmed real and active",
+      "instagram_handle": "rimbunseruyan",
+      "instagram_source": "org_social_media",
+      "instagram_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found (only a masked directory listing and PTPP's — an unrelated state construction company sharing the '(PP)' initials coincidentally — own contact page, both rejected); Instagram found instead, matches candidate's Kalimantan Tengah/Seruyan location"
     },
     "land_rights": {
       "land_rights_category": null,
