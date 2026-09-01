@@ -962,3 +962,79 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   current has-email/weak-match/name-only/nothing breakdown, which sums exactly to the total real
   candidate count). Verified: tsc clean; Playwright sweep at 1600/1440/1280px, 0 console
   errors/overflow at any width; sidebar nav link confirmed clickable from another page.
+- **`RegistrantContact` gained phone/WhatsApp fields** (2026-09-01) — never existed before; only
+  name/email were ever captured. Added ahead of running any real phone-focused search: `phone`
+  plus its own provenance trio (`phone_source`, `phone_source_url`, `phone_confidence`),
+  deliberately separate from the email/name provenance fields (a phone-specific search often hits
+  a different page/result than whatever resolved the name), plus `contact_tier_c_attempted_at`/
+  `contact_tier_c_attempt_result`, the same "never searched" vs. "searched, found nothing"
+  audit-trail shape as the existing Tier B fields. All fields optional/additive; `export.py`
+  needed no changes (serializes via `asdict()`); `app/db.py` gained matching
+  `has_phone`/`contact_tier_c_attempted` derived list-row fields, mirroring
+  `has_email`/`contact_tier_b_attempted` exactly.
+- **First real Tier C round — manual, not automated** (2026-09-01): a real, scoped Tavily search
+  (`search_depth="advanced"`, 4 query variants — "whatsapp"/"kontak hp"/"nomor telepon"/"nomor
+  kontak" — per candidate, 76 real calls total, no automated pipeline change) against the same 19
+  candidates already confirmed Tier-B-searched-and-found-nothing (the need_score=100 tied
+  cluster). Deliberately read and judged by hand, not regex/LLM-decided — the whole point being to
+  catch exactly the kind of false positive a keyword match would rubber-stamp (an Instagram
+  highlight-story URL fragment that regex-matched as a 17-digit "phone number"; a village
+  government's own site-wide footer contact block sitting right next to a KTH group's profile; a
+  news outlet's own "place an ad via WhatsApp" link; a platform's own support-chat widget). Result:
+  **1 high-confidence WhatsApp** written (Momua Journey, via its own official Facebook Page contact
+  block, exact org+province match) — `phone_confidence="high"`. **1 real org phone written for 2
+  candidates** (Yayasan PILI-Green Network — same legal org registered separately for a Papua and
+  an NTT project — found in its own verified Instagram bio) — a landline, not a personal or
+  WhatsApp-capable number, so given a new, distinct third `phone_confidence` value,
+  `"general_office_line"`, rather than folded into `high` (not personal/direct) or `medium` (not
+  uncertain — the org match itself is solid). **2 deliberately NOT written** despite a real
+  org-name+location match (KTH Wana Mandiri Wangi, KTH Geralang Asri Jaya) — same
+  right-place-wrong-holder pattern as an MOU-partner collision: the number found most plausibly
+  belongs to the village office or the visiting monitoring officer who posted about the group, not
+  the group itself — logged in the audit trail as found-but-unconfirmed rather than either written
+  as real or silently dropped. **All 19 attempts logged** in `contact_tier_c_attempted_at`/
+  `contact_tier_c_attempt_result` regardless of outcome, including the 2 right-place-wrong-holder
+  cases and 1 flagged as a probable raw-data-quality issue (`Wagi Bandung Kayungyun` — zero real
+  web presence found under this exact name at all). Patched surgically (same two-target pattern as
+  the Tier B audit-trail round): both `exported_output_stage3/candidate_details.json` (the source
+  of truth for a future reseed) and the live `gluribridge.db`'s `detail_json` blobs directly,
+  verified via a real diff (exactly 19 candidates' `contact` sub-objects touched, nothing else) and
+  SHA-256-backed-up originals before writing. **Caught the known uvicorn stale-code gotcha again**:
+  the running server predated this same day's earlier `has_phone`/`contact_tier_c_attempted`
+  `db.py` change, so a live check correctly showed those keys missing from `/candidates` until an
+  actual restart — confirmed present immediately after. All 15 backend tests still pass.
+  **Incidental discovery worth a future round**: `simluh.bp2sdm.kehutanan.go.id`, the Ministry of
+  Forestry's own official KTH registry portal (filterable by province/kabupaten), surfaced
+  repeatedly during this search but never for the right district — a more targeted, authoritative
+  source worth querying directly next time rather than free-text search; not verified to expose
+  per-KTH phone numbers, just flagged as the right kind of source to check.
+- **Investigated whether `Direktorat Konservasi Ekosistem2` (a government ministry directorate
+  appearing as a candidate registrant, flagged during the Tier C round above) is an isolated
+  data-quality artifact or a broader pattern** (2026-09-01) — checked deliberately with the real,
+  already-present raw `executor.name` field (`Dunia Usaha` | `Komunitas` | `NGO` |
+  `Institusi/Lembaga` | `Pemerintah Daerah` | `Mitra Pembangunan` | `Pemerintah Pusat`), not
+  keyword-guessing on the org name (a keyword pass alone both under- and over-counted: it missed
+  `RSUD Dr. Soetomo`/`Dinas Lingkungan Hidup...` entries that don't contain an obvious agency
+  word, and it wrongly flagged two legitimate `UPT Pengelola Kawasan Hutan, Universitas Brawijaya`
+  registrants — a university's own forest-management unit, a real and appropriate registrant type,
+  not an anomaly). Real finding: **14 of the 283 raw SRUK/SRN-PPI records have an explicit
+  government executor type** (2 `Pemerintah Pusat`, 12 `Pemerintah Daerah` — mostly genuine,
+  correctly-typed registrants for their kind: village governments for Hutan Desa-style schemes,
+  regency/city environmental agencies, one regional public hospital), confirmed directly against
+  the raw files, not estimated. Of those 14, **only 1 survived into the final 144-candidate list**
+  — `Direktorat Konservasi Ekosistem2` itself; the other 13 were independently filtered out earlier
+  in the pipeline for unrelated reasons (confirmed one, `Desa Lawe Sempilang`, genuinely has FOLU
+  as one of its sectors and still didn't make it through, so sector filtering alone doesn't fully
+  explain the other exclusions — not traced further, out of scope for this question). **Verdict:
+  not a systemic leak** letting government bodies through en masse — this specific case slipping
+  through looks incidental, not a pattern the pipeline is failing to catch. **Real, currently-unused
+  gap worth a future field, not an urgent fix**: `executor.name` is present on every raw record and
+  never mapped into `UnifiedCandidateRecord` or used anywhere downstream — nothing today can
+  distinguish "a government body, a fundamentally different kind of outreach target" from a normal
+  community/company candidate at either scoring or contact-resolution time. Recommend exposing it
+  (e.g. a `registrant_type` field) if/when this population grows, rather than building it now for
+  one known case. **Secondary, smaller finding, same investigation**: `PT.WANARIMBA`'s registrant
+  *contact name* (not its org field) is `Kesatuan Pengelolaan Hutan Kulawi` — a real government
+  Forest Management Unit (KPH) name sitting in the person-name slot of an otherwise normally-named
+  private company — a different shape of the same underlying "a government entity's name where an
+  individual's was expected" oddity, flagged for awareness, not investigated further.

@@ -1402,7 +1402,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no phone found; found a recruitment email via a reposted job ad instead, out of this round's scope"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -1838,7 +1840,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, company confirmed real (Jakarta Pusat, companieshouse.id) but no phone number found anywhere, including its own registry listing"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -18332,7 +18336,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — all phone-shaped hits traced to news outlets' own contact blocks (metrosulteng.com, liputan6.com), not the company's"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -18765,7 +18771,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — hits were for 'PT Wana Rimba Nusantara' (PAMA Group), a different, unrelated company"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -19198,7 +19206,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no confident match — every hit was a differently-named company (e.g. PT Duo Kembar Jambi Mandiri), not confirmed as the same entity"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -20487,7 +20497,13 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "phone": "085330716898",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.facebook.com/M0muaJourney",
+      "phone_confidence": "high",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own Facebook page contact block (@M0muaJourney, Palu, Sulawesi Tengah) — high confidence"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -20922,7 +20938,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine web presence found under this exact org name — possibly a raw-data quality issue in the org name field itself, not a search failure"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -21785,7 +21803,13 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "phone": "+62 251 8657002",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.instagram.com/piligreennetwork",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own verified Instagram bio — a landline general office number (Bogor HQ), not a personal contact or WhatsApp-capable number; same org record also used for the NTT candidate"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -22235,7 +22259,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — every 'Giri Mulya' hit was in Bengkulu, wrong province"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -25324,7 +25350,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — the one name-adjacent hit was a different LPHD cluster in Kalimantan Tengah, wrong province"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -25777,7 +25805,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — hits were all a 'Pondok Kahuripan' hotel and unrelated 'Kahuripan'-named places"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -26230,7 +26260,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — every hit was a wrong-province KTH"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -26683,7 +26715,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, found a number (+62 8953 2552 1714, desakadongdong.id) but couldn't confirm it belongs to this specific group — reads as the village government office's own site-wide contact, not the KTH's"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -27554,7 +27588,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, found a number (0813-155-4848, Instagram) but couldn't confirm it belongs to this specific group — reads as the visiting monitoring officer's contact, not the KTH's"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -29292,7 +29328,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine match — 'Lestari' too generic, every hit was a different, wrongly-located KTH"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -31758,7 +31796,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, company confirmed real (Glints profile) but no phone found — the one WhatsApp hit was Glints' own platform support widget"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -32194,7 +32234,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched, no genuine number found — every hit was a news site's own contact block or an ad-sales WhatsApp widget"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -34198,7 +34240,9 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "searched — org field is a government directorate (KKP), not a private/village registrant; a real number exists but wasn't written as phone data, flagged separately as a likely data-quality artifact"
     },
     "land_rights": {
       "land_rights_category": null,
@@ -36250,7 +36294,13 @@
       "contact_source_url": null,
       "contact_confidence": null,
       "contact_tier_b_attempted_at": "2026-08-31",
-      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found"
+      "contact_tier_b_attempt_result": "searched, no self-identified site with extractable email found",
+      "phone": "+62 251 8657002",
+      "phone_source": "org_social_media",
+      "phone_source_url": "https://www.instagram.com/piligreennetwork",
+      "phone_confidence": "general_office_line",
+      "contact_tier_c_attempted_at": "2026-09-01",
+      "contact_tier_c_attempt_result": "found via org's own verified Instagram bio — a landline general office number (Bogor HQ), not a personal contact or WhatsApp-capable number; same org record also used for the Papua candidate"
     },
     "land_rights": {
       "land_rights_category": null,

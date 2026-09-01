@@ -57,13 +57,32 @@ class RegistrantContact:
     # phone number found via a phone-specific search may come from a
     # different page/result than whatever resolved the name or email, and
     # collapsing both into one provenance field would misattribute one to
-    # the other's source. Same 'high' | 'medium' confidence vocabulary as
-    # contact_confidence, same non-negotiable verification bar (entity/
-    # location match confirmed before trusting a hit) once Tier C exists.
+    # the other's source. Same non-negotiable verification bar (entity/
+    # location match confirmed before trusting a hit) as every other tier.
+    #
+    # First real Tier C round (2026-09-01, manual — read/judged by hand
+    # against 19 real candidates, not regex/LLM-decided) established the
+    # real vocabulary these fields actually need, beyond what was guessed
+    # when the fields were first added the same day:
     phone: Optional[str] = None
-    phone_source: Optional[str] = None   # 'org_website' | 'news_mention' | None
+    # 'org_website' | 'news_mention' | 'org_social_media' | None — the
+    # 'org_social_media' value added this round: a phone/WhatsApp found in
+    # an org's own verified social-media bio/contact block (e.g. Facebook
+    # Page "Contact info", Instagram bio) is the same self-identification
+    # standard as an org's own website, just a different real-world venue
+    # small/village-level orgs actually use — not a lesser source, a
+    # different one.
+    phone_source: Optional[str] = None
     phone_source_url: Optional[str] = None
-    phone_confidence: Optional[str] = None   # 'high' | 'medium'
+    # 'high' | 'medium' | 'general_office_line' — the third value added
+    # this round: a real, verified number that reaches the ORGANIZATION
+    # generally (e.g. a national NGO's HQ landline from its own verified
+    # bio) rather than a specific named individual or a WhatsApp-capable
+    # mobile number. Deliberately not folded into 'high' (it's not
+    # personal/direct) or 'medium' (it's not uncertain — the org match
+    # itself is solid) — a genuinely different kind of contact, not a
+    # weaker version of the other two.
+    phone_confidence: Optional[str] = None
     # Tier C audit trail — same purpose and shape as the Tier B audit trail
     # above: distinguishes "a phone/WhatsApp search was never attempted for
     # this candidate" from "attempted, genuinely found nothing," so a blank
