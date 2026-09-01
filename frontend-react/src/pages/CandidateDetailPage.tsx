@@ -18,6 +18,10 @@ import {
   AlertTriangle,
   FolderX,
   CalendarClock,
+  Phone,
+  Globe,
+  AtSign,
+  Link2,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { api } from "../lib/api";
@@ -317,7 +321,7 @@ export function CandidateDetailPage() {
   if (error) return <div className="p-8 text-clay-700">Failed to load candidate: {error}</div>;
   if (!rec) return <div className="p-8 text-stone-400">Loading…</div>;
 
-  const { identity, scoring, land_rights, location, identity_resolution, documents, news_evidence, dossier, outreach, status, activity_type } = rec;
+  const { identity, scoring, land_rights, location, identity_resolution, documents, news_evidence, dossier, outreach, status, activity_type, contact } = rec;
   const ids = identity.registry_ids;
   const urls = identity.registry_source_urls;
   // url is null whenever the source has no real per-record public page in
@@ -689,10 +693,55 @@ export function CandidateDetailPage() {
           )}
           <Panel id="sec-contact" title="Contact route" className="!p-4" variant="instrument">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.contact_route}</p>
+            {/* Phone/WhatsApp (2026-09-01) — a real, direct contact channel,
+                shown the same way as the contact route above. general_office_line
+                is flagged with its own small label since it's a genuinely
+                different kind of number (reaches the org, not necessarily a
+                specific person) — never silently presented as equivalent to a
+                personal WhatsApp. Omitted entirely when no phone is on file;
+                the existing contact-readiness indicators elsewhere already
+                cover that absence, not duplicated here. */}
+            {contact?.phone && (
+              <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-stone-100 pt-3 text-[13.5px] text-stone-700">
+                <Phone size={14} className="shrink-0 text-stone-400" aria-hidden />
+                <span>{contact.phone}</span>
+                {contact.phone_confidence === "general_office_line" && (
+                  <span className="rounded bg-stone-100 px-1.5 py-0.5 text-[10.5px] font-medium uppercase tracking-wide text-stone-500">
+                    General office line
+                  </span>
+                )}
+              </div>
+            )}
           </Panel>
           <Panel title="Suggested point of contact" className="!p-4" variant="instrument">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.suggested_poc}</p>
           </Panel>
+          {/* Public presence (2026-09-01) — deliberately its own panel, never
+              merged into the contact panels above: a website/Facebook/
+              Instagram is a place to find the org, not a way to message them
+              directly. Omitted entirely when none of the three are on file. */}
+          {(contact?.website_url || contact?.facebook_url || contact?.instagram_handle) && (
+            <Panel title="Public presence" className="!p-4" variant="instrument">
+              <p className="mb-2 text-[12px] italic text-stone-500">Where to find them online — not a direct contact channel.</p>
+              <div className="flex flex-wrap gap-4 text-[13px]">
+                {contact?.website_url && (
+                  <a href={contact.website_url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-forest-700 hover:underline">
+                    <Globe size={14} aria-hidden /> Website
+                  </a>
+                )}
+                {contact?.facebook_url && (
+                  <a href={contact.facebook_url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-forest-700 hover:underline">
+                    <Link2 size={14} aria-hidden /> Facebook
+                  </a>
+                )}
+                {contact?.instagram_handle && (
+                  <a href={`https://www.instagram.com/${contact.instagram_handle}`} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-forest-700 hover:underline">
+                    <AtSign size={14} aria-hidden /> Instagram
+                  </a>
+                )}
+              </div>
+            </Panel>
+          )}
           {dossier.structured.dpp_validation_proxy.length > 0 && (
             <Panel title="DPP validation proxy (unscored evidence — not a compliance check)" className="!p-4" variant="instrument">
               <ReasonList reasons={dossier.structured.dpp_validation_proxy} />
