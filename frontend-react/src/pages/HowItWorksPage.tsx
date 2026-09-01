@@ -195,7 +195,7 @@ export function HowItWorksPage() {
           <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <Stat label="Confidently-resolved emails" value={hasEmail} />
             <Stat label="Weaker email matches" value={lowConfidenceEmail} />
-            <Stat label="Name only, no email yet" value={nameOnlyNoEmail} />
+            <Stat label="Named contacts, no email yet" value={nameOnlyNoEmail} />
             <Stat label="Nothing found" value={nothingFound} />
           </div>
         </Panel>
