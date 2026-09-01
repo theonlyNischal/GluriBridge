@@ -48,6 +48,30 @@ class RegistrantContact:
     # trail only, same category as the existing field_sources mechanism.
     contact_tier_b_attempted_at: Optional[str] = None   # ISO date, set only when Tier B was explicitly run for this candidate
     contact_tier_b_attempt_result: Optional[str] = None   # human-readable outcome of that attempt
+    # Phone/WhatsApp (2026-09-01) — did NOT exist before this; RegistrantContact
+    # only ever carried name/email. Added ahead of running any real Tier C
+    # (phone/WhatsApp-focused) search, per explicit instruction, so a found
+    # number has somewhere honest to go rather than being discovered with no
+    # field to write it to. Deliberately its own provenance trio, separate
+    # from contact_source/contact_source_url/contact_confidence above — a
+    # phone number found via a phone-specific search may come from a
+    # different page/result than whatever resolved the name or email, and
+    # collapsing both into one provenance field would misattribute one to
+    # the other's source. Same 'high' | 'medium' confidence vocabulary as
+    # contact_confidence, same non-negotiable verification bar (entity/
+    # location match confirmed before trusting a hit) once Tier C exists.
+    phone: Optional[str] = None
+    phone_source: Optional[str] = None   # 'org_website' | 'news_mention' | None
+    phone_source_url: Optional[str] = None
+    phone_confidence: Optional[str] = None   # 'high' | 'medium'
+    # Tier C audit trail — same purpose and shape as the Tier B audit trail
+    # above: distinguishes "a phone/WhatsApp search was never attempted for
+    # this candidate" from "attempted, genuinely found nothing," so a blank
+    # `phone` field is never ambiguous between the two. Purely additive/
+    # informational, same category as contact_tier_b_attempted_at — doesn't
+    # feed scoring, compliance, or recipient_status.
+    contact_tier_c_attempted_at: Optional[str] = None   # ISO date, set only when a phone/WhatsApp search was explicitly run
+    contact_tier_c_attempt_result: Optional[str] = None   # human-readable outcome of that attempt
 
 
 @dataclass

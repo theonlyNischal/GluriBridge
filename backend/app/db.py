@@ -317,6 +317,14 @@ def _detail_to_list_row(d: dict, status: dict = None) -> dict:
         # contact_tier_b_attempted_at), distinguishing "never searched" from
         # "searched and found nothing" for the contact-readiness UI.
         "contact_tier_b_attempted": bool(contact and contact.get("contact_tier_b_attempted_at")),
+        # Same pattern, for phone/WhatsApp (2026-09-01) — RegistrantContact.
+        # phone / contact_tier_c_attempted_at. has_phone is deliberately not
+        # gated on any confidence field the way has_email is (no phone-
+        # specific confidence tiering has been designed yet); revisit this
+        # once a real Tier C search actually exists and produces real data
+        # to calibrate against, rather than guessing a threshold now.
+        "has_phone": bool(contact and contact.get("phone")),
+        "contact_tier_c_attempted": bool(contact and contact.get("contact_tier_c_attempted_at")),
         # Real activity-type classification (2026-08-31) — see
         # gluribridge/activity_type.py. activity_categories is always []
         # when activity_not_applicable is True; an empty list with

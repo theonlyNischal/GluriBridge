@@ -156,7 +156,7 @@ export interface CandidateListRow {
   has_resolved_contact: boolean;
   // Distinct from has_resolved_contact (2026-08-31 audit) — resolved
   // contact is true for a Tier A registrant NAME with no email at all
-  // (83 of 144 real candidates today), which is NOT "ready for
+  // (86 of 144 real candidates as of 2026-09-01), which is NOT "ready for
   // outreach." True only when a real email is on file AND
   // contact_confidence is "high" — see has_low_confidence_email for the
   // real-but-weaker matches this deliberately excludes.
@@ -171,6 +171,12 @@ export interface CandidateListRow {
   // candidate (2026-08-31 audit trail) — distinguishes "never searched for
   // an email" from "searched and found nothing" in contact-readiness text.
   contact_tier_b_attempted: boolean;
+  // Same pattern, for phone/WhatsApp (2026-09-01) — schema/plumbing added
+  // ahead of any real Tier C (phone-focused) search actually running, so
+  // real data has somewhere to land with no silent drop. Both currently
+  // false/unset for every real candidate — no Tier C search has run yet.
+  has_phone: boolean;
+  contact_tier_c_attempted: boolean;
   // Real activity-type classification, list form (see ActivityCategory
   // above) — always [] when activity_not_applicable is true. An empty
   // list with activity_not_applicable false is the distinct "unclassified"
@@ -283,6 +289,13 @@ export interface CandidateDetail {
     // search was explicitly run for this candidate; absent (not just null)
     // otherwise. See RegistrantContact.contact_tier_b_attempted_at.
     contact_tier_b_attempted_at?: string | null; contact_tier_b_attempt_result?: string | null;
+    // Phone/WhatsApp (2026-09-01) — schema/plumbing added ahead of any real
+    // Tier C search running; own provenance trio, deliberately separate
+    // from contact_source/contact_source_url/contact_confidence above (a
+    // phone number may come from a different search/page than the name or
+    // email did). See RegistrantContact for the full reasoning.
+    phone?: string | null; phone_source?: string | null; phone_source_url?: string | null; phone_confidence?: string | null;
+    contact_tier_c_attempted_at?: string | null; contact_tier_c_attempt_result?: string | null;
   } | null;
   activity_type: ActivityTypeResult;
   land_rights: { land_rights_category: string | null; brwa_overlap: BRWAOverlap | null };
