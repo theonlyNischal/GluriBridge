@@ -21,9 +21,9 @@ export interface CandidateFilterParams {
   contactResolved: string; // "" | "yes" | "no" (has_resolved_contact)
   // "" | "yes" | "no" (has_email) — deliberately separate from
   // contactResolved (2026-08-31 audit): a resolved contact can be a Tier
-  // A registrant NAME with no email at all (83 of 144 real candidates),
-  // which is not "ready for outreach." This is the one param that means
-  // an actual email address is on file.
+  // A registrant NAME with no email at all (86 of 144 real candidates as
+  // of 2026-09-01), which is not "ready for outreach." This is the one
+  // param that means an actual email address is on file.
   hasEmail: string;
   // "" | "yes" | "no" (has_low_confidence_email) — a real email that's
   // genuinely on file but NOT "high" confidence (2026-08-31 follow-up:
@@ -32,6 +32,17 @@ export interface CandidateFilterParams {
   // positive either, so it's its own distinct bucket, not silently
   // dropped).
   lowConfidenceEmail: string;
+  // "" | "yes" | "no" (has_phone) — a real Tier C phone/WhatsApp number
+  // on file (2026-09-01). Deliberately independent of every email param
+  // above: a candidate can have a phone with no email at all, or vice
+  // versa, or both.
+  hasPhone: string;
+  // "" | "yes" | "no" (has_public_presence) — a website/Facebook/
+  // Instagram found (2026-09-01). NOT a contact-readiness signal on its
+  // own — kept as its own filter, never combined with hasPhone/hasEmail
+  // into one "reachable" concept, same separation principle as the
+  // RegistrantContact schema itself.
+  hasPublicPresence: string;
   // "" | a normalizeProvince() output label (e.g. "Kalimantan Tengah",
   // "Not available") — Territory Discovery's left filter panel and its
   // province-region selection both drive this same param, never a
@@ -57,6 +68,8 @@ export const DEFAULT_FILTER_PARAMS: CandidateFilterParams = {
   contactResolved: "",
   hasEmail: "",
   lowConfidenceEmail: "",
+  hasPhone: "",
+  hasPublicPresence: "",
   province: "",
   brwaOverlap: "",
   activityCategory: "",
@@ -95,6 +108,10 @@ export function applyCandidateFilter(candidates: CandidateListRow[], params: Can
   if (params.hasEmail === "no") out = out.filter((r) => !r.has_email);
   if (params.lowConfidenceEmail === "yes") out = out.filter((r) => r.has_low_confidence_email);
   if (params.lowConfidenceEmail === "no") out = out.filter((r) => !r.has_low_confidence_email);
+  if (params.hasPhone === "yes") out = out.filter((r) => r.has_phone);
+  if (params.hasPhone === "no") out = out.filter((r) => !r.has_phone);
+  if (params.hasPublicPresence === "yes") out = out.filter((r) => r.has_public_presence);
+  if (params.hasPublicPresence === "no") out = out.filter((r) => !r.has_public_presence);
   if (params.province) out = out.filter((r) => normalizeProvince(r.province) === params.province);
   if (params.brwaOverlap === "yes") out = out.filter((r) => r.has_brwa_evidence);
   if (params.brwaOverlap === "no") out = out.filter((r) => !r.has_brwa_evidence);
@@ -127,6 +144,8 @@ export function filterParamsToSearchParams(params: CandidateFilterParams): URLSe
   if (params.contactResolved) sp.set("contactResolved", params.contactResolved);
   if (params.hasEmail) sp.set("hasEmail", params.hasEmail);
   if (params.lowConfidenceEmail) sp.set("lowConfidenceEmail", params.lowConfidenceEmail);
+  if (params.hasPhone) sp.set("hasPhone", params.hasPhone);
+  if (params.hasPublicPresence) sp.set("hasPublicPresence", params.hasPublicPresence);
   if (params.province) sp.set("province", params.province);
   if (params.brwaOverlap) sp.set("brwaOverlap", params.brwaOverlap);
   if (params.activityCategory) sp.set("activityCategory", params.activityCategory);
@@ -159,6 +178,8 @@ export function searchParamsToFilterParams(sp: URLSearchParams): CandidateFilter
     contactResolved: sp.get("contactResolved") ?? "",
     hasEmail: sp.get("hasEmail") ?? "",
     lowConfidenceEmail: sp.get("lowConfidenceEmail") ?? "",
+    hasPhone: sp.get("hasPhone") ?? "",
+    hasPublicPresence: sp.get("hasPublicPresence") ?? "",
     province: sp.get("province") ?? "",
     brwaOverlap: sp.get("brwaOverlap") ?? "",
     activityCategory: sp.get("activityCategory") ?? "",

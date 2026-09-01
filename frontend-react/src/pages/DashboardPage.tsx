@@ -69,6 +69,16 @@ export function DashboardPage() {
   // buckets it already contains — caught before shipping, same "state
   // the real distinct number" discipline as the split above).
   const nameOnlyNoEmail = resolvedContact - hasEmail - lowConfidenceEmail;
+  // Phone/public-presence (2026-09-01, Tier C) — deliberately NOT folded
+  // into the email-readiness numbers above, same non-blending principle
+  // as the RegistrantContact schema itself: a phone number doesn't make
+  // a candidate "email-ready," and a website/social account isn't a
+  // contact channel at all. hasPhone can co-occur with any email bucket
+  // (independent signal); publicPresenceOnly is deliberately restricted
+  // to candidates with NO phone, so the two new numbers below never
+  // double-count the same candidate.
+  const hasPhone = candidates.filter((r) => r.has_phone).length;
+  const publicPresenceOnly = candidates.filter((r) => r.has_public_presence && !r.has_phone).length;
 
   const richness: Record<string, number> = { rich: 0, corroborated: 0, thin: 0 };
   candidates.forEach((r) => {
@@ -157,6 +167,27 @@ export function DashboardPage() {
           muted
         >
           {nameOnlyNoEmail} named contacts, no email yet
+        </SummaryLink>
+      </div>
+
+      {/* Phone/public-presence detail (2026-09-01, Tier C) — its own
+          separate row, deliberately not merged into "Contact ready:"
+          above: finding a phone number or a website doesn't change any
+          candidate's email-readiness, so this must never read as an
+          update to that line. "Also found:" framing, muted/secondary
+          tone (text-stone-500 vs. the row above's stone-600) to keep it
+          visually subordinate to the primary email-readiness metric. */}
+      <div className={`mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-sm border px-4 py-2.5 text-[13px] ${isDark ? "border-forest-900 bg-forest-950/40 text-stone-400" : "border-stone-200 bg-stone-50 text-stone-500"}`}>
+        <span className={`font-medium ${isDark ? "text-stone-500" : "text-stone-400"}`}>Also found:</span>
+        <SummaryLink to="/candidates?hasPhone=yes" muted>
+          {hasPhone} reachable by phone/WhatsApp
+        </SummaryLink>
+        <span className="text-stone-400">·</span>
+        <SummaryLink
+          to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, hasPublicPresence: "yes", hasPhone: "no" }).toString()}`}
+          muted
+        >
+          {publicPresenceOnly} more findable online (no direct contact)
         </SummaryLink>
       </div>
 
