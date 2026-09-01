@@ -156,7 +156,7 @@ export function DashboardPage() {
           to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}
           muted
         >
-          {nameOnlyNoEmail} name only, no email yet
+          {nameOnlyNoEmail} named contacts, no email yet
         </SummaryLink>
       </div>
 
