@@ -325,6 +325,12 @@ def _detail_to_list_row(d: dict, status: dict = None) -> dict:
         # to calibrate against, rather than guessing a threshold now.
         "has_phone": bool(contact and contact.get("phone")),
         "contact_tier_c_attempted": bool(contact and contact.get("contact_tier_c_attempted_at")),
+        # Public presence (2026-09-01) — deliberately separate booleans from
+        # has_phone/has_email above; a website/Facebook/Instagram is NOT a
+        # direct-contact channel, never blend it into contact-readiness
+        # counts. See RegistrantContact's public-presence field group.
+        "has_public_presence": bool(contact and (contact.get("website_url") or contact.get("facebook_url") or contact.get("instagram_handle"))),
+        "public_presence_attempted": bool(contact and contact.get("public_presence_attempted_at")),
         # Real activity-type classification (2026-08-31) — see
         # gluribridge/activity_type.py. activity_categories is always []
         # when activity_not_applicable is True; an empty list with

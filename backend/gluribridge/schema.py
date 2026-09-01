@@ -92,6 +92,39 @@ class RegistrantContact:
     contact_tier_c_attempted_at: Optional[str] = None   # ISO date, set only when a phone/WhatsApp search was explicitly run
     contact_tier_c_attempt_result: Optional[str] = None   # human-readable outcome of that attempt
 
+    # "Public presence" (2026-09-01) — deliberately NOT a direct-contact
+    # field, and never to be blended with phone/email/WhatsApp as if it were
+    # a way to message someone. This is "can we find them online at all,"
+    # a real fallback signal for a candidate where no phone/WhatsApp was
+    # found — a website/Facebook/Instagram is something to mention IN an
+    # outreach message (or use to sanity-check a candidate is real and
+    # active), not something to send the message TO. Label distinctly in
+    # any future UI ("public presence / find them online") for exactly
+    # this reason — a future reader must never mistake a website URL for a
+    # contact channel the way an email or phone is.
+    #
+    # Each of the three gets its own source/confidence (a candidate can
+    # plausibly have a confirmed Instagram but an unconfirmed Facebook, so
+    # per-field provenance matters) — but all three share ONE attempted-at/
+    # result pair below, since in practice they're searched together as a
+    # single fallback step per candidate, not three independent efforts.
+    website_url: Optional[str] = None
+    website_source: Optional[str] = None   # e.g. 'search_result' | 'social_media_bio' | 'directory_listing'
+    website_confidence: Optional[str] = None   # 'high' | 'medium'
+    facebook_url: Optional[str] = None
+    facebook_source: Optional[str] = None
+    facebook_confidence: Optional[str] = None
+    instagram_handle: Optional[str] = None
+    instagram_source: Optional[str] = None
+    instagram_confidence: Optional[str] = None
+    # ISO date, set only when the public-presence fallback search was
+    # explicitly run for this candidate; result is a human-readable summary
+    # across all three (e.g. "found Instagram, no Facebook or website" or
+    # "nothing found") — same "never searched" vs. "searched, found
+    # nothing" distinction as every other tier's audit trail.
+    public_presence_attempted_at: Optional[str] = None
+    public_presence_attempt_result: Optional[str] = None
+
 
 @dataclass
 class UnifiedCandidateRecord:

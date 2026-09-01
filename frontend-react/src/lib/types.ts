@@ -171,12 +171,18 @@ export interface CandidateListRow {
   // candidate (2026-08-31 audit trail) — distinguishes "never searched for
   // an email" from "searched and found nothing" in contact-readiness text.
   contact_tier_b_attempted: boolean;
-  // Same pattern, for phone/WhatsApp (2026-09-01) — schema/plumbing added
-  // ahead of any real Tier C (phone-focused) search actually running, so
-  // real data has somewhere to land with no silent drop. Both currently
-  // false/unset for every real candidate — no Tier C search has run yet.
+  // Same pattern, for phone/WhatsApp (2026-09-01) — first real Tier C round
+  // (2026-09-01) resolved 3 of 144 real candidates; the rest are still
+  // false/unset, not yet searched.
   has_phone: boolean;
   contact_tier_c_attempted: boolean;
+  // Public presence (2026-09-01) — a website/Facebook/Instagram found for
+  // this candidate, deliberately NOT a direct-contact signal like has_phone
+  // /has_email above (never blend into contact-readiness counts). Schema/
+  // plumbing added ahead of any real search — both false/unset for every
+  // real candidate until that runs.
+  has_public_presence: boolean;
+  public_presence_attempted: boolean;
   // Real activity-type classification, list form (see ActivityCategory
   // above) — always [] when activity_not_applicable is true. An empty
   // list with activity_not_applicable false is the distinct "unclassified"
@@ -296,6 +302,13 @@ export interface CandidateDetail {
     // email did). See RegistrantContact for the full reasoning.
     phone?: string | null; phone_source?: string | null; phone_source_url?: string | null; phone_confidence?: string | null;
     contact_tier_c_attempted_at?: string | null; contact_tier_c_attempt_result?: string | null;
+    // Public presence (2026-09-01) — deliberately NOT a direct-contact
+    // field, never render alongside phone/email as if it were a way to
+    // message someone. See RegistrantContact for the full reasoning.
+    website_url?: string | null; website_source?: string | null; website_confidence?: string | null;
+    facebook_url?: string | null; facebook_source?: string | null; facebook_confidence?: string | null;
+    instagram_handle?: string | null; instagram_source?: string | null; instagram_confidence?: string | null;
+    public_presence_attempted_at?: string | null; public_presence_attempt_result?: string | null;
   } | null;
   activity_type: ActivityTypeResult;
   land_rights: { land_rights_category: string | null; brwa_overlap: BRWAOverlap | null };
