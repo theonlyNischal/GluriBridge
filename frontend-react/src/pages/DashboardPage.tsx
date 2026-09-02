@@ -317,7 +317,7 @@ export function DashboardPage() {
               gallery dictating the whole row's height; all 4 real cards
               are still there, just scrollable rather than all forced
               into view at once. */}
-          <div className="max-h-[430px] space-y-3 overflow-y-auto pr-1">
+          <div className="scrollbar-visible max-h-[430px] space-y-3 overflow-y-auto pr-1">
             {galleryRows.map((row) => (
               <CandidateProfileCard key={row.candidate_id} row={row} />
             ))}

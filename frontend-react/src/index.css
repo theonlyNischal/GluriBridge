@@ -166,4 +166,31 @@
     border-radius: 1rem;
     box-shadow: 0 1px 2px rgba(35, 29, 22, 0.04), 0 6px 20px -6px rgba(35, 29, 22, 0.12);
   }
+
+  /* Visible scrollbar (2026-09-03) — the browser default is a near-
+     invisible hairline on this warm cream background, easy to miss
+     entirely on a panel that's scrollable but doesn't otherwise look
+     cut off (e.g. the Dashboard's candidate-profile gallery, capped at
+     430px). A wider, colored-thumb scrollbar for both engines so the
+     "there's more below" affordance is actually visible, not just
+     technically present. */
+  .scrollbar-visible {
+    scrollbar-width: auto;
+    scrollbar-color: #a89577 #f0ebe2;
+  }
+  .scrollbar-visible::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-track {
+    background: #f0ebe2;
+    border-radius: 999px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-thumb {
+    background-color: #a89577;
+    border-radius: 999px;
+    border: 2px solid #f0ebe2;
+  }
+  .scrollbar-visible::-webkit-scrollbar-thumb:hover {
+    background-color: #8a7658;
+  }
 }
