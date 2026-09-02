@@ -172,7 +172,19 @@ export function TerritoryDiscoveryPage() {
 
         <div className="space-y-5">
           <div>
-            <div ref={mapElRef} className="instrument-panel h-[520px] border border-stone-300" />
+            {/* Extra padding frame (2026-09-02) — this is one of the app's
+                two most substantive visuals (with the Dashboard's
+                Opportunity Matrix), so it gets a visible breathing-room
+                margin between the map and its own border, more than the
+                smaller panels below it get — still hairline border, still
+                no shadow. The border/background moved to this new outer
+                wrapper; the inner ref'd div (Leaflet's own container)
+                keeps its exact original height, so the map's actual
+                rendered/interactive area is unchanged, just given more
+                room around it. */}
+            <div className="instrument-panel border border-stone-300 bg-white p-3">
+              <div ref={mapElRef} className="h-[520px]" />
+            </div>
             <div className="mt-2 flex flex-wrap items-center gap-4 text-[12px] text-stone-500">
               <span className="inline-flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-full bg-forest-500" />

@@ -103,6 +103,19 @@ export function CandidatesListPage() {
   if (filterParams.province) activeChips.push({ key: "province", label: `Province: ${filterParams.province}`, clear: { province: "" } });
   if (filterParams.brwaOverlap === "yes") activeChips.push({ key: "brwaOverlap", label: "Confirmed BRWA overlap", clear: { brwaOverlap: "" } });
   if (filterParams.brwaOverlap === "no") activeChips.push({ key: "brwaOverlap", label: "No confirmed BRWA overlap", clear: { brwaOverlap: "" } });
+  // hasEmail/lowConfidenceEmail/hasPhone/hasPublicPresence arrive from the
+  // Dashboard's "Contact ready:"/"Also found:" summary numbers — a real
+  // gap found and fixed 2026-09-02: these 4 params were landing here with
+  // no chip at all (the count badge silently changed, same "looks like
+  // the full list" problem the params above were already fixed for).
+  if (filterParams.hasEmail === "yes") activeChips.push({ key: "hasEmail", label: "Has confidently-resolved email", clear: { hasEmail: "" } });
+  if (filterParams.hasEmail === "no") activeChips.push({ key: "hasEmail", label: "No confidently-resolved email", clear: { hasEmail: "" } });
+  if (filterParams.lowConfidenceEmail === "yes") activeChips.push({ key: "lowConfidenceEmail", label: "Has weaker email match", clear: { lowConfidenceEmail: "" } });
+  if (filterParams.lowConfidenceEmail === "no") activeChips.push({ key: "lowConfidenceEmail", label: "No weaker email match", clear: { lowConfidenceEmail: "" } });
+  if (filterParams.hasPhone === "yes") activeChips.push({ key: "hasPhone", label: "Reachable by phone/WhatsApp", clear: { hasPhone: "" } });
+  if (filterParams.hasPhone === "no") activeChips.push({ key: "hasPhone", label: "No phone/WhatsApp on file", clear: { hasPhone: "" } });
+  if (filterParams.hasPublicPresence === "yes") activeChips.push({ key: "hasPublicPresence", label: "Findable online (website/social)", clear: { hasPublicPresence: "" } });
+  if (filterParams.hasPublicPresence === "no") activeChips.push({ key: "hasPublicPresence", label: "No public presence found", clear: { hasPublicPresence: "" } });
 
   if (error) return <div className="px-5 py-4 text-clay-700">Failed to load candidates: {error}</div>;
   if (!candidates) return <div className="px-5 py-4 text-stone-400">Loading…</div>;

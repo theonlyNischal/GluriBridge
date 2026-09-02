@@ -29,7 +29,12 @@ export function Panel({
     // Candidate Detail page's wayfinding rail) — never required, never
     // rendered as visible content.
     <section id={id} className={`min-w-0 border bg-white p-5 ${shape} ${className}`}>
-      {title && <h3 className="mb-3 font-display text-[15px] font-semibold text-stone-800">{title}</h3>}
+      {/* 2026-09-02: bumped from text-[15px]/font-semibold/stone-800 —
+          stone-800 on white already measured 13.33:1 (near WCAG max), so
+          the real lever here is weight/size, not color. stone-900/bold/
+          16px, no new color, meant to read as the loudest text on the
+          panel next to its own body copy. */}
+      {title && <h3 className="mb-3 font-display text-[16px] font-bold text-stone-900">{title}</h3>}
       {children}
     </section>
   );

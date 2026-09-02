@@ -200,7 +200,13 @@ export function DashboardPage() {
           the map (not inside it) as its own real, normalized-from-real-data
           panel — see lib/provinceNormalize.ts. */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
-        <Panel title={`Opportunity matrix — need vs. credibility, all ${total} real candidates`} variant="instrument">
+        {/* Extra padding (2026-09-02) — the Opportunity Matrix is one of
+            the app's two most substantive visuals (with the Territory
+            Discovery map), so it gets more internal breathing room than
+            the smaller panels beside it (map preview, province
+            breakdown) — still hairline border, still no shadow, just
+            more space, not more visual weight through color/depth. */}
+        <Panel title={`Opportunity matrix — need vs. credibility, all ${total} real candidates`} className="!p-7" variant="instrument">
           <ScatterPlot candidates={candidates} />
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>

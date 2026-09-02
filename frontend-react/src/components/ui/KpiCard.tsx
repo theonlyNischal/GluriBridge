@@ -54,20 +54,21 @@ export function KpiCard({
   // for exactly one card per screen, not every card at once.
   live?: boolean;
 }) {
-  // "lg" (the Dashboard hero) uses a lighter step on the same clay/forest
-  // scale (500, not 700) — 700 reads as near-black at this size (real
-  // user feedback, 2026-08-31: "only the compliance card has strong
-  // color"), because clay-700/forest-700 are muted DARK shades by design
-  // for regular body/label text elsewhere in the app, not built to carry
-  // a big standalone number. clay-500/forest-500 match compliance-amber/
-  // compliance-green's own lightness (confirmed: forest-500 IS the exact
-  // hex compliance.green uses), giving all 3 colored hero numbers the
-  // same visual weight. The "sm" toolbar usage keeps the original 700
-  // shades unchanged — not the same visual problem at that size, and not
-  // something this round was asked to touch.
+  // "lg" (the Dashboard hero) uses a step lighter than the "sm" toolbar's
+  // 700 shade, but NOT the original 500 this used before 2026-09-02: a
+  // real contrast check found clay-500/forest-500 measured only 5.26:1/
+  // 6.14:1 against the white card background — clearly weaker than the
+  // plain stone-900 number on every other hero card (16.68:1), the exact
+  // opposite of "the loudest thing on the screen." 600 keeps the same
+  // "not near-black" intent that motivated moving off 700 in the first
+  // place, while clearing WCAG AAA (7.37:1/8.16:1) — still visibly a step
+  // lighter than the "sm" toolbar's own 700, so that distinction survives.
+  // The "sm" toolbar usage keeps the original 700 shades unchanged — not
+  // the same visual problem at that size, and not something this round
+  // was asked to touch.
   const valueColor =
-    accent === "clay" ? (size === "lg" ? "text-clay-500" : "text-clay-700")
-    : accent === "forest" ? (size === "lg" ? "text-forest-500" : "text-forest-700")
+    accent === "clay" ? (size === "lg" ? "text-clay-600" : "text-clay-700")
+    : accent === "forest" ? (size === "lg" ? "text-forest-600" : "text-forest-700")
     : accent === "amber" ? "text-compliance-amber"
     : "text-stone-900";
   const iconBadge =
@@ -104,7 +105,7 @@ export function KpiCard({
           pushes the existing monospace treatment further toward "a real
           telemetry display," not just a bigger bold figure. */}
       <div
-        className={`mt-1.5 inline-block font-mono ${size === "lg" ? "text-figure" : "text-figure-sm"} tabular ${valueColor} ${
+        className={`mt-1.5 inline-block font-mono ${size === "lg" ? "text-figure font-bold" : "text-figure-sm"} tabular ${valueColor} ${
           variant === "instrument" ? "tracking-wide border-b border-current/25 pb-1" : ""
         }`}
       >
