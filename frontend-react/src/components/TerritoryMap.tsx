@@ -80,7 +80,7 @@ export function TerritoryMap({
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-sm bg-teal-800" />
-          BRWA territory boundary
+          <span title="BRWA territory boundary">customary territory boundary</span>
         </span>
       </div>
       {geometryNote && <p className="mt-1 text-[11.5px] text-stone-500">{geometryNote}</p>}

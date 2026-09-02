@@ -117,7 +117,7 @@ export function DashboardMap({ candidates }: { candidates: CandidateListRow[] })
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-sm bg-teal-800" />
-          real BRWA territory ({loadedTerritoryCount} shown)
+          <span title="BRWA territory">real customary territory ({loadedTerritoryCount} shown)</span>
         </span>
       </div>
     </div>

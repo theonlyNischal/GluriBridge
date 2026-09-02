@@ -19,7 +19,12 @@ import { Info } from "lucide-react";
 const KIND_LABEL: Record<string, string> = {
   not_checked: "Not yet checked",
   no_data: "No data on file",
-  not_applicable: "Not applicable",
+  // Terminology pass (2026-09-02): "Not applicable" -> "Not Relevant".
+  // Nothing currently relies on this default (both real not_applicable
+  // call sites pass an explicit label= override — see
+  // ActivityTypeBadges.tsx), kept in sync anyway so a future call site
+  // that omits the override doesn't silently regress to the old wording.
+  not_applicable: "Not Relevant",
   not_trusted: "On file, not trusted",
   // Reworded (2026-08-31) — this is a citation-system limitation (the
   // real fact IS sourced, e.g. a registry field or a computed signal,

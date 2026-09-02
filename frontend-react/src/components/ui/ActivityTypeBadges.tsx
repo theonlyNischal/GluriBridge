@@ -42,17 +42,19 @@ export function ActivityTypeBadges({
     // inline without ballooning the row's height — kept reachable via
     // hover instead of dropped. Non-compact (Candidate Detail): shown in
     // full, inline, same as every other HonestState on that page.
+    // Terminology pass (2026-09-02): "Not applicable" -> "Not Relevant".
     return compact ? (
-      <HonestState kind="not_applicable" label="Not applicable" compact title={activityType.not_applicable_reason ?? undefined} />
+      <HonestState kind="not_applicable" label="Not Relevant" compact title={activityType.not_applicable_reason ?? undefined} />
     ) : (
-      <HonestState kind="not_applicable" label="Not applicable">{activityType.not_applicable_reason}</HonestState>
+      <HonestState kind="not_applicable" label="Not Relevant">{activityType.not_applicable_reason}</HonestState>
     );
   }
   if (activityType.categories.length === 0) {
+    // Terminology pass (2026-09-02): "Unclassified" -> "Needs Classification".
     return compact ? (
-      <HonestState kind="no_data" label="Unclassified" compact title={UNCLASSIFIED_REASON} />
+      <HonestState kind="no_data" label="Needs Classification" compact title={UNCLASSIFIED_REASON} />
     ) : (
-      <HonestState kind="no_data" label="Unclassified">{UNCLASSIFIED_REASON}</HonestState>
+      <HonestState kind="no_data" label="Needs Classification">{UNCLASSIFIED_REASON}</HonestState>
     );
   }
   const visible = maxVisible ? activityType.categories.slice(0, maxVisible) : activityType.categories;

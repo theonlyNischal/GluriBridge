@@ -56,14 +56,17 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
           </div>
 
           <div className="mt-3 grid grid-cols-2 gap-3 border-y border-stone-100 py-3">
+            {/* Terminology pass (2026-09-02): "Need Score"/"Credibility
+                Score" -> "Opportunity"/"Evidence Strength", the real
+                technical field name kept as a hover title. */}
             <div>
-              <div className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Need Score</div>
+              <div title="Need score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Opportunity</div>
               <div className="mt-0.5 font-mono text-figure-sm tabular text-clay-600">
                 {fmtScore(r.need_score)} <span className="text-[12px] font-normal text-stone-400">/100</span>
               </div>
             </div>
             <div>
-              <div className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Credibility Score</div>
+              <div title="Credibility score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Evidence Strength</div>
               <div className="mt-0.5 font-mono text-figure-sm tabular text-forest-600">
                 {fmtScore(r.credibility_score)} <span className="text-[12px] font-normal text-stone-400">/100</span>
               </div>

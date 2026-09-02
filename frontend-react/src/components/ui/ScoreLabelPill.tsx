@@ -1,11 +1,21 @@
 import type { ScoreLabel } from "../../lib/types";
 import { fmtScore } from "../../lib/format";
 
+// Terminology pass (2026-09-02) — plain-language category names, per
+// explicit review. "confirmed" -> "Verified Project" here is the
+// score_label category (need/credibility axis dominance), a DIFFERENT
+// real concept from the Fact/Hypothesis "Confirmed" evidence-level tag
+// (EvidenceTag.tsx) — same English word, two distinct real meanings in
+// this app, not a naming collision to worry about since they never
+// render in the same place. "mixed" -> "Balanced" (proposed and
+// confirmed): neither axis dominates is a neutral description, not a
+// problem needing attention, so "Needs Review" (rejected) would have
+// been actively misleading.
 export const SCORE_LABEL_TEXT: Record<ScoreLabel, string> = {
-  opportunity: "Opportunity",
-  confirmed: "Confirmed",
-  strong_lead: "Strong lead",
-  mixed: "Mixed",
+  opportunity: "High Opportunity",
+  confirmed: "Verified Project",
+  strong_lead: "Promising Lead",
+  mixed: "Balanced",
   early_signal: "Early signal",
 };
 
@@ -48,7 +58,7 @@ export function ScoreLabelPill({ label, need, cred, showNumbers = true }: { labe
       <span className={`rounded-full px-3 py-1 text-[13px] font-bold ${SCORE_LABEL_STYLE[label]}`}>{SCORE_LABEL_TEXT[label]}</span>
       {showNumbers && (
         <span className="font-mono text-[13px] font-semibold tabular text-stone-600">
-          need {fmtScore(need)} / cred {fmtScore(cred)}
+          <span title="need score">opp</span> {fmtScore(need)} / <span title="credibility score">evid</span> {fmtScore(cred)}
         </span>
       )}
     </span>

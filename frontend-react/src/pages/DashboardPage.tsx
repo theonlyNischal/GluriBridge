@@ -79,10 +79,10 @@ function CandidateProfileCard({ row }: { row: CandidateListRow }) {
         {row.org ?? "—"}
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2.5">
-        <ScoreStatCard axis="need" label="Need score" value={row.need_score} accent="clay" icon={Target} />
+        <ScoreStatCard axis="need" label="Opportunity" value={row.need_score} accent="clay" icon={Target} />
         <ScoreStatCard
           axis="credibility"
-          label="Credibility score"
+          label="Evidence Strength"
           value={row.credibility_score}
           capped={row.credibility_capped}
           cappedReason="Capped at 30 — this candidate's data is thin (e.g. a single uncorroborated news mention), so a higher score isn't trustworthy enough to show uncapped."
@@ -197,12 +197,12 @@ export function DashboardPage() {
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
           <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} animateValue variant="instrument" live />
-          <KpiCard label="High Need" value={highNeed} sub="need_score ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue variant="instrument" />
-          <KpiCard label="High Credibility" value={highCred} sub="credibility_score ≥ 70" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue variant="instrument" />
+          <KpiCard label="High Opportunity" value={highNeed} sub="Opportunity ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue variant="instrument" />
+          <KpiCard label="High Evidence Strength" value={highCred} sub="Evidence Strength ≥ 70" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue variant="instrument" />
           <KpiCard
             label="Compliance Risk"
             value={approachingDeadline}
-            sub="Pasal 61 amber/red badge"
+            sub="Reporting Deadline amber/red badge"
             to="/candidates?compliance=approaching"
             size="lg"
             icon={AlertTriangle}
@@ -305,7 +305,7 @@ export function DashboardPage() {
           </div>
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
-        <Panel title="Real candidate locations + real BRWA territory overlaps" variant="instrument">
+        <Panel title="Real candidate locations + real Customary Territory Registry overlaps" variant="instrument">
           <DashboardMap candidates={candidates} />
           <PanelLink to="/territories">View in Territory Discovery</PanelLink>
         </Panel>
@@ -322,11 +322,11 @@ export function DashboardPage() {
           real numbers beside them — never hiding a number just to fit a
           smaller demoted panel. */}
       <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr,1.3fr,1fr,1fr]">
-        <Panel title="Top 5 by need score" variant="instrument">
+        <Panel title="Top 5 by Opportunity" variant="instrument">
           <RankedList rows={topNeed} />
           <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "need_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
-        <Panel title="Top 5 by credibility score" variant="instrument">
+        <Panel title="Top 5 by Evidence Strength" variant="instrument">
           <RankedList rows={topCred} />
           <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
@@ -356,11 +356,11 @@ export function DashboardPage() {
           PROJECT_CONTEXT.md's design principles), not marketing copy
           invented for this row. */}
       <div className={`mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t pt-5 text-[12px] font-medium ${isDark ? "border-forest-800 text-stone-400" : "border-stone-300 text-stone-500"}`}>
-        <span>Fact vs. hypothesis, always labeled</span>
+        <span>Confirmed vs. inferred, always labeled</span>
         <span className="text-stone-400">·</span>
         <span>No LLM for scoring or matching</span>
         <span className="text-stone-400">·</span>
-        <span>Need and credibility scored independently</span>
+        <span>Opportunity and Evidence Strength scored independently</span>
       </div>
     </div>
   );

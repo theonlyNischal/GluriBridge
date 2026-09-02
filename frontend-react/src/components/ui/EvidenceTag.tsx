@@ -12,18 +12,27 @@ import type { EvidenceLevel } from "../../lib/types";
  * reasons — see ReasonList) default to "fact" explicitly at the call
  * site, not here: this component always renders one of the two real
  * tags, never a silently-blank third state.
+ *
+ * Terminology pass (2026-09-02) — "Fact"/"Hypothesis" -> "Confirmed"/
+ * "Inferred", with one deliberate correction to the initially-proposed
+ * mapping: "Confirmed," not "Verified." "Verified" implies someone
+ * independently checked the claim; this tag means the claim was read
+ * directly from an official registry field — a real, load-bearing
+ * distinction for what this app is actually claiming, not a synonym
+ * swap. The real underlying kind (fact/hypothesis) is kept as a title
+ * tooltip on each tag.
  */
 export function EvidenceTag({ level }: { level: EvidenceLevel }) {
   if (level === "fact") {
     return (
-      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-teal-600 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
-        <span aria-hidden>●</span>Fact
+      <span title="Fact" className="inline-flex shrink-0 items-center gap-1 rounded-full bg-teal-600 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
+        <span aria-hidden>●</span>Confirmed
       </span>
     );
   }
   return (
-    <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-clay-400 bg-clay-50 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-clay-700">
-      <span aria-hidden>◌</span>Hypothesis
+    <span title="Hypothesis" className="inline-flex shrink-0 items-center gap-1 rounded-full border border-clay-400 bg-clay-50 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-clay-700">
+      <span aria-hidden>◌</span>Inferred
     </span>
   );
 }

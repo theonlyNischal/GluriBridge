@@ -26,7 +26,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { api } from "../lib/api";
 import { useCandidates } from "../lib/CandidatesContext";
-import { fmtScore, POLICY_TIER_LABEL, MATCH_STATUS_LABEL } from "../lib/format";
+import { fmtScore, POLICY_TIER_LABEL, MATCH_STATUS_LABEL, LAND_RIGHTS_CATEGORY_LABEL, VERIFICATION_STATUS_LABEL } from "../lib/format";
 import { applyCandidateFilter, searchParamsToFilterParams } from "../lib/candidateFilter";
 import { PROVINCE_NOT_AVAILABLE } from "../lib/provinceNormalize";
 import type { CandidateDetail, DocumentRef } from "../lib/types";
@@ -327,11 +327,17 @@ export function CandidateDetailPage() {
   // url is null whenever the source has no real per-record public page in
   // its raw scraped data (currently true for SRUK/SRN-PPI in every real
   // case) — those render as plain reference text, never a fabricated link.
-  const idBits: { label: string; value: string; url: string | null }[] = [
-    ids.sruk_registry_no && { label: "SRUK", value: ids.sruk_registry_no, url: urls.sruk },
-    ids.srn_ppi_registry_no && { label: "SRN-PPI", value: ids.srn_ppi_registry_no, url: urls.srn_ppi },
-    ids.verra_project_id && { label: "Verra", value: ids.verra_project_id, url: urls.verra },
-  ].filter((x): x is { label: string; value: string; url: string | null } => Boolean(x));
+  // Terminology pass (2026-09-02) — kept the acronym as the visible label
+  // here (same exception as SourceBadge): this is a compact registry-ID
+  // reference row (Identity panel), and a registry ID is inherently a
+  // technical/official reference — "SRUK: REG-11-..." reads more
+  // credible/precise here than a long plain-language prefix would. The
+  // plain name is threaded through as `plainLabel` for the tooltip instead.
+  const idBits: { label: string; plainLabel: string; value: string; url: string | null }[] = [
+    ids.sruk_registry_no && { label: "SRUK", plainLabel: "Carbon Registry", value: ids.sruk_registry_no, url: urls.sruk },
+    ids.srn_ppi_registry_no && { label: "SRN-PPI", plainLabel: "Climate Registry", value: ids.srn_ppi_registry_no, url: urls.srn_ppi },
+    ids.verra_project_id && { label: "Verra", plainLabel: "International Registry", value: ids.verra_project_id, url: urls.verra },
+  ].filter((x): x is { label: string; plainLabel: string; value: string; url: string | null } => Boolean(x));
   const sources = [...new Set(identity_resolution.merge_history.map((m) => m.source))];
 
   // "Back to candidates" needs the SAME filter/sort query the list had
@@ -456,12 +462,12 @@ export function CandidateDetailPage() {
             visual element is "why contact this candidate", not the raw
             numbers — but the two cards remain identical to each other. */}
         <div id="sec-scores" className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-          <ScoreStatCard axis="need" label="Need score" value={scoring.need_score} accent="clay" icon={Target}>
+          <ScoreStatCard axis="need" label="Opportunity" value={scoring.need_score} accent="clay" icon={Target}>
             <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" citationDisplay="popover" />
           </ScoreStatCard>
           <ScoreStatCard
             axis="credibility"
-            label="Credibility score"
+            label="Evidence Strength"
             value={scoring.credibility_score}
             capped={scoring.credibility_capped}
             cappedReason="Capped at 30 — this candidate's data is thin (e.g. a single uncorroborated news mention), so a higher score isn't trustworthy enough to show uncapped."
@@ -470,8 +476,8 @@ export function CandidateDetailPage() {
           >
             <ScoreComponentBar label="Registry status" component={scoring.credibility_components.registry_status} />
             <ScoreComponentBar label="Land rights" component={scoring.credibility_components.land_rights} />
-            <ScoreComponentBar label="Geospatial" component={scoring.credibility_components.geospatial} />
-            <ScoreComponentBar label="Contactability" component={scoring.credibility_components.contactability} />
+            <ScoreComponentBar label="Location Verified" title="Geospatial" component={scoring.credibility_components.geospatial} />
+            <ScoreComponentBar label="Contact Found" title="Contactability" component={scoring.credibility_components.contactability} />
           </ScoreStatCard>
         </div>
 
@@ -481,7 +487,13 @@ export function CandidateDetailPage() {
             verification status, not location, so it now shows only that. */}
         <div className="mt-3 flex flex-wrap items-center gap-2.5 border-t border-stone-100 pt-3">
           <RichnessBadge richness={identity.data_richness} />
-          <span className="rounded bg-stone-100 px-2 py-0.5 text-[11px] font-semibold capitalize text-stone-500">{identity.verification_status.replace(/_/g, " ")}</span>
+          {/* Terminology pass (2026-09-02): "registry_confirmed" now
+              renders as "Officially Verified" via VERIFICATION_STATUS_LABEL
+              (lib/format.ts); "unverified" falls back to its old raw-replace
+              rendering unchanged, since it wasn't part of this round's ask. */}
+          <span title={identity.verification_status.replace(/_/g, " ")} className="rounded bg-stone-100 px-2 py-0.5 text-[11px] font-semibold capitalize text-stone-500">
+            {VERIFICATION_STATUS_LABEL[identity.verification_status] ?? identity.verification_status.replace(/_/g, " ")}
+          </span>
         </div>
 
       </div>
@@ -525,7 +537,17 @@ export function CandidateDetailPage() {
                 <div className="rounded-lg border border-forest-200 bg-forest-50 px-3.5 py-2.5">
                   <div className="text-[11px] font-semibold uppercase tracking-wide text-forest-600">Formal land-rights category on file</div>
                   <div className="mt-1 flex items-baseline gap-2">
-                    <span className="text-[14px] font-medium capitalize text-forest-800">{land_rights.land_rights_category.replace(/_/g, " ")}</span>
+                    {/* Terminology pass (2026-09-02): the 5 real
+                        land_rights_category values (PBPH/perhutanan_sosial/
+                        hutan_adat/hutan_hak/PB_PJL_karbon) now render via
+                        LAND_RIGHTS_CATEGORY_LABEL — plain English, real
+                        technical term kept as a hover title. */}
+                    <span
+                      title={land_rights.land_rights_category.replace(/_/g, " ")}
+                      className="text-[14px] font-medium capitalize text-forest-800"
+                    >
+                      {LAND_RIGHTS_CATEGORY_LABEL[land_rights.land_rights_category] ?? land_rights.land_rights_category.replace(/_/g, " ")}
+                    </span>
                     {land_rights.brwa_overlap && (
                       <span className="text-[12px] text-forest-700">
                         via{" "}
@@ -557,7 +579,7 @@ export function CandidateDetailPage() {
                 </div>
               ) : land_rights.brwa_overlap ? (
                 <div className="rounded-lg border border-teal-200 bg-teal-50 px-3.5 py-2.5">
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-teal-700">BRWA spatial overlap found (no formal category classified yet)</div>
+                  <div title="BRWA spatial overlap" className="text-[11px] font-semibold uppercase tracking-wide text-teal-700">Customary Territory Overlap found (no formal category classified yet)</div>
                   <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-[13px]">
                     <dt className="text-stone-500">Territory</dt>
                     <dd className="text-stone-800">
@@ -582,7 +604,7 @@ export function CandidateDetailPage() {
                   kind="not_checked"
                   label="Not yet checked"
                   compact
-                  title='No coordinates on file to test against BRWA customary-territory data — this is not the same as "no overlap found."'
+                  title='No coordinates on file to test against Customary Territory Registry (BRWA) data — this is not the same as "no overlap found."'
                 />
               )}
               <TerritoryMap latitude={location.latitude} longitude={location.longitude} geoFlaggedReason={location.geo_flagged_reason} brwaOverlap={land_rights.brwa_overlap} />
@@ -629,10 +651,10 @@ export function CandidateDetailPage() {
           {scoring.compliance.deadline && (
             <div className="rounded-xl border border-compliance-amber/30 bg-compliance-amberBg p-4 text-center">
               <div className="font-mono text-figure text-compliance-amber">{scoring.compliance.days_until_deadline}</div>
-              <div className="mt-1 text-[13px] text-stone-600">days remaining until {scoring.compliance.deadline} (Permenhut 6/2026 Pasal 61)</div>
+              <div title="Permenhut 6/2026 Pasal 61" className="mt-1 text-[13px] text-stone-600">days remaining until {scoring.compliance.deadline} (Forestry-Carbon Regulation, Reporting Deadline)</div>
             </div>
           )}
-          <Panel title="Compliance (Permenhut)" className="!p-4" variant="instrument">
+          <Panel title="Compliance (Forestry-Carbon Regulation)" className="!p-4" variant="instrument">
             <div className="space-y-3">
               <ComplianceRuleRow rule_id={scoring.compliance.rule_id} badge={scoring.compliance.badge} reason={scoring.compliance.reason} primary />
               {scoring.compliance.other_rules.map((r, i) => (
@@ -653,7 +675,7 @@ export function CandidateDetailPage() {
               one deliberate click further away, via a de-emphasized text
               link rather than a second bordered section. */}
           <p className="text-[12px] leading-relaxed text-stone-400">
-            {scoring.compliance.not_wired_rules.length} additional Permenhut rules exist but aren't yet computable from available data — mostly
+            {scoring.compliance.not_wired_rules.length} additional Forestry-Carbon Regulation rules exist but aren't yet computable from available data — mostly
             regulations that bind the Ministry directly, or require fields not yet normalized.{" "}
             <button onClick={() => setNotWiredExpanded((v) => !v)} className="font-medium text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-forest-700">
               {notWiredExpanded ? "Hide" : "Show"} full rule coverage
@@ -706,8 +728,8 @@ export function CandidateDetailPage() {
                 <Phone size={14} className="shrink-0 text-stone-400" aria-hidden />
                 <span>{contact.phone}</span>
                 {contact.phone_confidence === "general_office_line" && (
-                  <span className="rounded bg-stone-100 px-1.5 py-0.5 text-[10.5px] font-medium uppercase tracking-wide text-stone-500">
-                    General office line
+                  <span title="General office line" className="rounded bg-stone-100 px-1.5 py-0.5 text-[10.5px] font-medium uppercase tracking-wide text-stone-500">
+                    Main Office
                   </span>
                 )}
               </div>
@@ -743,7 +765,7 @@ export function CandidateDetailPage() {
             </Panel>
           )}
           {dossier.structured.dpp_validation_proxy.length > 0 && (
-            <Panel title="DPP validation proxy (unscored evidence — not a compliance check)" className="!p-4" variant="instrument">
+            <Panel title="Project Document (DPP) validation proxy (unscored evidence — not a compliance check)" className="!p-4" variant="instrument">
               <ReasonList reasons={dossier.structured.dpp_validation_proxy} />
             </Panel>
           )}
@@ -930,10 +952,15 @@ function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectio
   const gaps: KeyGap[] = [];
 
   if (!carbon_tracks.dram && !carbon_tracks.dpp) {
-    gaps.push({ icon: FolderX, label: "Missing DRAM/DPP", text: "No DRAM or DPP on file yet.", sectionId: "sec-dossier" });
+    gaps.push({
+      icon: FolderX,
+      label: "Missing Registration/Project Document",
+      text: "No Registration Document (DRAM) or Project Document (DPP) on file yet.",
+      sectionId: "sec-dossier",
+    });
   }
   if (location.latitude == null) {
-    gaps.push({ icon: MapPin, label: "No coordinates", text: "BRWA not checked — location not verified.", sectionId: "sec-land-rights" });
+    gaps.push({ icon: MapPin, label: "No coordinates", text: "Customary Territory Registry not checked — location not verified.", sectionId: "sec-land-rights" });
   }
   if (scoring.compliance.badge === "amber" || scoring.compliance.badge === "red") {
     gaps.push({
@@ -1011,7 +1038,7 @@ function TrackingSummaryCard({
   rec: CandidateDetail;
   status: CandidateDetail["status"];
   sources: string[];
-  idBits: { label: string; value: string; url: string | null }[];
+  idBits: { label: string; plainLabel: string; value: string; url: string | null }[];
 }) {
   return (
     <div className="instrument-panel border border-stone-300 bg-white p-4">
@@ -1029,13 +1056,13 @@ function TrackingSummaryCard({
       </div>
       {idBits.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11.5px] text-stone-500">
-          {idBits.map(({ label, value, url }) =>
+          {idBits.map(({ label, plainLabel, value, url }) =>
             url ? (
-              <a key={label} href={url} target="_blank" rel="noopener noreferrer" title={`View on ${label}'s own registry`} className="inline-flex items-center gap-1">
+              <a key={label} href={url} target="_blank" rel="noopener noreferrer" title={`${plainLabel} (${label}) — view on their own registry`} className="inline-flex items-center gap-1">
                 {label} <code className="rounded bg-teal-50 px-1 py-0.5 text-teal-700 underline decoration-teal-300 underline-offset-2">{value} ↗</code>
               </a>
             ) : (
-              <span key={label}>
+              <span key={label} title={plainLabel}>
                 {label} <code className="rounded bg-stone-100 px-1 py-0.5 text-stone-700">{value}</code>
               </span>
             )

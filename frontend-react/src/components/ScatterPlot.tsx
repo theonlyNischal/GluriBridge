@@ -96,20 +96,20 @@ export function ScatterPlot({ candidates }: { candidates: CandidateListRow[] }) 
 
         {/* axis titles */}
         <text x={PAD + plotW / 2} y={H - 4} textAnchor="middle" fontSize="11" fontWeight={600} fill="#a05a2c">
-          Need score →
+          Opportunity →
         </text>
         <text x={12} y={PAD + plotH / 2} textAnchor="middle" fontSize="11" fontWeight={600} fill="#2f6d4f" transform={`rotate(-90, 12, ${PAD + plotH / 2})`}>
-          ↑ Credibility score
+          ↑ Evidence Strength
         </text>
       </svg>
       <div className="mt-1 flex flex-wrap gap-4 text-[11.5px] text-stone-500">
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: DOT_COLOR.opportunity }} />
-          need-led (Opportunity)
+          need-led (High Opportunity)
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: DOT_COLOR.confirmed }} />
-          credibility-led (Confirmed)
+          credibility-led (Verified Project)
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: DOT_COLOR.mixed }} />

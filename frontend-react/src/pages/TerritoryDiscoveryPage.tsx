@@ -115,7 +115,7 @@ export function TerritoryDiscoveryPage() {
       map.fitBounds(layer.getBounds());
       setGeometryNotice(null);
     } catch {
-      setGeometryNotice("This territory has no real geometry on file — a confirmed real gap for ~23% of BRWA territories, not a bug.");
+      setGeometryNotice("This territory has no real geometry on file — a confirmed real gap for ~23% of customary territories, not a bug.");
     }
   }
 
@@ -134,7 +134,7 @@ export function TerritoryDiscoveryPage() {
     <div className="topo-watermark bg-field-paper px-6 py-6">
       <div className="mb-4">
         <h1 className="font-display text-2xl font-semibold text-stone-900">Territory Discovery</h1>
-        <p className="mt-1 text-[13.5px] text-stone-500">Real candidate locations + real BRWA customary-territory geometry, fetched on demand</p>
+        <p className="mt-1 text-[13.5px] text-stone-500">Real candidate locations + real Customary Territory Registry (BRWA) geometry, fetched on demand</p>
       </div>
 
       {/* Executive summary — every number real, from either the already-
@@ -153,12 +153,12 @@ export function TerritoryDiscoveryPage() {
           are mapped here, spanning <strong>{namedProvinceCount}</strong> real provinces ({notAvailableCount} have no province on file).{" "}
           {brwaTotal != null ? (
             <>
-              <strong>{brwaTotal.toLocaleString()}</strong> real BRWA customary territories are tracked, of which{" "}
+              <strong>{brwaTotal.toLocaleString()}</strong> real customary territories are tracked, of which{" "}
               <strong>{brwaWithGeometry!.toLocaleString()}</strong> ({Math.round((brwaWithGeometry! / brwaTotal) * 100)}%) have geometry on file — a
               confirmed real ceiling for this data source, not an in-progress number.{" "}
             </>
           ) : (
-            "Real BRWA territory totals are loading… "
+            "Real customary territory totals are loading… "
           )}
           <SummaryLink to="/candidates?brwaOverlap=yes" muted>
             {withOverlap}
@@ -271,11 +271,11 @@ function FilterPanel({
         <Field label="Province">
           <FilterSelect value={filterParams.province} onChange={(v) => onChange({ province: v })} placeholder="All provinces" options={provinceOptions} fullWidth />
         </Field>
-        <Field label="Need score">
+        <Field label="Opportunity">
           <FilterSelect
             value={filterParams.minNeed != null ? String(filterParams.minNeed) : ""}
             onChange={(v) => onChange({ minNeed: v ? Number(v) : null })}
-            placeholder="Any need score"
+            placeholder="Any opportunity"
             options={[
               { value: "50", label: "≥ 50" },
               { value: "70", label: "≥ 70" },
@@ -284,11 +284,11 @@ function FilterPanel({
             fullWidth
           />
         </Field>
-        <Field label="Credibility">
+        <Field label="Evidence Strength">
           <FilterSelect
             value={filterParams.minCred != null ? String(filterParams.minCred) : ""}
             onChange={(v) => onChange({ minCred: v ? Number(v) : null })}
-            placeholder="Any credibility"
+            placeholder="Any evidence strength"
             options={[
               { value: "50", label: "≥ 50" },
               { value: "70", label: "≥ 70" },
@@ -303,14 +303,14 @@ function FilterPanel({
             onChange={(v) => onChange({ richness: v })}
             placeholder="All richness"
             options={[
-              { value: "rich", label: "Rich" },
+              { value: "rich", label: "Strong Evidence" },
               { value: "corroborated", label: "Corroborated" },
-              { value: "thin", label: "Thin" },
+              { value: "thin", label: "Limited Evidence" },
             ]}
             fullWidth
           />
         </Field>
-        <Field label="Land rights / BRWA overlap">
+        <Field label="Land rights / Customary Territory Overlap">
           <FilterSelect
             value={filterParams.brwaOverlap}
             onChange={(v) => onChange({ brwaOverlap: v })}
@@ -375,15 +375,15 @@ function SelectedRegionPanel({ province, rows }: { province: string; rows: Candi
     <Panel title={`Selected region — ${province}`} variant="instrument">
       <div className="grid grid-cols-2 gap-3">
         <Stat label="Candidates" value={String(rows.length)} />
-        <Stat label="Rich / thin" value={`${richness.rich} / ${richness.thin}`} />
-        <Stat label="Avg need" value={avgNeed.toFixed(1)} />
-        <Stat label="Avg credibility" value={avgCred.toFixed(1)} />
+        <Stat label="Strong / limited evidence" value={`${richness.rich} / ${richness.thin}`} />
+        <Stat label="Avg opportunity" value={avgNeed.toFixed(1)} />
+        <Stat label="Avg evidence strength" value={avgCred.toFixed(1)} />
       </div>
       {richness.corroborated > 0 && <p className="mt-2 text-[11px] text-stone-400">+{richness.corroborated} corroborated (real, not shown above)</p>}
       <div className="mt-3 border-t border-stone-100 pt-3">
-        <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Top opportunity (highest need_score here)</div>
+        <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Top opportunity (highest Opportunity score here)</div>
         <Link to={`/candidates/${top.candidate_id}`} className="mt-1 block truncate text-[13px] font-medium text-stone-700 hover:underline" title={top.name}>
-          {top.name} — need {fmtScore(top.need_score)}
+          {top.name} — opportunity {fmtScore(top.need_score)}
         </Link>
       </div>
     </Panel>
@@ -433,7 +433,7 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
   }, [search]);
 
   return (
-    <Panel title="Search real BRWA territories" variant="instrument">
+    <Panel title="Search real customary territories" variant="instrument">
       <input
         type="text"
         value={search}
@@ -443,8 +443,8 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
       />
       <div className="mt-2.5 max-h-[220px] space-y-0.5 overflow-y-auto">
         {searchError && <p className="text-[12.5px] text-clay-700">Search failed: {searchError}</p>}
-        {!searchError && search.trim().length < 2 && <p className="text-[12.5px] text-stone-400">Type at least 2 characters — searches real BRWA territory names.</p>}
-        {!searchError && results && results.length === 0 && <p className="text-[12.5px] text-stone-400">No real BRWA territory matches "{search}".</p>}
+        {!searchError && search.trim().length < 2 && <p className="text-[12.5px] text-stone-400">Type at least 2 characters — searches real customary territory names.</p>}
+        {!searchError && results && results.length === 0 && <p className="text-[12.5px] text-stone-400">No real customary territory matches "{search}".</p>}
         {results?.map((t) => (
           <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="hover-lift block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-stone-100">
             <div className="truncate font-medium text-stone-800">{t.name}</div>

@@ -110,8 +110,8 @@ export function DesignSystemPage() {
           no data on file, not-trusted coordinates, insufficient contact, not-applicable compliance. Never styled as an error.
         </p>
         <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
-          <HonestState kind="not_checked">No coordinates on file to test against BRWA customary-territory data — this is not the same as "no overlap found."</HonestState>
-          <HonestState kind="not_trusted">Single-source Verra coordinate falls outside Indonesia's real bounding box — treated as not yet available rather than trusted.</HonestState>
+          <HonestState kind="not_checked">No coordinates on file to test against Customary Territory Registry (BRWA) data — this is not the same as "no overlap found."</HonestState>
+          <HonestState kind="not_trusted">Single-source International Registry (Verra) coordinate falls outside Indonesia's real bounding box — treated as not yet available rather than trusted.</HonestState>
           <HonestState kind="insufficient">No contact information available at all.</HonestState>
           <div className="flex items-center">
             <HonestState kind="no_source" compact title="Confirmed via a registry field — no downloadable document exists to cite." />

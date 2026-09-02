@@ -98,11 +98,13 @@ export function CandidateTable({
             <th className="whitespace-nowrap px-3 py-2.5">Province</th>
             <th className="whitespace-nowrap px-3 py-2.5">Activity type</th>
             <th className="whitespace-nowrap px-3 py-2.5">Status</th>
-            <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-stone-900" onClick={() => onToggleSort("need_score")}>
-              Need{arrow("need_score")}
+            {/* Terminology pass (2026-09-02): "Need"/"Credibility" ->
+                "Opportunity"/"Evidence Strength" — sort keys unchanged. */}
+            <th title="Need score" className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-stone-900" onClick={() => onToggleSort("need_score")}>
+              Opportunity{arrow("need_score")}
             </th>
-            <th className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-stone-900" onClick={() => onToggleSort("credibility_score")}>
-              Credibility{arrow("credibility_score")}
+            <th title="Credibility score" className="cursor-pointer select-none whitespace-nowrap px-3 py-2.5 hover:text-stone-900" onClick={() => onToggleSort("credibility_score")}>
+              Evidence Strength{arrow("credibility_score")}
             </th>
             <th className="whitespace-nowrap px-3 py-2.5">Actions</th>
           </tr>

@@ -84,26 +84,32 @@ export function HowItWorksPage() {
       <div className="max-w-4xl space-y-5">
         <Panel title="Data sources" variant="instrument">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {/* Terminology pass (2026-09-02) — plain label as the primary
+                heading, real technical acronym kept in parens right next
+                to it (this page IS the detail/explainer view, so the
+                acronym stays visible, not just in a tooltip); body
+                `description` text already explains each term in full and
+                is left untouched. */}
             <SourceCard
-              name="SRUK"
+              name="Carbon Registry (SRUK)"
               description="Sistem Registri Unit Karbon — Indonesia's carbon-unit registry. Registers the tradable credit itself, only after validation/verification."
               stat={`${sourceCount("sruk")} of ${total} final candidates`}
               detail={p ? `${p.sruk_and_srn_ppi_input} raw SRUK+SRN-PPI records fetched (combined — the pipeline doesn't currently split this raw count by source)` : null}
             />
             <SourceCard
-              name="SRN-PPI"
+              name="Climate Registry (SRN-PPI)"
               description="Sistem Registri Nasional Pengendalian Perubahan Iklim — the broader climate-action registry. Registers the mitigation action itself, regardless of whether it becomes a tradable credit."
               stat={`${sourceCount("srn_ppi")} of ${total} final candidates`}
               detail={null}
             />
             <SourceCard
-              name="Verra"
+              name="International Registry (Verra)"
               description="The international voluntary carbon standard registry — the track most non-Indonesian projects use."
               stat={`${sourceCount("verra")} of ${total} final candidates`}
               detail={p ? `${p.verra_input} raw Verra records fetched (before filtering to Indonesia-only, forestry-sector projects)` : null}
             />
             <SourceCard
-              name="BRWA"
+              name="Customary Territory Registry (BRWA)"
               description="Badan Registrasi Wilayah Adat — Indonesia's customary/indigenous territory registry (NGO-run). Cross-referenced as real land-rights evidence, not another candidate source."
               stat={stats ? `${stats.brwa_territories.total.toLocaleString()} territories tracked` : "—"}
               detail={
@@ -123,27 +129,32 @@ export function HowItWorksPage() {
 
         <Panel title="How scoring works" variant="instrument">
           <p className="text-[13.5px] leading-relaxed text-stone-700">
-            Every candidate gets two independent scores — <strong>need</strong> (is there a real documentation/monitoring gap Gluri could
-            fill) and <strong>credibility</strong> (how mature/confirmed the project itself is). These are <strong>never combined into one
-            ranking</strong> — a fully-documented, credible project can genuinely have a need score of 0 (no gap detected, not a bad
-            candidate), and a brand-new, thin lead can score high on need while still being low-credibility. Sort by whichever axis you're
-            trying to find.
+            Every candidate gets two independent scores — shown elsewhere in the app as <strong>Opportunity</strong> (internally, the{" "}
+            <span title="need score">need score</span>: is there a real documentation/monitoring gap Gluri could fill) and{" "}
+            <strong>Evidence Strength</strong> (internally, the <span title="credibility score">credibility score</span>: how
+            mature/confirmed the project itself is). These are <strong>never combined into one ranking</strong> — a fully-documented,
+            credible project can genuinely have an Opportunity score of 0 (no gap detected, not a bad candidate), and a brand-new, thin
+            lead can score high on Opportunity while still being low on Evidence Strength. Sort by whichever axis you're trying to find.
           </p>
-          <h4 className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-wide text-stone-500">What drives the need score</h4>
+          <h4 className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
+            What drives Opportunity <span title="need score" className="normal-case tracking-normal text-stone-400">(need score)</span>
+          </h4>
           <ul className="space-y-1.5 text-[13px] leading-relaxed text-stone-700">
             <li>• Reached a technical/validation stage but hasn't filed the core project document either track requires (a DRAM or a DPP).</li>
             <li>• No technical or monitoring documentation submitted to any registry at all.</li>
             <li>• Registered on Verra but shows no progress beyond an early pipeline listing.</li>
-            <li>• A real news mention suggests the organization is actively looking for a monitoring/technology partner (treated as a hypothesis, not a confirmed fact, since it comes from a news article, not a registry).</li>
+            <li>• A real news mention suggests the organization is actively looking for a monitoring/technology partner (treated as inferred, not confirmed, since it comes from a news article, not a registry).</li>
             <li>• Registration is actively progressing — the organization is currently engaged with the process.</li>
-            <li>• A Permenhut 6/2026 compliance deadline is approaching or has passed.</li>
+            <li>• A Forestry-Carbon Regulation (Permenhut 6/2026) reporting deadline is approaching or has passed.</li>
           </ul>
-          <h4 className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-wide text-stone-500">What drives the credibility score</h4>
+          <h4 className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
+            What drives Evidence Strength <span title="credibility score" className="normal-case tracking-normal text-stone-400">(credibility score)</span>
+          </h4>
           <ul className="space-y-1.5 text-[13px] leading-relaxed text-stone-700">
             <li>• <strong>Registry status</strong> — is it in an official registry, has it progressed beyond initial registration, does it have a DRAM/DPP on file.</li>
-            <li>• <strong>Land rights</strong> — a formal land-rights category on file, or a confirmed BRWA customary-territory overlap.</li>
-            <li>• <strong>Geospatial</strong> — real coordinates on file, and whether a full boundary (not just a point) exists.</li>
-            <li>• <strong>Contactability</strong> — whether a real contact (a name and/or an email) has actually been resolved.</li>
+            <li>• <strong>Land rights</strong> — a formal land-rights category on file, or a confirmed Customary Territory Registry (BRWA) overlap.</li>
+            <li>• <strong>Location Verified</strong> <span title="Geospatial" className="text-stone-400">(Geospatial)</span> — real coordinates on file, and whether a full boundary (not just a point) exists.</li>
+            <li>• <strong>Contact Found</strong> <span title="Contactability" className="text-stone-400">(Contactability)</span> — whether a real contact (a name and/or an email) has actually been resolved.</li>
           </ul>
         </Panel>
 

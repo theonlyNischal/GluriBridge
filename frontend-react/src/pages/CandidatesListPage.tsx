@@ -22,11 +22,14 @@ const PAGE_SIZE = 24;
 // state candidateFilter.ts already owns, just a different UI surface for
 // setting it. Opaque values (not sortKey names directly) since
 // "need_score"/"credibility_score" both already contain underscores.
+// Terminology pass (2026-09-02): "Need"/"Credibility" -> "Opportunity"/
+// "Evidence Strength" in every label below — value keys unchanged
+// (still drive the real need_score/credibility_score sort).
 const SORT_OPTIONS: { value: string; label: string }[] = [
-  { value: "needDesc", label: "Need score (high to low)" },
-  { value: "needAsc", label: "Need score (low to high)" },
-  { value: "credDesc", label: "Credibility score (high to low)" },
-  { value: "credAsc", label: "Credibility score (low to high)" },
+  { value: "needDesc", label: "Opportunity (high to low)" },
+  { value: "needAsc", label: "Opportunity (low to high)" },
+  { value: "credDesc", label: "Evidence Strength (high to low)" },
+  { value: "credAsc", label: "Evidence Strength (low to high)" },
 ];
 
 function sortValueFor(sortKey: string | null, sortDir: string): string {
@@ -92,8 +95,8 @@ export function CandidatesListPage() {
   // look like the full list with no explanation. Each chip is real
   // (labels the actual active param) and removable.
   const activeChips: { key: string; label: string; clear: Partial<typeof filterParams> }[] = [];
-  if (filterParams.minNeed != null) activeChips.push({ key: "minNeed", label: `Need score ≥ ${filterParams.minNeed}`, clear: { minNeed: null } });
-  if (filterParams.minCred != null) activeChips.push({ key: "minCred", label: `Credibility score ≥ ${filterParams.minCred}`, clear: { minCred: null } });
+  if (filterParams.minNeed != null) activeChips.push({ key: "minNeed", label: `Opportunity ≥ ${filterParams.minNeed}`, clear: { minNeed: null } });
+  if (filterParams.minCred != null) activeChips.push({ key: "minCred", label: `Evidence Strength ≥ ${filterParams.minCred}`, clear: { minCred: null } });
   if (filterParams.complianceFlag === "approaching") activeChips.push({ key: "compliance", label: "Compliance deadline approaching (amber/red)", clear: { complianceFlag: "" } });
   if (filterParams.contactResolved === "yes") activeChips.push({ key: "contactResolved", label: "Has resolved contact", clear: { contactResolved: "" } });
   if (filterParams.contactResolved === "no") activeChips.push({ key: "contactResolved", label: "No resolved contact", clear: { contactResolved: "" } });
@@ -101,8 +104,8 @@ export function CandidatesListPage() {
   // and its "top territories"/BRWA-overlap links — same no-dropdown-here
   // reasoning as the threshold filters above.
   if (filterParams.province) activeChips.push({ key: "province", label: `Province: ${filterParams.province}`, clear: { province: "" } });
-  if (filterParams.brwaOverlap === "yes") activeChips.push({ key: "brwaOverlap", label: "Confirmed BRWA overlap", clear: { brwaOverlap: "" } });
-  if (filterParams.brwaOverlap === "no") activeChips.push({ key: "brwaOverlap", label: "No confirmed BRWA overlap", clear: { brwaOverlap: "" } });
+  if (filterParams.brwaOverlap === "yes") activeChips.push({ key: "brwaOverlap", label: "Confirmed Customary Territory Overlap", clear: { brwaOverlap: "" } });
+  if (filterParams.brwaOverlap === "no") activeChips.push({ key: "brwaOverlap", label: "No Confirmed Customary Territory Overlap", clear: { brwaOverlap: "" } });
   // hasEmail/lowConfidenceEmail/hasPhone/hasPublicPresence arrive from the
   // Dashboard's "Contact ready:"/"Also found:" summary numbers — a real
   // gap found and fixed 2026-09-02: these 4 params were landing here with
@@ -133,8 +136,8 @@ export function CandidatesListPage() {
           as Dashboard), live-pulse dot on Total candidates. */}
       <div className="grid shrink-0 grid-cols-4 gap-3 border-b border-stone-200 bg-white px-5 py-4">
         <KpiCard label="Total candidates" value={total} variant="instrument" live />
-        <KpiCard label="High need (≥70)" value={highNeed} accent="clay" variant="instrument" />
-        <KpiCard label="High credibility (≥70)" value={highCred} variant="instrument" />
+        <KpiCard label="High opportunity (≥70)" value={highNeed} accent="clay" variant="instrument" />
+        <KpiCard label="High evidence strength (≥70)" value={highCred} variant="instrument" />
         <KpiCard label="Amber compliance" value={amberCompliance} variant="instrument" />
       </div>
 
@@ -166,7 +169,7 @@ export function CandidatesListPage() {
           value={filterParams.richness}
           onChange={(v) => updateFilter({ richness: v })}
           placeholder="All richness"
-          options={[{ value: "rich", label: "Rich" }, { value: "corroborated", label: "Corroborated" }, { value: "thin", label: "Thin" }]}
+          options={[{ value: "rich", label: "Strong Evidence" }, { value: "corroborated", label: "Corroborated" }, { value: "thin", label: "Limited Evidence" }]}
         />
         <FilterSelect value={filterParams.status} onChange={(v) => updateFilter({ status: v as typeof filterParams.status })} placeholder="All statuses" options={STATUS_OPTIONS} />
         <FilterSelect
@@ -179,8 +182,8 @@ export function CandidatesListPage() {
             { value: "Social forestry", label: "Social forestry" },
             { value: "Conservation", label: "Conservation" },
             { value: "Improved Forest Management", label: "Improved Forest Management" },
-            { value: "unclassified", label: "Unclassified" },
-            { value: "not_applicable", label: "Not applicable" },
+            { value: "unclassified", label: "Needs Classification" },
+            { value: "not_applicable", label: "Not Relevant" },
           ]}
         />
         <FilterSelect

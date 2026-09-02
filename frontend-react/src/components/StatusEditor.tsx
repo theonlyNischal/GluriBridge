@@ -81,7 +81,7 @@ export function StatusEditor({
             <textarea
               value={draftNote}
               onChange={(e) => setDraftNote(e.target.value)}
-              placeholder="e.g. Waiting on their MRV team to respond"
+              placeholder="e.g. Waiting on their Monitoring & Verification (MRV) team to respond"
               rows={3}
               className="w-full resize-y rounded-lg border border-stone-300 bg-white px-3 py-2 text-[13.5px] focus:border-forest-500 focus:outline-none"
             />

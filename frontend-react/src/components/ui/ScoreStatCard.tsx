@@ -75,10 +75,22 @@ export function ScoreStatCard({
         )}
       </div>
       <div className="mt-1.5 flex items-center gap-2">
-        <h3 className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">{label}</h3>
+        {/* Terminology pass (2026-09-02) — title derived from `axis`
+            directly (not a new prop threaded through every call site):
+            every caller already passes axis, so the real technical term
+            ("Need score"/"Credibility score") is always available as a
+            hover tooltip regardless of what plain-language `label` text
+            a given call site uses. */}
+        <h3 title={axis === "need" ? "Need score" : "Credibility score"} className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">
+          {label}
+        </h3>
         {capped && (
+          // Terminology pass (2026-09-02): "capped" -> "Evidence-limited".
+          // The real technical term ("capped") is kept inside the
+          // tooltip text itself (see cappedReason at each call site),
+          // not lost.
           <span title={cappedReason} className="inline-flex items-center gap-0.5 rounded bg-compliance-amberBg px-1.5 py-0.5 font-mono text-[10px] font-semibold text-compliance-amber">
-            capped
+            Evidence-limited
             {cappedReason && <Info size={10} aria-hidden />}
           </span>
         )}
