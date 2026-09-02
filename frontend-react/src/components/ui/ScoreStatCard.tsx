@@ -46,7 +46,11 @@ export function ScoreStatCard({
   // Optional icon (2026-08-31 visual polish) — same badge-circle treatment
   // as the Dashboard's KpiCard icons, reused rather than a new pattern.
   icon?: LucideIcon;
-  children: ReactNode;
+  // Optional (2026-09-02) — the Dashboard's candidate-profile gallery
+  // reuses this exact component for a plain "just the number" card, no
+  // evidence breakdown underneath. When omitted, the bordered footer
+  // section doesn't render at all rather than showing an empty gap.
+  children?: ReactNode;
 }) {
   const ring = accent === "clay" ? "border-t-clay-500" : "border-t-forest-500";
   const text = accent === "clay" ? "text-clay-700" : "text-forest-700";
@@ -79,7 +83,7 @@ export function ScoreStatCard({
           </span>
         )}
       </div>
-      <div className="mt-2.5 space-y-2 border-t border-stone-100 pt-2.5">{children}</div>
+      {children && <div className="mt-2.5 space-y-2 border-t border-stone-100 pt-2.5">{children}</div>}
     </div>
   );
 }

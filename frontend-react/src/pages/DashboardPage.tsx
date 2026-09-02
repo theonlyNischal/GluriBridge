@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { Users, Flame, ShieldCheck, AlertTriangle, ArrowRight } from "lucide-react";
+import { Users, Flame, ShieldCheck, AlertTriangle, ArrowRight, Target } from "lucide-react";
 import { SummaryLink } from "../components/ui/SummaryLink";
 import { useCandidates } from "../lib/CandidatesContext";
 import { Panel } from "../components/ui/Panel";
 import { ScoreLabelPill } from "../components/ui/ScoreLabelPill";
+import { ScoreStatCard } from "../components/ui/ScoreStatCard";
 import { KpiCard } from "../components/ui/KpiCard";
-import { ScatterPlot } from "../components/ScatterPlot";
 import { DashboardMap } from "../components/DashboardMap";
 import { ProvinceBreakdown } from "../components/ProvinceBreakdown";
 import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
 import { filterParamsToSearchParams, DEFAULT_FILTER_PARAMS } from "../lib/candidateFilter";
-import type { CandidateListRow, CandidateStatusValue } from "../lib/types";
+import type { CandidateListRow, CandidateStatusValue, ScoreLabel } from "../lib/types";
 
 // A real, working navigational footer for a panel — every one of these
 // leads somewhere real (never a dead/decorative "learn more"). 2026-08-31
@@ -25,6 +25,71 @@ function PanelLink({ to, children }: { to: string; children: string }) {
     <Link to={to} className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-stone-600 hover:text-stone-900">
       {children}
       <ArrowRight size={12} strokeWidth={2.5} />
+    </Link>
+  );
+}
+
+// Candidate-profiles gallery (2026-09-02) — replaces the Opportunity
+// Matrix scatter plot on the Dashboard's primary view. Real, named
+// candidates picked automatically by real field values, never hardcoded,
+// so this stays accurate as the dataset changes: one representative per
+// score_label category (skipping any category with zero real candidates
+// in it right now, e.g. if strong_lead's one real candidate is ever
+// reclassified).
+//
+// Sorted by whichever axis actually DEFINES the category — a real bug
+// caught before shipping: sorting "confirmed" (credibility-led) by
+// need_score first picked PT Pandjiwaringin (need 22.2/cred 70.6) over
+// Katingan (need 11.1/cred 88.2), the exact real candidate this feature
+// was scoped against ("Katingan or similar for Confirmed") — need_score
+// desc is the right primary key for "opportunity" (need-led) but the
+// wrong one for "confirmed." strong_lead/early_signal have no single
+// dominant axis, so they keep the app's own general default (need_score
+// desc, then credibility_score desc — the same tiebreak export.py uses).
+const GALLERY_CATEGORIES: ScoreLabel[] = ["opportunity", "confirmed", "strong_lead", "early_signal"];
+
+function pickRepresentative(rows: CandidateListRow[], label: ScoreLabel): CandidateListRow | null {
+  const matches = rows.filter((r) => r.score_label === label);
+  if (matches.length === 0) return null;
+  const byNeedThenCred = (a: CandidateListRow, b: CandidateListRow) => b.need_score - a.need_score || b.credibility_score - a.credibility_score;
+  const byCredThenNeed = (a: CandidateListRow, b: CandidateListRow) => b.credibility_score - a.credibility_score || b.need_score - a.need_score;
+  return [...matches].sort(label === "confirmed" ? byCredThenNeed : byNeedThenCred)[0];
+}
+
+// One real candidate's card — name/org identity (same truncate/title
+// pattern as the Candidates card grid), the ScoreLabelPill labeling
+// which category it represents (showNumbers=false, same as the
+// candidate-detail hero, since the two ScoreStatCards below already show
+// both real numbers), then the EXACT same ScoreStatCard component used
+// on Candidate Detail — no children passed, so no evidence breakdown, no
+// chart, no axes, no legend, just the two plain stat blocks. The whole
+// card is a real link to that candidate's own detail page, same
+// clickable-card pattern as everywhere else in the app.
+function CandidateProfileCard({ row }: { row: CandidateListRow }) {
+  return (
+    <Link
+      to={`/candidates/${row.candidate_id}`}
+      className="instrument-panel hover-lift block border border-stone-300 bg-white p-4 transition-colors hover:border-stone-500 hover:bg-stone-100/40"
+    >
+      <ScoreLabelPill label={row.score_label} need={row.need_score} cred={row.credibility_score} showNumbers={false} />
+      <div className="mt-2 truncate font-semibold text-stone-800" title={row.name}>
+        {row.name}
+      </div>
+      <div className="truncate text-[12.5px] text-stone-500" title={row.org ?? undefined}>
+        {row.org ?? "—"}
+      </div>
+      <div className="mt-3 grid grid-cols-2 gap-2.5">
+        <ScoreStatCard axis="need" label="Need score" value={row.need_score} accent="clay" icon={Target} />
+        <ScoreStatCard
+          axis="credibility"
+          label="Credibility score"
+          value={row.credibility_score}
+          capped={row.credibility_capped}
+          cappedReason="Capped at 30 — this candidate's data is thin (e.g. a single uncorroborated news mention), so a higher score isn't trustworthy enough to show uncapped."
+          accent="forest"
+          icon={ShieldCheck}
+        />
+      </div>
     </Link>
   );
 }
@@ -44,6 +109,11 @@ export function DashboardPage() {
   if (!candidates) return <div className="px-6 py-6 text-stone-400">Loading…</div>;
 
   const total = candidates.length;
+  // Real, automatically-picked candidates for the profile gallery below —
+  // see pickRepresentative/GALLERY_CATEGORIES above. Filters out any
+  // category with no real match right now rather than showing a broken
+  // or fabricated card.
+  const galleryRows = GALLERY_CATEGORIES.map((label) => pickRepresentative(candidates, label)).filter((r): r is CandidateListRow => r !== null);
   const highNeed = candidates.filter((r) => r.need_score >= 70).length;
   const highCred = candidates.filter((r) => r.credibility_score >= 70).length;
   const approachingDeadline = candidates.filter((r) => r.compliance_badge === "amber" || r.compliance_badge === "red").length;
@@ -200,14 +270,20 @@ export function DashboardPage() {
           the map (not inside it) as its own real, normalized-from-real-data
           panel — see lib/provinceNormalize.ts. */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
-        {/* Extra padding (2026-09-02) — the Opportunity Matrix is one of
-            the app's two most substantive visuals (with the Territory
-            Discovery map), so it gets more internal breathing room than
-            the smaller panels beside it (map preview, province
-            breakdown) — still hairline border, still no shadow, just
-            more space, not more visual weight through color/depth. */}
-        <Panel title={`Opportunity matrix — need vs. credibility, all ${total} real candidates`} className="!p-7" variant="instrument">
-          <ScatterPlot candidates={candidates} />
+        {/* Candidate profiles gallery (2026-09-02) — replaces the
+            Opportunity Matrix scatter plot in this exact slot; kept the
+            same extra padding (this is still one of the app's two most
+            substantive visuals, with the Territory Discovery map) —
+            still hairline border, still no shadow, just more space. The
+            scatter plot itself (ScatterPlot.tsx) is untouched and still
+            in the codebase, just no longer imported/rendered anywhere on
+            the primary Dashboard view. */}
+        <Panel title="Candidate profiles — one real example per category" className="!p-7" variant="instrument">
+          <div className="space-y-3">
+            {galleryRows.map((row) => (
+              <CandidateProfileCard key={row.candidate_id} row={row} />
+            ))}
+          </div>
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
         <Panel title="Real candidate locations + real BRWA territory overlaps" variant="instrument">
