@@ -269,14 +269,21 @@ export function DashboardPage() {
           runs — that data doesn't exist. Province breakdown sits beside
           the map (not inside it) as its own real, normalized-from-real-data
           panel — see lib/provinceNormalize.ts. */}
-      {/* items-start (2026-09-02) — a real layout bug found after the
-          candidate-profiles gallery replaced the scatter plot: CSS
-          grid's default align-items:stretch was forcing the map/province
-          panels to match the gallery's much taller natural height
-          (4 stacked cards), leaving huge empty white space at the bottom
-          of both shorter panels. Each panel now sits at its own real
-          content height instead. */}
-      <div className="mt-5 grid grid-cols-1 items-start gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
+      {/* Back to grid's default align-items:stretch (2026-09-02, second
+          pass) — items-start fixed the original whitespace bug by giving
+          every panel its own natural height, but that left the gallery
+          (1182px, 4 stacked cards) wildly taller than the map (553px)
+          and province panel (409.5px) beside it, with all 3 tops aligned
+          but bottoms nowhere close — not the intended look either. Real
+          fix: cap the gallery's OWN natural height with an internal
+          scroll (below) so the row's tallest real entry is back to
+          something reasonable (the map, ~553px), then let stretch align
+          all 3 to that — the map and gallery now match exactly; the
+          province panel (genuinely shorter real content) still doesn't
+          reach that height, so it gets some real stretch space rather
+          than none, but nowhere near the ~600px+ gap the original bug
+          had. */}
+      <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
         {/* Candidate profiles gallery (2026-09-02) — replaces the
             Opportunity Matrix scatter plot in this exact slot; kept the
             same extra padding (this is still one of the app's two most
@@ -285,8 +292,13 @@ export function DashboardPage() {
             scatter plot itself (ScatterPlot.tsx) is untouched and still
             in the codebase, just no longer imported/rendered anywhere on
             the primary Dashboard view. */}
-        <Panel title="Candidate profiles — one real example per category" className="!p-7" variant="instrument">
-          <div className="space-y-3">
+        <Panel title="Candidate profiles — one real example per category" className="!p-7 flex flex-col" variant="instrument">
+          {/* Scrollable card list (2026-09-02) — capped to roughly the
+              map panel's own real height so the two align instead of the
+              gallery dictating the whole row's height; all 4 real cards
+              are still there, just scrollable rather than all forced
+              into view at once. */}
+          <div className="max-h-[430px] space-y-3 overflow-y-auto pr-1">
             {galleryRows.map((row) => (
               <CandidateProfileCard key={row.candidate_id} row={row} />
             ))}
