@@ -31,13 +31,13 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
         <div
           key={r.candidate_id}
           onClick={() => navigate(`/candidates/${r.candidate_id}${currentQuery ? `?${currentQuery}` : ""}`)}
-          // Instrument-panel treatment (2026-08-31 visual-direction
-          // rollout, approved on Dashboard first): sharp corners, hairline
-          // border, no shadow (hover-lift's own shadow is the one
-          // exception — it signals "clickable," not decoration). Hover
-          // accent muted to stone, not forest — this is a "field survey
-          // document," not a colored-highlight consumer card.
-          className="instrument-panel hover-lift animate-row-in flex cursor-pointer flex-col border border-stone-300 bg-white p-4 transition-colors hover:border-stone-500 hover:bg-stone-100/40"
+          // Visual pass (2026-09-03): rounded + soft-shadow card (per
+          // .instrument-panel's own 2026-09-02 redefinition), warmer
+          // forest hover accent now that the app has moved off the
+          // "reserve color for one element" flat-instrument direction —
+          // hover-lift's own shadow still does the "this is clickable"
+          // signaling, this just adds a touch of warmth to match.
+          className="instrument-panel hover-lift animate-row-in flex cursor-pointer flex-col border border-stone-200 bg-white p-5 transition-colors hover:border-forest-300 hover:bg-forest-50/20"
           style={{ animationDelay: `${Math.min(i * 15, 250)}ms` }}
         >
           <div className="truncate font-semibold text-stone-800" title={r.name}>
@@ -48,7 +48,7 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
           </div>
 
           <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600">
+            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-stone-100 px-2.5 py-0.5 text-[11px] font-medium text-stone-600">
               <MapPin size={11} />
               {r.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
             </span>
@@ -58,17 +58,29 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
           <div className="mt-3 grid grid-cols-2 gap-3 border-y border-stone-100 py-3">
             {/* Terminology pass (2026-09-02): "Need Score"/"Credibility
                 Score" -> "Opportunity"/"Evidence Strength", the real
-                technical field name kept as a hover title. */}
+                technical field name kept as a hover title.
+                Visual pass (2026-09-03): added the same progress-bar /
+                5-dot-scale encoding as the Dashboard's ScoreStatCard, for
+                one consistent "how these two axes look" language
+                app-wide rather than a plain number here and a bar there. */}
             <div>
               <div title="Need score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Opportunity</div>
               <div className="mt-0.5 font-mono text-figure-sm tabular text-clay-600">
                 {fmtScore(r.need_score)} <span className="text-[12px] font-normal text-stone-400">/100</span>
+              </div>
+              <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-clay-100">
+                <div className="h-full rounded-full bg-clay-500" style={{ width: `${Math.max(0, Math.min(100, r.need_score))}%` }} />
               </div>
             </div>
             <div>
               <div title="Credibility score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Evidence Strength</div>
               <div className="mt-0.5 font-mono text-figure-sm tabular text-forest-600">
                 {fmtScore(r.credibility_score)} <span className="text-[12px] font-normal text-stone-400">/100</span>
+              </div>
+              <div className="mt-2 flex items-center gap-1">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <span key={i} className={`h-2 w-2 rounded-full ${i < Math.round(r.credibility_score / 20) ? "bg-forest-500" : "bg-forest-100"}`} />
+                ))}
               </div>
             </div>
           </div>
