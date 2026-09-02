@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { Users, Flame, ShieldCheck, AlertTriangle, ArrowRight, Target } from "lucide-react";
-import { SummaryLink } from "../components/ui/SummaryLink";
+import { Users, Flame, ShieldCheck, AlertTriangle, ArrowRight, Target, Mail, Radio } from "lucide-react";
 import { useCandidates } from "../lib/CandidatesContext";
 import { Panel } from "../components/ui/Panel";
 import { ScoreLabelPill } from "../components/ui/ScoreLabelPill";
 import { ScoreStatCard } from "../components/ui/ScoreStatCard";
 import { KpiCard } from "../components/ui/KpiCard";
+import { DonutChart } from "../components/ui/DonutChart";
 import { DashboardMap } from "../components/DashboardMap";
 import { ProvinceBreakdown } from "../components/ProvinceBreakdown";
-import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
+import { STATUS_OPTIONS, STATUS_DOT_COLOR } from "../components/ui/StatusBadge";
 import { filterParamsToSearchParams, DEFAULT_FILTER_PARAMS } from "../lib/candidateFilter";
 import type { CandidateListRow, CandidateStatusValue, ScoreLabel } from "../lib/types";
 
@@ -154,17 +154,15 @@ export function DashboardPage() {
   candidates.forEach((r) => {
     richness[r.data_richness] = (richness[r.data_richness] ?? 0) + 1;
   });
-  const maxRichness = Math.max(...Object.values(richness), 1);
 
   // Real breakdown across all 5 outreach-status values (2026-08-28,
   // replacing the original binary contacted/not-contacted count) — same
-  // BarRow treatment as Data richness, each row a real link to the exact
-  // filtered Candidates view for that status.
+  // donut+legend treatment as Data richness (2026-09-02), each row a
+  // real link to the exact filtered Candidates view for that status.
   const statusCounts: Record<CandidateStatusValue, number> = { not_contacted: 0, contacted: 0, follow_up_needed: 0, done: 0, rejected: 0 };
   candidates.forEach((r) => {
     statusCounts[r.status] = (statusCounts[r.status] ?? 0) + 1;
   });
-  const maxStatus = Math.max(...Object.values(statusCounts), 1);
 
   const topNeed = [...candidates].sort((a, b) => b.need_score - a.need_score).slice(0, 5);
   const topCred = [...candidates].sort((a, b) => b.credibility_score - a.credibility_score).slice(0, 5);
@@ -214,51 +212,72 @@ export function DashboardPage() {
         <p className={`mt-5 text-[13px] ${isDark ? "text-stone-400" : "text-stone-500"}`}>Independent axes · never combined into one ranking · live from the registry</p>
       </div>
 
-      {/* Contact-resolution detail — a slim, scannable line (2026-08-31
-          polish pass), not the dense paragraph this used to be. Same 3
-          real, distinct, clickable numbers as before, still each linking
-          to its own accurately-filtered view — just no longer prose. The
-          4th real number (resolvedContact, "any contact at all") isn't
-          restated here since it's exactly nameOnlyNoEmail + hasEmail +
-          lowConfidenceEmail — showing it too would be redundant, not a
-          dropped fact. */}
-      <div className={`mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-sm border px-4 py-2.5 text-[13px] ${isDark ? "border-forest-800 bg-forest-900/40 text-stone-300" : "border-stone-300 bg-stone-100/70 text-stone-600"}`}>
-        <span className={`font-medium ${isDark ? "text-stone-400" : "text-stone-500"}`}>Contact ready:</span>
-        <SummaryLink to="/candidates?hasEmail=yes" muted>
-          {hasEmail} confidently-resolved emails
-        </SummaryLink>
-        <span className="text-stone-400">·</span>
-        <SummaryLink to="/candidates?lowConfidenceEmail=yes" muted>
-          {lowConfidenceEmail} weaker matches
-        </SummaryLink>
-        <span className="text-stone-400">·</span>
-        <SummaryLink
-          to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}
-          muted
-        >
-          {nameOnlyNoEmail} named contacts, no email yet
-        </SummaryLink>
-      </div>
-
-      {/* Phone/public-presence detail (2026-09-01, Tier C) — its own
-          separate row, deliberately not merged into "Contact ready:"
-          above: finding a phone number or a website doesn't change any
-          candidate's email-readiness, so this must never read as an
-          update to that line. "Also found:" framing, muted/secondary
-          tone (text-stone-500 vs. the row above's stone-600) to keep it
-          visually subordinate to the primary email-readiness metric. */}
-      <div className={`mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-sm border px-4 py-2.5 text-[13px] ${isDark ? "border-forest-900 bg-forest-950/40 text-stone-400" : "border-stone-200 bg-stone-50 text-stone-500"}`}>
-        <span className={`font-medium ${isDark ? "text-stone-500" : "text-stone-400"}`}>Also found:</span>
-        <SummaryLink to="/candidates?hasPhone=yes" muted>
-          {hasPhone} reachable by phone/WhatsApp
-        </SummaryLink>
-        <span className="text-stone-400">·</span>
-        <SummaryLink
-          to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, hasPublicPresence: "yes", hasPhone: "no" }).toString()}`}
-          muted
-        >
-          {publicPresenceOnly} more findable online (no direct contact)
-        </SummaryLink>
+      {/* Contact-readiness cards (2026-09-02 visual pass) — icon-circle +
+          big number + pill-chip breakdown, replacing the inline-sentence
+          rows. Still exactly the same 5 real, distinct, clickable numbers
+          as before, each linking to its own accurately-filtered view —
+          and still two SEPARATE cards, not one merged card: finding a
+          phone number or a website doesn't change any candidate's
+          email-readiness, so "Also Found" must never read as an update
+          to "Contact Ready"'s own number (the real distinction this
+          split has enforced since 2026-09-01, now just in card form). */}
+      <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="instrument-panel border border-stone-200 bg-white p-5">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-50 text-forest-600">
+                <Mail size={18} strokeWidth={2.25} />
+              </span>
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Contact ready</div>
+                <div className="font-mono text-[21px] font-bold text-stone-900">
+                  {resolvedContact} <span className="text-[12.5px] font-medium text-stone-400">contacts identified</span>
+                </div>
+              </div>
+            </div>
+            <Link to="/candidates?contactResolved=yes" className="flex shrink-0 items-center gap-1 text-[12px] font-semibold text-forest-600 hover:text-forest-700">
+              View contacts <ArrowRight size={12} strokeWidth={2.5} />
+            </Link>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link to="/candidates?hasEmail=yes" className="rounded-full bg-forest-50 px-3 py-1 text-[12px] font-semibold text-forest-700 transition hover:bg-forest-100">
+              {hasEmail} Verified emails
+            </Link>
+            <Link to="/candidates?lowConfidenceEmail=yes" className="rounded-full bg-stone-100 px-3 py-1 text-[12px] font-semibold text-stone-600 transition hover:bg-stone-200">
+              {lowConfidenceEmail} Potential matches
+            </Link>
+            <Link
+              to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}
+              className="rounded-full bg-stone-100 px-3 py-1 text-[12px] font-semibold text-stone-600 transition hover:bg-stone-200"
+            >
+              {nameOnlyNoEmail} Named contacts, no email
+            </Link>
+          </div>
+        </div>
+        <div className="instrument-panel border border-stone-200 bg-white p-5">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700">
+              <Radio size={18} strokeWidth={2.25} />
+            </span>
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Also found</div>
+              <div className="font-mono text-[21px] font-bold text-stone-900">
+                {hasPhone + publicPresenceOnly} <span className="text-[12.5px] font-medium text-stone-400">more ways to connect</span>
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link to="/candidates?hasPhone=yes" className="rounded-full bg-teal-50 px-3 py-1 text-[12px] font-semibold text-teal-700 transition hover:bg-teal-100">
+              {hasPhone} Phone/WhatsApp
+            </Link>
+            <Link
+              to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, hasPublicPresence: "yes", hasPhone: "no" }).toString()}`}
+              className="rounded-full bg-stone-100 px-3 py-1 text-[12px] font-semibold text-stone-600 transition hover:bg-stone-200"
+            >
+              {publicPresenceOnly} Online presence only
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* The dashboard's main content — the matrix and map get the bulk of
@@ -331,18 +350,61 @@ export function DashboardPage() {
           <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
         <Panel title="Data richness" variant="instrument">
-          <div className="space-y-2.5">
-            {(["rich", "corroborated", "thin"] as const).map((k) => (
-              <BarRow key={k} label={`${k} (${richness[k] ?? 0})`} value={richness[k] ?? 0} max={maxRichness} total={total} />
-            ))}
+          {/* Donut + legend (2026-09-02 visual pass, replacing 3 bar rows) —
+              same real per-category counts, just a more compact/scannable
+              shape for exactly 3 categories that sum to the real total. */}
+          <div className="flex items-center gap-3">
+            <div className="relative shrink-0">
+              <DonutChart
+                size={80}
+                segments={[
+                  { value: richness.rich ?? 0, color: "#2f6d4f" },
+                  { value: richness.corroborated ?? 0, color: "#245452" },
+                  { value: richness.thin ?? 0, color: "#824623" },
+                ]}
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="font-mono text-[15px] font-bold text-stone-900">{total ? Math.round(((richness.rich ?? 0) / total) * 100) : 0}%</span>
+                <span className="text-[7px] uppercase tracking-wide text-stone-400">rich</span>
+              </div>
+            </div>
+            {/* min-w-0 required — a flex item otherwise won't shrink below
+                its content's intrinsic width, which is exactly what
+                `truncate` on the label below needs to ever kick in. */}
+            <div className="min-w-0 flex-1 space-y-1.5 text-[12px]">
+              {([
+                ["rich", "#2f6d4f"],
+                ["corroborated", "#245452"],
+                ["thin", "#824623"],
+              ] as const).map(([k, color]) => (
+                <div key={k} className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
+                  <span className="min-w-0 flex-1 truncate capitalize text-stone-600">{k}</span>
+                  <span className="shrink-0 font-mono font-semibold text-stone-700">{richness[k] ?? 0}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <PanelLink to="/candidates">View all candidates</PanelLink>
         </Panel>
         <Panel title="Outreach status" variant="instrument">
-          <div className="space-y-2.5">
+          {/* Deliberately a plain dot+count list, not a donut (tried,
+              reverted 2026-09-02): real outreach is 141/144 "not
+              contacted" right now, so a donut ring renders as one almost-
+              solid color with the other 4 real categories as invisible
+              slivers — worse than the plain numbers at actually
+              communicating the real breakdown. A donut works for Data
+              richness above (a genuinely 3-way split); it doesn't here. */}
+          <div className="space-y-2">
             {STATUS_OPTIONS.map((o) => (
-              <Link key={o.value} to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, status: o.value }).toString()}`} className="block hover:opacity-80">
-                <BarRow label={`${o.label} (${statusCounts[o.value]})`} value={statusCounts[o.value]} max={maxStatus} total={total} />
+              <Link
+                key={o.value}
+                to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, status: o.value }).toString()}`}
+                className="flex items-center gap-2.5 text-[13px] hover:opacity-80"
+              >
+                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: STATUS_DOT_COLOR[o.value] }} />
+                <span className="min-w-0 flex-1 truncate text-stone-600">{o.label}</span>
+                <span className="shrink-0 font-mono font-semibold text-stone-700">{statusCounts[o.value]}</span>
               </Link>
             ))}
           </div>
@@ -386,21 +448,3 @@ function RankedList({ rows }: { rows: CandidateListRow[] }) {
   );
 }
 
-function BarRow({ label, value, max, total }: { label: string; value: number; max: number; total: number }) {
-  const pct = total ? Math.round((value / total) * 100) : 0;
-  return (
-    <div className="flex items-center gap-2 text-[12.5px]">
-      {/* w-[130px], not w-24 (96px) — measured: "Follow-up needed (2)"
-          needs ~130px and was clipped at 96px, the same kind of silent
-          overflow-hidden truncation caught elsewhere this session. Shared
-          by both Data richness and Outreach status, so both get the fix. */}
-      <span className="w-[130px] shrink-0 truncate text-stone-600">{label}</span>
-      <div className="h-2 flex-1 overflow-hidden rounded-full bg-stone-200">
-        {/* Muted stone, not forest-green (2026-08-31 visual-direction test) —
-            same accent-reduction reasoning as PanelLink/ProvinceBreakdown. */}
-        <div className="h-full rounded-full bg-stone-500" style={{ width: `${max ? (value / max) * 100 : 0}%` }} />
-      </div>
-      <span className="w-9 shrink-0 text-right font-mono text-stone-500">{pct}%</span>
-    </div>
-  );
-}

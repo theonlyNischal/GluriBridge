@@ -146,10 +146,14 @@
     background-size: 400px 400px;
   }
 
-  /* Structural shift — "field-survey instrument," not a consumer SaaS
-     card: sharp corners, a thin hairline border, no drop shadow. Opt-in
-     variant on Panel/KpiCard (see their own files) so this stays scoped
-     to the Dashboard's test, not applied app-wide by accident. */
+  /* Visual direction (2026-09-02, superseding the 2026-08-31 "field
+     instrument" test per explicit direction): soft, rounded, elevated
+     cards — closer to a polished product than a survey clipboard.
+     Every existing call site already opts into this class app-wide (the
+     name is now a misnomer kept only to avoid touching ~40 call sites'
+     className strings), so this one definition change is the whole
+     rollout: every Panel/KpiCard/ScoreStatCard/ad-hoc instrument-panel
+     div gets rounded corners + a soft warm-toned shadow for free. */
   /* Deliberately does NOT set border-width here (2026-08-31 fix, caught
      before shipping) — this is a shorthand property; a usage site that
      also needs a per-side override (e.g. ScoreStatCard's border-t-2
@@ -159,7 +163,7 @@
      bring its own explicit Tailwind border-width utility (border,
      border-t-2, etc.) instead — this class only ever controls shape. */
   .instrument-panel {
-    border-radius: 2px;
-    box-shadow: none;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(35, 29, 22, 0.04), 0 6px 20px -6px rgba(35, 29, 22, 0.12);
   }
 }

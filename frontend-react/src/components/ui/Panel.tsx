@@ -11,13 +11,14 @@ export function Panel({
   children: ReactNode;
   className?: string;
   id?: string;
-  // "instrument" (2026-08-31, Dashboard visual-direction test) — sharp
-  // corners, thin hairline border, no shadow, per the .instrument-panel
-  // utility. Opt-in, default unchanged, so every existing page/usage of
-  // Panel is completely unaffected until explicitly opted in.
+  // "instrument" — now just "the app's real card shape" (rounded + soft
+  // shadow, per .instrument-panel; name kept to avoid a mass rename of
+  // ~40 call sites). Every real usage in the app passes this; "default"
+  // survives only as this component's fallback and in the design-system
+  // showcase, so it's kept visually close (rounded, just no shadow).
   variant?: "default" | "instrument";
 }) {
-  const shape = variant === "instrument" ? "instrument-panel border-stone-300" : "rounded-xl border-stone-200";
+  const shape = variant === "instrument" ? "instrument-panel border-stone-300" : "rounded-2xl border-stone-200";
   return (
     // min-w-0 matters whenever this is a direct grid/flex item (which it
     // usually is) — without it, a grid/flex item won't shrink below its

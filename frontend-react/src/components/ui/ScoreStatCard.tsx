@@ -95,6 +95,31 @@ export function ScoreStatCard({
           </span>
         )}
       </div>
+      {/* Visual pass (2026-09-02): a differentiated encoding per axis, not
+          just two plain numbers — Opportunity as a filled progress bar
+          (a single continuous 0-100 quantity), Evidence Strength as a
+          5-dot scale (reads as "how many independent things back this
+          up," closer to how the axis is actually built out of discrete
+          confirmed components). Real value in both cases — the dot count
+          is value/20 rounded, not a separate metric. Only shown on the
+          plain "just the number" usage (no children) — the candidate-
+          detail page's own component-bar breakdown underneath already
+          covers this territory in more detail, so this stays out of its way. */}
+      {!children && (
+        <div className="mt-2">
+          {axis === "need" ? (
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-clay-100">
+              <div className="h-full rounded-full bg-clay-500" style={{ width: `${Math.max(0, Math.min(100, value))}%` }} />
+            </div>
+          ) : (
+            <div className="flex items-center gap-1">
+              {Array.from({ length: 5 }, (_, i) => (
+                <span key={i} className={`h-2 w-2 rounded-full ${i < Math.round(value / 20) ? "bg-forest-500" : "bg-forest-100"}`} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
       {children && <div className="mt-2.5 space-y-2 border-t border-stone-100 pt-2.5">{children}</div>}
     </div>
   );

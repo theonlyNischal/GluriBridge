@@ -26,6 +26,18 @@ export const STATUS_STYLE: Record<CandidateStatusValue, string> = {
   rejected: "bg-stone-200 text-stone-500",
 };
 
+// Hex equivalents of STATUS_STYLE's Tailwind classes (2026-09-02) — SVG
+// fill/stroke can't consume Tailwind utility classes directly, so this
+// stays hand-kept in sync the same way ScatterPlot.tsx's DOT_COLOR is;
+// used by the Dashboard's Outreach status donut.
+export const STATUS_DOT_COLOR: Record<CandidateStatusValue, string> = {
+  not_contacted: "#a89577", // stone-400
+  contacted: "#245452", // teal-600
+  follow_up_needed: "#a05a2c", // clay-500
+  done: "#2f6d4f", // forest-500
+  rejected: "#c9bba1", // stone-300
+};
+
 export const STATUS_OPTIONS: { value: CandidateStatusValue; label: string }[] = (
   Object.keys(STATUS_LABEL) as CandidateStatusValue[]
 ).map((value) => ({ value, label: STATUS_LABEL[value] }));

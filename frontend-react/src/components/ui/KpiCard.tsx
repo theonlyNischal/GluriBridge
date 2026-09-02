@@ -45,9 +45,9 @@ export function KpiCard({
   // list toolbar and Tracked page's "sm" usage never pass this, so
   // they're visually and behaviorally unaffected.
   animateValue?: boolean;
-  // "instrument" (2026-08-31, Dashboard visual-direction test) — sharp
-  // corners, hairline border, no shadow, a readout-style rule under the
-  // number. Opt-in, default unchanged.
+  // "instrument" — now just "the app's real KPI card shape" (rounded +
+  // soft shadow, no readout-rule; name kept to avoid a mass rename of
+  // every call site, which all pass this already).
   variant?: "default" | "instrument";
   // Small pulsing dot next to the label (2026-08-31 test) — signals this
   // specific number is read from the live API right now. Opt-in, meant
@@ -81,7 +81,7 @@ export function KpiCard({
   // cheap (a single rAF loop), never runs for the "sm" toolbar usages.
   const animated = useCountUp(value);
   const displayValue = animateValue ? animated : value;
-  const shape = variant === "instrument" ? "instrument-panel border-stone-300" : "rounded-lg border-stone-200";
+  const shape = variant === "instrument" ? "instrument-panel border-stone-300" : "rounded-2xl border-stone-200";
   const className = `block border bg-white ${shape} ${padding} ${to ? "cursor-pointer transition-colors hover:border-forest-300 hover:bg-forest-50/40 hover-lift" : ""}`;
   const content = (
     <>
@@ -100,15 +100,12 @@ export function KpiCard({
           </span>
         )}
       </div>
-      {/* Instrument variant (2026-08-31 test): a thin readout-style rule
-          directly under the number and slightly wider digit tracking —
-          pushes the existing monospace treatment further toward "a real
-          telemetry display," not just a bigger bold figure. */}
-      <div
-        className={`mt-1.5 inline-block font-mono ${size === "lg" ? "text-figure font-bold" : "text-figure-sm"} tabular ${valueColor} ${
-          variant === "instrument" ? "tracking-wide border-b border-current/25 pb-1" : ""
-        }`}
-      >
+      {/* Terminology/visual pass (2026-09-02): dropped the instrument
+          variant's readout-style underline + wide tracking — that
+          "telemetry display" texture belonged to the flat/hairline
+          direction this round supersedes; every KPI number now reads as
+          a plain, bold figure regardless of variant. */}
+      <div className={`mt-1.5 inline-block font-mono ${size === "lg" ? "text-figure font-bold" : "text-figure-sm"} tabular ${valueColor}`}>
         {displayValue}
       </div>
       {sub && <div className="mt-1 text-[11.5px] text-stone-400">{sub}</div>}
