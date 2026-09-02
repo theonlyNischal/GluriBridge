@@ -269,7 +269,14 @@ export function DashboardPage() {
           runs — that data doesn't exist. Province breakdown sits beside
           the map (not inside it) as its own real, normalized-from-real-data
           panel — see lib/provinceNormalize.ts. */}
-      <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
+      {/* items-start (2026-09-02) — a real layout bug found after the
+          candidate-profiles gallery replaced the scatter plot: CSS
+          grid's default align-items:stretch was forcing the map/province
+          panels to match the gallery's much taller natural height
+          (4 stacked cards), leaving huge empty white space at the bottom
+          of both shorter panels. Each panel now sits at its own real
+          content height instead. */}
+      <div className="mt-5 grid grid-cols-1 items-start gap-5 xl:grid-cols-[1fr,1fr,0.62fr]">
         {/* Candidate profiles gallery (2026-09-02) — replaces the
             Opportunity Matrix scatter plot in this exact slot; kept the
             same extra padding (this is still one of the app's two most
