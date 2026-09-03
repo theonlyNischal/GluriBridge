@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { RefreshCw, AlertTriangle, CheckCircle2, Lock, Radio } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { RefreshCw, AlertTriangle, CheckCircle2, Lock, Radio, Loader2 } from "lucide-react";
 import { api, ApiError } from "../lib/api";
 import { Panel } from "../components/ui/Panel";
-import type { RefreshLogEntry, RefreshResult, StatsResponse, SyncSource } from "../lib/types";
+import type { RefreshLogEntry, RefreshStatus, SourceProgress, StatsResponse, SyncSource } from "../lib/types";
 
 // Mirrors orchestrate.py's CADENCE_DAYS exactly (2026-09-03) — a
 // documented, intentional mirror for display purposes only (same
@@ -26,6 +26,28 @@ const SOURCE_LABEL: Record<SyncSource, string> = {
 };
 
 const SOURCES: SyncSource[] = ["sruk", "srn_ppi", "verra", "brwa"];
+
+const PHASE_LABEL: Record<string, string> = {
+  starting: "Starting…",
+  pipeline: "Normalizing, scoring, and (if requested) searching live news…",
+  loading: "Loading results into the database…",
+};
+
+const LIVE_SOURCE_STYLE: Record<SourceProgress, string> = {
+  pending: "bg-stone-100 text-stone-400",
+  running: "bg-compliance-amberBg text-compliance-amber",
+  done: "bg-forest-100 text-forest-800",
+  skipped: "bg-stone-100 text-stone-500",
+  failed: "bg-compliance-redBg text-compliance-red",
+};
+
+const LIVE_SOURCE_TEXT: Record<SourceProgress, string> = {
+  pending: "Waiting…",
+  running: "Scraping now…",
+  done: "Done",
+  skipped: "Not due",
+  failed: "Failed",
+};
 
 function fmtDateTime(iso: string | null): string {
   if (!iso) return "—";
@@ -57,12 +79,18 @@ const REFRESH_STATUS_STYLE: Record<RefreshLogEntry["status"], string> = {
   error: "bg-compliance-redBg text-compliance-red",
 };
 
+const POLL_MS = 1500;
+
 /**
  * Registry Sync page (2026-09-03) — real per-source freshness (from the
  * exact same orchestrate.check_all_freshness() the backend's own
  * cadence logic uses), a real refresh action wired to POST /refresh,
- * and a real append-only activity log (GET /refresh-log). No simulated
- * "demo mode" — see the conversation this was scoped from: a fabricated
+ * real LIVE per-source progress (GET /refresh-status, polled while a
+ * refresh is running — added 2026-09-03 after watching a real refresh
+ * sit on one opaque "Refreshing…" spinner for several minutes with zero
+ * visibility into which source it was actually on), and a real
+ * append-only activity log (GET /refresh-log). No simulated "demo
+ * mode" — see the conversation this was scoped from: a fabricated
  * progress bar that reports success regardless of what actually
  * happened is a real dishonesty risk for an app whose entire pitch is
  * "every number traces back to a real, checkable source," not a demo-
@@ -70,52 +98,113 @@ const REFRESH_STATUS_STYLE: Record<RefreshLogEntry["status"], string> = {
  * not simulated: a failed or frozen refresh never overwrites the live
  * DB (scheduler.run_refresh_cycle() only loads a result into SQLite
  * after the pipeline succeeds), so the page always keeps showing the
- * last real successful state — see the freshness/last-refresh times
- * below, which are exactly what a failure would leave untouched.
+ * last real successful state.
  */
 export function SyncPage() {
   const [stats, setStats] = useState<StatsResponse | null>(null);
   const [log, setLog] = useState<RefreshLogEntry[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<"registry" | "news" | null>(null);
+  const [progress, setProgress] = useState<RefreshStatus | null>(null);
   const [result, setResult] = useState<{ kind: "ok" | "error" | "frozen"; message: string } | null>(null);
+  // Guards against setting state after unmount — a poll loop is a real
+  // async chain that can outlive the component (e.g. the user navigates
+  // away mid-refresh). Reset to false at the TOP of the mount effect
+  // below, not just at useRef's initial value — React 18 StrictMode
+  // double-invokes effects in dev (mount -> cleanup -> mount again), so
+  // a cleanup-only effect here would set this true during that synthetic
+  // first cleanup and never flip it back before the real mount's async
+  // work resolves, permanently stuck showing "Loading…" forever (a real
+  // bug caught here, not hypothetical — this exact page hung on it).
+  const cancelledRef = useRef(false);
 
   function load() {
     Promise.all([api.getStats(), api.getRefreshLog()])
       .then(([s, l]) => {
+        if (cancelledRef.current) return;
         setStats(s);
         setLog(l);
       })
-      .catch((e) => setError(String(e.message ?? e)));
+      .catch((e) => !cancelledRef.current && setError(String(e.message ?? e)));
   }
 
-  useEffect(load, []);
+  // On mount, ALSO check whether a refresh is already running — e.g. a
+  // page load/reload while one triggered elsewhere (another tab, the
+  // scheduler) is still in flight — and start polling it immediately
+  // rather than only ever reacting to this page's own button click.
+  useEffect(() => {
+    cancelledRef.current = false;
+    load();
+    api
+      .getRefreshStatus()
+      .then((s) => {
+        if (cancelledRef.current || !s?.in_progress) return;
+        setBusy(s.with_news ? "news" : "registry");
+        pollUntilDone();
+      })
+      .catch(() => {
+        /* advisory only, same as StalenessBanner's own pattern — never block the page on this */
+      });
+    return () => {
+      cancelledRef.current = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function pollUntilDone() {
+    while (!cancelledRef.current) {
+      let status: RefreshStatus | null;
+      try {
+        status = await api.getRefreshStatus();
+      } catch {
+        break; // a transient network hiccup while polling — stop rather than loop forever on errors
+      }
+      if (cancelledRef.current) return;
+      setProgress(status);
+      if (!status || !status.in_progress) break;
+      await new Promise((r) => setTimeout(r, POLL_MS));
+    }
+    if (cancelledRef.current) return;
+
+    // The real outcome (ok/error/frozen) lives in the activity log now,
+    // not in the POST /refresh response (which only ever said
+    // "started") — the newest entry is this run's, since nothing else
+    // can log while one refresh is in progress (scheduler.
+    // run_refresh_cycle()'s own in-progress guard).
+    try {
+      const [freshLog, freshStats] = await Promise.all([api.getRefreshLog(1), api.getStats()]);
+      if (cancelledRef.current) return;
+      const entry = freshLog[0];
+      if (entry?.status === "ok") {
+        setResult({ kind: "ok", message: entry.used_news ? "Refreshed successfully, with live news enrichment." : "Refreshed successfully (registry-only)." });
+      } else if (entry?.status === "error") {
+        setResult({
+          kind: "error",
+          message: `Couldn't complete the refresh: ${entry.detail}. Showing the last successful data from ${fmtDateTime(freshStats.last_registry_refresh)}.`,
+        });
+      }
+    } catch {
+      /* the final load() below still runs regardless and will show whatever's real */
+    }
+    setBusy(null);
+    setProgress(null);
+    load();
+  }
 
   async function runRefresh(withNews: boolean) {
     setBusy(withNews ? "news" : "registry");
     setResult(null);
+    setProgress(null);
     try {
-      const r: RefreshResult = await api.refresh(withNews);
-      if (r.status === "error") {
-        // A real, handled pipeline failure (not an HTTP error) — the
-        // live DB was never touched (see the page's own doc comment),
-        // so last_registry_refresh/last_full_refresh_with_news below
-        // are still real and current; this message says so explicitly
-        // rather than leaving the user to infer it.
-        setResult({
-          kind: "error",
-          message: `Couldn't complete the refresh: ${r.message}. Showing the last successful data from ${fmtDateTime(stats?.last_registry_refresh ?? null)}.`,
-        });
-      } else {
-        setResult({
-          kind: "ok",
-          message: r.used_news ? "Refreshed successfully, with live news enrichment." : "Refreshed successfully (registry-only).",
-        });
-      }
+      await api.refresh(withNews); // returns {status:"started"} — the real outcome comes later, via polling
     } catch (e) {
       if (e instanceof ApiError && e.status === 423) {
         const detail = e.body as { reason?: string } | null;
         setResult({ kind: "frozen", message: detail?.reason ?? "Data is frozen — refresh blocked." });
+      } else if (e instanceof ApiError && e.status === 409) {
+        setResult({ kind: "error", message: "A refresh is already in progress — showing its live status now." });
+        pollUntilDone();
+        return;
       } else if (e instanceof ApiError && e.status === 400) {
         const detail = e.body as { detail?: string } | null;
         setResult({ kind: "error", message: detail?.detail ?? "Refresh request rejected." });
@@ -125,10 +214,10 @@ export function SyncPage() {
           message: `Couldn't reach the backend to refresh. Showing the last successful data from ${fmtDateTime(stats?.last_registry_refresh ?? null)}.`,
         });
       }
-    } finally {
       setBusy(null);
-      load();
+      return;
     }
+    pollUntilDone();
   }
 
   if (error) return <div className="px-6 py-6 text-clay-700">Failed to load sync status: {error}</div>;
@@ -136,6 +225,7 @@ export function SyncPage() {
 
   const frozen = stats.freeze;
   const newsDisabledReason = !stats.tavily_configured ? "Requires TAVILY_API_KEY configured on the backend (see the repo root's .env.example)." : frozen ? "Data is frozen." : null;
+  const inProgress = busy !== null;
 
   return (
     <div className="px-6 py-6">
@@ -171,7 +261,12 @@ export function SyncPage() {
             <tbody className="divide-y divide-stone-100">
               {SOURCES.map((source) => {
                 const f = stats.freshness[source];
-                const status = sourceStatus(source, f.age_days);
+                // Live progress (2026-09-03) takes over this row's badge
+                // while a refresh is actually running — the real,
+                // moment-to-moment state, not the pre-refresh snapshot
+                // stats was loaded with.
+                const live = progress?.in_progress ? progress.source_status[source] : null;
+                const status = live ? { label: LIVE_SOURCE_TEXT[live], className: LIVE_SOURCE_STYLE[live] } : sourceStatus(source, f.age_days);
                 return (
                   <tr key={source}>
                     <td className="py-2.5 pr-4 font-semibold text-stone-800">{SOURCE_LABEL[source]}</td>
@@ -180,7 +275,8 @@ export function SyncPage() {
                     </td>
                     <td className="py-2.5 pr-4 text-stone-500">{fmtAge(f.age_days)}</td>
                     <td className="py-2.5">
-                      <span title={f.note ?? undefined} className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${status.className}`}>
+                      <span title={f.note ?? undefined} className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${status.className}`}>
+                        {live === "running" && <Loader2 size={11} className="animate-spin" />}
                         {status.label}
                       </span>
                     </td>
@@ -189,6 +285,40 @@ export function SyncPage() {
               })}
             </tbody>
           </table>
+
+          {/* Segmented per-source progress bar — real state only, one
+              segment per source in scrape order, colored by
+              LIVE_SOURCE_STYLE; the trailing 5th segment covers the
+              pipeline/loading phase (no finer-grained progress is
+              available there — see PHASE_LABEL below for what's
+              actually happening in that stretch instead). */}
+          {progress?.in_progress && (
+            <div className="mt-4">
+              <div className="flex gap-1">
+                {SOURCES.map((source) => (
+                  <div
+                    key={source}
+                    className={`h-1.5 flex-1 rounded-full ${
+                      progress.source_status[source] === "done"
+                        ? "bg-forest-500"
+                        : progress.source_status[source] === "failed"
+                          ? "bg-compliance-red"
+                          : progress.source_status[source] === "running"
+                            ? "animate-pulse bg-compliance-amber"
+                            : progress.source_status[source] === "skipped"
+                              ? "bg-stone-300"
+                              : "bg-stone-200"
+                    }`}
+                  />
+                ))}
+                <div className={`h-1.5 flex-1 rounded-full ${progress.phase === "pipeline" || progress.phase === "loading" ? "animate-pulse bg-compliance-amber" : "bg-stone-200"}`} />
+              </div>
+              <p className="mt-2 flex items-center gap-1.5 text-[12px] text-stone-500">
+                <Loader2 size={12} className="animate-spin" />
+                {PHASE_LABEL[progress.phase] ?? `Working on ${SOURCE_LABEL[progress.phase as SyncSource] ?? progress.phase}…`}
+              </p>
+            </div>
+          )}
         </div>
       </Panel>
 
@@ -202,7 +332,7 @@ export function SyncPage() {
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <button
             onClick={() => runRefresh(false)}
-            disabled={busy !== null || !!frozen}
+            disabled={inProgress || !!frozen}
             className="inline-flex items-center gap-2 rounded-lg bg-forest-600 px-4 py-2 text-[13.5px] font-semibold text-white transition hover:bg-forest-700 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <RefreshCw size={14} className={busy === "registry" ? "animate-spin" : ""} />
@@ -210,7 +340,7 @@ export function SyncPage() {
           </button>
           <button
             onClick={() => runRefresh(true)}
-            disabled={busy !== null || !!frozen || !stats.tavily_configured}
+            disabled={inProgress || !!frozen || !stats.tavily_configured}
             title={newsDisabledReason ?? undefined}
             className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-4 py-2 text-[13.5px] font-semibold text-stone-700 transition hover:border-forest-400 hover:text-forest-700 disabled:cursor-not-allowed disabled:opacity-40"
           >

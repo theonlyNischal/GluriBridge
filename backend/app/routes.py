@@ -9,7 +9,7 @@ import json
 import os
 from datetime import date, datetime, timezone
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Query
 from pydantic import BaseModel
 
 import orchestrate
@@ -136,11 +136,28 @@ def get_stats():
     }
 
 
-@router.post("/refresh")
+@router.post("/refresh", status_code=202)
 def post_refresh(
+    background_tasks: BackgroundTasks,
     force: str = Query("", description="comma-separated source names to force regardless of cadence, same as orchestrate.py --force"),
     with_news: bool = Query(False, description="also run live Tavily news discovery + Tier B contact resolution — requires TAVILY_API_KEY configured on the backend"),
 ):
+    """
+    Fire-and-forget (2026-09-03, Sync page live progress) — a full
+    refresh (real scraping + optionally real Tavily searches) can take
+    several real minutes; blocking the request until it finished (the
+    original design) left the frontend with nothing to show but one
+    opaque spinner for that whole time. Returns 202 immediately once the
+    cheap synchronous pre-checks pass; the actual work runs in a
+    BackgroundTasks callback, with live per-source progress readable
+    from GET /refresh-status while it runs, and the final real outcome
+    landing in GET /refresh-log once it's done.
+
+    The frozen/already-in-progress checks happen HERE, synchronously,
+    not inside the backgrounded call — so a blocked request still fails
+    fast with the real reason (423/409), rather than reporting "started"
+    and only failing silently in the background.
+    """
     if with_news and orchestrate.get_tavily_api_key() is None:
         # Deliberately a real 4xx, not a silent downgrade to registry-only —
         # the caller explicitly asked for a news-enriched refresh; doing
@@ -148,14 +165,30 @@ def post_refresh(
         # the same honesty standard every other real vs. simulated
         # decision in this app is held to.
         raise HTTPException(status_code=400, detail="with_news=true requested, but TAVILY_API_KEY is not configured on this backend — see the repo root's .env.example")
-    forced = {s.strip() for s in force.split(",") if s.strip()}
-    result = scheduler.run_refresh_cycle(force=forced, with_news=with_news, triggered_by="manual")
-    if result["status"] == "frozen":
+
+    current = scheduler.get_current_refresh()
+    if current and current.get("in_progress"):
+        raise HTTPException(status_code=409, detail={"message": "a refresh is already in progress", "current": current})
+
+    frozen = orchestrate.read_freeze()
+    if frozen:
         # 423 Locked — the closest standard status for "blocked by an
         # explicit hold," matching orchestrate.py CLI's own exit code 3
         # for the identical situation.
-        raise HTTPException(status_code=423, detail=result)
-    return result
+        raise HTTPException(status_code=423, detail={"status": "frozen", "frozen_at": frozen.get("frozen_at"), "reason": frozen.get("reason")})
+
+    forced = {s.strip() for s in force.split(",") if s.strip()}
+    background_tasks.add_task(scheduler.run_refresh_cycle, force=forced, with_news=with_news, triggered_by="manual")
+    return {"status": "started"}
+
+
+@router.get("/refresh-status")
+def get_refresh_status():
+    """Live progress of the currently-running refresh, if any — real
+    state from scheduler._current_refresh, updated as run_refresh_cycle
+    actually moves through each source/phase. null when nothing is
+    running; the frontend polls this while a refresh is in flight."""
+    return scheduler.get_current_refresh()
 
 
 @router.get("/refresh-log")

@@ -85,14 +85,33 @@ export interface RefreshLogEntry {
   detail: string | null;
 }
 
-// Result of POST /refresh — status "frozen" arrives as a 423's response
-// body (api.ts throws on !res.ok, so callers catch it there instead),
-// "ok"/"error" are both normal 200 responses the caller branches on.
+// Result of POST /refresh (2026-09-03, fire-and-forget) — "started" is
+// the only success shape now; the real outcome ('ok'/'error') is found
+// later via GET /refresh-log once GET /refresh-status reports the
+// refresh is no longer in progress. "frozen"/"already in progress"
+// arrive as a 423/409's response body instead (api.ts throws ApiError,
+// callers catch it there).
 export interface RefreshResult {
-  status: "ok" | "error";
-  message?: string;
-  used_news?: boolean;
-  scrape_results?: Record<string, { ran: boolean; ok?: boolean; message?: string; why?: string }>;
+  status: "started";
+}
+
+export type SourceProgress = "pending" | "skipped" | "running" | "done" | "failed";
+
+// Live progress of the one refresh currently running, if any
+// (2026-09-03) — scheduler.get_current_refresh()'s exact shape. null
+// when nothing is in progress. Polled by the Sync page while a refresh
+// is active; real state mutated in place as run_refresh_cycle() moves
+// through each step, never estimated/simulated.
+export interface RefreshStatus {
+  in_progress: boolean;
+  started_at: string;
+  with_news: boolean;
+  triggered_by: "manual" | "scheduler";
+  // "starting" | a SyncSource name (currently scraping/just finished
+  // that source) | "pipeline" (normalizing/scoring/news) | "loading"
+  // (writing the result into the live DB)
+  phase: string;
+  source_status: Record<SyncSource, SourceProgress>;
 }
 
 // Result of POST /candidates/{id}/status — mirrors db.set_status()'s

@@ -39,6 +39,15 @@ backend/data/raw/*
 backend/data/raw/brwa_profiles/*
 !backend/data/raw/brwa_profiles/wa_list.json
 
+# A scraper's OWN local working/staging directory (e.g.
+# backend/scrapers/verra/data/), before orchestrate.py's promotion step
+# copies the relevant parts into backend/data/raw/<source>/ above — a
+# real gap found 2026-09-03 when an interrupted live scrape (an
+# in-flight refresh was stopped mid-run) left 219MB of genuinely
+# orphaned partial output here, untracked and un-ignored, that would
+# otherwise have been silently swept into the next commit.
+backend/scrapers/*/data/
+
 # Raw bulk source material at the project root — the original manual
 # downloads (Verra Excel export, SRUK/SRN-PPI project-list zips) that
 # predate and seeded the scrapers now in backend/scrapers/*. Same

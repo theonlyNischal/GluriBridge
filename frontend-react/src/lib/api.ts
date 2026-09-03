@@ -7,6 +7,7 @@ import type {
   TerritoryListEntry,
   RefreshLogEntry,
   RefreshResult,
+  RefreshStatus,
 } from "./types";
 
 // Build-time override for deployment (e.g. Render's Static Site build env
@@ -71,9 +72,14 @@ export const api = {
   getStats: () => get<StatsResponse>("/stats"),
   setStatus: (id: string, status: CandidateStatusValue, note?: string) =>
     post<StatusUpdateResult>(`/candidates/${encodeURIComponent(id)}/status`, { status, note }),
-  // Sync page (2026-09-03). refresh() throws ApiError on a non-2xx —
-  // 423 (frozen) or 400 (with_news requested but no Tavily key
-  // configured) both carry the real detail body, not just a status code.
+  // Sync page (2026-09-03). refresh() returns {status:"started"}
+  // immediately (202) and throws ApiError on a non-2xx — 423 (frozen),
+  // 409 (already in progress), or 400 (with_news requested but no
+  // Tavily key configured), each carrying the real detail body, not
+  // just a status code. Actual progress: poll getRefreshStatus() while
+  // it's in flight; the real outcome lands in getRefreshLog() once
+  // getRefreshStatus() reports null/not-in-progress again.
   getRefreshLog: (limit = 20) => get<RefreshLogEntry[]>(`/refresh-log?limit=${limit}`),
+  getRefreshStatus: () => get<RefreshStatus | null>("/refresh-status"),
   refresh: (withNews = false) => postWithErrorBody<RefreshResult>(`/refresh?with_news=${withNews}`),
 };

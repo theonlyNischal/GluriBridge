@@ -1,4 +1,4 @@
 {
-  "frozen_at": "2026-08-26T06:13:34.941845+00:00",
-  "reason": "Pre-demo refresh completed 2026-08-26 (SRUK+Verra live re-scraped, 0 errors; SRN-PPI correctly skipped, not due; BRWA manual/unchanged). Data frozen through Demo Day (5 Sep 2026) for rehearsal stability \u2014 do not re-scrape without explicit --unfreeze."
+  "frozen_at": "2026-09-03T08:22:57.314116+00:00",
+  "reason": "Refresh stopped and data restored 2026-09-03 (recovered a real 144-candidate rich dataset after an old-code concurrency bug briefly overwrote it with a 129-candidate registry-only one, see the Sync page's activity log for the full real incident). Frozen again through Demo Day (5 Sep 2026) for rehearsal stability - do not re-scrape without explicit --unfreeze."
 }

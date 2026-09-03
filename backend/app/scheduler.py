@@ -31,6 +31,32 @@ POLL_INTERVAL_SECONDS = 60 * 60  # 1 hour
 
 _background_task = None
 
+# Live, in-memory refresh progress (2026-09-03, Sync page per-source
+# progress) — deliberately NOT persisted: this is "what's happening
+# right now," a different real thing from refresh_log (the durable
+# history of past attempts) or the meta table (last-known-good
+# timestamps). None when nothing is running. Fine for this app's
+# single-worker uvicorn process; would need a shared store (e.g. Redis)
+# to stay correct across multiple worker processes, out of scope here.
+_current_refresh: dict | None = None
+
+
+def get_current_refresh() -> dict | None:
+    return _current_refresh
+
+
+def _set_phase(phase: str, source: str = None, source_status: str = None):
+    """Mutates the one shared _current_refresh dict in place — GET
+    /refresh-status reads whatever's there at request time, no locking
+    needed for this single-writer/many-readers pattern (the writer is
+    always the one in-progress refresh; run_refresh_cycle's own
+    in-progress guard, below, ensures there's never more than one)."""
+    if _current_refresh is None:
+        return
+    _current_refresh["phase"] = phase
+    if source:
+        _current_refresh["source_status"][source] = source_status
+
 
 def _load_export_into_db():
     """
@@ -141,10 +167,36 @@ def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: b
     untouched by a failed attempt — the real "last validated data stays
     up" behavior, achieved by simply never overwriting it on failure,
     not by any special-cased fallback logic.
+
+    Live progress (2026-09-03): populates the module-level
+    _current_refresh dict as it moves through each real step (per-source
+    scraping, then the pipeline/export step), read by GET /refresh-status
+    — real, caused by this function's actual state, never simulated or
+    estimated. Also guards against overlap: if a refresh is ALREADY in
+    progress (a real concurrency risk that existed before this guard too
+    — a manual request could already collide with the hourly scheduler
+    loop), a new call returns {"status": "skipped", ...} immediately
+    rather than running two scrapes against the same data/raw/ files at
+    once.
     """
+    global _current_refresh
+    if _current_refresh is not None and _current_refresh.get("in_progress"):
+        logger.info("refresh cycle skipped — one is already in progress (started %s, by %s)",
+                    _current_refresh.get("started_at"), _current_refresh.get("triggered_by"))
+        return {"status": "skipped", "reason": "a refresh is already in progress", "current": dict(_current_refresh)}
+
     force = force or set()
     today = date.today()
     started_at = datetime.now(timezone.utc).isoformat()
+    sources = ("sruk", "srn_ppi", "verra", "brwa")
+    _current_refresh = {
+        "in_progress": True,
+        "started_at": started_at,
+        "with_news": with_news,
+        "triggered_by": triggered_by,
+        "phase": "starting",
+        "source_status": {s: "pending" for s in sources},
+    }
 
     if not skip_scrape:
         frozen = orchestrate.read_freeze()
@@ -152,28 +204,40 @@ def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: b
             logger.info("refresh cycle blocked — data frozen: %s", frozen.get("reason"))
             db.log_refresh_attempt(started_at, datetime.now(timezone.utc).isoformat(), "frozen",
                                     with_news, False, triggered_by, detail=frozen.get("reason"))
+            _current_refresh = None
             return {"status": "frozen", "frozen_at": frozen.get("frozen_at"), "reason": frozen.get("reason")}
 
     freshness = orchestrate.check_all_freshness(today)
     scrape_results = {}
     try:
         if not skip_scrape:
-            for source in ("sruk", "srn_ppi", "verra", "brwa"):
+            for source in sources:
                 due, why = orchestrate.is_due(source, freshness, force)
                 if not due:
                     scrape_results[source] = {"ran": False, "why": why}
+                    _set_phase(source, source, "skipped")
                     continue
+                _set_phase(source, source, "running")
                 ok, message = orchestrate.run_scraper(source)
                 scrape_results[source] = {"ran": True, "ok": ok, "message": message}
+                _set_phase(source, source, "done" if ok else "failed")
             freshness = orchestrate.check_all_freshness(today)  # re-check after scraping
 
+        _set_phase("pipeline")
         pipeline_result = orchestrate.run_normalization_and_export(freshness, with_news=with_news)
+        _set_phase("loading")
         load_result = _load_export_into_db()
     except Exception as e:
         logger.exception("refresh cycle failed")
         db.log_refresh_attempt(started_at, datetime.now(timezone.utc).isoformat(), "error",
                                 with_news, False, triggered_by, detail=str(e))
         return {"status": "error", "message": str(e), "scrape_results": scrape_results}
+    finally:
+        # Runs after either the try block or the except block above —
+        # covers both "finished" and "failed," always clears the live
+        # in-progress flag exactly once so a genuine crash can never
+        # leave the Sync page believing a refresh is still running.
+        _current_refresh = None
 
     used_news = pipeline_result.get("used_news", False)
     db.log_refresh_attempt(
@@ -194,7 +258,19 @@ async def _background_loop():
     while True:
         try:
             logger.info("scheduler: checking cadence...")
-            result = run_refresh_cycle()
+            # asyncio.to_thread (2026-09-03, real bug found live) — this
+            # was calling the synchronous, potentially many-minutes-long
+            # run_refresh_cycle() directly on the event loop. FastAPI/
+            # Starlette automatically runs a sync ROUTE handler in a
+            # thread pool, but nothing does that for a plain function
+            # called from inside an asyncio task — so every real request
+            # (GET /stats, the Sync page itself, everything) was
+            # completely unresponsive for the entire duration of any
+            # automatic hourly refresh. Caught because this server had
+            # finally run long enough for the scheduler's own first tick
+            # to fire during active use — the server went unreachable at
+            # exactly that moment, confirmed live, not hypothetical.
+            result = await asyncio.to_thread(run_refresh_cycle)
             logger.info("scheduler: cycle result status=%s", result.get("status"))
         except Exception:
             logger.exception("scheduler: refresh cycle failed, will retry next interval")
