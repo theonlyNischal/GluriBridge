@@ -8,6 +8,7 @@ import type {
   RefreshLogEntry,
   RefreshResult,
   RefreshStatus,
+  SyncSource,
 } from "./types";
 
 // Build-time override for deployment (e.g. Render's Static Site build env
@@ -81,5 +82,9 @@ export const api = {
   // getRefreshStatus() reports null/not-in-progress again.
   getRefreshLog: (limit = 20) => get<RefreshLogEntry[]>(`/refresh-log?limit=${limit}`),
   getRefreshStatus: () => get<RefreshStatus | null>("/refresh-status"),
-  refresh: (withNews = false) => postWithErrorBody<RefreshResult>(`/refresh?with_news=${withNews}`),
+  // only (2026-09-03, per-source buttons): restricts to exactly one
+  // source, always runs regardless of cadence. withNews is meaningless
+  // combined with only (the backend ignores it in that case — news
+  // isn't scoped to one registry source) so callers never pass both.
+  refresh: (withNews = false, only?: SyncSource) => postWithErrorBody<RefreshResult>(`/refresh?with_news=${withNews}${only ? `&only=${only}` : ""}`),
 };

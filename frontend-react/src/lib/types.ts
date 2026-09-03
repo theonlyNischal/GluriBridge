@@ -107,6 +107,9 @@ export interface RefreshStatus {
   started_at: string;
   with_news: boolean;
   triggered_by: "manual" | "scheduler";
+  // Set when this refresh was scoped to exactly one source (a Sync page
+  // per-source button) — null for a normal all-4-sources refresh.
+  only: SyncSource | null;
   // "starting" | a SyncSource name (currently scraping/just finished
   // that source) | "pipeline" (normalizing/scoring/news) | "loading"
   // (writing the result into the live DB)

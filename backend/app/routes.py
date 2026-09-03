@@ -136,11 +136,15 @@ def get_stats():
     }
 
 
+VALID_SOURCES = ("sruk", "srn_ppi", "verra", "brwa")
+
+
 @router.post("/refresh", status_code=202)
 def post_refresh(
     background_tasks: BackgroundTasks,
     force: str = Query("", description="comma-separated source names to force regardless of cadence, same as orchestrate.py --force"),
     with_news: bool = Query(False, description="also run live Tavily news discovery + Tier B contact resolution — requires TAVILY_API_KEY configured on the backend"),
+    only: str = Query(None, description="restrict to exactly one source (sruk/srn_ppi/verra/brwa), always run regardless of cadence — Sync page per-source buttons"),
 ):
     """
     Fire-and-forget (2026-09-03, Sync page live progress) — a full
@@ -157,8 +161,20 @@ def post_refresh(
     not inside the backgrounded call — so a blocked request still fails
     fast with the real reason (423/409), rather than reporting "started"
     and only failing silently in the background.
+
+    only (2026-09-03, individual per-source buttons): still runs the
+    real full pipeline/export/load afterward (not just the one raw
+    scrape) — a candidate list can't be re-scored from one source's
+    data alone, the pipeline always needs all 4. with_news is ignored
+    when only is set (news enrichment isn't scoped to one registry
+    source — it's a pipeline-wide step using every current candidate's
+    province, same reasoning as why news isn't a Sources table row at
+    all).
     """
-    if with_news and orchestrate.get_tavily_api_key() is None:
+    if only is not None and only not in VALID_SOURCES:
+        raise HTTPException(status_code=400, detail=f"only must be one of {VALID_SOURCES}, got {only!r}")
+
+    if with_news and only is None and orchestrate.get_tavily_api_key() is None:
         # Deliberately a real 4xx, not a silent downgrade to registry-only —
         # the caller explicitly asked for a news-enriched refresh; doing
         # less than that without saying so would misreport what happened,
@@ -178,7 +194,9 @@ def post_refresh(
         raise HTTPException(status_code=423, detail={"status": "frozen", "frozen_at": frozen.get("frozen_at"), "reason": frozen.get("reason")})
 
     forced = {s.strip() for s in force.split(",") if s.strip()}
-    background_tasks.add_task(scheduler.run_refresh_cycle, force=forced, with_news=with_news, triggered_by="manual")
+    background_tasks.add_task(
+        scheduler.run_refresh_cycle, force=forced, with_news=(with_news and only is None), triggered_by="manual", only=only,
+    )
     return {"status": "started"}
 
 

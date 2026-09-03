@@ -27,6 +27,15 @@ const SOURCE_LABEL: Record<SyncSource, string> = {
 
 const SOURCES: SyncSource[] = ["sruk", "srn_ppi", "verra", "brwa"];
 
+// BRWA specifically flagged (2026-09-03, per-source buttons) — a real,
+// meaningfully heavier operation than the other three (2,283 profiles +
+// PDFs, see orchestrate.py's own CADENCE_DAYS comment for why it's
+// manual-only in the first place). Not blocked, just clearly labeled,
+// so a click is an informed one, not a surprise.
+const SOURCE_WARNING: Partial<Record<SyncSource, string>> = {
+  brwa: "Re-crawls all 2,283 BRWA territory profiles — much slower than the other sources, real time and load.",
+};
+
 const PHASE_LABEL: Record<string, string> = {
   starting: "Starting…",
   pipeline: "Normalizing, scoring, and (if requested) searching live news…",
@@ -104,7 +113,7 @@ export function SyncPage() {
   const [stats, setStats] = useState<StatsResponse | null>(null);
   const [log, setLog] = useState<RefreshLogEntry[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [busy, setBusy] = useState<"registry" | "news" | null>(null);
+  const [busy, setBusy] = useState<"registry" | "news" | SyncSource | null>(null);
   const [progress, setProgress] = useState<RefreshStatus | null>(null);
   const [result, setResult] = useState<{ kind: "ok" | "error" | "frozen"; message: string } | null>(null);
   // Guards against setting state after unmount — a poll loop is a real
@@ -139,7 +148,7 @@ export function SyncPage() {
       .getRefreshStatus()
       .then((s) => {
         if (cancelledRef.current || !s?.in_progress) return;
-        setBusy(s.with_news ? "news" : "registry");
+        setBusy(s.only ?? (s.with_news ? "news" : "registry"));
         pollUntilDone();
       })
       .catch(() => {
@@ -191,17 +200,19 @@ export function SyncPage() {
     load();
   }
 
-  async function runRefresh(withNews: boolean) {
-    setBusy(withNews ? "news" : "registry");
+  async function runRefresh(withNews: boolean, only?: SyncSource) {
+    setBusy(only ?? (withNews ? "news" : "registry"));
     setResult(null);
     setProgress(null);
     try {
-      await api.refresh(withNews); // returns {status:"started"} — the real outcome comes later, via polling
+      await api.refresh(withNews, only); // returns {status:"started"} — the real outcome comes later, via polling
     } catch (e) {
       if (e instanceof ApiError && e.status === 423) {
         const detail = e.body as { reason?: string } | null;
         setResult({ kind: "frozen", message: detail?.reason ?? "Data is frozen — refresh blocked." });
       } else if (e instanceof ApiError && e.status === 409) {
+        const detail = e.body as { current?: RefreshStatus } | null;
+        setBusy(detail?.current?.only ?? (detail?.current?.with_news ? "news" : "registry"));
         setResult({ kind: "error", message: "A refresh is already in progress — showing its live status now." });
         pollUntilDone();
         return;
@@ -255,7 +266,8 @@ export function SyncPage() {
                 <th className="pb-2 pr-4">Source</th>
                 <th className="pb-2 pr-4">Last fetched</th>
                 <th className="pb-2 pr-4">Age</th>
-                <th className="pb-2">Status</th>
+                <th className="pb-2 pr-4">Status</th>
+                <th className="pb-2" />
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100">
@@ -274,11 +286,30 @@ export function SyncPage() {
                       {fmtDateTime(f.fetched_at)}
                     </td>
                     <td className="py-2.5 pr-4 text-stone-500">{fmtAge(f.age_days)}</td>
-                    <td className="py-2.5">
+                    <td className="py-2.5 pr-4">
                       <span title={f.note ?? undefined} className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${status.className}`}>
                         {live === "running" && <Loader2 size={11} className="animate-spin" />}
                         {status.label}
                       </span>
+                    </td>
+                    <td className="py-2.5 text-right">
+                      {/* Per-source refresh (2026-09-03) — always registry-only
+                          (news isn't scoped to one source, see the panel's own
+                          "why isn't news a source" note) and always runs
+                          regardless of cadence, same as the CLI's --force. */}
+                      <button
+                        onClick={() => runRefresh(false, source)}
+                        disabled={inProgress || !!frozen}
+                        title={SOURCE_WARNING[source] ?? `Refresh ${SOURCE_LABEL[source]} only`}
+                        className={`inline-flex items-center gap-1 rounded-md border px-2 py-1 text-[11px] font-semibold transition disabled:cursor-not-allowed disabled:opacity-40 ${
+                          SOURCE_WARNING[source]
+                            ? "border-compliance-amber/40 text-compliance-amber hover:bg-compliance-amberBg"
+                            : "border-stone-300 text-stone-600 hover:border-forest-400 hover:text-forest-700"
+                        }`}
+                      >
+                        <RefreshCw size={11} className={busy === source ? "animate-spin" : ""} />
+                        {busy === source ? "Refreshing…" : "Refresh"}
+                      </button>
                     </td>
                   </tr>
                 );

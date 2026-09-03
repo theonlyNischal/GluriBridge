@@ -142,7 +142,7 @@ def seed_if_empty():
 
 
 def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: bool = False,
-                       triggered_by: str = "scheduler") -> dict:
+                       triggered_by: str = "scheduler", only: str = None) -> dict:
     """
     Same sequence as orchestrate.main() (freeze gate -> freshness check ->
     scrape due sources -> re-check freshness -> run_normalization_and_
@@ -178,6 +178,17 @@ def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: b
     loop), a new call returns {"status": "skipped", ...} immediately
     rather than running two scrapes against the same data/raw/ files at
     once.
+
+    only (2026-09-03, Sync page per-source buttons): restricts scraping
+    to exactly this one source, unconditionally (no cadence check —
+    an explicit single-source request always runs, same as being in
+    `force`), with every other source marked "skipped" immediately
+    rather than left "pending" (honest: they were never going to run
+    this cycle, not just not-yet-reached). None (the default) scrapes
+    all 4 sources with the normal due-checking, unchanged. Still runs
+    the full pipeline/export/load afterward using whatever raw data
+    exists for the sources that weren't refreshed — same as a normal
+    cycle where a source simply wasn't due.
     """
     global _current_refresh
     if _current_refresh is not None and _current_refresh.get("in_progress"):
@@ -188,14 +199,16 @@ def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: b
     force = force or set()
     today = date.today()
     started_at = datetime.now(timezone.utc).isoformat()
-    sources = ("sruk", "srn_ppi", "verra", "brwa")
+    all_sources = ("sruk", "srn_ppi", "verra", "brwa")
+    sources_to_check = (only,) if only else all_sources
     _current_refresh = {
         "in_progress": True,
         "started_at": started_at,
         "with_news": with_news,
         "triggered_by": triggered_by,
+        "only": only,
         "phase": "starting",
-        "source_status": {s: "pending" for s in sources},
+        "source_status": {s: ("pending" if (only is None or s == only) else "skipped") for s in all_sources},
     }
 
     if not skip_scrape:
@@ -211,8 +224,8 @@ def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: b
     scrape_results = {}
     try:
         if not skip_scrape:
-            for source in sources:
-                due, why = orchestrate.is_due(source, freshness, force)
+            for source in sources_to_check:
+                due, why = (True, "explicit single-source request") if only else orchestrate.is_due(source, freshness, force)
                 if not due:
                     scrape_results[source] = {"ran": False, "why": why}
                     _set_phase(source, source, "skipped")
