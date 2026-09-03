@@ -5,7 +5,7 @@ import { Panel } from "../components/ui/Panel";
 import { ScoreLabelPill } from "../components/ui/ScoreLabelPill";
 import { ScoreStatCard } from "../components/ui/ScoreStatCard";
 import { KpiCard } from "../components/ui/KpiCard";
-import { DonutChart } from "../components/ui/DonutChart";
+import { ProjectTypeBreakdown } from "../components/ProjectTypeBreakdown";
 import { DashboardMap } from "../components/DashboardMap";
 import { ProvinceBreakdown } from "../components/ProvinceBreakdown";
 import { STATUS_OPTIONS, STATUS_DOT_COLOR } from "../components/ui/StatusBadge";
@@ -150,15 +150,10 @@ export function DashboardPage() {
   const hasPhone = candidates.filter((r) => r.has_phone).length;
   const publicPresenceOnly = candidates.filter((r) => r.has_public_presence && !r.has_phone).length;
 
-  const richness: Record<string, number> = { rich: 0, corroborated: 0, thin: 0 };
-  candidates.forEach((r) => {
-    richness[r.data_richness] = (richness[r.data_richness] ?? 0) + 1;
-  });
-
   // Real breakdown across all 5 outreach-status values (2026-08-28,
-  // replacing the original binary contacted/not-contacted count) — same
-  // donut+legend treatment as Data richness (2026-09-02), each row a
-  // real link to the exact filtered Candidates view for that status.
+  // replacing the original binary contacted/not-contacted count) — a
+  // plain dot+count list (2026-09-02, see below), each row a real link
+  // to the exact filtered Candidates view for that status.
   const statusCounts: Record<CandidateStatusValue, number> = { not_contacted: 0, contacted: 0, follow_up_needed: 0, done: 0, rejected: 0 };
   candidates.forEach((r) => {
     statusCounts[r.status] = (statusCounts[r.status] ?? 0) + 1;
@@ -349,43 +344,18 @@ export function DashboardPage() {
           <RankedList rows={topCred} />
           <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
         </Panel>
-        <Panel title="Data richness" variant="instrument">
-          {/* Donut + legend (2026-09-02 visual pass, replacing 3 bar rows) —
-              same real per-category counts, just a more compact/scannable
-              shape for exactly 3 categories that sum to the real total. */}
-          <div className="flex items-center gap-3">
-            <div className="relative shrink-0">
-              <DonutChart
-                size={80}
-                segments={[
-                  { value: richness.rich ?? 0, color: "#2f6d4f" },
-                  { value: richness.corroborated ?? 0, color: "#245452" },
-                  { value: richness.thin ?? 0, color: "#824623" },
-                ]}
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-mono text-[15px] font-bold text-stone-900">{total ? Math.round(((richness.rich ?? 0) / total) * 100) : 0}%</span>
-                <span className="text-[7px] uppercase tracking-wide text-stone-400">rich</span>
-              </div>
-            </div>
-            {/* min-w-0 required — a flex item otherwise won't shrink below
-                its content's intrinsic width, which is exactly what
-                `truncate` on the label below needs to ever kick in. */}
-            <div className="min-w-0 flex-1 space-y-1.5 text-[12px]">
-              {([
-                ["rich", "#2f6d4f"],
-                ["corroborated", "#245452"],
-                ["thin", "#824623"],
-              ] as const).map(([k, color]) => (
-                <div key={k} className="flex items-center gap-1.5">
-                  <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
-                  <span className="min-w-0 flex-1 truncate capitalize text-stone-600">{k}</span>
-                  <span className="shrink-0 font-mono font-semibold text-stone-700">{richness[k] ?? 0}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <PanelLink to="/candidates">View all candidates</PanelLink>
+        <Panel title="Candidates by project type" variant="instrument">
+          {/* Replaces Data richness (2026-09-03, mentor feedback at the
+              hackathon: show what KIND of forestry-carbon project is
+              actually in the pipeline, not just how much evidence backs
+              each one — Evidence Strength already covers that
+              elsewhere). Data richness itself isn't lost information:
+              rich/thin is exactly what backs the Evidence Strength axis
+              shown in the KPI row, Top 5 list, and every candidate card
+              already. Real activity_categories field, same real
+              bar-list + click-through pattern as Candidates by
+              province. */}
+          <ProjectTypeBreakdown candidates={candidates} />
         </Panel>
         <Panel title="Outreach status" variant="instrument">
           {/* Deliberately a plain dot+count list, not a donut (tried,
