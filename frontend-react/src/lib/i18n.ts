@@ -11,9 +11,14 @@ import { useLanguage, type Lang } from "./LanguageContext";
  * own fallback, so an incomplete translation never blanks or breaks a
  * render.
  *
- * Korean copy drafted by Claude, not a native speaker — flagged to the
- * user for a native-speaker proofread pass before Demo Day. Treat as a
- * strong first draft, not verified-final copy.
+ * Korean copy drafted by Claude, not a native speaker. Revised once
+ * (2026-09-03) against native-level review feedback — unified the
+ * candidate/project term choice, dropped a stray hanja annotation,
+ * tightened several stiff/translationese phrasings — but two of that
+ * review's specific suggestions were deliberately NOT applied (see
+ * "프로젝트" not bare "후보" below, and the activity-category comment):
+ * still treat this as a strong draft, not final copy signed off by a
+ * domain expert in Korean forestry-carbon terminology specifically.
  *
  * Deliberately excludes: candidate/org names, real Indonesian legal
  * citations and document names, registry IDs, province names, news
@@ -25,7 +30,7 @@ export const STRINGS = {
   // Nav sidebar + header (App.tsx) — global chrome, both EN and KO.
   "nav.dashboard": { en: "Dashboard", ko: "대시보드" },
   "nav.territoryDiscovery": { en: "Territory Discovery", ko: "지역 탐색" },
-  "nav.candidates": { en: "Candidates", ko: "후보지" },
+  "nav.candidates": { en: "Candidates", ko: "프로젝트" },
   "nav.partnerships": { en: "Partnerships", ko: "파트너십" },
   "nav.tagline1": { en: "Indonesia forestry-carbon", ko: "인도네시아 산림 탄소" },
   "nav.tagline2": { en: "partner discovery", ko: "파트너 발굴" },
@@ -34,16 +39,16 @@ export const STRINGS = {
   "nav.collapse": { en: "Collapse", ko: "접기" },
   "nav.expandSidebar": { en: "Expand sidebar", ko: "사이드바 펼치기" },
   "nav.collapseSidebar": { en: "Collapse sidebar", ko: "사이드바 접기" },
-  "title.candidateDetail": { en: "Candidate detail", ko: "후보지 상세" },
+  "title.candidateDetail": { en: "Candidate detail", ko: "프로젝트 상세" },
 
   // Dashboard hero
-  "dash.eyebrow": { en: "Real, evidence-backed candidate discovery", ko: "실제 데이터 기반, 증거 중심의 후보지 발굴" },
+  "dash.eyebrow": { en: "Real, evidence-backed candidate discovery", ko: "실제 데이터 기반, 증거 중심의 프로젝트 발굴" },
   // {n} substituted via t()'s caller — kept as a placeholder rather than
   // string concatenation because Korean word order puts the count
   // mid-sentence with no space before its counter word (명), not at the
   // start like English.
-  "dash.headline": { en: "{n} real candidates in the pipeline", ko: "파이프라인에 실제 후보지 {n}곳" },
-  "dash.kpi.total": { en: "Total Candidates", ko: "전체 후보지" },
+  "dash.headline": { en: "{n} real candidates in the pipeline", ko: "파이프라인에 실제 프로젝트 {n}개" },
+  "dash.kpi.total": { en: "Total Candidates", ko: "전체 프로젝트" },
   "dash.kpi.total.sub": { en: "live from the API", ko: "API 실시간 데이터" },
   "dash.kpi.highOpp": { en: "High Opportunity", ko: "높은 기회" },
   "dash.kpi.highOpp.sub": { en: "Opportunity ≥ 70", ko: "기회 점수 ≥ 70" },
@@ -57,8 +62,8 @@ export const STRINGS = {
   },
 
   // Contact ready / Also found cards
-  "dash.contactReady": { en: "Contact ready", ko: "연락처 확보" },
-  "dash.contactReady.unit": { en: "contacts identified", ko: "건의 연락처 확인" },
+  "dash.contactReady": { en: "Contact ready", ko: "연락 가능" },
+  "dash.contactReady.unit": { en: "contacts identified", ko: "건의 연락처 확보" },
   "dash.viewContacts": { en: "View contacts", ko: "연락처 보기" },
   // "검증된" (not "확인된") to match "Verified" -> "검증된" consistently
   // with scoreLabel.confirmed below — this app's Confirmed-vs-Verified
@@ -69,28 +74,28 @@ export const STRINGS = {
   // Korean words consistently, not converge on one.
   "dash.chip.verifiedEmails": { en: "Verified emails", ko: "검증된 이메일" },
   "dash.chip.potentialMatches": { en: "Potential matches", ko: "가능성 있는 일치" },
-  "dash.chip.namedNoEmail": { en: "Named contacts, no email", ko: "이름만 확인, 이메일 없음" },
-  "dash.alsoFound": { en: "Also found", ko: "추가로 발견" },
+  "dash.chip.namedNoEmail": { en: "Named contacts, no email", ko: "이름만 확인 (이메일 없음)" },
+  "dash.alsoFound": { en: "Also found", ko: "다른 연락 방법" },
   "dash.alsoFound.unit": { en: "more ways to connect", ko: "건의 추가 연락 경로" },
   "dash.chip.phoneWhatsapp": { en: "Phone/WhatsApp", ko: "전화/왓츠앱" },
   "dash.chip.onlineOnly": { en: "Online presence only", ko: "온라인 정보만 있음" },
 
   // Panel titles + links
-  "dash.panel.gallery": { en: "Candidate profiles — one real example per category", ko: "후보지 프로필 — 카테고리별 실제 예시 1건" },
+  "dash.panel.gallery": { en: "Candidate profiles — one real example per category", ko: "프로젝트 프로필 — 카테고리별 실제 예시 1건" },
   "dash.panel.map": {
     en: "Real candidate locations + real Customary Territory Registry overlaps",
-    ko: "실제 후보지 위치 + 관습토지등록부(BRWA) 중첩 현황",
+    ko: "실제 프로젝트 위치 + 관습토지등록부(BRWA) 중첩 현황",
   },
-  "dash.panel.province": { en: "Candidates by province (real, normalized)", ko: "주(州)별 후보지 분포 (실제 데이터, 정규화됨)" },
+  "dash.panel.province": { en: "Candidates by province (real, normalized)", ko: "주별 프로젝트 분포 (실제 데이터, 정규화됨)" },
   "dash.panel.topOpp": { en: "Top 5 by Opportunity", ko: "기회 점수 상위 5" },
   "dash.panel.topEvid": { en: "Top 5 by Evidence Strength", ko: "증거 강도 상위 5" },
-  "dash.panel.projectType": { en: "Candidates by project type", ko: "프로젝트 유형별 후보지" },
+  "dash.panel.projectType": { en: "Candidates by project type", ko: "프로젝트 유형별 분포" },
   "dash.panel.outreach": { en: "Outreach status", ko: "아웃리치 현황" },
-  "dash.viewAllCandidates": { en: "View all candidates", ko: "전체 후보지 보기" },
+  "dash.viewAllCandidates": { en: "View all candidates", ko: "전체 프로젝트 보기" },
   "dash.viewInTerritoryDiscovery": { en: "View in Territory Discovery", ko: "지역 탐색에서 보기" },
   "dash.outreach.note": {
     en: "Real, persisted state — set from a candidate's detail page, survives every data refresh.",
-    ko: "실제 저장된 상태 — 후보지 상세 페이지에서 설정되며, 데이터가 갱신되어도 유지됩니다.",
+    ko: "실제 저장된 상태 — 프로젝트 상세 페이지에서 설정되며, 데이터가 갱신되어도 유지됩니다.",
   },
 
   // Score axes (reused across KPI subs, gallery cards, RankedList — see
@@ -112,11 +117,11 @@ export const STRINGS = {
   // would recognize. "Improved Forest Management" specifically keeps
   // its international acronym (IFM) since that's how it's referenced in
   // real Verra/VCS methodology documents.
-  "activity.reforestation": { en: "Reforestation", ko: "재조림(Reforestation)" },
-  "activity.socialForestry": { en: "Social forestry", ko: "사회림(Social Forestry)" },
-  "activity.conservation": { en: "Conservation", ko: "보전(Conservation)" },
-  "activity.peatland": { en: "Peatland", ko: "이탄지(Peatland)" },
-  "activity.improvedForestManagement": { en: "Improved Forest Management", ko: "산림경영개선(IFM)" },
+  "activity.reforestation": { en: "Reforestation", ko: "재조림 (Reforestation)" },
+  "activity.socialForestry": { en: "Social forestry", ko: "사회림 (Social Forestry)" },
+  "activity.conservation": { en: "Conservation", ko: "보전 (Conservation)" },
+  "activity.peatland": { en: "Peatland", ko: "이탄지 (Peatland)" },
+  "activity.improvedForestManagement": { en: "Improved Forest Management", ko: "산림경영 개선 (IFM)" },
   "activity.unclassified": { en: "Unclassified", ko: "미분류" },
   "activity.notApplicable": { en: "Not applicable", ko: "해당 없음" },
   "dash.projectType.caption": {
@@ -126,14 +131,14 @@ export const STRINGS = {
 
   // Province breakdown chrome-only labels (real province names stay
   // untranslated — proper nouns, not UI copy)
-  "province.notAvailable": { en: "Not available", ko: "정보 없음" },
+  "province.notAvailable": { en: "Not available", ko: "지역 정보 없음" },
   "province.other": { en: "Other", ko: "기타" },
 
   // Outreach status labels (STATUS_LABEL is shared app-wide and stays
   // English everywhere else; this Dashboard-only mirror is intentional,
   // not a fork of the source of truth)
   "status.notContacted": { en: "Not contacted", ko: "미접촉" },
-  "status.contacted": { en: "Contacted", ko: "접촉함" },
+  "status.contacted": { en: "Contacted", ko: "접촉 완료" },
   "status.followUpNeeded": { en: "Follow-up needed", ko: "후속 조치 필요" },
   "status.done": { en: "Done", ko: "완료" },
   "status.rejected": { en: "Rejected", ko: "거절됨" },
@@ -149,11 +154,11 @@ export const STRINGS = {
 
   // DashboardMap legend + popup chrome (Dashboard-exclusive component,
   // not shared with Territory Discovery's own TerritoryMap.tsx)
-  "map.legend.rich": { en: "rich candidate", ko: "증거 풍부 후보지" },
-  "map.legend.thin": { en: "thin candidate", ko: "증거 부족 후보지" },
+  "map.legend.rich": { en: "rich candidate", ko: "증거 충분" },
+  "map.legend.thin": { en: "thin candidate", ko: "증거 부족" },
   "map.legend.territory": { en: "real customary territory", ko: "실제 관습토지" },
   "map.legend.shown": { en: "shown", ko: "표시됨" },
-  "map.popup.viewCandidate": { en: "View candidate", ko: "후보지 보기" },
+  "map.popup.viewCandidate": { en: "View candidate", ko: "프로젝트 보기" },
 
   // Closing trust-badge row
   "dash.trust.confirmedInferred": { en: "Confirmed vs. inferred, always labeled", ko: "확인된 정보와 추정 정보를 항상 구분 표시" },
