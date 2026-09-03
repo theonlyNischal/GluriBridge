@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { Routes, Route, Link, NavLink, useLocation } from "react-router-dom";
 import { LayoutGrid, MapPin, Table2, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
 import { CandidatesProvider } from "./lib/CandidatesContext";
 import { LanguageProvider, useLanguage } from "./lib/LanguageContext";
 import { useT, type StringKey } from "./lib/i18n";
 import { StalenessBanner } from "./components/StalenessBanner";
+import { LandingPage } from "./pages/LandingPage";
 import { DesignSystemPage } from "./pages/DesignSystemPage";
 import { CandidateDetailPage } from "./pages/CandidateDetailPage";
 import { DashboardPage } from "./pages/DashboardPage";
@@ -19,14 +20,14 @@ import { HowItWorksPage } from "./pages/HowItWorksPage";
 // showing. Every other page's own content stays English-only; see
 // LanguageContext.tsx for the full scope reasoning.
 const NAV: { to: string; labelKey: StringKey; end?: boolean; icon: typeof LayoutGrid }[] = [
-  { to: "/", labelKey: "nav.dashboard", end: true, icon: LayoutGrid },
+  { to: "/dashboard", labelKey: "nav.dashboard", end: true, icon: LayoutGrid },
   { to: "/territories", labelKey: "nav.territoryDiscovery", icon: MapPin },
   { to: "/candidates", labelKey: "nav.candidates", icon: Table2 },
   { to: "/tracked", labelKey: "nav.partnerships", icon: ListChecks },
 ];
 
 const TITLE_KEYS: Record<string, StringKey> = {
-  "/": "nav.dashboard",
+  "/dashboard": "nav.dashboard",
   "/territories": "nav.territoryDiscovery",
   "/candidates": "nav.candidates",
   "/tracked": "nav.partnerships",
@@ -42,6 +43,10 @@ function pageTitle(pathname: string, t: (key: StringKey) => string): string {
 
 // Small EN|KO pill toggle (2026-09-03) — top-right of the header so it's
 // visible regardless of sidebar collapse state or which page is open.
+// Deliberately NOT rendered on the landing page (LandingPage.tsx) — that
+// page is explicit English-only scope, a cold-open front door meant to
+// read in under 10 seconds, not another surface to wire into i18n.ts
+// right now.
 function LanguageToggle() {
   const { lang, setLang } = useLanguage();
   return (
@@ -75,13 +80,16 @@ function AppShell() {
   const contentOffset = collapsed ? "ml-16" : "ml-60";
 
   return (
-    <CandidatesProvider>
+    <>
       {/* Sidebar — fixed, never scrolls away, regardless of page content height. */}
       <aside className={`fixed inset-y-0 left-0 z-20 flex ${sidebarWidth} flex-col bg-forest-950 text-stone-200 transition-[width]`}>
-        <div className={`flex items-center gap-2 px-5 py-4 ${collapsed ? "justify-center px-0" : ""}`}>
+        {/* Brand mark links back to the landing page (2026-09-03, added
+            alongside it) — standard "click the logo to go home" pattern;
+            wasn't a link to anywhere before the landing page existed. */}
+        <Link to="/" className={`flex items-center gap-2 px-5 py-4 ${collapsed ? "justify-center px-0" : ""}`}>
           <span className="h-2 w-2 shrink-0 rounded-full bg-forest-400" />
           {!collapsed && <span className="font-display text-[15px] font-semibold text-white">GluriBridge</span>}
-        </div>
+        </Link>
         <nav className="mt-1 flex flex-col gap-0.5 px-3">
           {NAV.map((item) => {
             const Icon = item.icon;
@@ -146,7 +154,7 @@ function AppShell() {
         <StalenessBanner />
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/candidates" element={<CandidatesListPage />} />
             <Route path="/tracked" element={<TrackedPage />} />
             <Route path="/candidates/:id" element={<CandidateDetailPage />} />
@@ -156,14 +164,26 @@ function AppShell() {
           </Routes>
         </main>
       </div>
-    </CandidatesProvider>
+    </>
   );
 }
 
+// Route split (2026-09-03) — "/" is now a standalone cold-open landing
+// page with NO sidebar/header chrome (a deliberate front door, not just
+// another app view); every other real route lives under AppShell as
+// before, unchanged. CandidatesProvider now wraps BOTH — moved up from
+// inside AppShell — so the landing page's live proof-point numbers and
+// the rest of the app share the exact one real fetch, never a second
+// independent request for the same data.
 export default function App() {
   return (
     <LanguageProvider>
-      <AppShell />
+      <CandidatesProvider>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/*" element={<AppShell />} />
+        </Routes>
+      </CandidatesProvider>
     </LanguageProvider>
   );
 }
