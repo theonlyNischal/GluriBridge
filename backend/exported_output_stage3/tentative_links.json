@@ -1837,48 +1837,6 @@
     "match_status": "tentative"
   },
   {
-    "candidate_a": "Agroforestry and Reforestation for Carbon Sequestration in Indonesia",
-    "candidate_a_source": "verra",
-    "candidate_b": "KOPI LESTARI AGROFORESTRY AND LAND REHABILITATION WITH SMALLHOLDER FARMERS IN INDONESIA",
-    "candidate_b_source": "verra",
-    "score": 76.7,
-    "breakdown": {
-      "org_score": 100.0,
-      "name_score": 12.9,
-      "desc_score": 83.5,
-      "dates_match_bonus": 0,
-      "geo_score": 82.8,
-      "geo_distance_km": 8.615,
-      "geo_suspect_data_flagged": false,
-      "province_score": 0,
-      "conflict_detected": false,
-      "conflict_reasons": [],
-      "total": 76.7
-    },
-    "match_status": "tentative"
-  },
-  {
-    "candidate_a": "Barito Lestari Forest Restoration Project (BLFRP)",
-    "candidate_a_source": "verra",
-    "candidate_b": "Barito Lestari Peatland Project (BLPP)",
-    "candidate_b_source": "verra",
-    "score": 64.0,
-    "breakdown": {
-      "org_score": 51.3,
-      "name_score": 64.4,
-      "desc_score": 96.7,
-      "dates_match_bonus": 0,
-      "geo_score": 60.1,
-      "geo_distance_km": 19.963,
-      "geo_suspect_data_flagged": false,
-      "province_score": 0,
-      "conflict_detected": false,
-      "conflict_reasons": [],
-      "total": 64.0
-    },
-    "match_status": "tentative"
-  },
-  {
     "candidate_a": "Tanimbar Community Forest Restoration Project",
     "candidate_a_source": "verra",
     "candidate_b": "Gunung Mas Community Forest Restoration Project",

@@ -1,4 +1,4 @@
 {
-  "frozen_at": "2026-09-03T08:22:57.314116+00:00",
-  "reason": "Refresh stopped and data restored 2026-09-03 (recovered a real 144-candidate rich dataset after an old-code concurrency bug briefly overwrote it with a 129-candidate registry-only one, see the Sync page's activity log for the full real incident). Frozen again through Demo Day (5 Sep 2026) for rehearsal stability - do not re-scrape without explicit --unfreeze."
+  "frozen_at": "2026-09-03T12:35:47.159691+00:00",
+  "reason": "Auto-frozen immediately on completion by the watcher script 2026-09-03 (fix for the earlier incident where the rich dataset sat unfrozen and got auto-downgraded by the scheduler 3 times). Frozen through Demo Day (5 Sep 2026) - do not re-scrape without explicit --unfreeze."
 }
