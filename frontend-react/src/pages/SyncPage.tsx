@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { RefreshCw, AlertTriangle, CheckCircle2, Lock, Radio, Loader2 } from "lucide-react";
 import { api, ApiError } from "../lib/api";
 import { Panel } from "../components/ui/Panel";
+import { StalenessBanner } from "../components/StalenessBanner";
 import type { RefreshLogEntry, RefreshStatus, SourceProgress, StatsResponse, SyncSource } from "../lib/types";
 
 // Mirrors orchestrate.py's CADENCE_DAYS exactly (2026-09-03) — a
@@ -239,14 +240,24 @@ export function SyncPage() {
   const inProgress = busy !== null;
 
   return (
-    <div className="px-6 py-6">
-      <div className="mb-6 max-w-3xl">
-        <h1 className="font-display text-2xl font-bold text-stone-900">Registry Sync</h1>
-        <p className="mt-1 text-[13.5px] text-stone-500">
-          Real per-source freshness, a real refresh action, and a real activity log — {stats.candidate_count_in_db} candidates currently
-          live in the database.
-        </p>
-      </div>
+    <>
+      {/* Moved here from the global app shell (2026-09-03, explicit
+          request) — this is a real, already-true signal about the live
+          data (news-discovered candidates/Tier B contacts reflecting an
+          older rich refresh than the current registry state), but it
+          was showing on every page regardless of relevance. Registry
+          Sync is where that distinction actually matters. Same
+          full-bleed styling as before (its own px-6, not nested inside
+          this page's padded wrapper below, so it isn't double-inset). */}
+      <StalenessBanner />
+      <div className="px-6 py-6">
+        <div className="mb-6 max-w-3xl">
+          <h1 className="font-display text-2xl font-bold text-stone-900">Registry Sync</h1>
+          <p className="mt-1 text-[13.5px] text-stone-500">
+            Real per-source freshness, a real refresh action, and a real activity log — {stats.candidate_count_in_db} candidates currently
+            live in the database.
+          </p>
+        </div>
 
       {frozen && (
         <div className="mb-5 flex items-start gap-2.5 rounded-xl border border-compliance-amber/30 bg-compliance-amberBg px-4 py-3 text-[13px] text-compliance-amber">
@@ -419,6 +430,7 @@ export function SyncPage() {
           </ol>
         )}
       </Panel>
-    </div>
+      </div>
+    </>
   );
 }

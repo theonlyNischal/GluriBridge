@@ -4,7 +4,6 @@ import { LayoutGrid, MapPin, Table2, ListChecks, RefreshCw, ChevronLeft, Chevron
 import { CandidatesProvider } from "./lib/CandidatesContext";
 import { LanguageProvider } from "./lib/LanguageContext";
 import { useT, type StringKey } from "./lib/i18n";
-import { StalenessBanner } from "./components/StalenessBanner";
 import { LanguageToggle } from "./components/ui/LanguageToggle";
 import logoWhite from "./assets/gluribridge-logo-white.png";
 import { LandingPage } from "./pages/LandingPage";
@@ -137,7 +136,6 @@ function AppShell() {
           <h1 className="text-[14px] font-semibold text-stone-800">{pageTitle(location.pathname, t)}</h1>
           <LanguageToggle className="ml-auto" />
         </header>
-        <StalenessBanner />
         <main className="flex-1">
           <Routes>
             <Route path="/dashboard" element={<DashboardPage />} />
