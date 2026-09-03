@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Routes, Route, Link, NavLink, useLocation } from "react-router-dom";
 import { LayoutGrid, MapPin, Table2, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
 import { CandidatesProvider } from "./lib/CandidatesContext";
-import { LanguageProvider, useLanguage } from "./lib/LanguageContext";
+import { LanguageProvider } from "./lib/LanguageContext";
 import { useT, type StringKey } from "./lib/i18n";
 import { StalenessBanner } from "./components/StalenessBanner";
+import { LanguageToggle } from "./components/ui/LanguageToggle";
 import logoWhite from "./assets/gluribridge-logo-white.png";
 import { LandingPage } from "./pages/LandingPage";
 import { DesignSystemPage } from "./pages/DesignSystemPage";
@@ -42,31 +43,6 @@ function pageTitle(pathname: string, t: (key: StringKey) => string): string {
   return "GluriBridge";
 }
 
-// Small EN|KO pill toggle (2026-09-03) — top-right of the header so it's
-// visible regardless of sidebar collapse state or which page is open.
-// Deliberately NOT rendered on the landing page (LandingPage.tsx) — that
-// page is explicit English-only scope, a cold-open front door meant to
-// read in under 10 seconds, not another surface to wire into i18n.ts
-// right now.
-function LanguageToggle() {
-  const { lang, setLang } = useLanguage();
-  return (
-    <div className="ml-auto flex items-center rounded-full border border-stone-200 bg-stone-100 p-0.5 text-[11px] font-semibold">
-      <button
-        onClick={() => setLang("en")}
-        className={`rounded-full px-2.5 py-1 transition ${lang === "en" ? "bg-white text-stone-900 shadow-sm" : "text-stone-500 hover:text-stone-700"}`}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => setLang("ko")}
-        className={`rounded-full px-2.5 py-1 transition ${lang === "ko" ? "bg-white text-stone-900 shadow-sm" : "text-stone-500 hover:text-stone-700"}`}
-      >
-        KO
-      </button>
-    </div>
-  );
-}
 
 function AppShell() {
   const location = useLocation();
@@ -156,7 +132,7 @@ function AppShell() {
             one, so it's gone rather than faked into working. */}
         <header className="sticky top-0 z-10 flex h-12 shrink-0 items-center gap-4 border-b border-stone-200 bg-white px-5">
           <h1 className="text-[14px] font-semibold text-stone-800">{pageTitle(location.pathname, t)}</h1>
-          <LanguageToggle />
+          <LanguageToggle className="ml-auto" />
         </header>
         <StalenessBanner />
         <main className="flex-1">

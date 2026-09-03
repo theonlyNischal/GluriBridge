@@ -164,6 +164,31 @@ export const STRINGS = {
   "dash.trust.confirmedInferred": { en: "Confirmed vs. inferred, always labeled", ko: "확인된 정보와 추정 정보를 항상 구분 표시" },
   "dash.trust.noLlm": { en: "No LLM for scoring or matching", ko: "점수 산정과 매칭에 LLM 미사용" },
   "dash.trust.independentAxes": { en: "Opportunity and Evidence Strength scored independently", ko: "기회 점수와 증거 강도는 독립적으로 산정" },
+
+  // Landing page (2026-09-03) — scope extended here from Dashboard-only,
+  // per explicit request: the cold-open front door is exactly the
+  // scenario (no narrator to bridge language) where a language choice
+  // matters most, more than the live demo does. Small surface (~10
+  // keys) — reuses dash.trust.noLlm/independentAxes and
+  // nav.howItWorks/nav.designSystem above rather than duplicating them.
+  "landing.eyebrow": { en: "Indonesia forestry-carbon partner discovery", ko: "인도네시아 산림 탄소 파트너 발굴" },
+  "landing.headline": {
+    en: "Real forestry-carbon partners in Indonesia — found, scored, and evidence-checked.",
+    ko: "인도네시아의 실제 산림 탄소 파트너 — 발굴하고, 평가하고, 증거로 검증합니다.",
+  },
+  "landing.sentence": {
+    en: "GluriBridge turns public registries, land-rights records, and news into one pipeline — every number here traces back to a real, checkable source.",
+    ko: "GluriBridge는 공공 등록 정보, 토지권리 기록, 뉴스를 하나의 파이프라인으로 통합합니다 — 여기의 모든 숫자는 실제로 확인 가능한 출처에서 나옵니다.",
+  },
+  "landing.kpi.candidates": { en: "Real candidates", ko: "실제 프로젝트" },
+  "landing.kpi.candidates.sub": { en: "Live from the registry", ko: "등록 데이터 실시간 반영" },
+  "landing.kpi.scored": { en: "Scored independently", ko: "독립적으로 평가" },
+  // {n} substituted by the caller, same placeholder pattern as
+  // dash.headline above.
+  "landing.kpi.scored.sub": { en: "high-opportunity · + {n} high-evidence", ko: "기회 상위 · 증거 상위 +{n}" },
+  "landing.kpi.contacts": { en: "Direct contacts found", ko: "직접 연락처 확보" },
+  "landing.kpi.contacts.sub": { en: "+ {n} more identified by name", ko: "+ {n}건 이름만 확인" },
+  "landing.cta": { en: "View dashboard", ko: "대시보드 보기" },
 } as const;
 
 export type StringKey = keyof typeof STRINGS;
