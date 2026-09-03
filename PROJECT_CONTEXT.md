@@ -1038,3 +1038,150 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   Forest Management Unit (KPH) name sitting in the person-name slot of an otherwise normally-named
   private company — a different shape of the same underlying "a government entity's name where an
   individual's was expected" oddity, flagged for awareness, not investigated further.
+- **A full plain-language terminology pass across the whole frontend** (2026-09-02) — an explicit
+  ~62-item mapping table reviewed and approved by the user before applying, not invented
+  unilaterally. Every glance-level label (KPI cards, badges, chips, table headers, filter
+  options, tooltips) swaps the internal/technical term for plain business language, with the
+  technical term kept reachable via a native `title` tooltip; already-detail contexts
+  (`HowItWorksPage.tsx`'s body prose, `SourceBadge`'s space-constrained inline registry tags, the
+  candidate-detail registry-ID reference row) deliberately keep the technical term primary since
+  it adds credibility there, not demoted. Key renames: Need score → Opportunity, Credibility
+  score → Evidence Strength, Fact → Confirmed (**not** Verified — Confirmed means read directly
+  from a registry field, Verified means independently cross-checked; this distinction is
+  load-bearing for the app's credibility claim and resurfaced explicitly again during the Korean
+  translation work below), Hypothesis → Inferred, Contactability → Contact Found, Geospatial →
+  Location Verified, Unclassified → Needs Classification, Not Applicable → Not Relevant, the
+  score_label category `confirmed` → "Verified Project" (renamed specifically to avoid colliding
+  with the new Fact → Confirmed evidence tag — two different real concepts that happen to share
+  an English word, never rendered in the same place), `mixed` → "Balanced" (neutral description,
+  not "Needs Review" — mixed isn't a problem requiring attention), BRWA Overlap → Customary
+  Territory Overlap. Indonesian/registry acronyms (SRUK, SRN-PPI, Verra, BRWA, DRAM, DPP,
+  Permenhut 6/2026, PBPH, perhutanan sosial, hutan adat, hutan hak) get plain English names with
+  the original term kept visible in parens or a tooltip, never fully replaced. Added three new
+  `Record<string,string>` label maps to `lib/format.ts` (`LAND_RIGHTS_CATEGORY_LABEL`,
+  `VERIFICATION_STATUS_LABEL`, `RICHNESS_DISPLAY_LABEL`) following the same pattern as the
+  existing `POLICY_TIER_LABEL`/`MATCH_STATUS_LABEL`, for the two fields that render raw API enum
+  values directly. Caught one real leftover during verification not in the original table: a raw
+  `need X / cred X` inline stat on `ScoreLabelPill` (Dashboard top-5 lists and candidate rows).
+  Verified: tsc clean, 0 console errors/overflow across every page at 1280/1440/1600px, real
+  screenshots reviewed.
+- **The Dashboard's visual direction pivoted a second time, superseding the "field instrument"
+  look logged above** (2026-09-02/03) — the flat/hairline/no-shadow/sharp-corner direction from
+  2026-08-31 was itself replaced, at the user's explicit request after reviewing a reference
+  mockup, with a rounded, soft-shadow, icon-badge look closer to a polished product than a survey
+  clipboard. The lever was small and app-wide: `.instrument-panel`'s own CSS definition changed
+  from `border-radius: 2px; box-shadow: none` to `border-radius: 1rem` plus a soft warm-toned
+  shadow — since nearly every `Panel`/`KpiCard`/`ScoreStatCard` usage across the whole app already
+  opts into that one class, this single definition change rolled the new look out everywhere in
+  one step, no per-call-site edits needed. Also dropped `KpiCard`'s instrument-only
+  readout-underline/wide-tracking treatment (the "telemetry display" texture that belonged to the
+  superseded direction). Dashboard-specific additions built on top of that lever: the "Contact
+  ready"/"Also found" inline-sentence rows were rebuilt as two icon-circle cards with a big number
+  and pill-chip breakdown (same 5 real numbers, same real filtered links, same honest separation
+  between email-readiness and merely-found-a-phone); `ScoreStatCard`'s "just the number" usage
+  (the candidate-profile gallery) gained a differentiated visual per axis — a filled progress bar
+  for Opportunity, a 5-dot scale for Evidence Strength (dot count = value/20 rounded, still a real
+  number); a new `DonutChart` component (plain SVG, no chart library) replaced Data richness's 3
+  bar rows with a donut+legend, a genuine 3-way split a donut communicates well. **Outreach
+  status tried the same donut treatment and reverted it** — real data is 141/144 "not contacted"
+  right now, so the ring rendered as one near-solid color with the other 4 categories as
+  invisible slivers; reverted to a plain dot+count list instead, which is more honest at this
+  skew than either a donut or a bar. **A real overflow bug was caught during verification**: the
+  first donut+legend layout pushed legend text past the card edge on both panels — missing
+  `min-w-0` on the flex legend container, the same overflow trap `Panel.tsx`'s own code comment
+  already documents; fixed with `min-w-0` + `truncate` + a smaller donut. Verified: tsc clean, 0
+  console errors/overflow across every page at 3 widths.
+- **"Data richness" was replaced with "Candidates by project type" on the Dashboard** (2026-09-03,
+  a mentor's suggestion at the hackathon) — real, already-tracked `activity_categories` field
+  (Peatland, Reforestation, Social forestry, Conservation, Improved Forest Management), not a new
+  taxonomy invented for the panel. Chose to replace Data richness rather than Candidates by
+  province: richness (rich/corroborated/thin) is largely redundant with Evidence Strength, already
+  shown in the KPI row, the Top 5 list, and every candidate card; province is the only geographic
+  breakdown on the page. Deliberately a bar list, not a donut, unlike the sibling panels above — a
+  candidate can carry more than one real category (`activity_categories` is a list), so the rows
+  sum to more than the candidate total (159 category-tags across 144 candidates at time of
+  writing) and a donut ring would misrepresent that as a whole being sliced; the panel's own
+  caption says so explicitly. Also surfaces the real Unclassified count (48/144, 33%) honestly
+  rather than hiding it. Real distribution at time of writing: Reforestation 55, Unclassified 48,
+  Social forestry 33, Conservation 31, Peatland 29, Improved Forest Management 11, Not applicable
+  1.
+- **An EN/KO language toggle was added, deliberately scoped to the nav/header chrome plus the
+  Dashboard page only** (2026-09-03) — for Demo Day, given real users are the client's own
+  2-person Korean team and competitors in this space ship Korean-language products, but with only
+  2 days left and the immediate goal being to impress judges in a walkthrough, not a full
+  production i18n pass. Every other page (Candidates list, Candidate detail, Territory Discovery,
+  How it works) stays English, unaffected. Mechanism: `lib/LanguageContext.tsx` (React context +
+  localStorage-persisted state) and `lib/i18n.ts` (a plain `key -> {en, ko}` dictionary + `t()`/
+  `useT()`, no library dependency given the moderate string count — a missing key falls back to
+  English rather than blanking or crashing). The load-bearing architectural choice: shared
+  components used both on and off the Dashboard (`ScoreLabelPill`, `ProvinceBreakdown`,
+  `ProjectTypeBreakdown`, `DashboardMap`) take an opt-in `lang` prop defaulting to `"en"` — every
+  non-Dashboard call site is completely unaffected since it never passes the prop; confirmed live
+  by toggling to KO and navigating to Candidates, which stayed fully English. Added Noto Sans
+  KR/Noto Serif KR as font-stack fallbacks (Fraunces/Inter/IBM Plex Mono have zero Hangul glyph
+  coverage) — falls through per-character automatically, English text untouched. **A real
+  domain-appropriateness correction, caught by the user mid-implementation, not part of the
+  original plan**: "candidates" in this app means forestry-carbon projects/organizations, never
+  people, but the direct Korean word for "candidate" (후보) strongly implies a *human* candidate
+  (job/election) — replaced with 프로젝트 ("project") throughout after a first pass at 후보지
+  ("candidate site") was itself revised following native-level review (see below), including
+  fixing a counter-word bug (used 명, the counter for people, instead of a correct one). Separately,
+  the 5 `activity_categories` values are a real Indonesian forestry/carbon-registry classification,
+  not a generic descriptive category — kept the recognizable English/international term visible in
+  parens (e.g. "재조림 (Reforestation)", "산림경영 개선 (IFM)") rather than fully replacing it with
+  invented Korean vocabulary neither Claude nor, as it turned out, a subsequent native-level review
+  could agree on with confidence (the review's own suggested term for "Social forestry", 사회임업,
+  differed from the draft's 사회림 — two different words from two different sources for the same
+  real regulatory category was itself treated as evidence the term isn't settled, not resolved by
+  picking one). The Confirmed-vs-Verified distinction from the terminology pass above was kept
+  consistent in Korean too (검증된 = Verified, 확인된 = Confirmed) after a review pass caught one
+  chip that had drifted to the wrong word. Korean copy throughout is a draft written by Claude,
+  revised once against native-level review feedback, but explicitly NOT presented as a
+  native-speaker-signed-off translation — `i18n.ts`'s own header comment says so. Verified: tsc
+  clean, 0 console errors/overflow across every page at 3 widths, language persists across a
+  reload, confirmed Korean does not leak onto out-of-scope pages.
+- **A cold-open landing page now exists at "/", with the actual app moved to "/dashboard"**
+  (2026-09-03) — built for someone opening the deployed link with no narration (the live demo
+  walkthrough starts directly at `/dashboard`, unaffected). Deliberately terse: one headline, one
+  sentence, three real proof-point numbers, one primary CTA ("View dashboard"), two small
+  secondary links (How this works, Design system) — nothing that takes longer than about 10
+  seconds to read, no feature list, no testimonials. Renders standalone with no sidebar/header
+  chrome (a real front door, not just another app view); every other existing route is otherwise
+  unchanged except the path move. All three proof-point numbers come from the same live
+  `CandidatesProvider` fetch as the rest of the app (moved up one level in `App.tsx` to wrap the
+  landing page too, so it's one real request, never a duplicate): total real candidates (144),
+  two independent scores as real counts (30 high-opportunity, 4 high-evidence — not a hardcoded
+  "two scores" claim), and an explicitly honest contact figure — direct contacts (a real email on
+  file, any confidence level, 16) shown separately from the larger named-only bucket (a registrant
+  name but no email, 86), never collapsed into one inflated total, per explicit instruction and
+  the same non-blending discipline the Dashboard's own Contact ready / Also found split already
+  established. Visual direction matches the app's current (rounded/soft-shadow) look exactly,
+  reusing `KpiCard` verbatim for the three proof points rather than inventing a new stat shape —
+  the task's own brief described the OLD flat/hairline direction this session had already moved
+  away from, flagged explicitly rather than built either way silently. A subsequent native-level
+  design review largely endorsed the result but suggested inflating the "16" figure to look more
+  impressive; not applied — that would directly undo the explicit non-inflation instruction the
+  page was built against. Made the sidebar's GluriBridge brand mark a real link back to "/" (it
+  wasn't a link before this page existed). Verified: tsc clean, 0 console errors/overflow across
+  all 7 routes at 3 widths, clicked every nav link, the CTA, and the logo link to confirm real
+  navigation.
+- **The real GluriBridge logo replaced the placeholder dot+text brand mark, and a proper favicon
+  was generated** (2026-09-03) — the source file (`GluriBridgeLogo.png`, provided at the repo
+  root, 1408x768, opaque white background despite RGBA mode) was moved into
+  `frontend-react/src/assets/` (a frontend brand asset, not something that belongs loose at the
+  repo root), chroma-keyed from white to transparency with a soft alpha ramp at the ink edges (not
+  a hard cutout), and cropped to its real content bounding box. A white-ink variant was generated
+  separately for the dark `forest-950` sidebar specifically, after compositing a preview showed
+  the original green ink reads weakly there — the green original is used only on light
+  backgrounds (the landing page header), where it reads cleanly; its green is already close to the
+  app's own `forest-700` token. The actual provided artwork was kept rather than generating a
+  replacement — a well-designed, on-brand mark, and substituting a generated logo for a real
+  provided asset was treated as a bigger creative call than "prepare a favicon" implied, flagged
+  explicitly rather than decided unilaterally. Favicon: `favicon.ico` (16/32/48px, transparent),
+  standalone 16x16/32x32/192x192 PNGs, and a white-background 180x180 `apple-touch-icon` (iOS
+  renders transparent touch icons as black in several contexts) — checked actual pixel-level
+  legibility at 16px and 32px before finalizing (a real concern for a detailed multi-tree mark):
+  32px reads clearly, 16px softens into a recognizable green arch shape, consistent with how most
+  detailed logos behave at that size. Replaced the default Vite placeholder icon in `index.html`
+  (confirmed no other references to it first). Verified: tsc clean, all 5 favicon link tags
+  resolve 200, real screenshots reviewed (header, sidebar, and the raw 16px/32px favicon pixels).

@@ -137,29 +137,32 @@ export function DesignSystemPage() {
         </div>
       </section>
 
-      {/* ---------- field instrument variant (2026-08-31 rollout) ---------- */}
+      {/* ---------- field instrument variant (2026-08-31 rollout, superseded 2026-09-02/03) ---------- */}
       <section>
         <h2 className="font-display text-lg font-semibold text-stone-800">Field instrument variant</h2>
         <p className="mt-1 max-w-2xl text-[13px] text-stone-500">
-          "Satellite telemetry meets field cartography" — the app's actual subject (Indonesia forestry-carbon monitoring) rather than a
-          generic SaaS look. Rolled out page-by-page across Dashboard, Candidates List, Territory Discovery, Candidate Detail, and
-          Partnerships. Opt-in via <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">variant="instrument"</code> on{" "}
+          Originally "satellite telemetry meets field cartography" (2026-08-31) — sharp corners, a hairline border, no shadow. That look
+          was superseded (2026-09-02/03, per an explicit request to match a reference mockup) by the rounded, soft-shadow direction the
+          whole app now uses — the <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">.instrument-panel</code> CSS
+          class kept its name (avoiding a mass rename across every call site) but now renders rounded corners + a soft shadow, the same
+          shape as the default variant below. Opt-in via{" "}
+          <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">variant="instrument"</code> on{" "}
           <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">Panel</code> and{" "}
-          <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">KpiCard</code> — the default variant shown throughout
-          the rest of this page is untouched and still the right choice for anything not part of the rollout.
+          <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">KpiCard</code> — nearly every real usage in the app
+          passes this now, so "instrument" is effectively just "the app's real card shape."
         </p>
 
         <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
-            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">Default — rounded-xl, soft shadow</div>
+            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">Default — rounded-2xl, soft shadow</div>
             <Panel title="Default panel">
-              <p className="text-[13px] text-stone-600">Used everywhere before the rollout, and anywhere the rollout hasn't reached.</p>
+              <p className="text-[13px] text-stone-600">This component's fallback shape when no variant is passed — visually near-identical to "instrument" now.</p>
             </Panel>
           </div>
           <div>
-            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">Instrument — sharp corners, hairline border, no shadow</div>
+            <div className="mb-1.5 text-[12.5px] font-semibold text-stone-600">Instrument — rounded, soft shadow (the app's real shape)</div>
             <Panel title="Instrument panel" variant="instrument">
-              <p className="text-[13px] text-stone-600">A printed field-instrument reads this way — flat, sharp-edged, no drop shadow.</p>
+              <p className="text-[13px] text-stone-600">What every real page in the app actually renders — no longer flat/sharp-edged, see the note above.</p>
             </Panel>
           </div>
         </div>

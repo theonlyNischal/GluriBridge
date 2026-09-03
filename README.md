@@ -6,12 +6,15 @@ customary-territory evidence + Tavily news signals into one ranked, evidence-bac
 list — with generated dossiers, bilingual (EN/ID) outreach drafts, and a real, checkable source
 citation behind every claim — served by a live FastAPI + SQLite backend and a real frontend.
 
-**This README reflects the actual, tested state as of 2026-08-31 — not the plan, the state.**
+**This README reflects the actual, tested state as of 2026-09-03 — not the plan, the state.**
 Every claim below has a corresponding test file, or a live curl/browser check, that was run and
 produced the stated result. (This file was significantly stale before 2026-08-27 — see
 `PROJECT_CONTEXT.md` Section 7 if you're wondering why the git-blame-equivalent history looks
 uneven; it's now been given the same full-accuracy pass as everything else here, and is kept
-current as the real frontend has moved since.)
+current as the real frontend has moved since — most recently a plain-language terminology pass,
+a second visual-direction pivot to rounded/soft-shadow cards, a Dashboard-scoped EN/KO toggle, a
+new cold-open landing page at `/` with the app itself moved to `/dashboard`, and the real
+GluriBridge logo/favicon; full detail in `PROJECT_CONTEXT.md` Section 7.)
 
 ## Setup — works the same on Linux/WSL and macOS
 
@@ -37,8 +40,10 @@ is how you install Python/Node. You need:
 ```
 repo root/
 ├── frontend-react/            the real, current frontend — React + Vite + TypeScript + Tailwind
-│   │                           (7 pages: Dashboard, Candidates, Territory Discovery, Candidate
-│   │                           Detail, Partnerships/Tracked, How this works, Design System)
+│   │                           (8 routes: Landing (`/`, cold-open, no app chrome), Dashboard
+│   │                           (`/dashboard` — was `/` before 2026-09-03), Candidates, Territory
+│   │                           Discovery, Candidate Detail, Partnerships/Tracked, How this works,
+│   │                           Design System)
 ├── frontend/                  legacy static prototype (index.html) — superseded by
 │                               frontend-react, kept only for historical reference, not run
 │                               day to day
@@ -82,6 +87,8 @@ cd frontend-react
 npm install
 npm run dev
 # open the URL Vite prints — http://localhost:5173 by default
+# that's the new cold-open landing page (2026-09-03); click "View dashboard"
+# or go straight to http://localhost:5173/dashboard for the actual app
 ```
 
 Vite's dev server proxies nothing special — the app calls the live backend directly at
@@ -142,7 +149,7 @@ worth investigating, not an expected flake.
 | `export.py` | Frontend-shaped JSON (`ranked_candidates.json`, `candidate_details.json`, etc.) | Tested; the display-order-only tiebreaker (need_score desc, credibility_score desc, has_resolved_contact desc, document_count desc) never touches the scores themselves |
 | `backend/orchestrate.py` | Thin scheduler-like layer above ingestion + `run_pipeline()` — per-source cadence (SRUK/Verra daily, SRN-PPI monthly, BRWA manual), `data/.freeze` to hold data stable across a demo window | Live-verified: correctly resolves paths from its new `backend/` location, `--dry-run` blocks under freeze exactly as designed, `--skip-scrape` runs pipeline+export end-to-end |
 | `backend/app/` (FastAPI + SQLite) | Live API serving the same data the frontend used to read from static files — `db.py`, `scheduler.py` (reuses `orchestrate.py`'s cadence/freeze, doesn't reimplement it), `routes.py`, `main.py` | Live-verified: all 9 endpoints tested with real requests; API responses for real candidates are byte-for-byte identical to the source export; `POST /refresh` returns 423 while frozen; a full 128-candidate frontend sweep against the *live* API (not static files), 0 errors |
-| `frontend-react/` (React + Vite + TS + Tailwind) — **the current, real frontend** | 7 pages: Dashboard, Candidates List, Territory Discovery, Candidate Detail, Partnerships/Tracked, How this works (`/how-it-works` — live data-sources/methodology explanation), Design System (reference page). Calls the live API directly, lazy per-candidate detail fetch, own instrument-panel/paper/watermark visual language rolled out across every page | Live-verified per page: `npx tsc --noEmit --project tsconfig.app.json` clean, real Playwright sweeps (no console errors, no horizontal overflow at 1280/1440/1600px) on every page, plus page-specific real-data checks (equal-height score cards measured via `getBoundingClientRect()`, rail/tab scroll-sync, filter/sort/pagination correctness, map marker rendering) |
+| `frontend-react/` (React + Vite + TS + Tailwind) — **the current, real frontend** | 8 routes: Landing (`/`, cold-open front door, no sidebar/header chrome — one headline, 3 live proof-point numbers, one CTA to `/dashboard`), Dashboard (`/dashboard`), Candidates List, Territory Discovery, Candidate Detail, Partnerships/Tracked, How this works (`/how-it-works` — live data-sources/methodology explanation), Design System (reference page). Calls the live API directly, lazy per-candidate detail fetch. Visual language: rounded, soft-shadow `.instrument-panel` cards on a paper/topographic-watermark background (superseded an earlier flat/hairline/no-shadow direction on 2026-09-02/03 — see `PROJECT_CONTEXT.md` Section 7), rolled out across every page. Dashboard additionally has an EN/KO language toggle (header, top-right) — Korean text on the nav chrome and the Dashboard page only, every other page stays English by design; see `frontend-react/src/lib/i18n.ts` | Live-verified per page: `npx tsc --noEmit --project tsconfig.app.json` clean, real Playwright sweeps (no console errors, no horizontal overflow at 1280/1440/1600px) on every route, plus page-specific real-data checks (equal-height score cards measured via `getBoundingClientRect()`, rail/tab scroll-sync, filter/sort/pagination correctness, map marker rendering, EN/KO toggle confirmed not to leak onto out-of-scope pages) |
 | `frontend/index.html` — **legacy static prototype, superseded** | Single-file dashboard + detail page, calls the live API, lazy per-candidate detail fetch. Kept only for historical reference — `frontend-react/` is what actually runs now, this is not maintained or re-verified alongside it | Full-128 sweep in an actual browser, as of when this was still the live frontend (dashboard, outreach panel, citation links, bilingual text, dataset-staleness banner) |
 
 ## Why need_score and credibility_score are separate, not one number
