@@ -13,9 +13,17 @@ export default {
         // Display: an editorial serif for the brand/candidate-name scale —
         // gives GluriBridge an institutional, "real research org" register
         // instead of a generic SaaS grotesk everywhere.
-        display: ["'Fraunces'", "ui-serif", "Georgia", "serif"],
+        // 'Noto Serif KR' added (2026-09-03) for the same reason as
+        // Noto Sans KR below — the Dashboard's big serif headline
+        // renders in Korean when the toggle is on, and Fraunces has no
+        // Hangul glyphs either.
+        display: ["'Fraunces'", "'Noto Serif KR'", "ui-serif", "Georgia", "serif"],
         // UI: a clean, highly legible grotesk for chrome, labels, body copy.
-        sans: ["'Inter'", "ui-sans-serif", "system-ui", "sans-serif"],
+        // 'Noto Sans KR' listed after Inter (2026-09-03, EN/KO toggle) —
+        // Inter has no Hangul glyphs, so the browser falls through to
+        // Noto Sans KR per-character for Korean text automatically; pure
+        // English text never touches it.
+        sans: ["'Inter'", "'Noto Sans KR'", "ui-sans-serif", "system-ui", "sans-serif"],
         // Data: genuinely tabular-figure monospace — every score, coordinate,
         // date, id, and percentage in the app renders in this face, on
         // purpose, so precise real data reads as visibly distinct from prose.

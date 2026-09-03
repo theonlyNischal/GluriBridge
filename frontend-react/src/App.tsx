@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { LayoutGrid, MapPin, Table2, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
 import { CandidatesProvider } from "./lib/CandidatesContext";
+import { LanguageProvider, useLanguage } from "./lib/LanguageContext";
+import { useT, type StringKey } from "./lib/i18n";
 import { StalenessBanner } from "./components/StalenessBanner";
 import { DesignSystemPage } from "./pages/DesignSystemPage";
 import { CandidateDetailPage } from "./pages/CandidateDetailPage";
@@ -11,35 +13,58 @@ import { TerritoryDiscoveryPage } from "./pages/TerritoryDiscoveryPage";
 import { TrackedPage } from "./pages/TrackedPage";
 import { HowItWorksPage } from "./pages/HowItWorksPage";
 
-const NAV = [
-  { to: "/", label: "Dashboard", end: true, icon: LayoutGrid },
-  { to: "/territories", label: "Territory Discovery", icon: MapPin },
-  { to: "/candidates", label: "Candidates", icon: Table2 },
-  { to: "/tracked", label: "Partnerships", icon: ListChecks },
+// Labels below are translation KEYS, not literal text (2026-09-03, EN/KO
+// toggle) — resolved via useT()'s t() at render time so this nav/header
+// chrome flips with the rest of the app regardless of which page is
+// showing. Every other page's own content stays English-only; see
+// LanguageContext.tsx for the full scope reasoning.
+const NAV: { to: string; labelKey: StringKey; end?: boolean; icon: typeof LayoutGrid }[] = [
+  { to: "/", labelKey: "nav.dashboard", end: true, icon: LayoutGrid },
+  { to: "/territories", labelKey: "nav.territoryDiscovery", icon: MapPin },
+  { to: "/candidates", labelKey: "nav.candidates", icon: Table2 },
+  { to: "/tracked", labelKey: "nav.partnerships", icon: ListChecks },
 ];
 
-const TITLES: Record<string, string> = {
-  "/": "Dashboard",
-  "/territories": "Territory Discovery",
-  "/candidates": "Candidates",
-  // Sidebar label and page title only, per explicit scope — the route
-  // path (/tracked), the page's own internal wording ("Tracked total",
-  // "View tracking →"), and the component/file name are deliberately
-  // untouched here (not asked for; flagged separately, not silently
-  // changed too).
-  "/tracked": "Partnerships",
-  "/design-system": "Design system",
-  "/how-it-works": "How this works",
+const TITLE_KEYS: Record<string, StringKey> = {
+  "/": "nav.dashboard",
+  "/territories": "nav.territoryDiscovery",
+  "/candidates": "nav.candidates",
+  "/tracked": "nav.partnerships",
+  "/design-system": "nav.designSystem",
+  "/how-it-works": "nav.howItWorks",
 };
 
-function pageTitle(pathname: string): string {
-  if (TITLES[pathname]) return TITLES[pathname];
-  if (pathname.startsWith("/candidates/")) return "Candidate detail";
+function pageTitle(pathname: string, t: (key: StringKey) => string): string {
+  if (TITLE_KEYS[pathname]) return t(TITLE_KEYS[pathname]);
+  if (pathname.startsWith("/candidates/")) return t("title.candidateDetail");
   return "GluriBridge";
 }
 
-export default function App() {
+// Small EN|KO pill toggle (2026-09-03) — top-right of the header so it's
+// visible regardless of sidebar collapse state or which page is open.
+function LanguageToggle() {
+  const { lang, setLang } = useLanguage();
+  return (
+    <div className="ml-auto flex items-center rounded-full border border-stone-200 bg-stone-100 p-0.5 text-[11px] font-semibold">
+      <button
+        onClick={() => setLang("en")}
+        className={`rounded-full px-2.5 py-1 transition ${lang === "en" ? "bg-white text-stone-900 shadow-sm" : "text-stone-500 hover:text-stone-700"}`}
+      >
+        EN
+      </button>
+      <button
+        onClick={() => setLang("ko")}
+        className={`rounded-full px-2.5 py-1 transition ${lang === "ko" ? "bg-white text-stone-900 shadow-sm" : "text-stone-500 hover:text-stone-700"}`}
+      >
+        KO
+      </button>
+    </div>
+  );
+}
+
+function AppShell() {
   const location = useLocation();
+  const { t } = useT();
   // Sidebar collapse (2026-08-31 visual polish) — plain component state,
   // not persisted: this is a within-session convenience toggle, not a
   // standing preference worth surviving a reload (no real request for
@@ -60,12 +85,13 @@ export default function App() {
         <nav className="mt-1 flex flex-col gap-0.5 px-3">
           {NAV.map((item) => {
             const Icon = item.icon;
+            const label = t(item.labelKey);
             return (
               <NavLink
                 key={item.to}
                 to={item.to}
                 end={item.end}
-                title={collapsed ? item.label : undefined}
+                title={collapsed ? label : undefined}
                 className={({ isActive }) =>
                   `flex items-center gap-2.5 rounded-md px-3 py-2 text-[13px] font-medium transition ${collapsed ? "justify-center px-2" : ""} ${
                     isActive ? "bg-forest-800 text-white" : "text-stone-300 hover:bg-forest-900 hover:text-white"
@@ -73,35 +99,35 @@ export default function App() {
                 }
               >
                 <Icon size={15} strokeWidth={2} />
-                {!collapsed && item.label}
+                {!collapsed && label}
               </NavLink>
             );
           })}
         </nav>
         {!collapsed && (
           <div className="mt-auto px-5 py-4 text-[11px] leading-relaxed text-stone-500">
-            Indonesia forestry-carbon
+            {t("nav.tagline1")}
             <br />
-            partner discovery
+            {t("nav.tagline2")}
             <div className="mt-2 flex flex-col gap-1">
               <NavLink to="/how-it-works" className="text-stone-500 underline decoration-stone-700 underline-offset-2 hover:text-stone-300">
-                How this works
+                {t("nav.howItWorks")}
               </NavLink>
               <NavLink to="/design-system" className="text-stone-500 underline decoration-stone-700 underline-offset-2 hover:text-stone-300">
-                Design system
+                {t("nav.designSystem")}
               </NavLink>
             </div>
           </div>
         )}
         <button
           onClick={() => setCollapsed((c) => !c)}
-          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          title={collapsed ? t("nav.expandSidebar") : t("nav.collapseSidebar")}
           className={`flex items-center gap-2 border-t border-forest-900 px-5 py-3 text-[12px] font-medium text-stone-400 hover:bg-forest-900 hover:text-white ${
             collapsed ? "mt-auto justify-center px-2" : ""
           }`}
         >
           {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
-          {!collapsed && "Collapse"}
+          {!collapsed && t("nav.collapse")}
         </button>
       </aside>
 
@@ -114,7 +140,8 @@ export default function App() {
             here as a second, non-functional one is worse than not having
             one, so it's gone rather than faked into working. */}
         <header className="sticky top-0 z-10 flex h-12 shrink-0 items-center gap-4 border-b border-stone-200 bg-white px-5">
-          <h1 className="text-[14px] font-semibold text-stone-800">{pageTitle(location.pathname)}</h1>
+          <h1 className="text-[14px] font-semibold text-stone-800">{pageTitle(location.pathname, t)}</h1>
+          <LanguageToggle />
         </header>
         <StalenessBanner />
         <main className="flex-1">
@@ -130,5 +157,13 @@ export default function App() {
         </main>
       </div>
     </CandidatesProvider>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppShell />
+    </LanguageProvider>
   );
 }

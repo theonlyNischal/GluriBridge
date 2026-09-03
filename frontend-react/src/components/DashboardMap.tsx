@@ -4,6 +4,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { api } from "../lib/api";
 import { fmtScore } from "../lib/format";
+import { t } from "../lib/i18n";
+import type { Lang } from "../lib/LanguageContext";
 import type { CandidateListRow } from "../lib/types";
 
 function escapeHtml(s: string): string {
@@ -23,7 +25,10 @@ function escapeHtml(s: string): string {
  * explicitly flagged earlier this session as a separate, bigger, deferred
  * scope decision).
  */
-export function DashboardMap({ candidates }: { candidates: CandidateListRow[] }) {
+// Opt-in lang (2026-09-03, EN/KO toggle) — Dashboard-exclusive component
+// (Territory Discovery uses its own separate TerritoryMap.tsx, untouched),
+// so it's safe to make this one language-aware directly.
+export function DashboardMap({ candidates, lang = "en" }: { candidates: CandidateListRow[]; lang?: Lang }) {
   const navigate = useNavigate();
   const elRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -57,10 +62,12 @@ export function DashboardMap({ candidates }: { candidates: CandidateListRow[] })
       if (r.latitude == null || r.longitude == null) return;
       const color = r.data_richness === "thin" ? "#a05a2c" : "#2f6d4f";
       const marker = L.circleMarker([r.latitude, r.longitude], { radius: 5, color, fillColor: color, fillOpacity: 0.8, weight: 1 }).addTo(map);
+      const oppShort = lang === "ko" ? t("score.opp.short", "ko") : "N";
+      const evidShort = lang === "ko" ? t("score.evid.short", "ko") : "C";
       marker.bindPopup(
         `<strong>${escapeHtml(r.name)}</strong><br>${escapeHtml(r.org ?? "")}<br>` +
-          `N ${fmtScore(r.need_score)} / C ${fmtScore(r.credibility_score)}<br>` +
-          `<a href="/candidates/${r.candidate_id}" data-candidate-id="${r.candidate_id}">View candidate &rarr;</a>`
+          `${oppShort} ${fmtScore(r.need_score)} / ${evidShort} ${fmtScore(r.credibility_score)}<br>` +
+          `<a href="/candidates/${r.candidate_id}" data-candidate-id="${r.candidate_id}">${escapeHtml(t("map.popup.viewCandidate", lang))} &rarr;</a>`
       );
       markers.push(marker);
     });
@@ -101,7 +108,7 @@ export function DashboardMap({ candidates }: { candidates: CandidateListRow[] })
       markers.forEach((m) => map.removeLayer(m));
       polygonLayers.forEach((l) => map.removeLayer(l));
     };
-  }, [candidates, navigate]);
+  }, [candidates, navigate, lang]);
 
   return (
     <div>
@@ -109,15 +116,17 @@ export function DashboardMap({ candidates }: { candidates: CandidateListRow[] })
       <div className="mt-2 flex flex-wrap gap-4 text-[11.5px] text-stone-500">
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-forest-500" />
-          rich candidate
+          {t("map.legend.rich", lang)}
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-clay-600" />
-          thin candidate
+          {t("map.legend.thin", lang)}
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-sm bg-teal-800" />
-          <span title="BRWA territory">real customary territory ({loadedTerritoryCount} shown)</span>
+          <span title="BRWA territory">
+            {t("map.legend.territory", lang)} ({loadedTerritoryCount} {t("map.legend.shown", lang)})
+          </span>
         </span>
       </div>
     </div>

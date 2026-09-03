@@ -1,4 +1,6 @@
 import { groupByProvince, PROVINCE_NOT_AVAILABLE } from "../lib/provinceNormalize";
+import { t } from "../lib/i18n";
+import type { Lang } from "../lib/LanguageContext";
 import type { CandidateListRow } from "../lib/types";
 
 // Named provinces beyond this rank collapse into one real "Other
@@ -7,7 +9,11 @@ import type { CandidateListRow } from "../lib/types";
 // hover away via the title tooltip, never dropped.
 const MAX_NAMED_ROWS = 8;
 
-export function ProvinceBreakdown({ candidates }: { candidates: CandidateListRow[] }) {
+// Opt-in lang (2026-09-03, EN/KO toggle, Dashboard-only component) —
+// real province names (Jawa Barat, Kalimantan Tengah, ...) are proper
+// nouns and NEVER translated regardless of lang; only the two UI-chrome
+// labels below ("Not available" / "Other") ever change.
+export function ProvinceBreakdown({ candidates, lang = "en" }: { candidates: CandidateListRow[]; lang?: Lang }) {
   const grouped = groupByProvince(candidates);
   const counts = new Map<string, number>();
   grouped.forEach((rows, province) => counts.set(province, rows.length));
@@ -28,14 +34,14 @@ export function ProvinceBreakdown({ candidates }: { candidates: CandidateListRow
     // per-province tail breakdown is still one hover away via the tooltip,
     // not lost.
     rows.push({
-      label: `Other (${rest.length})`,
+      label: `${t("province.other", lang)} (${rest.length})`,
       count: restTotal,
       title: rest.map(([p, n]) => `${p}: ${n}`).join(", "),
     });
   }
   if (notAvailable > 0) {
     rows.push({
-      label: PROVINCE_NOT_AVAILABLE,
+      label: lang === "ko" ? t("province.notAvailable", "ko") : PROVINCE_NOT_AVAILABLE,
       count: notAvailable,
       muted: true,
       title: "Real candidates with no province recorded in any source — a genuine data gap, shown rather than hidden.",

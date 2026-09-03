@@ -1,5 +1,7 @@
 import type { ScoreLabel } from "../../lib/types";
 import { fmtScore } from "../../lib/format";
+import { t as translate, type StringKey } from "../../lib/i18n";
+import type { Lang } from "../../lib/LanguageContext";
 
 // Terminology pass (2026-09-02) — plain-language category names, per
 // explicit review. "confirmed" -> "Verified Project" here is the
@@ -17,6 +19,19 @@ export const SCORE_LABEL_TEXT: Record<ScoreLabel, string> = {
   strong_lead: "Promising Lead",
   mixed: "Balanced",
   early_signal: "Early signal",
+};
+
+// Maps each ScoreLabel to its i18n.ts key (2026-09-03, EN/KO toggle) —
+// used only when a caller explicitly passes `lang="ko"` (Dashboard only
+// right now). Every other caller omits `lang` entirely and keeps
+// rendering SCORE_LABEL_TEXT's plain English above, completely
+// unaffected — this is additive, not a fork of the source of truth.
+const SCORE_LABEL_KEY: Record<ScoreLabel, StringKey> = {
+  opportunity: "scoreLabel.opportunity",
+  confirmed: "scoreLabel.confirmed",
+  strong_lead: "scoreLabel.strongLead",
+  mixed: "scoreLabel.mixed",
+  early_signal: "scoreLabel.earlySignal",
 };
 
 // Colored by WHICH AXIS DOMINATES, never by good/bad — opportunity
@@ -52,13 +67,30 @@ export const SCORE_LABEL_STYLE: Record<ScoreLabel, string> = {
  * "need X / cred X" as small text next to the pill there would be pure
  * redundancy, not an omission of the numbers.
  */
-export function ScoreLabelPill({ label, need, cred, showNumbers = true }: { label: ScoreLabel; need: number; cred: number; showNumbers?: boolean }) {
+export function ScoreLabelPill({
+  label,
+  need,
+  cred,
+  showNumbers = true,
+  lang = "en",
+}: {
+  label: ScoreLabel;
+  need: number;
+  cred: number;
+  showNumbers?: boolean;
+  // Opt-in (2026-09-03) — default "en" so every existing call site is
+  // completely unaffected; only Dashboard passes the real current
+  // language.
+  lang?: Lang;
+}) {
+  const text = lang === "ko" ? translate(SCORE_LABEL_KEY[label], "ko") : SCORE_LABEL_TEXT[label];
   return (
     <span className="inline-flex items-center gap-2.5 whitespace-nowrap">
-      <span className={`rounded-full px-3 py-1 text-[13px] font-bold ${SCORE_LABEL_STYLE[label]}`}>{SCORE_LABEL_TEXT[label]}</span>
+      <span className={`rounded-full px-3 py-1 text-[13px] font-bold ${SCORE_LABEL_STYLE[label]}`}>{text}</span>
       {showNumbers && (
         <span className="font-mono text-[13px] font-semibold tabular text-stone-600">
-          <span title="need score">opp</span> {fmtScore(need)} / <span title="credibility score">evid</span> {fmtScore(cred)}
+          <span title="need score">{lang === "ko" ? translate("score.opp.short", "ko") : "opp"}</span> {fmtScore(need)} /{" "}
+          <span title="credibility score">{lang === "ko" ? translate("score.evid.short", "ko") : "evid"}</span> {fmtScore(cred)}
         </span>
       )}
     </span>

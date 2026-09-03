@@ -10,7 +10,20 @@ import { DashboardMap } from "../components/DashboardMap";
 import { ProvinceBreakdown } from "../components/ProvinceBreakdown";
 import { STATUS_OPTIONS, STATUS_DOT_COLOR } from "../components/ui/StatusBadge";
 import { filterParamsToSearchParams, DEFAULT_FILTER_PARAMS } from "../lib/candidateFilter";
+import { useT, type StringKey } from "../lib/i18n";
 import type { CandidateListRow, CandidateStatusValue, ScoreLabel } from "../lib/types";
+
+// Opt-in Korean mirror of StatusBadge.tsx's STATUS_LABEL (2026-09-03,
+// EN/KO toggle) — that map is the real shared source of truth used
+// everywhere else in the app and stays English-only; this Dashboard-only
+// lookup is additive, used only when lang === "ko" below.
+const STATUS_LABEL_KEY: Record<CandidateStatusValue, StringKey> = {
+  not_contacted: "status.notContacted",
+  contacted: "status.contacted",
+  follow_up_needed: "status.followUpNeeded",
+  done: "status.done",
+  rejected: "status.rejected",
+};
 
 // A real, working navigational footer for a panel — every one of these
 // leads somewhere real (never a dead/decorative "learn more"). 2026-08-31
@@ -66,12 +79,13 @@ function pickRepresentative(rows: CandidateListRow[], label: ScoreLabel): Candid
 // card is a real link to that candidate's own detail page, same
 // clickable-card pattern as everywhere else in the app.
 function CandidateProfileCard({ row }: { row: CandidateListRow }) {
+  const { t, lang } = useT();
   return (
     <Link
       to={`/candidates/${row.candidate_id}`}
       className="instrument-panel hover-lift block border border-stone-300 bg-white p-4 transition-colors hover:border-stone-500 hover:bg-stone-100/40"
     >
-      <ScoreLabelPill label={row.score_label} need={row.need_score} cred={row.credibility_score} showNumbers={false} />
+      <ScoreLabelPill label={row.score_label} need={row.need_score} cred={row.credibility_score} showNumbers={false} lang={lang} />
       <div className="mt-2 truncate font-semibold text-stone-800" title={row.name}>
         {row.name}
       </div>
@@ -79,10 +93,10 @@ function CandidateProfileCard({ row }: { row: CandidateListRow }) {
         {row.org ?? "—"}
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2.5">
-        <ScoreStatCard axis="need" label="Opportunity" value={row.need_score} accent="clay" icon={Target} />
+        <ScoreStatCard axis="need" label={t("score.opportunity")} value={row.need_score} accent="clay" icon={Target} />
         <ScoreStatCard
           axis="credibility"
-          label="Evidence Strength"
+          label={t("score.evidence")}
           value={row.credibility_score}
           capped={row.credibility_capped}
           cappedReason="Capped at 30 — this candidate's data is thin (e.g. a single uncorroborated news mention), so a higher score isn't trustworthy enough to show uncapped."
@@ -104,6 +118,7 @@ const isDark = BG_VARIANT === "charcoal";
 
 export function DashboardPage() {
   const { candidates, error } = useCandidates();
+  const { t, lang } = useT();
 
   if (error) return <div className="px-6 py-6 text-clay-700">Failed to load candidates: {error}</div>;
   if (!candidates) return <div className="px-6 py-6 text-stone-400">Loading…</div>;
@@ -185,17 +200,19 @@ export function DashboardPage() {
           "this is the important number": "this number is live right
           now"), matching the brief's own example. */}
       <div className="mb-10 pt-2 text-center">
-        <p className={`text-[13px] font-semibold uppercase tracking-wide ${isDark ? "text-forest-300" : "text-forest-600"}`}>Real, evidence-backed candidate discovery</p>
-        <h1 className={`mt-2 font-display text-4xl font-bold ${isDark ? "text-stone-50" : "text-stone-900"}`}>{total} real candidates in the pipeline</h1>
+        <p className={`text-[13px] font-semibold uppercase tracking-wide ${isDark ? "text-forest-300" : "text-forest-600"}`}>{t("dash.eyebrow")}</p>
+        <h1 className={`mt-2 font-display text-4xl font-bold ${isDark ? "text-stone-50" : "text-stone-900"}`}>
+          {t("dash.headline").replace("{n}", String(total))}
+        </h1>
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-5 lg:grid-cols-4">
-          <KpiCard label="Total Candidates" value={total} sub="live from the API" to="/candidates" size="lg" icon={Users} animateValue variant="instrument" live />
-          <KpiCard label="High Opportunity" value={highNeed} sub="Opportunity ≥ 70" accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue variant="instrument" />
-          <KpiCard label="High Evidence Strength" value={highCred} sub="Evidence Strength ≥ 70" to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue variant="instrument" />
+          <KpiCard label={t("dash.kpi.total")} value={total} sub={t("dash.kpi.total.sub")} to="/candidates" size="lg" icon={Users} animateValue variant="instrument" live />
+          <KpiCard label={t("dash.kpi.highOpp")} value={highNeed} sub={t("dash.kpi.highOpp.sub")} accent="clay" to="/candidates?minNeed=70" size="lg" icon={Flame} animateValue variant="instrument" />
+          <KpiCard label={t("dash.kpi.highEvid")} value={highCred} sub={t("dash.kpi.highEvid.sub")} to="/candidates?minCred=70" size="lg" icon={ShieldCheck} animateValue variant="instrument" />
           <KpiCard
-            label="Compliance Risk"
+            label={t("dash.kpi.compliance")}
             value={approachingDeadline}
-            sub="Reporting Deadline amber/red badge"
+            sub={t("dash.kpi.compliance.sub")}
             to="/candidates?compliance=approaching"
             size="lg"
             icon={AlertTriangle}
@@ -204,7 +221,7 @@ export function DashboardPage() {
           />
         </div>
 
-        <p className={`mt-5 text-[13px] ${isDark ? "text-stone-400" : "text-stone-500"}`}>Independent axes · never combined into one ranking · live from the registry</p>
+        <p className={`mt-5 text-[13px] ${isDark ? "text-stone-400" : "text-stone-500"}`}>{t("dash.supportLine")}</p>
       </div>
 
       {/* Contact-readiness cards (2026-09-02 visual pass) — icon-circle +
@@ -224,28 +241,28 @@ export function DashboardPage() {
                 <Mail size={18} strokeWidth={2.25} />
               </span>
               <div>
-                <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Contact ready</div>
+                <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">{t("dash.contactReady")}</div>
                 <div className="font-mono text-[21px] font-bold text-stone-900">
-                  {resolvedContact} <span className="text-[12.5px] font-medium text-stone-400">contacts identified</span>
+                  {resolvedContact} <span className="text-[12.5px] font-medium text-stone-400">{t("dash.contactReady.unit")}</span>
                 </div>
               </div>
             </div>
             <Link to="/candidates?contactResolved=yes" className="flex shrink-0 items-center gap-1 text-[12px] font-semibold text-forest-600 hover:text-forest-700">
-              View contacts <ArrowRight size={12} strokeWidth={2.5} />
+              {t("dash.viewContacts")} <ArrowRight size={12} strokeWidth={2.5} />
             </Link>
           </div>
           <div className="mt-3 flex flex-wrap gap-2">
             <Link to="/candidates?hasEmail=yes" className="rounded-full bg-forest-50 px-3 py-1 text-[12px] font-semibold text-forest-700 transition hover:bg-forest-100">
-              {hasEmail} Verified emails
+              {hasEmail} {t("dash.chip.verifiedEmails")}
             </Link>
             <Link to="/candidates?lowConfidenceEmail=yes" className="rounded-full bg-stone-100 px-3 py-1 text-[12px] font-semibold text-stone-600 transition hover:bg-stone-200">
-              {lowConfidenceEmail} Potential matches
+              {lowConfidenceEmail} {t("dash.chip.potentialMatches")}
             </Link>
             <Link
               to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, contactResolved: "yes", hasEmail: "no", lowConfidenceEmail: "no" }).toString()}`}
               className="rounded-full bg-stone-100 px-3 py-1 text-[12px] font-semibold text-stone-600 transition hover:bg-stone-200"
             >
-              {nameOnlyNoEmail} Named contacts, no email
+              {nameOnlyNoEmail} {t("dash.chip.namedNoEmail")}
             </Link>
           </div>
         </div>
@@ -255,21 +272,21 @@ export function DashboardPage() {
               <Radio size={18} strokeWidth={2.25} />
             </span>
             <div>
-              <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Also found</div>
+              <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">{t("dash.alsoFound")}</div>
               <div className="font-mono text-[21px] font-bold text-stone-900">
-                {hasPhone + publicPresenceOnly} <span className="text-[12.5px] font-medium text-stone-400">more ways to connect</span>
+                {hasPhone + publicPresenceOnly} <span className="text-[12.5px] font-medium text-stone-400">{t("dash.alsoFound.unit")}</span>
               </div>
             </div>
           </div>
           <div className="mt-3 flex flex-wrap gap-2">
             <Link to="/candidates?hasPhone=yes" className="rounded-full bg-teal-50 px-3 py-1 text-[12px] font-semibold text-teal-700 transition hover:bg-teal-100">
-              {hasPhone} Phone/WhatsApp
+              {hasPhone} {t("dash.chip.phoneWhatsapp")}
             </Link>
             <Link
               to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, hasPublicPresence: "yes", hasPhone: "no" }).toString()}`}
               className="rounded-full bg-stone-100 px-3 py-1 text-[12px] font-semibold text-stone-600 transition hover:bg-stone-200"
             >
-              {publicPresenceOnly} Online presence only
+              {publicPresenceOnly} {t("dash.chip.onlineOnly")}
             </Link>
           </div>
         </div>
@@ -306,7 +323,7 @@ export function DashboardPage() {
             scatter plot itself (ScatterPlot.tsx) is untouched and still
             in the codebase, just no longer imported/rendered anywhere on
             the primary Dashboard view. */}
-        <Panel title="Candidate profiles — one real example per category" className="!p-7 flex flex-col" variant="instrument">
+        <Panel title={t("dash.panel.gallery")} className="!p-7 flex flex-col" variant="instrument">
           {/* Scrollable card list (2026-09-02) — capped to roughly the
               map panel's own real height so the two align instead of the
               gallery dictating the whole row's height; all 4 real cards
@@ -317,15 +334,15 @@ export function DashboardPage() {
               <CandidateProfileCard key={row.candidate_id} row={row} />
             ))}
           </div>
-          <PanelLink to="/candidates">View all candidates</PanelLink>
+          <PanelLink to="/candidates">{t("dash.viewAllCandidates")}</PanelLink>
         </Panel>
-        <Panel title="Real candidate locations + real Customary Territory Registry overlaps" variant="instrument">
-          <DashboardMap candidates={candidates} />
-          <PanelLink to="/territories">View in Territory Discovery</PanelLink>
+        <Panel title={t("dash.panel.map")} variant="instrument">
+          <DashboardMap candidates={candidates} lang={lang} />
+          <PanelLink to="/territories">{t("dash.viewInTerritoryDiscovery")}</PanelLink>
         </Panel>
-        <Panel title="Candidates by province (real, normalized)" variant="instrument">
-          <ProvinceBreakdown candidates={candidates} />
-          <PanelLink to="/candidates">View all candidates</PanelLink>
+        <Panel title={t("dash.panel.province")} variant="instrument">
+          <ProvinceBreakdown candidates={candidates} lang={lang} />
+          <PanelLink to="/candidates">{t("dash.viewAllCandidates")}</PanelLink>
         </Panel>
       </div>
 
@@ -336,15 +353,15 @@ export function DashboardPage() {
           real numbers beside them — never hiding a number just to fit a
           smaller demoted panel. */}
       <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr,1.3fr,1fr,1fr]">
-        <Panel title="Top 5 by Opportunity" variant="instrument">
+        <Panel title={t("dash.panel.topOpp")} variant="instrument">
           <RankedList rows={topNeed} />
-          <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "need_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
+          <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "need_score", sortDir: "desc" }).toString()}`}>{t("dash.viewAllCandidates")}</PanelLink>
         </Panel>
-        <Panel title="Top 5 by Evidence Strength" variant="instrument">
+        <Panel title={t("dash.panel.topEvid")} variant="instrument">
           <RankedList rows={topCred} />
-          <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>View all candidates</PanelLink>
+          <PanelLink to={`/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, sortKey: "credibility_score", sortDir: "desc" }).toString()}`}>{t("dash.viewAllCandidates")}</PanelLink>
         </Panel>
-        <Panel title="Candidates by project type" variant="instrument">
+        <Panel title={t("dash.panel.projectType")} variant="instrument">
           {/* Replaces Data richness (2026-09-03, mentor feedback at the
               hackathon: show what KIND of forestry-carbon project is
               actually in the pipeline, not just how much evidence backs
@@ -355,9 +372,9 @@ export function DashboardPage() {
               already. Real activity_categories field, same real
               bar-list + click-through pattern as Candidates by
               province. */}
-          <ProjectTypeBreakdown candidates={candidates} />
+          <ProjectTypeBreakdown candidates={candidates} lang={lang} />
         </Panel>
-        <Panel title="Outreach status" variant="instrument">
+        <Panel title={t("dash.panel.outreach")} variant="instrument">
           {/* Deliberately a plain dot+count list, not a donut (tried,
               reverted 2026-09-02): real outreach is 141/144 "not
               contacted" right now, so a donut ring renders as one almost-
@@ -373,13 +390,13 @@ export function DashboardPage() {
                 className="flex items-center gap-2.5 text-[13px] hover:opacity-80"
               >
                 <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: STATUS_DOT_COLOR[o.value] }} />
-                <span className="min-w-0 flex-1 truncate text-stone-600">{o.label}</span>
+                <span className="min-w-0 flex-1 truncate text-stone-600">{lang === "ko" ? t(STATUS_LABEL_KEY[o.value]) : o.label}</span>
                 <span className="shrink-0 font-mono font-semibold text-stone-700">{statusCounts[o.value]}</span>
               </Link>
             ))}
           </div>
-          <p className="mt-2.5 text-[12px] text-stone-500">Real, persisted state — set from a candidate's detail page, survives every data refresh.</p>
-          <PanelLink to="/candidates">View all candidates</PanelLink>
+          <p className="mt-2.5 text-[12px] text-stone-500">{t("dash.outreach.note")}</p>
+          <PanelLink to="/candidates">{t("dash.viewAllCandidates")}</PanelLink>
         </Panel>
       </div>
 
@@ -388,17 +405,18 @@ export function DashboardPage() {
           PROJECT_CONTEXT.md's design principles), not marketing copy
           invented for this row. */}
       <div className={`mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t pt-5 text-[12px] font-medium ${isDark ? "border-forest-800 text-stone-400" : "border-stone-300 text-stone-500"}`}>
-        <span>Confirmed vs. inferred, always labeled</span>
+        <span>{t("dash.trust.confirmedInferred")}</span>
         <span className="text-stone-400">·</span>
-        <span>No LLM for scoring or matching</span>
+        <span>{t("dash.trust.noLlm")}</span>
         <span className="text-stone-400">·</span>
-        <span>Opportunity and Evidence Strength scored independently</span>
+        <span>{t("dash.trust.independentAxes")}</span>
       </div>
     </div>
   );
 }
 
 function RankedList({ rows }: { rows: CandidateListRow[] }) {
+  const { lang } = useT();
   return (
     <ol className="divide-y divide-stone-100">
       {rows.map((r, i) => (
@@ -409,7 +427,7 @@ function RankedList({ rows }: { rows: CandidateListRow[] }) {
               <div className="min-w-0 flex-1 truncate text-[12.5px] font-medium text-stone-800">{r.name}</div>
             </div>
             <div className="mt-1 pl-6">
-              <ScoreLabelPill label={r.score_label} need={r.need_score} cred={r.credibility_score} />
+              <ScoreLabelPill label={r.score_label} need={r.need_score} cred={r.credibility_score} lang={lang} />
             </div>
           </Link>
         </li>

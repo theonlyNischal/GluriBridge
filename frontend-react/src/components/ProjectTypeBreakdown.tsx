@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
 import { filterParamsToSearchParams, DEFAULT_FILTER_PARAMS } from "../lib/candidateFilter";
+import { t, type StringKey } from "../lib/i18n";
+import type { Lang } from "../lib/LanguageContext";
 import type { ActivityCategory, CandidateListRow } from "../lib/types";
 
 const CATEGORIES: ActivityCategory[] = ["Reforestation", "Social forestry", "Conservation", "Peatland", "Improved Forest Management"];
+
+// Opt-in lang (2026-09-03, EN/KO toggle, Dashboard-only component) —
+// maps each real category to its i18n.ts key.
+const CATEGORY_KEY: Record<ActivityCategory, StringKey> = {
+  Reforestation: "activity.reforestation",
+  "Social forestry": "activity.socialForestry",
+  Conservation: "activity.conservation",
+  Peatland: "activity.peatland",
+  "Improved Forest Management": "activity.improvedForestManagement",
+};
 
 /**
  * Real project-type breakdown (2026-09-03, added on a mentor's
@@ -20,7 +32,7 @@ const CATEGORIES: ActivityCategory[] = ["Reforestation", "Social forestry", "Con
  * no such claim; the caption underneath says so explicitly instead of
  * leaving a viewer to assume the percentages add to 100%.
  */
-export function ProjectTypeBreakdown({ candidates }: { candidates: CandidateListRow[] }) {
+export function ProjectTypeBreakdown({ candidates, lang = "en" }: { candidates: CandidateListRow[]; lang?: Lang }) {
   const total = candidates.length;
   const counts = new Map<ActivityCategory, number>();
   CATEGORIES.forEach((c) => counts.set(c, 0));
@@ -38,14 +50,20 @@ export function ProjectTypeBreakdown({ candidates }: { candidates: CandidateList
     r.activity_categories.forEach((c) => counts.set(c, (counts.get(c) ?? 0) + 1));
   });
 
+  // title always set to the full label (2026-09-03) — the Korean labels
+  // for these 5 real regulatory categories keep the English/international
+  // term in parens for accuracy (see i18n.ts), which can run past the
+  // row's 126px width; the tooltip guarantees the full text is still
+  // reachable even when visually truncated.
   const rows: { label: string; count: number; to: string; muted?: boolean; title?: string }[] = CATEGORIES.map((c) => ({
-    label: c,
+    label: t(CATEGORY_KEY[c], lang),
     count: counts.get(c) ?? 0,
+    title: t(CATEGORY_KEY[c], lang),
     to: `/candidates?${filterParamsToSearchParams({ ...DEFAULT_FILTER_PARAMS, activityCategory: c }).toString()}`,
   }));
   if (unclassified > 0) {
     rows.push({
-      label: "Unclassified",
+      label: t("activity.unclassified", lang),
       count: unclassified,
       muted: true,
       title: "Real candidates with no activity category resolved yet — a genuine data gap, shown rather than hidden.",
@@ -54,7 +72,7 @@ export function ProjectTypeBreakdown({ candidates }: { candidates: CandidateList
   }
   if (notApplicable > 0) {
     rows.push({
-      label: "Not applicable",
+      label: t("activity.notApplicable", lang),
       count: notApplicable,
       muted: true,
       title: "This candidate's real activity genuinely isn't a forestry-carbon project type (see the design system's Unclassified-vs-Not-applicable note).",
@@ -79,7 +97,9 @@ export function ProjectTypeBreakdown({ candidates }: { candidates: CandidateList
           </Link>
         ))}
       </div>
-      <p className="mt-2.5 text-[12px] text-stone-500">A project can span more than one type, so these don't sum to {total}.</p>
+      <p className="mt-2.5 text-[12px] text-stone-500">
+        {t("dash.projectType.caption", lang)} {total}.
+      </p>
     </div>
   );
 }
