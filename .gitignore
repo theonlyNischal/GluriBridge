@@ -102,10 +102,16 @@ dist/
 dist-ssr/
 *.local
 
-# Env / secrets — none exist in this repo today; ignored preemptively so
-# a future local .env is never committed by accident.
+# Env / secrets — ignored preemptively so a real .env (e.g.
+# backend/.env, holding TAVILY_API_KEY for the Sync page's news-enriched
+# refresh, added 2026-09-03) is never committed by accident.
 .env
 .env.*
+# ...except the checked-in template itself, which must be a real committed
+# file precisely so a future dev knows what to put in their own .env — the
+# .env.* pattern above would otherwise silently swallow it too.
+!.env.example
+!*/.env.example
 *.pem
 *.key
 secrets.json

@@ -22,6 +22,18 @@ BACKEND_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if BACKEND_ROOT not in sys.path:
     sys.path.insert(0, BACKEND_ROOT)
 
+# Loads the repo-root .env into os.environ if present (2026-09-03, added
+# for the Sync page's optional TAVILY_API_KEY) — repo-root, not
+# backend/.env, matching the project's own existing .env/.env.example
+# convention (found already in place at the repo root, alongside
+# NVIDIA_API_KEY, while wiring this up — not something introduced here).
+# Silently a no-op if no .env file exists, so this is safe for every
+# existing deployment/dev setup that's never needed one. Must happen
+# before orchestrate.py (imported by scheduler/routes below) ever reads
+# os.environ for the key.
+from dotenv import load_dotenv
+load_dotenv(os.path.join(BACKEND_ROOT, "..", ".env"))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 

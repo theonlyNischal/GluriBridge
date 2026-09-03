@@ -115,44 +115,78 @@ def seed_if_empty():
     return {"seeded": True, **result}
 
 
-def run_refresh_cycle(force: set = None, skip_scrape: bool = False) -> dict:
+def run_refresh_cycle(force: set = None, skip_scrape: bool = False, with_news: bool = False,
+                       triggered_by: str = "scheduler") -> dict:
     """
     Same sequence as orchestrate.main() (freeze gate -> freshness check ->
     scrape due sources -> re-check freshness -> run_normalization_and_
     export), reusing those exact functions, plus loading the result into
     SQLite at the end. Returns a JSON-serializable summary; never raises
     for an expected "frozen" outcome, callers check result["status"].
+
+    with_news (2026-09-03, Sync page): passed straight through to
+    orchestrate.run_normalization_and_export() — see its own docstring.
+    Defaults to False; the background loop below NEVER passes True, so
+    the automatic cadence-based refresh stays registry-only exactly as
+    it always has, regardless of whether a Tavily key is configured —
+    news-enriched refreshes only ever happen from an explicit manual
+    request (routes.py's POST /refresh?with_news=true).
+
+    Every attempt — 'ok', 'frozen', or a genuine pipeline exception — is
+    appended to the real refresh_log table (db.log_refresh_attempt), not
+    just the two success-only meta timestamps. A pipeline exception is
+    caught here rather than left to propagate: _load_export_into_db()
+    then never runs, so the live DB's existing candidates table (and
+    whatever the frontend is currently showing) is structurally
+    untouched by a failed attempt — the real "last validated data stays
+    up" behavior, achieved by simply never overwriting it on failure,
+    not by any special-cased fallback logic.
     """
     force = force or set()
     today = date.today()
+    started_at = datetime.now(timezone.utc).isoformat()
 
     if not skip_scrape:
         frozen = orchestrate.read_freeze()
         if frozen:
             logger.info("refresh cycle blocked — data frozen: %s", frozen.get("reason"))
+            db.log_refresh_attempt(started_at, datetime.now(timezone.utc).isoformat(), "frozen",
+                                    with_news, False, triggered_by, detail=frozen.get("reason"))
             return {"status": "frozen", "frozen_at": frozen.get("frozen_at"), "reason": frozen.get("reason")}
 
     freshness = orchestrate.check_all_freshness(today)
     scrape_results = {}
-    if not skip_scrape:
-        for source in ("sruk", "srn_ppi", "verra", "brwa"):
-            due, why = orchestrate.is_due(source, freshness, force)
-            if not due:
-                scrape_results[source] = {"ran": False, "why": why}
-                continue
-            ok, message = orchestrate.run_scraper(source)
-            scrape_results[source] = {"ran": True, "ok": ok, "message": message}
-        freshness = orchestrate.check_all_freshness(today)  # re-check after scraping
+    try:
+        if not skip_scrape:
+            for source in ("sruk", "srn_ppi", "verra", "brwa"):
+                due, why = orchestrate.is_due(source, freshness, force)
+                if not due:
+                    scrape_results[source] = {"ran": False, "why": why}
+                    continue
+                ok, message = orchestrate.run_scraper(source)
+                scrape_results[source] = {"ran": True, "ok": ok, "message": message}
+            freshness = orchestrate.check_all_freshness(today)  # re-check after scraping
 
-    pipeline_result = orchestrate.run_normalization_and_export(freshness)
-    load_result = _load_export_into_db()
+        pipeline_result = orchestrate.run_normalization_and_export(freshness, with_news=with_news)
+        load_result = _load_export_into_db()
+    except Exception as e:
+        logger.exception("refresh cycle failed")
+        db.log_refresh_attempt(started_at, datetime.now(timezone.utc).isoformat(), "error",
+                                with_news, False, triggered_by, detail=str(e))
+        return {"status": "error", "message": str(e), "scrape_results": scrape_results}
 
+    used_news = pipeline_result.get("used_news", False)
+    db.log_refresh_attempt(
+        started_at, datetime.now(timezone.utc).isoformat(), "ok", with_news, used_news, triggered_by,
+        detail=f"{load_result['candidate_count']} candidates loaded" + (" (with news)" if used_news else ""),
+    )
     return {
         "status": "ok",
         "scrape_results": scrape_results,
         "pipeline_stats": pipeline_result["stats"],
         "export": pipeline_result["export"],
         "db_load": load_result,
+        "used_news": used_news,
     }
 
 

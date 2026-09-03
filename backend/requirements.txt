@@ -3,3 +3,4 @@ shapely>=2.0
 rapidfuzz>=3.0
 fastapi>=0.141
 uvicorn>=0.52
+python-dotenv>=1.0

@@ -1,4 +1,13 @@
-import type { CandidateDetail, CandidateListRow, CandidateStatusValue, StatusUpdateResult, StatsResponse, TerritoryListEntry } from "./types";
+import type {
+  CandidateDetail,
+  CandidateListRow,
+  CandidateStatusValue,
+  StatusUpdateResult,
+  StatsResponse,
+  TerritoryListEntry,
+  RefreshLogEntry,
+  RefreshResult,
+} from "./types";
 
 // Build-time override for deployment (e.g. Render's Static Site build env
 // vars) — Vite only exposes client-bundle env vars prefixed VITE_. Falls
@@ -21,6 +30,34 @@ async function post<T>(path: string, body: unknown): Promise<T> {
   return res.json();
 }
 
+// Carries the real parsed response body on a non-2xx (2026-09-03,
+// Sync page) — the plain post() helper above discards it, but the Sync
+// page needs the REAL reason (423's frozen-at/reason, 400's "no Tavily
+// key configured" detail) to show the user, not a generic "HTTP 423".
+export class ApiError extends Error {
+  status: number;
+  body: unknown;
+  constructor(status: number, body: unknown) {
+    super(`HTTP ${status}`);
+    this.status = status;
+    this.body = body;
+  }
+}
+
+async function postWithErrorBody<T>(path: string): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`, { method: "POST" });
+  let parsed: unknown = null;
+  try {
+    parsed = await res.json();
+  } catch {
+    /* a non-JSON error body (rare — a proxy/network-level failure, not
+       a real API response) — parsed stays null, ApiError still carries
+       the real status. */
+  }
+  if (!res.ok) throw new ApiError(res.status, parsed);
+  return parsed as T;
+}
+
 export const api = {
   listCandidates: () => get<CandidateListRow[]>("/candidates"),
   getCandidate: (id: string) => get<CandidateDetail>(`/candidates/${encodeURIComponent(id)}`),
@@ -34,4 +71,9 @@ export const api = {
   getStats: () => get<StatsResponse>("/stats"),
   setStatus: (id: string, status: CandidateStatusValue, note?: string) =>
     post<StatusUpdateResult>(`/candidates/${encodeURIComponent(id)}/status`, { status, note }),
+  // Sync page (2026-09-03). refresh() throws ApiError on a non-2xx —
+  // 423 (frozen) or 400 (with_news requested but no Tavily key
+  // configured) both carry the real detail body, not just a status code.
+  getRefreshLog: (limit = 20) => get<RefreshLogEntry[]>(`/refresh-log?limit=${limit}`),
+  refresh: (withNews = false) => postWithErrorBody<RefreshResult>(`/refresh?with_news=${withNews}`),
 };

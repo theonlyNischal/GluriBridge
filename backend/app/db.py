@@ -101,6 +101,25 @@ CREATE TABLE IF NOT EXISTS candidate_status_history (
     note TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_status_history_candidate ON candidate_status_history(candidate_id, changed_at);
+
+-- One row per real refresh ATTEMPT (2026-09-03, Sync page) — 'ok',
+-- 'frozen', or 'error', never synthesized. Powers the Sync page's
+-- activity log; deliberately separate from the meta table's
+-- last_registry_refresh/last_full_refresh_with_news (which only ever
+-- hold the latest SUCCESSFUL timestamp of each kind) — a failed or
+-- frozen attempt is itself real information worth keeping, not
+-- something only successes should leave a trace of.
+CREATE TABLE IF NOT EXISTS refresh_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    started_at TEXT NOT NULL,
+    finished_at TEXT,
+    status TEXT NOT NULL,       -- 'ok' | 'frozen' | 'error'
+    with_news INTEGER NOT NULL, -- 0/1 — whether news enrichment was requested
+    used_news INTEGER NOT NULL, -- 0/1 — whether it was ACTUALLY used (may differ from with_news: no key configured, or a race where the key was removed mid-request)
+    triggered_by TEXT NOT NULL, -- 'manual' | 'scheduler'
+    detail TEXT                 -- short human-readable summary, or the real error message
+);
+CREATE INDEX IF NOT EXISTS idx_refresh_log_started ON refresh_log(started_at);
 """
 
 VALID_STATUSES = {"not_contacted", "contacted", "follow_up_needed", "done", "rejected"}
@@ -442,3 +461,44 @@ def get_brwa_coverage_gaps() -> dict:
 def candidate_count() -> int:
     with get_conn() as conn:
         return conn.execute("SELECT COUNT(*) AS n FROM candidates").fetchone()["n"]
+
+
+def log_refresh_attempt(started_at: str, finished_at: str, status: str, with_news: bool,
+                         used_news: bool, triggered_by: str, detail: str = None) -> None:
+    """Appends one real refresh-attempt row (2026-09-03, Sync page) — never
+    upserted/overwritten, so the activity log is a genuine append-only
+    history, not just the latest attempt's outcome."""
+    if status not in ("ok", "frozen", "error"):
+        raise ValueError(f"status must be 'ok'/'frozen'/'error', got {status!r}")
+    if triggered_by not in ("manual", "scheduler"):
+        raise ValueError(f"triggered_by must be 'manual'/'scheduler', got {triggered_by!r}")
+    with get_conn() as conn:
+        conn.execute(
+            """INSERT INTO refresh_log (started_at, finished_at, status, with_news, used_news, triggered_by, detail)
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (started_at, finished_at, status, int(bool(with_news)), int(bool(used_news)), triggered_by, detail),
+        )
+
+
+def get_refresh_log(limit: int = 20) -> list:
+    """Most-recent-first. Real rows only — an empty list before the first
+    refresh this DB has ever attempted, never backfilled/synthesized."""
+    with get_conn() as conn:
+        rows = conn.execute(
+            "SELECT id, started_at, finished_at, status, with_news, used_news, triggered_by, detail "
+            "FROM refresh_log ORDER BY id DESC LIMIT ?",
+            (limit,),
+        ).fetchall()
+    return [
+        {
+            "id": r["id"],
+            "started_at": r["started_at"],
+            "finished_at": r["finished_at"],
+            "status": r["status"],
+            "with_news": bool(r["with_news"]),
+            "used_news": bool(r["used_news"]),
+            "triggered_by": r["triggered_by"],
+            "detail": r["detail"],
+        }
+        for r in rows
+    ]

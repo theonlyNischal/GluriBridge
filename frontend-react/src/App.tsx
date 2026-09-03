@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, Link, NavLink, useLocation } from "react-router-dom";
-import { LayoutGrid, MapPin, Table2, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
+import { LayoutGrid, MapPin, Table2, ListChecks, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
 import { CandidatesProvider } from "./lib/CandidatesContext";
 import { LanguageProvider } from "./lib/LanguageContext";
 import { useT, type StringKey } from "./lib/i18n";
@@ -15,6 +15,7 @@ import { CandidatesListPage } from "./pages/CandidatesListPage";
 import { TerritoryDiscoveryPage } from "./pages/TerritoryDiscoveryPage";
 import { TrackedPage } from "./pages/TrackedPage";
 import { HowItWorksPage } from "./pages/HowItWorksPage";
+import { SyncPage } from "./pages/SyncPage";
 
 // Labels below are translation KEYS, not literal text (2026-09-03, EN/KO
 // toggle) — resolved via useT()'s t() at render time so this nav/header
@@ -26,6 +27,7 @@ const NAV: { to: string; labelKey: StringKey; end?: boolean; icon: typeof Layout
   { to: "/territories", labelKey: "nav.territoryDiscovery", icon: MapPin },
   { to: "/candidates", labelKey: "nav.candidates", icon: Table2 },
   { to: "/tracked", labelKey: "nav.partnerships", icon: ListChecks },
+  { to: "/sync", labelKey: "nav.sync", icon: RefreshCw },
 ];
 
 const TITLE_KEYS: Record<string, StringKey> = {
@@ -33,6 +35,7 @@ const TITLE_KEYS: Record<string, StringKey> = {
   "/territories": "nav.territoryDiscovery",
   "/candidates": "nav.candidates",
   "/tracked": "nav.partnerships",
+  "/sync": "nav.sync",
   "/design-system": "nav.designSystem",
   "/how-it-works": "nav.howItWorks",
 };
@@ -140,6 +143,7 @@ function AppShell() {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/candidates" element={<CandidatesListPage />} />
             <Route path="/tracked" element={<TrackedPage />} />
+            <Route path="/sync" element={<SyncPage />} />
             <Route path="/candidates/:id" element={<CandidateDetailPage />} />
             <Route path="/territories" element={<TerritoryDiscoveryPage />} />
             <Route path="/design-system" element={<DesignSystemPage />} />

@@ -63,6 +63,8 @@ sys.path.insert(0, REPO_ROOT)
 
 from gluribridge.pipeline import run_pipeline          # noqa: E402
 from gluribridge.export import export_pipeline_result  # noqa: E402
+from gluribridge import news_matching                  # noqa: E402
+from gluribridge.tavily_client import TavilyClient      # noqa: E402
 
 DATA_RAW = os.path.join(REPO_ROOT, "data", "raw")
 SCRAPERS_ROOT = os.path.join(REPO_ROOT, "scrapers")
@@ -440,7 +442,51 @@ def _read_preserve_contacts_by_registry_key() -> dict:
     return out
 
 
-def run_normalization_and_export(freshness: dict) -> dict:
+def get_tavily_api_key() -> str | None:
+    """None when unset/blank — the one place every caller (routes.py's
+    /stats and /refresh, this module) checks, so "is news enrichment
+    available right now" can never drift between what's reported and
+    what's actually attempted."""
+    return os.environ.get("TAVILY_API_KEY") or None
+
+
+def _real_provinces_from_last_export() -> list:
+    """Distinct real province values from the CURRENT export (before this
+    refresh runs) — used to build this round's news search queries.
+    Deliberately not a hardcoded/invented province list: real coverage
+    already varies (see PROJECT_CONTEXT.md), and a stale hardcoded list
+    would silently miss provinces the dataset has since grown into or
+    keep querying ones it's dropped out of. Empty list (not an error) if
+    no prior export exists yet — build_queries() itself already returns
+    a real non-empty query list even with provinces=[] (its global,
+    non-province-scoped templates)."""
+    path = os.path.join(EXPORT_DIR, "ranked_candidates.json")
+    if not os.path.exists(path):
+        return []
+    try:
+        rows = _read_json(path)
+    except (OSError, json.JSONDecodeError):
+        return []
+    provinces = {r.get("province") for r in rows if r.get("province")}
+    return sorted(provinces)
+
+
+def run_normalization_and_export(freshness: dict, with_news: bool = False) -> dict:
+    """
+    with_news (2026-09-03, Sync page): when True AND a real
+    TAVILY_API_KEY is configured, this round's run_pipeline() call also
+    does live Tavily news discovery + Tier B contact resolution — the
+    same "rich" path previously only ever run by hand (see
+    PROJECT_CONTEXT.md Section 7's Open Item #5). Defaults to False,
+    matching every existing caller (the background scheduler's automatic
+    cadence-based refresh NEVER passes True — see app/scheduler.py — so
+    unattended live-API spend stays exactly as impossible as it's always
+    been; only an explicit manual request can opt in). Returns
+    result["used_news"] so callers/API responses report what actually
+    happened rather than assuming the request was honored — a real,
+    if rare, race (the key removed between an availability check and
+    this call) must never be silently misreported as a rich refresh.
+    """
     sruk_files = sorted(glob.glob(os.path.join(DATA_RAW, "sruk", "raw_details", "*.json")))
     srn_ppi_files = sorted(glob.glob(os.path.join(DATA_RAW, "srn_ppi", "raw_details", "*.json")))
 
@@ -455,18 +501,30 @@ def run_normalization_and_export(freshness: dict) -> dict:
         latest_verra_dir = os.path.basename(run_dirs[-1]) if run_dirs else None
     verra_files = sorted(glob.glob(os.path.join(DATA_RAW, "verra", "runs", latest_verra_dir or "*", "projects", "*.json")))
 
+    tavily_client = None
+    news_queries = None
+    used_news = False
+    api_key = get_tavily_api_key() if with_news else None
+    if with_news and api_key:
+        tavily_client = TavilyClient(api_key=api_key)
+        news_queries = news_matching.build_queries(provinces=_real_provinces_from_last_export())
+        used_news = True
+
     result = run_pipeline(
         sruk_files=sruk_files + srn_ppi_files,
         verra_files=verra_files,
         brwa_list_path=os.path.join(DATA_RAW, "brwa_profiles", "wa_list.json"),
         brwa_geojson_dir=os.path.join(DATA_RAW, "brwa_geojson", "geojson"),
         brwa_profile_dir=os.path.join(DATA_RAW, "brwa_profiles", "profiles"),
+        tavily_client=tavily_client,
+        news_queries=news_queries,
+        resolve_contacts_tier_b=used_news,
         source_freshness=freshness,
         preserve_contacts_by_registry_key=_read_preserve_contacts_by_registry_key(),
     )
 
     export_summary = export_pipeline_result(result, output_dir=EXPORT_DIR)
-    return {"stats": result.stats, "export": export_summary}
+    return {"stats": result.stats, "export": export_summary, "used_news": used_news}
 
 
 # --------------------------------------------------------------------------

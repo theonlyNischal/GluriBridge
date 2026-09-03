@@ -16,11 +16,37 @@ export interface TerritoryListEntry {
   has_geometry: boolean;
 }
 
+// Per-source freshness (2026-09-03, Sync page) — exactly
+// orchestrate.check_all_freshness()'s real shape, already computed by
+// reading each source's own fetched_at-style field; nothing derived
+// here. age_days/fetched_at are null when a source has no raw data on
+// file yet at all (a genuinely different state from "stale").
+export interface SourceFreshness {
+  fetched_at: string | null;
+  timestamp_source: string | null;
+  note: string | null;
+  age_days: number | null;
+}
+
+export type SyncSource = "sruk" | "srn_ppi" | "verra" | "brwa";
+
+export interface FreezeInfo {
+  frozen_at: string;
+  reason: string;
+}
+
 export interface StatsResponse {
   last_registry_refresh: string | null;
   last_full_refresh_with_news: string | null;
   news_data_stale: boolean;
   news_data_stale_message: string | null;
+  candidate_count_in_db: number;
+  freshness: Record<SyncSource, SourceFreshness>;
+  freeze: FreezeInfo | null;
+  last_db_load_at: string | null;
+  // Real, live check — not cached — whether TAVILY_API_KEY is set on the
+  // backend right now (2026-09-03, Sync page).
+  tavily_configured: boolean;
   // Real, already-known totals (see gluribridge/README.md's Open Items —
   // the ~77% geometry ceiling is a confirmed real data-source limit, not
   // an in-progress number).
@@ -43,6 +69,30 @@ export interface StatsResponse {
     tier_b_contact_attempted: number;
     tier_b_contact_resolved: number;
   } | null;
+}
+
+// One real refresh attempt (2026-09-03, Sync page) — db.get_refresh_log()'s
+// exact shape, most-recent-first, append-only (a failed/frozen attempt
+// leaves a real row too, not just successes).
+export interface RefreshLogEntry {
+  id: number;
+  started_at: string;
+  finished_at: string | null;
+  status: "ok" | "frozen" | "error";
+  with_news: boolean;
+  used_news: boolean;
+  triggered_by: "manual" | "scheduler";
+  detail: string | null;
+}
+
+// Result of POST /refresh — status "frozen" arrives as a 423's response
+// body (api.ts throws on !res.ok, so callers catch it there instead),
+// "ok"/"error" are both normal 200 responses the caller branches on.
+export interface RefreshResult {
+  status: "ok" | "error";
+  message?: string;
+  used_news?: boolean;
+  scrape_results?: Record<string, { ran: boolean; ok?: boolean; message?: string; why?: string }>;
 }
 
 // Result of POST /candidates/{id}/status — mirrors db.set_status()'s

@@ -32,6 +32,7 @@ export const STRINGS = {
   "nav.territoryDiscovery": { en: "Territory Discovery", ko: "지역 탐색" },
   "nav.candidates": { en: "Candidates", ko: "프로젝트" },
   "nav.partnerships": { en: "Partnerships", ko: "파트너십" },
+  "nav.sync": { en: "Registry Sync", ko: "레지스트리 동기화" },
   "nav.tagline1": { en: "Indonesia forestry-carbon", ko: "인도네시아 산림 탄소" },
   "nav.tagline2": { en: "partner discovery", ko: "파트너 발굴" },
   "nav.howItWorks": { en: "How this works", ko: "작동 방식" },

@@ -129,19 +129,40 @@ def get_stats():
         "brwa_territories": territories.count_stats(),  # real {total, with_geometry} — see territories.count_stats()
         "news_data_stale": news_data_stale,
         "news_data_stale_message": news_data_stale_message,
+        # Real, live check (2026-09-03, Sync page) — not cached — so the
+        # frontend can grey out the news-enriched refresh option BEFORE a
+        # click, rather than only finding out from a failed request.
+        "tavily_configured": orchestrate.get_tavily_api_key() is not None,
     }
 
 
 @router.post("/refresh")
-def post_refresh(force: str = Query("", description="comma-separated source names to force regardless of cadence, same as orchestrate.py --force")):
+def post_refresh(
+    force: str = Query("", description="comma-separated source names to force regardless of cadence, same as orchestrate.py --force"),
+    with_news: bool = Query(False, description="also run live Tavily news discovery + Tier B contact resolution — requires TAVILY_API_KEY configured on the backend"),
+):
+    if with_news and orchestrate.get_tavily_api_key() is None:
+        # Deliberately a real 4xx, not a silent downgrade to registry-only —
+        # the caller explicitly asked for a news-enriched refresh; doing
+        # less than that without saying so would misreport what happened,
+        # the same honesty standard every other real vs. simulated
+        # decision in this app is held to.
+        raise HTTPException(status_code=400, detail="with_news=true requested, but TAVILY_API_KEY is not configured on this backend — see the repo root's .env.example")
     forced = {s.strip() for s in force.split(",") if s.strip()}
-    result = scheduler.run_refresh_cycle(force=forced)
+    result = scheduler.run_refresh_cycle(force=forced, with_news=with_news, triggered_by="manual")
     if result["status"] == "frozen":
         # 423 Locked — the closest standard status for "blocked by an
         # explicit hold," matching orchestrate.py CLI's own exit code 3
         # for the identical situation.
         raise HTTPException(status_code=423, detail=result)
     return result
+
+
+@router.get("/refresh-log")
+def get_refresh_log(limit: int = Query(20, ge=1, le=100)):
+    """Real refresh-attempt history for the Sync page's activity log — see
+    db.get_refresh_log()'s own docstring. Most-recent-first."""
+    return db.get_refresh_log(limit=limit)
 
 
 @router.post("/candidates/{candidate_id}/status")
