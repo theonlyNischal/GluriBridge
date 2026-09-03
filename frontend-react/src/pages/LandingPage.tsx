@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Users, Gauge, Mail, ArrowRight } from "lucide-react";
 import { useCandidates } from "../lib/CandidatesContext";
 import { KpiCard } from "../components/ui/KpiCard";
+import logo from "../assets/gluribridge-logo.png";
 
 /**
  * Cold-open landing page (2026-09-03) — "/" moved here; the actual app
@@ -50,7 +51,7 @@ export function LandingPage() {
   return (
     <div className="topo-watermark bg-field-paper flex min-h-screen flex-col">
       <header className="flex items-center gap-2 px-8 py-6">
-        <span className="h-2 w-2 shrink-0 rounded-full bg-forest-500" />
+        <img src={logo} alt="GluriBridge" className="h-7 w-7 shrink-0" />
         <span className="font-display text-[15px] font-semibold text-stone-900">GluriBridge</span>
       </header>
 
@@ -73,14 +74,7 @@ export function LandingPage() {
         <div className="mx-auto mt-10 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
           <KpiCard label="Real candidates" value={total} sub="Live from the registry" size="lg" icon={Users} variant="instrument" />
           <KpiCard label="Scored independently" value={highOpp} sub={`high-opportunity · + ${highEvid} high-evidence`} size="lg" icon={Gauge} variant="instrument" />
-          <KpiCard
-            label="Direct contacts found"
-            value={directContacts}
-            sub={`+ ${namedOnly} more named, no email yet`}
-            size="lg"
-            icon={Mail}
-            variant="instrument"
-          />
+          <KpiCard label="Direct contacts found" value={directContacts} sub={`+ ${namedOnly} more identified by name`} size="lg" icon={Mail} variant="instrument" />
         </div>
 
         <Link
@@ -100,6 +94,11 @@ export function LandingPage() {
             Design system
           </Link>
         </div>
+
+        {/* Small trust line (2026-09-03) — same two real, already-true
+            claims from the Dashboard's own closing trust row, verbatim,
+            not new marketing copy invented for this page. */}
+        <p className="mt-4 text-[11.5px] text-stone-400">No LLM for scoring or matching · Opportunity and Evidence Strength scored independently</p>
       </main>
     </div>
   );

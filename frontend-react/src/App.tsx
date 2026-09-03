@@ -5,6 +5,7 @@ import { CandidatesProvider } from "./lib/CandidatesContext";
 import { LanguageProvider, useLanguage } from "./lib/LanguageContext";
 import { useT, type StringKey } from "./lib/i18n";
 import { StalenessBanner } from "./components/StalenessBanner";
+import logoWhite from "./assets/gluribridge-logo-white.png";
 import { LandingPage } from "./pages/LandingPage";
 import { DesignSystemPage } from "./pages/DesignSystemPage";
 import { CandidateDetailPage } from "./pages/CandidateDetailPage";
@@ -85,9 +86,15 @@ function AppShell() {
       <aside className={`fixed inset-y-0 left-0 z-20 flex ${sidebarWidth} flex-col bg-forest-950 text-stone-200 transition-[width]`}>
         {/* Brand mark links back to the landing page (2026-09-03, added
             alongside it) — standard "click the logo to go home" pattern;
-            wasn't a link to anywhere before the landing page existed. */}
+            wasn't a link to anywhere before the landing page existed.
+            Real logo (2026-09-03) — white-ink variant specifically for
+            this dark forest-950 sidebar; the green-ink original (same
+            source, see LandingPage.tsx) has weak contrast here. */}
         <Link to="/" className={`flex items-center gap-2 px-5 py-4 ${collapsed ? "justify-center px-0" : ""}`}>
-          <span className="h-2 w-2 shrink-0 rounded-full bg-forest-400" />
+          {/* alt (not alt="") on purpose — when collapsed, the icon is
+              the ONLY visible identifier (no adjacent text), so it needs
+              a real accessible name, not a decorative empty one. */}
+          <img src={logoWhite} alt="GluriBridge" className="h-7 w-7 shrink-0" />
           {!collapsed && <span className="font-display text-[15px] font-semibold text-white">GluriBridge</span>}
         </Link>
         <nav className="mt-1 flex flex-col gap-0.5 px-3">
