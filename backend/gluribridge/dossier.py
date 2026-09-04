@@ -180,8 +180,18 @@ def build_dossier(candidate: UnifiedCandidateRecord, score: dict) -> dict:
     # evidence_level. The two synthetic fallback cases below (no reasons
     # fired at all) have no real scored reason to key a citation off of,
     # so they resolve their own honest citation directly.
+    # "rule" is carried through unchanged (2026-09-04) — purely additive,
+    # nothing here or downstream that already reads why_gluri's text/
+    # evidence_level/citation is affected. Added so outreach.py's own
+    # recipient-facing context sentence (see its module docstring) can
+    # select which real, already-computed reason to summarize without
+    # duplicating scoring.py's own rule conditions in a second place —
+    # the fallback cases below get a synthetic FALLBACK_THIN/
+    # FALLBACK_CLEAN tag for the same reason, since they have no real
+    # scoring.py rule to carry through.
     why_gluri = [
-        {"text": r["text"], "evidence_level": r["evidence_level"], "citation": r.get("citation")}
+        {"text": r["text"], "evidence_level": r["evidence_level"], "citation": r.get("citation"),
+         "rule": r.get("rule")}
         for r in score["need_detection_reasons"]
     ]
     if not why_gluri:
@@ -190,11 +200,11 @@ def build_dossier(candidate: UnifiedCandidateRecord, score: dict) -> dict:
             # created from — cite that, not a generic fallback.
             why_gluri = [{"text": "Not enough registry data exists yet to detect specific documentation gaps — "
                                    "this lead is unverified and comes from a single news mention, not a registry check.",
-                           "evidence_level": "hypothesis",
+                           "evidence_level": "hypothesis", "rule": "FALLBACK_THIN",
                            "citation": news_citation(candidate)}]
         else:
             why_gluri = [{"text": "No specific documentation gaps detected across the registries actually checked "
-                                   "for this candidate.", "evidence_level": "fact",
+                                   "for this candidate.", "evidence_level": "fact", "rule": "FALLBACK_CLEAN",
                            "citation": no_doc_citation(registry_label(candidate),
                                "A clean-record finding — no single document proves the absence of a gap; "
                                "confirmed by checking every field this pipeline's rules test against.")}]

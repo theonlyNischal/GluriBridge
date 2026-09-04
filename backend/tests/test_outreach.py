@@ -54,12 +54,12 @@ assert thin_candidate.registrant_contact is None or not thin_candidate.registran
 # --- Case 4: Katingan specifically ---
 katingan = next(c for c in result.candidates if "Katingan Peatland" in c.name)
 
-# --- Case 5: mixed fact/hypothesis why_gluri reasons in one email, to
-# directly prove the hedge language fires sentence-by-sentence, not just
-# at the whole-email level. West Seram already has 3 real fact-tagged N1/
-# N2/N5 reasons; attach a real-shaped news hit that trips N4 (the one
-# hypothesis-tagged need-detection rule in scoring.py) so the opening
-# paragraph has to hedge one sentence while stating the others plainly.
+# --- Case 5: a candidate with BOTH real fact-tagged reasons (N1/N2/N5)
+# AND a real hypothesis-tagged one (N4), to prove the one-sentence
+# context selection (2026-09-04 rewrite, see outreach.py) picks N4 (top
+# CONTEXT_PRIORITY) and hedges it correctly, rather than either ignoring
+# it or blending it with the fact-tagged reasons. Central Seram doesn't
+# naturally trip N4, so attach a real-shaped news hit that does.
 central_seram = next(c for c in result.candidates if "Central Seram IFM Restorationwise" in c.name)
 central_seram.news_evidence = [{
     "title": "PT. Bintang Lima Makmur tengah mencari mitra teknologi pemantauan karbon",
@@ -75,7 +75,7 @@ cases = [
     ("CASE 2 — Tier B (real email, no name): Rimba Raya / InfiniteEARTH", rimba_raya),
     ("CASE 3 — no usable contact: thin news-derived candidate", thin_candidate),
     ("CASE 4 — Katingan (mature, near-zero need)", katingan),
-    ("CASE 5 — mixed fact + hypothesis why_gluri reasons in one opening paragraph", central_seram),
+    ("CASE 5 — hypothesis-tagged context sentence (N4) takes priority over fact-tagged N1/N2/N5", central_seram),
 ]
 
 for label, cand in cases:
@@ -98,24 +98,40 @@ for label, cand in cases:
             "both language bodies must be present in the combined rendering"
 
     if label.startswith("CASE 5"):
-        # English hedge, pinned down exactly as before.
-        assert "Based on what we've found so far, it appears that public mention" in outreach["body_en"], \
-            "EN: hypothesis-tagged reason must be hedged, not stated as fact"
-        assert "Reached technical/validation stage" in outreach["body_en"], \
-            "EN: fact-tagged reasons in the same email must still be stated plainly"
+        # 2026-09-04 rewrite: the opening paragraph is now ONE recipient-
+        # facing context sentence (see outreach.py's module docstring),
+        # not a list of every why_gluri reason — so this case (N1/N2/N5
+        # fact + an injected N4 hypothesis) now surfaces only N4, the
+        # top-priority rule that actually fired, hedged in both
+        # languages. The N1/N2/N5 fact text is real and still computed
+        # (build_dossier() didn't change), just no longer the one chosen
+        # to appear in THIS email — Case 6 below proves the fact/plain
+        # path with a candidate where N4 never fires.
+        assert "Based on what we've found so far, it appears that a public mention suggests" in outreach["body_en"], \
+            "EN: hypothesis-tagged context sentence (N4) must be hedged, not stated as fact"
+        assert "Reached technical/validation stage" not in outreach["body_en"], \
+            "EN: only ONE context sentence should appear now, not every why_gluri reason"
         # Indonesian hedge, pinned down the same way — not just eyeballed.
-        # The claim text itself stays English (see outreach.py's scope
-        # boundary docstring); only the wrapper phrase is Indonesian.
-        assert "Berdasarkan temuan kami sejauh ini, tampaknya public mention" in outreach["body_id"], \
-            "ID: hypothesis-tagged reason must be hedged with the Indonesian wrapper"
-        assert "Reached technical/validation stage" in outreach["body_id"], \
-            "ID: fact-tagged reasons must still be stated plainly (dynamic content stays English by design)"
-        # And confirm the ID hedge phrase is NOT sitting in front of a
-        # fact-tagged sentence — the wrapper must be selective, not blanket.
-        fact_sentence_idx = outreach["body_id"].find("Reached technical/validation stage")
-        preceding = outreach["body_id"][max(0, fact_sentence_idx - 60):fact_sentence_idx]
-        assert "tampaknya" not in preceding, "ID hedge phrase must not precede a fact-tagged sentence"
-        print(">>> VERIFIED (EN): fact reasons stated plainly, hypothesis reason hedged.")
-        print(">>> VERIFIED (ID): fact reasons stated plainly, hypothesis reason hedged with 'tampaknya', "
-              "and the hedge is NOT applied to the fact-tagged sentence.")
+        assert "Berdasarkan temuan kami sejauh ini, tampaknya sebutan publik menunjukkan" in outreach["body_id"], \
+            "ID: hypothesis-tagged context sentence must be hedged with the Indonesian wrapper"
+        print(">>> VERIFIED (EN+ID): the one hypothesis-tagged context sentence (N4) is hedged, "
+              "not stated as fact, in both languages.")
+    if label.startswith("CASE 1"):
+        # Case 6, folded into Case 1's own candidate (West Seram: real
+        # N1/N2/N5, all fact, N4 never fires here) — proves the OTHER
+        # half of the same guarantee: a fact-tagged context sentence is
+        # stated plainly, NOT wrapped in the hedge phrase, in both
+        # languages. Also the exact real example this rewrite was
+        # requested against: N1's real underlying fact (no DRAM/DPP on
+        # file) reframed as context rather than a gap report.
+        assert "We understand your project is moving through the registration and validation process" \
+            in outreach["body_en"], "EN: fact-tagged context sentence (N1) must be stated plainly"
+        assert "Based on what we've found so far" not in outreach["body_en"], \
+            "EN: a fact-tagged context sentence must NOT be hedged"
+        assert "Kami memahami proyek Anda sedang melalui tahap registrasi dan validasi" in outreach["body_id"], \
+            "ID: fact-tagged context sentence must be stated plainly, with a real Indonesian twin"
+        assert "tampaknya" not in outreach["body_id"], \
+            "ID: a fact-tagged context sentence must NOT be hedged"
+        print(">>> VERIFIED (EN+ID): the fact-tagged context sentence (N1) is stated plainly, "
+              "not hedged, in both languages — including the real DRAM/DPP-absence example.")
     print()

@@ -15,17 +15,38 @@ hedging needs the same exactness guarantee as the original wording.
 
 SCOPE BOUNDARY, stated explicitly rather than silently narrowed: only
 outreach.py's own FIXED strings have real Indonesian twins — subject,
-salutation (all 4 recipient_status cases), the company intro, sign-off,
-and the fact/hypothesis hedging wrapper phrase. The DYNAMIC content
-(why_gluri reason text, suggested_poc, next_questions) comes from
-dossier.py, which has no Indonesian output anywhere in the system —
-translating that dynamic, gap-derived prose is a materially bigger task
-than twinning fixed strings and is NOT done here. The Indonesian half of
-a generated email therefore wraps Indonesian scaffolding around English
-claim text (e.g. "Berdasarkan temuan kami sejauh ini, tampaknya
-[English hypothesis text]") — correct for what was asked, not a fully
-Indonesian email. Giving dossier.py real Indonesian dynamic content
-would be a natural follow-up, not scoped in here.
+salutation (all 4 recipient_status cases), the company intro, the
+CONTEXT_SENTENCES table (see below), sign-off, and the fact/hypothesis
+hedging wrapper phrase. The remaining DYNAMIC content (suggested_poc,
+next_questions) comes from dossier.py, which has no Indonesian output
+anywhere in the system — translating that dynamic, gap-derived prose is
+a materially bigger task than twinning fixed strings and is NOT done
+here. The Indonesian half of a generated email therefore still wraps
+Indonesian scaffolding around English text for those two pieces (e.g.
+the discovery-question lead-in is Indonesian, the questions themselves
+are English) — correct for what was asked, not a fully Indonesian
+email. Giving dossier.py real Indonesian dynamic content would be a
+natural follow-up, not scoped in here.
+
+2026-09-04 REWRITE: the opening paragraph used to quote
+dossier.py's raw why_gluri reason text directly (e.g. "Reached
+technical/validation stage with neither a DRAM nor a DPP on file.") —
+accurate, but it read like an audit finding recited back at the
+recipient, not a professional introduction. Replaced with ONE
+recipient-facing context sentence, chosen from a small fixed
+CONTEXT_SENTENCES table keyed by which real scoring.py rule fired
+(dossier.py's why_gluri entries now carry that rule tag through
+unchanged — see dossier.py's own comment), reframing the SAME
+underlying real fact as context rather than a deficiency list (e.g.
+N1's "neither a DRAM nor a DPP on file" becomes "your project is
+moving through the registration and validation process" — same real
+fact, different framing). This is a genuine improvement to the
+Indonesian version's completeness as a side effect: this context
+sentence now has a REAL Indonesian twin (deterministic, written here,
+not LLM-generated), where the old opening paragraph's claim text never
+did. The detailed gap analysis itself is unchanged and un-shortened —
+it still lives in dossier.py's why_gluri, read on the candidate detail
+page for Gluri's own internal use, never sent to the recipient.
 
 Every generated email carries BOTH languages by default — English
 first, then Indonesian below a labeled divider — matching real
@@ -66,18 +87,85 @@ from .schema import UnifiedCandidateRecord
 # dMRV product called treXchange.
 COMPANY_INTRO_EN = (
     "Gluri operates treXchange, a satellite- and AI-based monitoring, reporting, and "
-    "verification (dMRV) platform for forest-carbon projects. We're reaching out to "
-    "organizations across Indonesia's forestry-carbon sector to explore whether treXchange "
-    "could support your project's measurement and verification needs alongside your existing "
-    "registry process."
+    "verification (dMRV) platform for forest-carbon projects, and we're reaching out to "
+    "explore whether it could support your project's measurement and verification needs "
+    "alongside your existing registry process."
 )
 COMPANY_INTRO_ID = (
-    "Gluri mengoperasikan treXchange, sebuah platform pemantauan, pelaporan, dan verifikasi "
-    "(dMRV) berbasis satelit dan AI untuk proyek karbon hutan. Kami menghubungi berbagai "
-    "organisasi di sektor karbon kehutanan Indonesia untuk menjajaki apakah treXchange dapat "
-    "mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan dengan proses "
-    "registrasi yang sudah berjalan."
+    "Gluri mengoperasikan treXchange, platform pemantauan, pelaporan, dan verifikasi (dMRV) "
+    "berbasis satelit dan AI untuk proyek karbon hutan, dan kami ingin menjajaki apakah "
+    "treXchange dapat mendukung kebutuhan pengukuran dan verifikasi proyek Anda, sejalan "
+    "dengan proses registrasi yang sudah berjalan."
 )
+
+# Recipient-facing reframing of each real scoring.py need-detection rule
+# (2026-09-04 — see module docstring's REWRITE note) — same underlying
+# real fact as dossier.py's internal why_gluri text for that rule, framed
+# as context for a first-contact email rather than a gap being reported
+# back to the recipient. Deliberately generic where the internal reason
+# is specific (e.g. N3 drops the literal verra_status string, N6 drops
+# the specific Pasal/deadline language from compliance.py) — a cold
+# outreach email is the wrong place for that level of regulatory detail,
+# even though it's exactly right on the internal candidate detail page.
+# evidence_level for hedging purposes comes from whichever real
+# need_detection_reasons entry was actually selected (see
+# _context_sentence()), NOT hardcoded here — the same real fact can only
+# ever be "fact" or "hypothesis" per rule in scoring.py's own logic, so
+# this table only needs the text twins, not a duplicate evidence_level.
+CONTEXT_SENTENCES = {
+    "N1": {
+        "en": "we understand your project is moving through the registration and validation process",
+        "id": "kami memahami proyek Anda sedang melalui tahap registrasi dan validasi",
+    },
+    "N2": {
+        "en": "we understand your project is still building out its registry documentation as it "
+              "moves through the registration process",
+        "id": "kami memahami proyek Anda masih melengkapi dokumentasi registrasi seiring proses yang "
+              "berjalan",
+    },
+    "N3": {
+        "en": "we understand your project is in an early stage of the Verra registration process",
+        "id": "kami memahami proyek Anda berada pada tahap awal proses registrasi di Verra",
+    },
+    "N4": {
+        "en": "a public mention suggests your project may be exploring monitoring or technology "
+              "partnerships",
+        "id": "sebutan publik menunjukkan proyek Anda mungkin sedang menjajaki kemitraan pemantauan "
+              "atau teknologi",
+    },
+    "N5": {
+        "en": "we understand your project's registration is actively progressing",
+        "id": "kami memahami registrasi proyek Anda sedang berjalan aktif",
+    },
+    "N6": {
+        "en": "we understand your project may be approaching a milestone in Indonesia's "
+              "carbon-registration timeline",
+        "id": "kami memahami proyek Anda mungkin mendekati salah satu tahapan dalam garis waktu "
+              "registrasi karbon Indonesia",
+    },
+    "FALLBACK_THIN": {
+        "en": "we came across your project through public reporting and wanted to reach out directly",
+        "id": "kami menemukan proyek Anda melalui pemberitaan publik dan ingin menghubungi Anda "
+              "secara langsung",
+    },
+    "FALLBACK_CLEAN": {
+        "en": "your project's documentation appears well established across the registries we checked",
+        "id": "dokumentasi proyek Anda tampak lengkap di berbagai registrasi yang kami periksa",
+    },
+}
+
+# Which rule to prefer when more than one fired for the same candidate —
+# ONE context sentence per email now (2026-09-04), not a list. N4 first:
+# when a real public mention of an active partner search exists, that's
+# the single most directly relevant thing to lead with, ahead of the
+# more common registration-stage reasons. N1 next, matching the exact
+# example this rewrite was requested against (DRAM/DPP absence -> "moving
+# through registration"). N6 deliberately last among the real rules — a
+# regulatory-deadline signal is the least appropriate thing to lead a
+# first-contact email with, even reframed. The two FALLBACK_* tags only
+# ever appear alone (dossier.py only produces them when no real rule
+# fired at all), so their relative order here doesn't matter.
+CONTEXT_PRIORITY = ["N4", "N1", "N2", "N3", "N5", "N6", "FALLBACK_THIN", "FALLBACK_CLEAN"]
 
 SIGN_OFF_EN = "Best regards,\nThe Gluri team"
 SIGN_OFF_ID = "Salam hormat,\nTim Gluri"
@@ -137,27 +225,38 @@ def _salutation(candidate: UnifiedCandidateRecord, status: str, lang: str):
     return None
 
 
-def _opening_paragraph(why_gluri: list, lang: str) -> str:
+def _context_sentence(why_gluri: list, lang: str) -> str:
     """
-    References the specific real gap(s)/status this candidate was
-    surfaced for — the actual why_gluri reasons already computed by
-    build_dossier(), never re-derived here (and never translated here —
-    see module docstring's scope boundary). Fact-tagged reasons are
-    stated plainly in both languages (they're already complete, real
-    sentences, no wrapper to twin); a hypothesis-tagged reason gets the
-    hedge wrapper in the requested language, wrapped around the same
-    (English) claim text either way.
+    ONE recipient-facing sentence of context (2026-09-04 rewrite — see
+    module docstring), NOT the full gap analysis: selects the single
+    highest-priority real reason (CONTEXT_PRIORITY) from the reasons
+    build_dossier() already computed, maps its rule to the matching
+    fixed template in CONTEXT_SENTENCES, and applies the SAME
+    fact/hypothesis hedge treatment as before — plainly stated if the
+    selected reason's own evidence_level is "fact", wrapped in the
+    hedge phrase (in the requested language) if "hypothesis". The
+    underlying real fact never changes, only which single reason is
+    surfaced and how it's worded for an external reader.
     """
+    by_rule = {item.get("rule"): item for item in why_gluri if item.get("rule") in CONTEXT_SENTENCES}
+    selected = None
+    for rule in CONTEXT_PRIORITY:
+        if rule in by_rule:
+            selected = by_rule[rule]
+            break
+    if selected is None:
+        # Defensive only — dossier.py always produces at least a
+        # FALLBACK_THIN/FALLBACK_CLEAN entry, so this shouldn't fire on
+        # real data, but a genuinely unrecognized rule must still
+        # produce something rather than a blank paragraph.
+        return CONTEXT_SENTENCES["FALLBACK_CLEAN"][lang]
+
+    rule = next(r for r in CONTEXT_PRIORITY if by_rule.get(r) is selected)
+    text = CONTEXT_SENTENCES[rule][lang]
+    if selected["evidence_level"] == "fact":
+        return text[0].upper() + text[1:] + "."
     hedge_prefix = HEDGE_PREFIX_EN if lang == "en" else HEDGE_PREFIX_ID
-    sentences = []
-    for item in why_gluri:
-        text = item["text"]
-        if item["evidence_level"] == "fact":
-            sentences.append(text)
-        else:
-            lowered = (text[0].lower() + text[1:]) if text else text
-            sentences.append(f"{hedge_prefix} {lowered}")
-    return " ".join(sentences)
+    return f"{hedge_prefix} {text}."
 
 
 def _discovery_questions_block(next_questions: list, lang: str) -> str:
@@ -177,14 +276,23 @@ def _discovery_questions_block(next_questions: list, lang: str) -> str:
 
 
 def _build_body(candidate, dossier, status, lang: str) -> str:
+    """
+    Body shape (2026-09-04 rewrite — see module docstring): greeting,
+    one sentence of who Gluri is + why reaching out, one sentence of
+    recipient-facing context, the concrete low-commitment offer, 2-3
+    discovery questions, soft close. Previously the context sentence(s)
+    came first, directly quoting dossier.py's internal gap-analysis
+    text — moved after the company intro (a recipient should know who's
+    writing before reading why) and collapsed to one sentence.
+    """
     salutation = _salutation(candidate, status, lang)
-    opening = _opening_paragraph(dossier["why_gluri"], lang)
+    intro = COMPANY_INTRO_EN if lang == "en" else COMPANY_INTRO_ID
+    context = _context_sentence(dossier["why_gluri"], lang)
     pitch = dossier["suggested_poc"]  # dynamic, English-only — see scope boundary above
     discovery_block = _discovery_questions_block(dossier.get("next_questions"), lang)
-    intro = COMPANY_INTRO_EN if lang == "en" else COMPANY_INTRO_ID
     sign_off = SIGN_OFF_EN if lang == "en" else SIGN_OFF_ID
 
-    parts = [salutation, "", opening, "", intro, "", pitch]
+    parts = [salutation, "", intro, "", context, "", pitch]
     if discovery_block:
         parts += ["", discovery_block]
     parts += ["", sign_off]
