@@ -1185,3 +1185,195 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   detailed logos behave at that size. Replaced the default Vite placeholder icon in `index.html`
   (confirmed no other references to it first). Verified: tsc clean, all 5 favicon link tags
   resolve 200, real screenshots reviewed (header, sidebar, and the raw 16px/32px favicon pixels).
+- **A real Sync/Registry feature now exists** (2026-09-03/04), replacing an external proposal's
+  recommendation of a fake "Demo Sync mode" (simulated progress, reports success regardless of
+  reality, tell judges it's live) — refused outright: fabricating results and presenting them to
+  evaluators as real directly contradicts the app's own pitch (real, evidence-backed, nothing
+  fabricated). Built the real thing instead. Backend: `TAVILY_API_KEY`/`NVIDIA_API_KEY` now load
+  from a repo-root `.env` via `python-dotenv` (`app/main.py` calls `load_dotenv()` before any
+  sibling import reads an env var; a pre-existing `.env.example` was already in the repo but
+  invisible to `git status` because the old `.gitignore`'s `.env.*` pattern was also silently
+  swallowing it — fixed with `!.env.example` negations). A new `refresh_log` SQLite table
+  (`app/db.py`) persists every refresh attempt (started/finished, status, `with_news`/`used_news`,
+  `triggered_by`, detail). `POST /refresh` runs as a real `BackgroundTasks` fire-and-forget job
+  (`app/scheduler.py`'s `run_refresh_cycle()`), with a module-level `_current_refresh` dict giving
+  live per-source phase/status (`GET /refresh-status`) that the frontend polls every 1.5s — a real
+  concurrency guard rejects a second refresh while one is in progress (409) and a frozen dataset
+  rejects any refresh at all (423). `only=<source>` restricts a refresh to exactly one registry
+  source (always runs regardless of cadence, the other three immediately marked "skipped" not left
+  "pending" — honest about what was never going to run this cycle); `with_news` is ignored when
+  `only` is set, since news is a pipeline-wide step, not scoped to one registry. New
+  `SyncPage.tsx` (`/sync`) replaces any need to run `orchestrate.py` by hand from a terminal:
+  live Sources table (per-source last-fetched/age/status + individual Refresh buttons, BRWA's
+  visually distinct — amber, explicit tooltip — since it's a genuinely heavier operation, 2,283
+  profiles + PDFs), a "Refresh registries" / "Refresh with live news" pair of buttons, and the
+  real recent-attempts log from `GET /refresh-log`. The dataset-staleness banner (amber, shown
+  when `last_registry_refresh` and `last_full_refresh_with_news` have diverged — see Open Item #5
+  below) was moved from every page (`App.tsx`'s shell) to render only on this page, per explicit
+  request — it's actionable information for whoever runs a refresh, not a page-wide interruption.
+  **One real React bug found and fixed**: a StrictMode dev double-invoke of a cleanup-only
+  `useEffect` permanently poisoned a `cancelledRef` flag before the real mount's async work could
+  resolve, leaving the page stuck on "Loading…" — fixed by resetting the flag at the top of the
+  *same* effect that does the async work, not a separate cleanup-only effect. **A second real bug
+  found and fixed**: the background scheduler's automatic hourly tick called the synchronous,
+  potentially many-minutes-long `run_refresh_cycle()` directly from an `asyncio` task instead of
+  via an executor, blocking every endpoint on the entire server for the full duration of any
+  automatic refresh — fixed with `asyncio.to_thread()`. Verified live: tsc clean, all 15 backend
+  tests pass, a full Playwright sweep, `only=sruk` correctly 423s while frozen without touching
+  anything, `only=<invalid>` correctly 400s, BRWA's amber styling confirmed distinct.
+- **Three real data-loss incidents happened live during the Sync feature's build and use, all
+  root-caused to the same underlying, already-documented design property** (Open Item #5:
+  registry-only refresh legitimately produces fewer candidates than the last rich/news-enriched
+  one, since news-discovered "thin" candidates only ever exist after a Tavily-enriched run) —
+  combined, each time, with insufficient protection at that moment:
+  1. Two concurrent manual refresh clicks raced before the concurrency guard above existed
+     (144→129) — recovered via `git checkout -- backend/exported_output_stage3/` (HEAD still had
+     144) + a DB reload.
+  2. A user-requested "stop" killed a scraper subprocess mid-run; the *existing*
+     graceful-degradation logic (correctly designed for a genuine source *failure*) treated the
+     kill exactly like an ordinary failure and completed a full registry-only reload anyway
+     (144→130) — recovered the same way. Surfaced, not yet built: a real
+     `POST /refresh/cancel` that distinguishes an explicit user cancellation (should abort before
+     ever touching the DB) from an ordinary source failure (should degrade gracefully, as
+     designed) — proposed, not built, since it wasn't confirmed before other work took priority.
+  3. **Unrecoverable, unlike the two above**: a genuine rich refresh (with real live news) 
+     completed successfully at 09:45:50 UTC but was never frozen immediately afterward — the
+     scheduler's own normal hourly auto-tick then fired 3 times over ~2.5 hours, each downgrading
+     the dataset further, ending at 124 candidates with no git backup of the 09:45 state (unlike
+     incidents 1 and 2, where a git-committed 144 always existed to restore from). Explicitly
+     owned rather than hedged: freezing immediately on completion is safe and reversible and
+     should never have waited on anything. Fix for every refresh since: a standalone bash script,
+     launched independently in the background, polls `GET /refresh-status` every 20s and calls
+     `orchestrate.write_freeze()` the INSTANT completion is detected (a `SEEN_RUNNING` guard avoids
+     racing the background task's own startup, since a `null` status only means "genuinely
+     finished" after `in_progress:true` was observed at least once first) — deliberately not
+     relying solely on being re-invoked promptly, since a scheduled 25-minute check-in once did
+     not fire in time (214 minutes elapsed instead) with no definitive root cause found for why.
+- **A real Verra data-completeness bug was found, root-caused, and fixed** (2026-09-04) — a
+  144→137 candidate drop looked at first like ordinary run-to-run variance (both Verra's project
+  list and live Tavily news search are real, moving targets), but checking Verra's own crawl logs
+  directly (rather than accepting that explanation) showed the real cause: Verra's API
+  rate-limited 203 of 1976 project fetches (`Retryable status 429`) during that day's registry
+  scrape — confirmed against the crawler's own `meta.json` (`fail_rate 10.3%`, explicitly exceeding
+  its own 5% alert threshold) versus the prior good run (0% failed). Not a real registry change —
+  a scraping completeness gap. Fixed by retrying just those 203 IDs directly
+  (`verra_crawler.py --ids <file>`, a pre-existing but previously-unused flag) at a gentler pace
+  (2 workers instead of 4) once the rate-limit window had reset (~3 hours later) — 202 of 203
+  recovered; the one remaining failure (project 3562) is a genuine empty/invalid API response,
+  unrelated to rate limiting. Merged the recovered project files into the existing run folder
+  (the pipeline reads Verra data by globbing `runs/<date>/projects/*.json` on disk, never from
+  `meta.json`'s own counts, so no other code needed to change) and rebuilt the full rich pipeline
+  against the corrected data: 147 candidates, verified consistent across the live DB,
+  `refresh_log`, and `ranked_candidates.json`'s row count. **One real mistake made and disclosed
+  during this same recovery**: an intermediate one-off rebuild script forgot that only
+  `app/main.py` calls `load_dotenv()` — bypassing it left `TAVILY_API_KEY` invisible to that
+  script, so `with_news=True` silently had no effect and produced an incorrect, uncommitted
+  130-candidate registry-only result; caught immediately via `/stats` and `/refresh-log` before it
+  was ever committed or pushed, and superseded by the corrected rerun.
+- **A second, independent real data-loss bug was found and fixed the same day**: real Tier C
+  phone/WhatsApp + public-presence data (18 phone numbers, 15 website/Facebook/Instagram links,
+  hand-verified against real pages across an 86-candidate manual round on 2026-09-01) was being
+  silently erased on every subsequent pipeline rebuild, because the *existing* Tier B email
+  preservation mechanism (`preserve_contacts_by_registry_key`, added 2026-08-31 for exactly this
+  class of problem) had two real gaps that meant it never actually covered the phone/presence
+  fields added the very next day: (1) `orchestrate.py`'s gate checked only email's
+  `contact_source`, so a candidate with a real phone but no email at all was excluded from
+  protection from the start; (2) even a matched candidate's restored `RegistrantContact` was
+  reconstructed with only `name`/`org`/`email`/`contact_source`/`contact_source_url`/
+  `contact_confidence` — silently dropping every phone/website/facebook/instagram field, since
+  those didn't exist yet when that reconstruction code was first written; (3) the restore was also
+  all-or-nothing per candidate, so a fresh (even lower-confidence) Tier B email hit in a given run
+  would block phone/presence restoration too, despite no automated step in this pipeline ever
+  being able to produce a genuinely fresh phone/presence source (Tier C remains manual-only) to
+  legitimately shadow it. Fixed all three: a new `contact_has_preservable_data()` helper
+  (`pipeline.py`) checks email/phone/presence independently and is now the single shared gate both
+  modules use, and email vs. phone vs. presence restoration are three separate decisions instead
+  of one. Recovered the lost data by temporarily reinstating the last export that still had it
+  (git commit `2fec13c`) as the "prior export" the preservation step reads, then rebuilding — the
+  fix restored exactly the original 18 phones + 15 presence links, verified by exact count match.
+  All 15 backend tests still pass. Final count: 149 candidates, 10 high-confidence emails (up from
+  8 in the immediately-prior, still-incomplete rebuild). **Noted but not fixed**: a fresh, *lower*-
+  confidence Tier B email can still silently replace a better preserved one in a future run — a
+  separate, pre-existing design tradeoff (fresh always wins over preserved) unrelated to what
+  actually broke here, flagged to the user rather than changed without being asked.
+- **A real gap between what's committed and what a fresh Render deploy can show was found and
+  fixed** (2026-09-04) — the Sync page's Sources table showed SRUK/SRN-PPI/Verra as "Never
+  fetched" on the live deployed site even though the actual candidate data (correctly seeded from
+  the tracked `exported_output_stage3/`) was genuinely fresh. Root cause: `orchestrate.py`'s
+  per-source freshness readers (`_freshness_sruk`/`_freshness_srn_ppi`/`_freshness_verra`) read
+  `fetched_at` straight from small files living inside the otherwise-excluded (too large, ~11GB)
+  `backend/data/raw/` — none of which ever reached GitHub, so every reader correctly reported "no
+  file on file yet" on a fresh deploy. Same category of issue as the `brwa_profiles/wa_list.json`
+  fix from 2026-08-31 — the candidate data itself was never wrong, only a small metadata file the
+  live app needs was missing. Fixed the same way: un-ignored just the four small files these
+  specific functions actually read (`sruk/project_list/all_projects.json` 82KB,
+  `srn_ppi/project_list/all_projects.json` 158KB, `verra/latest.txt` 10 bytes,
+  `verra/runs/<date>/meta.json` 28KB — ~268KB total), not the bulky per-project raw dumps they sit
+  alongside, which stay excluded. BRWA was unaffected (already fixed the same way in 2026-08-31).
+- **Candidate count evolution, for anyone reconciling a number against an earlier snapshot of
+  this document**: 144 (2026-08-28 initial commit) → 137 (2026-09-03, a real refresh whose Verra
+  input was incomplete due to the rate-limiting bug above, not yet known at the time) → 147
+  (2026-09-04, after the Verra fix) → **149** (2026-09-04, current — after the Tier C
+  preservation fix also restored 42 preserved contacts, up from 11). Every one of these is a real
+  number from an actual pipeline run, not a target being chased back to a prior value — both
+  Verra's own registry and live Tavily news search are real, moving inputs, so today's correct
+  number was never guaranteed to equal any prior day's.
+- **Open item found this round, not yet resolved**: the deployed Render frontend build appeared
+  to take several minutes instead of its usual ~20 seconds. `npm install` (not `vite build`,
+  confirmed fast — ~7s locally for a clean build) was the actual bottleneck, and Render's own log
+  showed `Using Node.js version 24.14.1 (default)` — this project has no `.nvmrc`/`engines` pin, so
+  Render uses whatever its own current default is, which can silently change and invalidate any
+  build cache when it does. A `.nvmrc` pinning Node 18 (what this project actually develops/tests
+  against) was proposed as the fix but not yet applied — pending confirmation.
+- **The outreach email's opening was rewritten** (2026-09-04) — a real, user-caught flaw: it used
+  to open by directly quoting dossier.py's raw `why_gluri` reason text (e.g. "Reached
+  technical/validation stage with neither a DRAM nor a DPP on file. No technical/monitoring
+  documentation submitted to any registry...") for every reason that fired, in order — accurate,
+  but reads like an audit finding recited back at the recipient, not a professional introduction.
+  New body shape: greeting, one sentence of who Gluri is + why reaching out (`COMPANY_INTRO_*`,
+  condensed to a real single sentence from its previous two), ONE recipient-facing context
+  sentence, the existing 4-6 week MRV baseline offer (unchanged), the existing 2-3 discovery
+  questions (unchanged), soft close. The context sentence is selected — not re-derived — from a
+  small fixed `CONTEXT_SENTENCES` table (`outreach.py`) keyed by which single real scoring.py rule
+  (N1-N6) has top priority among whichever reasons actually fired for this candidate
+  (`CONTEXT_PRIORITY = [N4, N1, N2, N3, N5, N6, FALLBACK_THIN, FALLBACK_CLEAN]` — N4, a real public
+  mention of an active partner search, ranked above the far more common N1/N2 registration-stage
+  reasons since it's the most directly relevant thing to lead with when it's real; N6, a
+  compliance-deadline signal, ranked last since quoting specific regulatory urgency is the wrong
+  register for a first-contact email even reframed), reframing the SAME real underlying fact as
+  context rather than a deficiency report (the exact example this rewrite was requested against:
+  N1's "neither a DRAM nor a DPP on file" becomes "we understand your project is moving through
+  the registration and validation process" — real fact, different framing). The fact/hypothesis
+  hedge mechanism is unchanged and still applies to this one sentence exactly as it did to the old
+  multi-sentence opening: stated plainly if the selected reason's evidence_level is "fact", wrapped
+  in the existing `HEDGE_PREFIX_EN`/`_ID` ("it appears that"/"tampaknya") if "hypothesis" —
+  verified on a real candidate with both a hypothesis-tagged reason (N4, artificially attached news
+  evidence, matching this session's own established test pattern) and several fact-tagged ones
+  present simultaneously: the hypothesis one was correctly selected and hedged, the fact ones
+  correctly NOT surfaced (by design — one sentence now, not every reason). The detailed gap
+  analysis itself is completely unchanged and unshortened — `dossier.py`'s `why_gluri` still
+  carries every real reason, unaffected; it's read on the candidate detail page for Gluri's own
+  internal use, never sent to the recipient. One small, purely additive schema change was needed to
+  avoid duplicating scoring.py's rule logic a second time in outreach.py: `dossier.py`'s `why_gluri`
+  entries (and its two synthetic no-reasons-fired fallback cases, tagged `FALLBACK_THIN`/
+  `FALLBACK_CLEAN`) now also carry the already-computed `rule` tag through unchanged — nothing
+  about what's computed or shown on the detail page changed, this only exposes an existing field
+  to a new consumer.
+  **Investigated before touching anything, per explicit instruction**: an outside reviewer's claim
+  that the Indonesian version is "only half-translated" was checked against the actual current code
+  (not assumed either way) — confirmed to be case (b), the already-documented, deliberate scope
+  boundary from when bilingual output was first built: only `outreach.py`'s own fixed strings ever
+  had real Indonesian twins; `dossier.py` has zero Indonesian output anywhere in the system (grepped
+  directly — confirmed no `lang` parameter, no Indonesian string literals, only the English word
+  "Indonesia/Indonesian" appearing inside otherwise-English sentences). Nothing regressed. This
+  rewrite incidentally makes the Indonesian version more complete, as a side effect: the old
+  opening paragraph's claim text (English-only, straight from `why_gluri`) is gone from the
+  Indonesian section, replaced by the new context sentence, which now has a REAL Indonesian twin
+  (`CONTEXT_SENTENCES`, written here, not LLM-generated) — the only English-only dynamic content
+  remaining in the Indonesian half of an email is now just the MRV-baseline pitch sentence and the
+  discovery-question text itself (the lead-in sentence above them is already Indonesian), strictly
+  less than before. Verified: all 15 backend tests pass, including `test_outreach.py`'s hedge-
+  preservation assertions rewritten to match the new one-sentence design (one case proves a
+  hypothesis-tagged context sentence is hedged and a fact-tagged one is NOT surfaced in the same
+  email; a second, folded into the existing West Seram case, proves a fact-tagged context sentence
+  is stated plainly, unhedged, in both languages, using the real DRAM/DPP-absence example).

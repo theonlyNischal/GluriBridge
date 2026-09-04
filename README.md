@@ -6,15 +6,16 @@ customary-territory evidence + Tavily news signals into one ranked, evidence-bac
 list — with generated dossiers, bilingual (EN/ID) outreach drafts, and a real, checkable source
 citation behind every claim — served by a live FastAPI + SQLite backend and a real frontend.
 
-**This README reflects the actual, tested state as of 2026-09-03 — not the plan, the state.**
+**This README reflects the actual, tested state as of 2026-09-04 — not the plan, the state.**
 Every claim below has a corresponding test file, or a live curl/browser check, that was run and
 produced the stated result. (This file was significantly stale before 2026-08-27 — see
 `PROJECT_CONTEXT.md` Section 7 if you're wondering why the git-blame-equivalent history looks
 uneven; it's now been given the same full-accuracy pass as everything else here, and is kept
 current as the real frontend has moved since — most recently a plain-language terminology pass,
 a second visual-direction pivot to rounded/soft-shadow cards, a Dashboard-scoped EN/KO toggle, a
-new cold-open landing page at `/` with the app itself moved to `/dashboard`, and the real
-GluriBridge logo/favicon; full detail in `PROJECT_CONTEXT.md` Section 7.)
+new cold-open landing page at `/` with the app itself moved to `/dashboard`, the real GluriBridge
+logo/favicon, and a real Sync/Registry page (`/sync`) with live per-source refresh, a persisted
+refresh log, and real Tavily wiring; full detail in `PROJECT_CONTEXT.md` Section 7.)
 
 ## Setup — works the same on Linux/WSL and macOS
 
@@ -40,10 +41,10 @@ is how you install Python/Node. You need:
 ```
 repo root/
 ├── frontend-react/            the real, current frontend — React + Vite + TypeScript + Tailwind
-│   │                           (8 routes: Landing (`/`, cold-open, no app chrome), Dashboard
+│   │                           (9 routes: Landing (`/`, cold-open, no app chrome), Dashboard
 │   │                           (`/dashboard` — was `/` before 2026-09-03), Candidates, Territory
-│   │                           Discovery, Candidate Detail, Partnerships/Tracked, How this works,
-│   │                           Design System)
+│   │                           Discovery, Candidate Detail, Partnerships/Tracked, Sync/Registry
+│   │                           (`/sync`), How this works, Design System)
 ├── frontend/                  legacy static prototype (index.html) — superseded by
 │                               frontend-react, kept only for historical reference, not run
 │                               day to day
@@ -97,8 +98,10 @@ running together.
 
 **API endpoints (v1)**: `GET /candidates` (`?sort_by=need_score|credibility_score`),
 `GET /candidates/{id}` (+ `/dossier`, `/outreach`, `/citations`), `GET /tentative-links`,
-`GET /brwa-coverage-gaps`, `GET /stats`, `POST /refresh` (`?force=source1,source2`, 423 while
-frozen).
+`GET /brwa-coverage-gaps`, `GET /stats`, `POST /refresh` (`?force=source1,source2&with_news=
+true&only=sruk|srn_ppi|verra|brwa` — 423 while frozen, 409 while another refresh is already
+running, 202 + real-time progress via `GET /refresh-status`), `GET /refresh-log` (persisted
+history of every refresh attempt).
 
 ## Running the tests
 
@@ -123,10 +126,10 @@ python3 test_activity_type.py  # activity-type classification (Peatland/Reforest
 python3 test_compliance.py     # Permenhut 6/2026 rule evaluation against real pipeline output
 ```
 
-All 15 pass from this location as of 2026-08-31 (13 immediately after the `backend/` reorg on
-2026-08-27, plus `test_activity_type.py` and `test_compliance.py` added since — re-run directly,
-not assumed, before writing this number). If any fail on your machine, that's a real regression
-worth investigating, not an expected flake.
+All 15 pass from this location — re-confirmed 2026-09-04 (13 immediately after the `backend/`
+reorg on 2026-08-27, plus `test_activity_type.py` and `test_compliance.py` added since; run
+directly again after the Tier C contact-preservation fix that same day, not assumed). If any
+fail on your machine, that's a real regression worth investigating, not an expected flake.
 
 ## What's built and tested against real data
 
@@ -147,9 +150,9 @@ worth investigating, not an expected flake.
 | `citations.py` | Resolves a real, checkable source for every need/credibility reason — document URL, BRWA decree, news article, or an honest no-document note; never a fabricated link | Tested against 4 contrasting real cases + a full-128-candidate sweep **in an actual browser** (click-through, real captured download events for PDF citations) — 0 broken links, 0 empty notes |
 | `pipeline.py` | One orchestrating function: normalize -> resolve -> BRWA -> news -> Tier B -> score -> dossier -> outreach -> citations | Tested end-to-end |
 | `export.py` | Frontend-shaped JSON (`ranked_candidates.json`, `candidate_details.json`, etc.) | Tested; the display-order-only tiebreaker (need_score desc, credibility_score desc, has_resolved_contact desc, document_count desc) never touches the scores themselves |
-| `backend/orchestrate.py` | Thin scheduler-like layer above ingestion + `run_pipeline()` — per-source cadence (SRUK/Verra daily, SRN-PPI monthly, BRWA manual), `data/.freeze` to hold data stable across a demo window | Live-verified: correctly resolves paths from its new `backend/` location, `--dry-run` blocks under freeze exactly as designed, `--skip-scrape` runs pipeline+export end-to-end |
-| `backend/app/` (FastAPI + SQLite) | Live API serving the same data the frontend used to read from static files — `db.py`, `scheduler.py` (reuses `orchestrate.py`'s cadence/freeze, doesn't reimplement it), `routes.py`, `main.py` | Live-verified: all 9 endpoints tested with real requests; API responses for real candidates are byte-for-byte identical to the source export; `POST /refresh` returns 423 while frozen; a full 128-candidate frontend sweep against the *live* API (not static files), 0 errors |
-| `frontend-react/` (React + Vite + TS + Tailwind) — **the current, real frontend** | 8 routes: Landing (`/`, cold-open front door, no sidebar/header chrome — one headline, 3 live proof-point numbers, one CTA to `/dashboard`), Dashboard (`/dashboard`), Candidates List, Territory Discovery, Candidate Detail, Partnerships/Tracked, How this works (`/how-it-works` — live data-sources/methodology explanation), Design System (reference page). Calls the live API directly, lazy per-candidate detail fetch. Visual language: rounded, soft-shadow `.instrument-panel` cards on a paper/topographic-watermark background (superseded an earlier flat/hairline/no-shadow direction on 2026-09-02/03 — see `PROJECT_CONTEXT.md` Section 7), rolled out across every page. Dashboard additionally has an EN/KO language toggle (header, top-right) — Korean text on the nav chrome and the Dashboard page only, every other page stays English by design; see `frontend-react/src/lib/i18n.ts` | Live-verified per page: `npx tsc --noEmit --project tsconfig.app.json` clean, real Playwright sweeps (no console errors, no horizontal overflow at 1280/1440/1600px) on every route, plus page-specific real-data checks (equal-height score cards measured via `getBoundingClientRect()`, rail/tab scroll-sync, filter/sort/pagination correctness, map marker rendering, EN/KO toggle confirmed not to leak onto out-of-scope pages) |
+| `backend/orchestrate.py` | Thin scheduler-like layer above ingestion + `run_pipeline()` — per-source cadence (SRUK/Verra daily, SRN-PPI monthly, BRWA manual), `data/.freeze` to hold data stable across a demo window, real Tavily wiring (`get_tavily_api_key()`, `TAVILY_API_KEY` loaded from repo-root `.env` via `python-dotenv`), a `preserve_contacts_by_registry_key` mechanism that protects Tier B/manual email + Tier C phone/public-presence contacts across a registry-only rebuild | Live-verified: correctly resolves paths from its new `backend/` location, `--dry-run` blocks under freeze exactly as designed, `--skip-scrape` runs pipeline+export end-to-end; a real 203-project Verra rate-limiting completeness bug and a real Tier C data-loss bug were both found and fixed this way — see `PROJECT_CONTEXT.md` Section 7 |
+| `backend/app/` (FastAPI + SQLite) | Live API serving the same data the frontend used to read from static files — `db.py` (+ a persisted `refresh_log` table), `scheduler.py` (reuses `orchestrate.py`'s cadence/freeze, doesn't reimplement it; a real fire-and-forget `BackgroundTasks` refresh with live per-source progress), `routes.py`, `main.py` | Live-verified: all endpoints tested with real requests, including `POST /refresh` (`?only=`, `with_news=`), `GET /refresh-status`, `GET /refresh-log`; API responses for real candidates are byte-for-byte identical to the source export; `POST /refresh` returns 423 while frozen, 409 while another refresh is in progress; a full frontend sweep against the *live* API (not static files), 0 errors |
+| `frontend-react/` (React + Vite + TS + Tailwind) — **the current, real frontend** | 9 routes: Landing (`/`, cold-open front door, no sidebar/header chrome — one headline, 3 live proof-point numbers, one CTA to `/dashboard`), Dashboard (`/dashboard`), Candidates List, Territory Discovery, Candidate Detail, Partnerships/Tracked, Sync/Registry (`/sync` — live per-source refresh with real-time progress, a persisted refresh-attempt log, and the dataset-staleness banner scoped to just this page), How this works (`/how-it-works` — live data-sources/methodology explanation), Design System (reference page). Calls the live API directly, lazy per-candidate detail fetch. Visual language: rounded, soft-shadow `.instrument-panel` cards on a paper/topographic-watermark background (superseded an earlier flat/hairline/no-shadow direction on 2026-09-02/03 — see `PROJECT_CONTEXT.md` Section 7), rolled out across every page. Dashboard additionally has an EN/KO language toggle (header, top-right) — Korean text on the nav chrome and the Dashboard page only, every other page stays English by design; see `frontend-react/src/lib/i18n.ts` | Live-verified per page: `npx tsc --noEmit --project tsconfig.app.json` clean, real Playwright sweeps (no console errors, no horizontal overflow at 1280/1440/1600px) on every route, plus page-specific real-data checks (equal-height score cards measured via `getBoundingClientRect()`, rail/tab scroll-sync, filter/sort/pagination correctness, map marker rendering, EN/KO toggle confirmed not to leak onto out-of-scope pages) |
 | `frontend/index.html` — **legacy static prototype, superseded** | Single-file dashboard + detail page, calls the live API, lazy per-candidate detail fetch. Kept only for historical reference — `frontend-react/` is what actually runs now, this is not maintained or re-verified alongside it | Full-128 sweep in an actual browser, as of when this was still the live frontend (dashboard, outreach panel, citation links, bilingual text, dataset-staleness banner) |
 
 ## Why need_score and credibility_score are separate, not one number
@@ -174,37 +177,47 @@ have to be, and so nobody has to reconcile two different bug lists that might dr
 
 ## Open items — genuinely not done, not just "could be nicer"
 
-1. **Tier C contact resolution (extracting a named contact from news-article prose) —
-   deliberately not pursued, not an oversight.** Tier B alone took four hardening rounds to
-   trust for just 1 of 128 real candidates; Tier C has no equivalent structural anchor (no
-   copyright footer, no dedicated contact page) to verify against. The 44 of 128 real candidates
-   landing in `insufficient_contact` are the accurate, honest answer for them — not a gap to
-   close before Demo Day. Full reasoning: `PROJECT_CONTEXT.md` Section 7.
+1. **Tier C contact resolution is real but manual-only — no automated pipeline step exists.**
+   A hand-judged round (2026-09-01, 86-candidate coverage, each verified against a real page
+   before trusting it — an org's own website footer, a verified social-media bio, never a
+   third-party mention) found 18 real phone/WhatsApp numbers and 15 public-presence links
+   (website/Facebook/Instagram). `RegistrantContact` carries dedicated fields for all of it
+   (`phone`, `phone_source`, `website_url`, etc. — see `schema.py`), and a real bug that silently
+   erased this data on every subsequent rebuild was found and fixed (2026-09-04, see
+   `PROJECT_CONTEXT.md` Section 7) — but nothing in `run_pipeline()` itself ever *searches* for a
+   phone/WhatsApp number the way Tier B automatically searches for an email; every phone/presence
+   value on file came from that one manual round, not a repeatable process. Full reasoning for why
+   it stayed manual-only: `PROJECT_CONTEXT.md` Section 7.
 2. **`PROVINCE_LOOKUP_ID_TO_EN` in `normalize_sruk.py` still has only 3 entries** (Kalimantan
    Tengah, Jawa Barat, Riau). A related correctness bug in `match.py`'s use of this table was
    found and fixed this project (see `PROJECT_CONTEXT.md` Section 6); the table itself staying
    incomplete just means Verra candidates outside those 3 provinces get no BRWA province
    pre-filter optimization — works, just slower.
-3. **Bilingual outreach covers only the fixed template strings, not the dynamic content.** The
-   opening paragraph, pitch, and discovery questions are generated by `dossier.py`, which has no
-   Indonesian output anywhere in the system — they stay English inside both language sections of
-   a bilingual email. Giving `dossier.py` real Indonesian dynamic content is a natural, larger
-   follow-up, not done here.
+3. **Bilingual outreach covers only the fixed template strings, not `dossier.py`'s own dynamic
+   content — checked directly (2026-09-04), not assumed, after an outside reviewer flagged it as
+   "half-translated."** Confirmed: `dossier.py` has zero Indonesian output anywhere in the system,
+   exactly as already documented here — not a regression. The email's pitch (`suggested_poc`) and
+   discovery questions still stay English inside both language sections. The one-sentence context
+   line (see `PROJECT_CONTEXT.md` Section 7's outreach-rewrite entry) is new since this was last
+   written and now has a real Indonesian twin, narrowing — not closing — this gap. Giving
+   `dossier.py` real Indonesian dynamic content is a natural, larger follow-up, not done here.
 4. **`news_actions` (the per-hit discard/corroborate/new-thin-candidate log) isn't persisted.**
    The aggregate counts in `pipeline_stats.json` are enough for today's reporting and the discard
    count is exactly derivable from them, but auditing *why* one specific hit was discarded isn't
    possible after the process that produced it exits.
-5. **Automated (scheduler-triggered) refreshes are registry-only, not news-enriched — and this
-   is now surfaced explicitly, not silently.** `orchestrate.py`'s own pipeline call never
-   included live Tavily/Tier B (true all along, done by hand separately every time this project
-   needed a richer export) — reusing it as-instructed for the new FastAPI scheduler means an
-   *automated* refresh will quietly produce a smaller dataset unless watched for. Rather than
-   wiring unattended recurring live-API spend into a background scheduler (a materially bigger
-   decision than this build's scope), `GET /stats` now reports `last_registry_refresh` and
-   `last_full_refresh_with_news` separately, with an explicit `news_data_stale` flag and message
-   — and the frontend shows a loud amber banner whenever they've diverged. Verified live: forced
-   a real registry-only refresh, confirmed the banner appeared with the correct message, then
-   restored the rich state and confirmed it cleared.
+5. **Automated (scheduler-triggered) refreshes are registry-only, not news-enriched — deliberately,
+   and this is now surfaced explicitly, not silently.** The background scheduler's automatic
+   hourly tick never passes `with_news=True` (unattended recurring live-API spend was judged a
+   materially bigger decision than this build's scope), so it will quietly produce a smaller
+   dataset than the last manual, news-enriched refresh — a real, repeatable property, not a bug
+   (news-discovered "thin" candidates only exist after a Tavily-enriched run). `GET /stats`
+   reports `last_registry_refresh` and `last_full_refresh_with_news` separately, with an explicit
+   `news_data_stale` flag and message; the frontend's amber staleness banner now renders only on
+   the Sync page (`/sync`, moved there from every page on 2026-09-04), where a real
+   `POST /refresh?with_news=true` (or a per-source button, or "Refresh with live news") is one
+   click away. This exact property caused three real data-loss incidents during the Sync
+   feature's own build and use — full incident-by-incident account, including one unrecoverable
+   case and the fix that followed it, in `PROJECT_CONTEXT.md` Section 7.
 6. **A responsible-party change on an existing registration isn't flagged as its own signal.**
    Found by accident investigating a raw-data dedup bug: at least one real organization's SRUK
    submission had its registered responsible party changed between two scrapes of the identical
