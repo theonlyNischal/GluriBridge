@@ -7,7 +7,7 @@ hand-wired scripts, but nothing ran the whole thing as one callable unit.
 """
 import json
 import re
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from datetime import date, datetime
 from .normalize_sruk import normalize_sruk_record
 from .normalize_verra import normalize_verra_record
@@ -30,6 +30,39 @@ from .schema import RegistrantContact
 # it's deliberately never in this set: a preserved value must never be
 # allowed to shadow a fresh, correct Tier A hit.
 PRESERVABLE_CONTACT_SOURCES = {"org_website", "manual_review"}
+
+# Same reasoning as PRESERVABLE_CONTACT_SOURCES, but for Tier C phone/
+# WhatsApp (RegistrantContact.phone_source) — a registry-only run can't
+# derive any of these either. There's no registry-native phone source
+# equivalent to Tier A's 'sruk_registrant'/'srn_ppi_registrant', so
+# nothing needs excluding here the way Tier A email is excluded above.
+PRESERVABLE_PHONE_SOURCES = {"org_website", "news_mention", "org_social_media"}
+
+
+def contact_has_preservable_data(contact: dict) -> bool:
+    """True if a (dict-shaped, e.g. from a prior export's detail_json
+    ['contact']) contact carries ANY data a registry-only run can't
+    itself re-derive — Tier B/manual email, Tier C phone/WhatsApp, or a
+    public-presence link — regardless of whether the others are present.
+
+    CONFIRMED real bug (2026-09-04): the original version of this gate
+    only checked contact_source (email), so a candidate with a real,
+    hand-verified Tier C phone number but no email at all (contact_source
+    stays None) was silently excluded from preservation entirely — its
+    phone number just vanished on the next registry-only or rebuilt
+    export. 18 real phone numbers + 15 public-presence links from the
+    2026-09-01 manual Tier C round were lost this way across two
+    subsequent rebuilds before this was caught."""
+    if not contact:
+        return False
+    has_email = contact.get("email") and contact.get("contact_source") in PRESERVABLE_CONTACT_SOURCES
+    has_phone = contact.get("phone") and contact.get("phone_source") in PRESERVABLE_PHONE_SOURCES
+    has_presence = (
+        (contact.get("website_url") and contact.get("website_source"))
+        or (contact.get("facebook_url") and contact.get("facebook_source"))
+        or (contact.get("instagram_handle") and contact.get("instagram_source"))
+    )
+    return bool(has_email or has_phone or has_presence)
 
 # The fields of UnifiedCandidateRecord.registry_ids that are genuinely
 # stable across separate run_pipeline() invocations — each is the
@@ -426,35 +459,97 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
             if resolve_contact_tier_b(candidate, tavily_client):
                 tier_b_resolved += 1
 
-    # --- Step 6c: restore Tier B / manual contacts a registry-only run
-    # can't itself derive (see preserve_contacts_by_registry_key's
-    # docstring — keyed by registry_ids, NOT candidate_id, since
-    # candidate_id isn't stable across runs) ---
+    # --- Step 6c: restore Tier B/manual email + Tier C phone/public-
+    # presence data a registry-only run can't itself derive (see
+    # preserve_contacts_by_registry_key's docstring — keyed by
+    # registry_ids, NOT candidate_id, since candidate_id isn't stable
+    # across runs) ---
+    #
+    # Email and phone/presence are restored INDEPENDENTLY of each other
+    # (2026-09-04 fix — was previously all-or-nothing per candidate).
+    # CONFIRMED real bug: 18 real Tier C phone numbers + 15 public-
+    # presence links from the 2026-09-01 manual round were silently lost
+    # across two subsequent rebuilds. Root cause was two-fold: (1) this
+    # step's own reconstruction only ever copied name/org/email/
+    # contact_source/contact_source_url/contact_confidence onto the new
+    # RegistrantContact, dropping every phone/presence field even when a
+    # prior WAS matched and restored; (2) the all-or-nothing gate below
+    # meant a candidate that picked up a fresh (even lower-confidence)
+    # Tier B email THIS run — see Step 6b above — lost its preserved
+    # phone/presence data too, since restoring email and restoring phone/
+    # presence used to be the same single decision.
     contacts_preserved = 0
     if preserve_contacts_by_registry_key:
         for candidate in final_candidates:
-            # Same pattern as Tier B's own existing_source check just above —
-            # registrant_contact is frequently a non-None RegistrantContact
-            # with contact_source=None (e.g. every Verra-sourced candidate,
-            # per normalize_verra.py: "Verra gives no named individual
-            # contact" but still constructs the dataclass to carry `org`).
-            # `is not None` alone would wrongly treat that as "already
-            # resolved" and never restore anything for Verra candidates.
-            existing_source = candidate.registrant_contact.contact_source if candidate.registrant_contact else None
-            if existing_source:
-                continue  # never shadow a contact this run already resolved itself
             prior = None
             for key in _registry_keys(candidate.registry_ids):
                 prior = preserve_contacts_by_registry_key.get(key)
                 if prior:
                     break
-            if not prior or prior.get("contact_source") not in PRESERVABLE_CONTACT_SOURCES:
+            if not prior or not contact_has_preservable_data(prior):
                 continue
+
+            current = candidate.registrant_contact
+            # Same pattern as Tier B's own existing_source check just
+            # above — registrant_contact is frequently a non-None
+            # RegistrantContact with contact_source=None (e.g. every
+            # Verra-sourced candidate, per normalize_verra.py: "Verra
+            # gives no named individual contact" but still constructs the
+            # dataclass to carry `org`). `is not None` alone would
+            # wrongly treat that as "already resolved" and never restore
+            # anything for Verra candidates.
+            existing_email_source = current.contact_source if current else None
+            restore_email = (
+                not existing_email_source
+                and prior.get("email")
+                and prior.get("contact_source") in PRESERVABLE_CONTACT_SOURCES
+            )
+            # Phone/presence restoration is deliberately NOT gated on
+            # existing_email_source — no automated step in this pipeline
+            # can ever produce a fresh phone_source or website/facebook/
+            # instagram *_source (Tier C is a manual-only process for
+            # now, see RegistrantContact's docstring), so a preserved
+            # phone/presence value can never legitimately be shadowed by
+            # "this run's own" resolution the way a fresh Tier B email
+            # can be.
+            restore_phone = bool(prior.get("phone") and prior.get("phone_source") in PRESERVABLE_PHONE_SOURCES)
+            restore_presence = bool(
+                (prior.get("website_url") and prior.get("website_source"))
+                or (prior.get("facebook_url") and prior.get("facebook_source"))
+                or (prior.get("instagram_handle") and prior.get("instagram_source"))
+            )
+            if not (restore_email or restore_phone or restore_presence):
+                continue
+
+            merged = asdict(current) if current else {}
+            if restore_email:
+                merged.update(
+                    name=prior.get("name"), org=prior.get("org"), email=prior.get("email"),
+                    contact_source=prior.get("contact_source"),
+                    contact_source_url=prior.get("contact_source_url"),
+                    contact_confidence=prior.get("contact_confidence"),
+                )
+            if restore_phone:
+                merged.update(
+                    phone=prior.get("phone"), phone_source=prior.get("phone_source"),
+                    phone_source_url=prior.get("phone_source_url"),
+                    phone_confidence=prior.get("phone_confidence"),
+                    contact_tier_c_attempted_at=prior.get("contact_tier_c_attempted_at"),
+                    contact_tier_c_attempt_result=prior.get("contact_tier_c_attempt_result"),
+                )
+            if restore_presence:
+                merged.update(
+                    website_url=prior.get("website_url"), website_source=prior.get("website_source"),
+                    website_confidence=prior.get("website_confidence"),
+                    facebook_url=prior.get("facebook_url"), facebook_source=prior.get("facebook_source"),
+                    facebook_confidence=prior.get("facebook_confidence"),
+                    instagram_handle=prior.get("instagram_handle"), instagram_source=prior.get("instagram_source"),
+                    instagram_confidence=prior.get("instagram_confidence"),
+                    public_presence_attempted_at=prior.get("public_presence_attempted_at"),
+                    public_presence_attempt_result=prior.get("public_presence_attempt_result"),
+                )
             candidate.registrant_contact = RegistrantContact(
-                name=prior.get("name"), org=prior.get("org"), email=prior.get("email"),
-                contact_source=prior.get("contact_source"),
-                contact_source_url=prior.get("contact_source_url"),
-                contact_confidence=prior.get("contact_confidence"),
+                **{k: v for k, v in merged.items() if k in RegistrantContact.__dataclass_fields__}
             )
             contacts_preserved += 1
 

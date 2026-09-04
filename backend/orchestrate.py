@@ -61,7 +61,7 @@ REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 # level higher than before.
 sys.path.insert(0, REPO_ROOT)
 
-from gluribridge.pipeline import run_pipeline          # noqa: E402
+from gluribridge.pipeline import run_pipeline, contact_has_preservable_data  # noqa: E402
 from gluribridge.export import export_pipeline_result  # noqa: E402
 from gluribridge import news_matching                  # noqa: E402
 from gluribridge.tavily_client import TavilyClient      # noqa: E402
@@ -403,12 +403,18 @@ def remove_freeze() -> bool:
 def _read_preserve_contacts_by_registry_key() -> dict:
     """
     Reads whatever contact each candidate has on file in the export we're
-    about to overwrite, keeping only Tier B ('org_website') / human-
-    reviewed ('manual_review') contacts — the two kinds a registry-only
-    run below can never itself re-derive (see run_pipeline()'s
-    preserve_contacts_by_registry_key docstring for why this exists:
-    CONFIRMED real bug, 2026-08-30 health-check sweep, where exactly this
-    class of contact was silently dropped by a registry-only re-export).
+    about to overwrite, keeping only contacts that carry data a
+    registry-only run below can never itself re-derive: Tier B
+    ('org_website') / human-reviewed ('manual_review') email, Tier C
+    phone/WhatsApp, or a public-presence link (see run_pipeline()'s
+    preserve_contacts_by_registry_key docstring and
+    contact_has_preservable_data() for why this exists: CONFIRMED real
+    bug, 2026-08-30 health-check sweep, for email; a SECOND confirmed
+    real bug, 2026-09-04, for Tier C phone/presence — this gate used to
+    check email's contact_source only, so a candidate with a real,
+    hand-verified phone number but no email at all (contact_source stays
+    None) was excluded here entirely and its phone number silently
+    vanished on the next rebuild).
 
     Keyed by registry_ids ('verra_project_id:674', etc.), NOT candidate_id
     — candidate_id is a fresh uuid4() on every run_pipeline() invocation
@@ -432,7 +438,7 @@ def _read_preserve_contacts_by_registry_key() -> dict:
     out = {}
     for detail in details_by_id.values():
         contact = detail.get("contact")
-        if not contact or contact.get("contact_source") not in ("org_website", "manual_review"):
+        if not contact_has_preservable_data(contact):
             continue
         registry_ids = (detail.get("identity") or {}).get("registry_ids") or {}
         for field in ("sruk_registry_no", "srn_ppi_registry_no", "verra_project_id"):
