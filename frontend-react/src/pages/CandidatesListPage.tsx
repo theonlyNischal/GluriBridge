@@ -98,6 +98,7 @@ export function CandidatesListPage() {
   if (filterParams.minNeed != null) activeChips.push({ key: "minNeed", label: `Opportunity ≥ ${filterParams.minNeed}`, clear: { minNeed: null } });
   if (filterParams.minCred != null) activeChips.push({ key: "minCred", label: `Evidence Strength ≥ ${filterParams.minCred}`, clear: { minCred: null } });
   if (filterParams.complianceFlag === "approaching") activeChips.push({ key: "compliance", label: "Compliance deadline approaching (amber/red)", clear: { complianceFlag: "" } });
+  if (filterParams.complianceFlag === "amber") activeChips.push({ key: "compliance", label: "Amber compliance badge", clear: { complianceFlag: "" } });
   if (filterParams.contactResolved === "yes") activeChips.push({ key: "contactResolved", label: "Has resolved contact", clear: { contactResolved: "" } });
   if (filterParams.contactResolved === "no") activeChips.push({ key: "contactResolved", label: "No resolved contact", clear: { contactResolved: "" } });
   // province/brwaOverlap arrive from Territory Discovery's filter panel
@@ -135,10 +136,20 @@ export function CandidatesListPage() {
           cards, accent reserved for High need only (same axis-color choice
           as Dashboard), live-pulse dot on Total candidates. */}
       <div className="grid shrink-0 grid-cols-4 gap-3 border-b border-stone-200 bg-white px-5 py-4">
-        <KpiCard label="Total candidates" value={total} variant="instrument" live />
-        <KpiCard label="High opportunity (≥70)" value={highNeed} accent="clay" variant="instrument" />
-        <KpiCard label="High evidence strength (≥70)" value={highCred} variant="instrument" />
-        <KpiCard label="Amber compliance" value={amberCompliance} variant="instrument" />
+        {/* Clickable (2026-09-04), matching the Dashboard's own KPI row —
+            each `to` clears/sets ONLY its own filter, never stacking with
+            whatever's currently active, since these numbers are always
+            computed off the full unfiltered `candidates` list above, not
+            the filtered `rows` the table itself renders. Amber links to
+            complianceFlag=amber (strictly amber), NOT the "approaching"
+            value the Dashboard's own compliance card uses (amber OR red)
+            — this card has always counted amber only, so its link has to
+            match that same narrower definition, or the rows you'd land on
+            would outnumber what the card just showed you. */}
+        <KpiCard label="Total candidates" value={total} variant="instrument" live to="/candidates" />
+        <KpiCard label="High opportunity (≥70)" value={highNeed} accent="clay" variant="instrument" to="/candidates?minNeed=70" />
+        <KpiCard label="High evidence strength (≥70)" value={highCred} variant="instrument" to="/candidates?minCred=70" />
+        <KpiCard label="Amber compliance" value={amberCompliance} variant="instrument" to="/candidates?compliance=amber" />
       </div>
 
       {/* One real, working search (the old top-bar search box was

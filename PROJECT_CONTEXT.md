@@ -1430,5 +1430,28 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   `"MRV" "karbon hutan" Indonesia`) — 2 → 4 — prioritizing Indonesian-language and organization/
   actor-focused terms per the review's own top recommendation. Verified: `build_queries()` renders
   correctly (4 sample provinces × 8 + 4 global = 36, matching the exact expected count), all 16
-  backend tests still pass. Not yet run live against real data at time of writing — the next real
-  news-enriched refresh will exercise it for the first time.
+  backend tests still pass. Ran live the same day (see the "Rebuild with new Tavily key" commit
+  below) — 300 real queries, 1160 hits processed, 16 genuinely new thin candidates.
+- **The Candidates page's own KPI row (Total candidates / High opportunity / High evidence
+  strength / Amber compliance) is now clickable**, matching the Dashboard's already-clickable
+  equivalent row (2026-09-04). A real design decision made along the way, not silently glossed
+  over: this page's own "Amber compliance" card has always counted STRICTLY amber
+  (`compliance_badge === "amber"`), a narrower definition than the Dashboard's "Compliance Risk"
+  card (amber OR red, via the existing `complianceFlag=approaching` filter) — reusing that same
+  "approaching" filter for this card's link would have sent someone to MORE rows than the number
+  they just clicked, breaking `KpiCard`'s own stated invariant ("the count shown and the rows you
+  land on are guaranteed to match"). Added a new, separate `complianceFlag="amber"` filter value
+  (`candidateFilter.ts`) instead of quietly changing what this card counts, plus a matching
+  "Amber compliance badge" filter chip (distinct wording from the existing "approaching" chip, so
+  the two amber-related states are never visually confused). Verified with a real headless-browser
+  script (Python Playwright, already available in `gluri_env` — no Node Playwright package is
+  installed in `frontend-react/`, unlike what a "real Playwright sweep" might imply elsewhere in
+  this doc) against the live Vite dev server: all 4 cards navigate to the correct URL, and — the
+  actual invariant that matters — every card's displayed number exactly matches the row count
+  after clicking it (Amber: 53 → 53 rows, High opportunity: 31 rows, High evidence: 4 rows,
+  clearing back to Total: 164 rows). One real false alarm caught and corrected during this same
+  verification: an initial script run showed every filter appearing to do nothing (`164 of 164`
+  regardless of which card was clicked) — traced to Playwright's `networkidle` wait not being a
+  valid signal for a pure client-side SPA route change (no new network request fires, so
+  `networkidle` can resolve before React Router's own re-render commits); fixed by waiting on the
+  URL itself changing instead, not networkidle. tsc clean, 0 console errors.

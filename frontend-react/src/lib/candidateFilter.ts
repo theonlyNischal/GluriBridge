@@ -17,7 +17,14 @@ export interface CandidateFilterParams {
   // above.
   minNeed: number | null;
   minCred: number | null;
-  complianceFlag: string; // "" | "approaching" (compliance_badge amber OR red — same definition Dashboard's KPI card counts)
+  // "" | "approaching" (compliance_badge amber OR red — same definition
+  // Dashboard's KPI card counts) | "amber" (strictly amber, added
+  // 2026-09-04 so THIS page's own "Amber compliance" KPI card — a
+  // narrower, pre-existing count than Dashboard's amber-OR-red one —
+  // can link to a filter that matches its own displayed number exactly,
+  // rather than either introducing a mismatch or silently changing what
+  // that card counts).
+  complianceFlag: string;
   contactResolved: string; // "" | "yes" | "no" (has_resolved_contact)
   // "" | "yes" | "no" (has_email) — deliberately separate from
   // contactResolved (2026-08-31 audit): a resolved contact can be a Tier
@@ -102,6 +109,11 @@ export function applyCandidateFilter(candidates: CandidateListRow[], params: Can
   // counts with, so the linked-through view always matches the number
   // that was clicked.
   if (params.complianceFlag === "approaching") out = out.filter((r) => r.compliance_badge === "amber" || r.compliance_badge === "red");
+  // "amber" == strictly amber only — matches the Candidates page's OWN
+  // "Amber compliance" KPI card exactly (a narrower, pre-existing count
+  // than "approaching" above), so that card's link never shows more rows
+  // than the number it displays.
+  if (params.complianceFlag === "amber") out = out.filter((r) => r.compliance_badge === "amber");
   if (params.contactResolved === "yes") out = out.filter((r) => r.has_resolved_contact);
   if (params.contactResolved === "no") out = out.filter((r) => !r.has_resolved_contact);
   if (params.hasEmail === "yes") out = out.filter((r) => r.has_email);
