@@ -1414,3 +1414,21 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   genuinely new one is still created fresh in the same run; a re-surfaced one is corroborated in
   place (real new evidence added) and never duplicated into a second record. All 16 backend tests
   pass (15 + this new one).
+- **The Tavily query vocabulary was expanded** (2026-09-04, external review — now that thin
+  candidates persist rather than vanishing, expanding the search that finds them in the first
+  place was judged worth it), trimmed from the review's full suggested list to land near a real
+  ~2x total rather than the ~3.5x a straight implementation of every suggested line would have
+  produced. **Checked first, not assumed**: `build_queries()` multiplies every per-province
+  template by however many DISTINCT province STRINGS exist in the current export — 38, not the
+  ~7-10 real Indonesian provinces this might suggest, because province names aren't normalized/
+  deduped (e.g. "RIAU" / "Riau Province" / "Siak District, Riau Province" are 3 separate strings
+  for one real province — a real, separate data-quality issue, flagged to the user but explicitly
+  out of scope for a vocabulary expansion). Given that multiplier, added 3 new per-province
+  templates (English: `"REDD+" {province} Indonesia`; Indonesian: `"proyek REDD+"`,
+  `"pengembang proyek karbon" hutan Indonesia`, `"restorasi gambut" OR "peatland" karbon`) —
+  4 → 8 per province — and 2 new global templates (`"DRAM" OR "DPP" karbon hutan Indonesia`,
+  `"MRV" "karbon hutan" Indonesia`) — 2 → 4 — prioritizing Indonesian-language and organization/
+  actor-focused terms per the review's own top recommendation. Verified: `build_queries()` renders
+  correctly (4 sample provinces × 8 + 4 global = 36, matching the exact expected count), all 16
+  backend tests still pass. Not yet run live against real data at time of writing — the next real
+  news-enriched refresh will exercise it for the first time.

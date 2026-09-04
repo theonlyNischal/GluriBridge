@@ -15,13 +15,32 @@ from .match import strip_legal
 # Query templates: province x keyword, EN + Indonesian. This is the
 # automated version of what Gluri told us directly they'd do manually
 # (search news/campaigns/existing programs, then cold-email public contacts).
+#
+# Expanded 2026-09-04 (external review, trimmed to land near a real ~2x
+# total, not the ~3.5x a straight implementation of every suggested line
+# would have produced) — CONFIRMED first: build_queries() multiplies
+# every per-province template by however many DISTINCT province STRINGS
+# exist in the current export, which today is 38 (not ~7-10 real
+# provinces) because province names aren't normalized/deduped (e.g.
+# "RIAU" / "Riau Province" / "Siak District, Riau Province" are 3
+# separate strings for one real province) — a real, separate data-
+# quality issue, flagged but not fixed here (out of scope for a query-
+# vocabulary expansion). Every new per-province template added below
+# costs 38x, not ~8x, so the set was trimmed accordingly, prioritizing
+# Indonesian-language and organization/actor-focused terms per the
+# review's own top recommendation ("too limited in vocabulary and actor
+# types... prioritize Indonesian queries more").
 QUERY_TEMPLATES_EN_BY_PROVINCE = [
     '"forest carbon project" {province} Indonesia',
     'MRV forest carbon technology partner Indonesia {province}',
+    '"REDD+" {province} Indonesia',
 ]
 QUERY_TEMPLATES_ID_BY_PROVINCE = [
     '"proyek karbon hutan" {province}',
     'kerjasama karbon kehutanan Indonesia {province}',
+    '"proyek REDD+" {province}',
+    '"pengembang proyek karbon" hutan Indonesia {province}',
+    '"restorasi gambut" OR "peatland" karbon {province}',
 ]
 # Not province-specific — run once globally, not once per province
 # (confirmed real inefficiency: with 4 provinces, running these here would
@@ -29,6 +48,8 @@ QUERY_TEMPLATES_ID_BY_PROVINCE = [
 QUERY_TEMPLATES_GLOBAL = [
     '"remote sensing" forest carbon partner Indonesia',
     'MRV kehutanan mitra teknologi pemantauan',
+    '"DRAM" OR "DPP" karbon hutan Indonesia',
+    '"MRV" "karbon hutan" Indonesia',
 ]
 
 # Indonesian organizational-entity prefixes — used to extract a plausible
