@@ -1,0 +1,3092 @@
+{
+  "fetched_at": "2026-09-03T08:38:28.610063+00:00",
+  "total_pages": 1,
+  "total_projects": 192,
+  "raw_pages": [
+    {
+      "page": 1,
+      "response": {
+        "data": [
+          {
+            "id": "eb91bb4c-41dd-463a-bbee-84e0ec098882",
+            "activity": "Program Kampung Iklim Kampung Sarawandori Distrik Kosiwo Kabupaten Kepulauan Yapen Provinsi Papua",
+            "sector": "⁠Forestry and Other Land Use (FOLU), Pengelolaan Limbah, Energi, Pertanian, ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+            "proponent": "Dinas Lingkungan Hidup",
+            "activity_duration": "Sep 2026 - Sep 2028",
+            "registry_no": "REG-11-PR-VIII-2026-2458"
+          },
+          {
+            "id": "ff77df71-b428-4480-89fc-5f28ec98e3ee",
+            "activity": "Sistem Pemurnian Air untuk Air Minum Aman (SDW) di Indonesia",
+            "sector": "Energi",
+            "proponent": "PT Synopex Tirta Indonesia",
+            "activity_duration": "Jul 2021 - Jul 2028",
+            "registry_no": "REG-11-PR-VIII-2026-9810"
+          },
+          {
+            "id": "f6b5026e-76fd-4ce8-80a4-c4ad0bf160e3",
+            "activity": "Pemulihan Lanskap Cikaso melalui Rehabilitasi Lahan dan Pengembangan Agroforestri",
+            "sector": "⁠Forestry and Other Land Use (FOLU), Pertanian",
+            "proponent": "Yayasan Meramu Alam Nusantara",
+            "activity_duration": "Nov 2025 - Nov 2045",
+            "registry_no": "REG-11-PR-VIII-2026-2296"
+          },
+          {
+            "id": "7998b489-569f-4ab5-927d-b016a3eb4b17",
+            "activity": "Pembuatan Asupan Organik di Desa Sumbul Tengah",
+            "sector": "Pertanian, Pengelolaan Limbah",
+            "proponent": "Yayasan Petrasa",
+            "activity_duration": "Oct 2024 - Oct 2025",
+            "registry_no": "REG-11-PR-VIII-2026-8145"
+          },
+          {
+            "id": "4380877d-b1b9-4273-b7db-2b2179a9b7b7",
+            "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut DUMMY 2026",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+            "activity_duration": "Jan 2026 - Jan 2046",
+            "registry_no": "REG-11-PR-VIII-2026-7301"
+          },
+          {
+            "id": "bc9ceb6e-d7d3-45a4-bc70-20f2d0c7f8cb",
+            "activity": "Peningkatan serapan karbon melalui penanaman kembali lahan kosong pada 5 lokasi yang ada di ( Kabupaten Lahat, Kota Pagaralam )",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KSU MUTIARA BASHIROH ",
+            "activity_duration": "Oct 2026 - Jun 2027",
+            "registry_no": "REG-11-PR-VII-2026-5562"
+          },
+          {
+            "id": "e2f3b757-2a17-4580-9888-bfb21dc20f5c",
+            "activity": "Penanaman Jati Unggul untuk rehabilitasi KHDTK Wanagama I Bersama PT. Astra International Tbk.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KHDTK Pendidikan dan Pelatihan Wanagama I",
+            "activity_duration": "Aug 2023 - Aug 2025",
+            "registry_no": "REG-11-PR-VII-2026-4971"
+          },
+          {
+            "id": "b3876d6a-467c-47e0-9742-6809ac626f88",
+            "activity": "Proyek Konservasi Hutan dan Optimasi Penyerapan Carbon Global",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH GEMOK SINANDI",
+            "activity_duration": "Jan 2027 - Dec 2037",
+            "registry_no": "REG-11-PR-VII-2026-6569"
+          },
+          {
+            "id": "433775b3-9197-46af-8289-beda69b122b3",
+            "activity": "Meranti Mustika Improved Forest Management Project",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Meranti Mustika",
+            "activity_duration": "Jan 2026 - Dec 2036",
+            "registry_no": "REG-11-PR-VII-2026-8854"
+          },
+          {
+            "id": "7826df0f-50df-4a6c-81f7-4f14496b83aa",
+            "activity": "Restorasi Hidrologi Gambut dan Reboisasi Mangrove di Kabupaten Siak",
+            "sector": "Energi, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "KIANDRA SETIA BANGSA",
+            "activity_duration": "Jul 2026 - Jan 2027",
+            "registry_no": "REG-11-PR-VII-2026-8608"
+          },
+          {
+            "id": "2f32ec0f-529c-4737-a24c-3cc53dbf4eeb",
+            "activity": "kegiatan pengurangan emisi karbon",
+            "sector": "Energi",
+            "proponent": "PT. NEW SRUK",
+            "activity_duration": "Jan 2026 - Jan 2033",
+            "registry_no": "REG-11-PR-VI-2026-2125"
+          },
+          {
+            "id": "be2056ad-c991-42c9-a794-df2d16fd4f2d",
+            "activity": "Pengurangan Emisi dari Deforestasi Tidak Terencana, Konservasi dan Restorasi Ekosistem Gambut, Pencegahan Kebakaran Gambut, serta Peningkatan Serapan Karbon melalui Rehabilitasi dan Revegetasi pada Areal PBPH PT Hutani Berkah Mulia Seluas 10.444 Hektare di Kabupaten Musi Banyuasin, Provinsi Sumatera Selatan.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Hutani Berkah Mulia",
+            "activity_duration": "Jul 2024 - Jun 2084",
+            "registry_no": "REG-11-PR-VI-2026-8152"
+          },
+          {
+            "id": "e15a86a2-5b44-4f4e-aaee-7b187a1fa21f",
+            "activity": "Peningkatan Serapan Karbon Melalui Penghijauan Lingkungan Komunitas",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Tegal wangi berseri",
+            "activity_duration": "Jun 2026 - Dec 2026",
+            "registry_no": "REG-11-PR-VI-2026-1001"
+          },
+          {
+            "id": "91eaa36b-00d6-4b60-b848-048efdfad07c",
+            "activity": "Proyek Karbon Mangrove Pegat Batumbuk",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "LPHD Pegat Batumbuk",
+            "activity_duration": "Nov 2026 - Nov 2054",
+            "registry_no": "REG-11-PR-VI-2026-9410"
+          },
+          {
+            "id": "924394a8-60b7-4427-9a20-fc7b9ca345c2",
+            "activity": "Rehabilitasi Hutan dan Lahan",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "sulawesi cipta forum",
+            "activity_duration": "Jul 2026 - Aug 2026",
+            "registry_no": "REG-11-PR-VI-2026-7148"
+          },
+          {
+            "id": "7c6b03eb-87b3-42d4-82ce-37f5437a067d",
+            "activity": "Penanaman pohon dan vertikal garden",
+            "sector": "Pertanian, Energi",
+            "proponent": "RW006",
+            "activity_duration": "Sep 2025 - Dec 2025",
+            "registry_no": "REG-11-PR-VI-2026-6816"
+          },
+          {
+            "id": "81361aea-e44f-448f-b6bb-b3faaf21d428",
+            "activity": "Proklim desa air puar kecamatan mulak ulu kab. lahat  provinsi sumatera selatan",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), Energi, ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "DESA AIR PUAR KECAMATAN MULAK ULU KAB.LAHAT ",
+            "activity_duration": "Jan 2024 - Dec 2026",
+            "registry_no": "REG-11-PR-VI-2026-5897"
+          },
+          {
+            "id": "0cfebc9e-86cc-48d2-a1b8-64c73ba814b1",
+            "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Banyumas Kecamatan Baturraden",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Barn Agro Lestari",
+            "activity_duration": "Jan 2025 - Jan 2045",
+            "registry_no": "REG-11-PR-VI-2026-1075"
+          },
+          {
+            "id": "bff633f9-69f4-474a-b68a-3e80238877ed",
+            "activity": "Proklim Blumbang",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Proklim Blumbang",
+            "activity_duration": "Jan 2016 - Jun 2026",
+            "registry_no": "REG-11-PR-VI-2026-4496"
+          },
+          {
+            "id": "e0997c40-c227-460f-b241-43271b5ed7fd",
+            "activity": "Proklim Madigondo – Padukuhan Madigondo - Kalurahan Sidoharjo – Kapanewon Samigaluh – Provinsi DI Yogyakarta",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Proklim Madigondo",
+            "activity_duration": "Mar 2016 - Jun 2026",
+            "registry_no": "REG-11-PR-VI-2026-1826"
+          },
+          {
+            "id": "8a9441e1-772b-44b5-91e8-2833e6a1a191",
+            "activity": "Proyek Lahan Gambut Suntara Pekanbaru (PSPP)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT. SUNTARA GAJAPATI",
+            "activity_duration": "Jan 2024 - Dec 2063",
+            "registry_no": "REG-11-PR-VI-2026-6335"
+          },
+          {
+            "id": "1c71ea60-3991-44d2-aa5d-6cec0c32a50a",
+            "activity": "Program Ketahanan Pangan Keluarga",
+            "sector": "Pertanian",
+            "proponent": "Proklim RW 14 Cipadung",
+            "activity_duration": "Jun 2026 - Aug 2026",
+            "registry_no": "REG-11-PR-VI-2026-9163"
+          },
+          {
+            "id": "c59ec321-e968-47fd-95c4-d552c72a770d",
+            "activity": "Gunungkidul Green Cycle: Integrasi Multi-sektor NDC Indonesia (FOLU-Agri-Limbah-Energi-IPPU) untuk Hilirisasi Karbon Komunitas di Ekosistem Karst",
+            "sector": "Pertanian, ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Konsorsium Yayasan Javlec dan Yayasan Relung Indonesia",
+            "activity_duration": "Jan 2024 - Dec 2045",
+            "registry_no": "REG-11-PR-VI-2026-7361"
+          },
+          {
+            "id": "49d8898d-137e-48b7-903e-85e97242998c",
+            "activity": "Gunungkidul Green Cycle: Integrasi Multi-sektor NDC Indonesia (FOLU-Agri-Limbah-Energi-IPPU) untuk Hilirisasi Karbon Komunitas di Ekosistem Karst",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Konsorsium Yayasan Javlec dan Yayasan Relung Indonesia",
+            "activity_duration": "Jan 2026 - Dec 2047",
+            "registry_no": "REG-11-PR-VI-2026-1910"
+          },
+          {
+            "id": "4d4129ab-de83-46cf-92ca-4f48e7fbb314",
+            "activity": "Penanaman pohon trembesi untuk penyerapan karbon",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Harum lestari",
+            "activity_duration": "Oct 2026 - Dec 2046",
+            "registry_no": "REG-11-PR-VI-2026-3377"
+          },
+          {
+            "id": "52d439a9-0ea8-4218-9602-174c93e56fb8",
+            "activity": "Reduksi Emisi Gas Rumah Kaca Melalui Penerapan Ekonomi Sirkular Berbasis Biokonversi Maggot BSF dan Manajemen Limbah Non-Medis Terintegrasi di Rumah Sakit",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "RSUD Dr. Soetomo",
+            "activity_duration": "Jan 2023 - Dec 2026",
+            "registry_no": "REG-11-PR-VI-2026-9102"
+          },
+          {
+            "id": "213f24e2-9402-4a75-8418-830c0dfc465e",
+            "activity": "Pembangkit Listrik Tenaga Panas Bumi Binary Pemanfaatan Panas Brine Salak",
+            "sector": "Energi",
+            "proponent": "Star Energy Geothermal",
+            "activity_duration": "Feb 2025 - Nov 2040",
+            "registry_no": "REG-11-PR-V-2026-9456"
+          },
+          {
+            "id": "60cea788-b4dd-42e0-8bea-9c9eb9f8f865",
+            "activity": "ProKlim - Kelurahan Juata Laut - Kecamatan Tarakan Utara - Kota Tarakan - Provinsi Kalimantan Utara",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Dinas Lingkungan Hidup Kota Tarakan",
+            "activity_duration": "May 2015 - May 2026",
+            "registry_no": "REG-11-PR-V-2026-1600"
+          },
+          {
+            "id": "0d250e45-5169-4944-a60a-a7a1b6ce94d2",
+            "activity": "proyek pengembangan karbon berbasis kehutanan dan reboisasi yang berfokus pada pengurangan emisi karbon serta pembangunan ekonomi hijau berkelanjutan.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Kelompok Tani Hutan Sangsaluan",
+            "activity_duration": "Jul 2023 - Jul 2058",
+            "registry_no": "REG-11-PR-V-2026-4174"
+          },
+          {
+            "id": "d69c2a5f-946c-4414-94a1-78ced2dfa7da",
+            "activity": "Pengurangan Emisi Rumah Mas Agatha",
+            "sector": "Energi, ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+            "proponent": "LKI",
+            "activity_duration": "Jul 2026 - Jul 2036",
+            "registry_no": "REG-11-PR-V-2026-4159"
+          },
+          {
+            "id": "ba32e10c-0759-45f5-9a93-66975ab28672",
+            "activity": "PROKLIM DESA MARIO KECAMATAN TANASITOLO KABUPATEN WAJO",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), Energi, Pengelolaan Limbah",
+            "proponent": "Kelompok Proklim Desa Mario",
+            "activity_duration": "Feb 2021 - May 2026",
+            "registry_no": "REG-11-PR-V-2026-7774"
+          },
+          {
+            "id": "6e74bc62-f7cc-4207-89b5-a68380bcdeed",
+            "activity": "Dampak Sawah Tergenang Terhadap Kondisi Ekologis Kawasan. (Studi Kasus pada Penyakit Asem Aseman pada Sawah Padi dengan Irigasi Teknis di Desa Undaan Tengah)",
+            "sector": "Pertanian",
+            "proponent": "BERKAH ABADI CHARCOAL",
+            "activity_duration": "May 2026 - May 2027",
+            "registry_no": "REG-11-PR-V-2026-9364"
+          },
+          {
+            "id": "5bef2789-75e7-4cb0-8397-b0f56330030f",
+            "activity": "Tegalsari,Kalurahan Purwosari,Kapanewon Girimulyo,Kulon Progo,DIY",
+            "sector": "Pengelolaan Limbah, Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Proklim TegalsarI",
+            "activity_duration": "Apr 2026 - Aug 2026",
+            "registry_no": "REG-11-PR-V-2026-8285"
+          },
+          {
+            "id": "9880e0ed-dde2-4589-9326-28b084a83b60",
+            "activity": "Pemasangan PLTS di lokasi Proyek",
+            "sector": "Energi",
+            "proponent": "Dummy PHE Account",
+            "activity_duration": "Jul 2026 - Jul 2036",
+            "registry_no": "REG-11-PR-V-2026-5230"
+          },
+          {
+            "id": "8b683fbe-e51b-412b-a5ec-ccf79b62664d",
+            "activity": "Penanaman Tanaman Keras Multi-Guna (MPTS) untuk Peningkatan Stok Karbon pada Lahan Perhutanan Sosial Di kabupaten rembang",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "HETEL ECORANGER",
+            "activity_duration": "Jun 2026 - Dec 2026",
+            "registry_no": "REG-11-PR-V-2026-1830"
+          },
+          {
+            "id": "751c495d-34a8-4ad3-b6f2-1fad01a2524d",
+            "activity": "WAMTI Ketapang Blue Carbon Initiative (WKBCI)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Wahana Masyarakat Tani dan Nelayan Indonesia (WAMTI)",
+            "activity_duration": "Jan 2027 - Jan 2047",
+            "registry_no": "REG-11-PR-IV-2026-8545"
+          },
+          {
+            "id": "7074b952-7052-4a2c-a2f8-1d8a92042fa2",
+            "activity": "mitigasi flaring Migas",
+            "sector": "Energi",
+            "proponent": "LKI",
+            "activity_duration": "Jul 2026 - Jul 2036",
+            "registry_no": "REG-11-PR-IV-2026-7815"
+          },
+          {
+            "id": "e0d63355-f9c6-4993-8419-9fc7f417a541",
+            "activity": "Reduksi Emisi Limbah Makanan Organik Menggunakan Metode Anaerobik Digestion (SK APPLIED 018/APP/SK/II/2022)",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Dayaguna Bhakti Nusantara",
+            "activity_duration": "Mar 2022 - Mar 2029",
+            "registry_no": "REG-11-PR-IV-2026-5535"
+          },
+          {
+            "id": "2a10b91a-2be9-4836-9249-201263a4609a",
+            "activity": "Implementasi PROKASIH Untuk Penanganan Food Waste Dengan Sistem Anaerobic Digesting",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Rizqi Semesta ",
+            "activity_duration": "Nov 2022 - Nov 2029",
+            "registry_no": "REG-11-PR-IV-2026-4750"
+          },
+          {
+            "id": "9ebac149-bf40-4bb2-aa52-94145326ec1c",
+            "activity": "Gas Flare di migas",
+            "sector": "Energi",
+            "proponent": "PT. Tanah Air Bentala",
+            "activity_duration": "Jun 2026 - Jun 2033",
+            "registry_no": "REG-11-PR-IV-2026-7565"
+          },
+          {
+            "id": "d5961284-e14a-4aa8-99c4-fc5b2d533a41",
+            "activity": "Penguatan Mitigasi dan Adaptasi Iklim Desa Gambut Kabupaten Kubu Raya",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Yayasan Natural Kapital Indonesia",
+            "activity_duration": "Apr 2026 - Apr 2028",
+            "registry_no": "REG-11-PR-IV-2026-8465"
+          },
+          {
+            "id": "5dd8ba94-e7e4-4dd5-a4ed-0a5fa2069bbd",
+            "activity": "Pengembangan ekowisata kopi dan strawberry kampung Ambaidiru Kabupaten Kepulauan Yapen",
+            "sector": "Pertanian, Pengelolaan Limbah",
+            "proponent": "Dinas Lingkungan Hidup Kabupaten Kepulauan Yapen",
+            "activity_duration": "Jan 2026 - Dec 2026",
+            "registry_no": "REG-11-PR-IV-2026-6852"
+          },
+          {
+            "id": "347794c4-8e50-4837-87c6-69b814cfc9ef",
+            "activity": "Proklim(Program,Kampung,Iklim Dusun Segajih Hargotirto Kokap Kulonprogo)",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), Pengelolaan Limbah",
+            "proponent": "Dusun Segajih Hargotirto",
+            "activity_duration": "Jan 2022 - Mar 2026",
+            "registry_no": "REG-11-PR-III-2026-1346"
+          },
+          {
+            "id": "0669beb7-1b95-4c58-bc1d-18d9e6ff178d",
+            "activity": "Konversi Genset Berbahan Bakar Minyak Menjadi Sambungan Listrik Energi Terbarukan di Pelabuhan Bunati",
+            "sector": "Energi",
+            "proponent": "PT Borneo Indobara",
+            "activity_duration": "Jan 2021 - Dec 2027",
+            "registry_no": "REG-11-PR-III-2026-1116"
+          },
+          {
+            "id": "f713e356-ceed-4f5a-be91-ccaad327b5f6",
+            "activity": "Pengurangan Emisi melalui Peningkatan Penyerapan Karbon dengan Rehabilitasi Mangrove\ndi Desa Sedari, Karawang, Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Adhi Karya (Persero) Tbk",
+            "activity_duration": "Mar 2025 - Mar 2046",
+            "registry_no": "REG-11-PR-II-2026-9422"
+          },
+          {
+            "id": "decedfb4-16b2-46bb-99f8-4eea31967ff5",
+            "activity": "Program Rehabilitasi Hutan Berbasis Solusi Alam",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "UPT Pengelola Kawasan Hutan, Universitas Brawijaya",
+            "activity_duration": "Jan 2027 - Jan 2037",
+            "registry_no": "REG-11-PR-II-2026-7493"
+          },
+          {
+            "id": "f1fcb916-d6dc-4935-a158-c9121fe03193",
+            "activity": "Penanaman Pohon Nyamplung (Calophyllum inophyllum) di Kampus UIN Surakarta",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "Jan 2026 - Jan 2036",
+            "registry_no": "REG-11-PR-II-2026-4036"
+          },
+          {
+            "id": "8e608904-40fa-4b18-89c5-28f2bdb3253d",
+            "activity": "KIS BIOFUELS – UKINDO PROJECT",
+            "sector": "Energi, Pengelolaan Limbah",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Jan 2024 - Jan 2031",
+            "registry_no": "REG-11-PR-II-2026-8851"
+          },
+          {
+            "id": "7d6fa628-eb7d-473d-95ce-0e975dd62abc",
+            "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment\nProject at TSE Group, Indonesia",
+            "sector": "Pengelolaan Limbah, Energi",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Oct 2025 - Sep 2032",
+            "registry_no": "REG-11-PR-II-2026-2939"
+          },
+          {
+            "id": "c7183b52-d38a-4eef-b061-0f0338cf6819",
+            "activity": "KEGIATAN PEMBANGKIT LISTRIK TENAGA SURYA",
+            "sector": "Energi",
+            "proponent": "dummy ",
+            "activity_duration": "Feb 2026 - Dec 2026",
+            "registry_no": "REG-11-PR-II-2026-1777"
+          },
+          {
+            "id": "81cce894-c34f-455a-be4b-664aba1e6379",
+            "activity": "Kegiatan Pembangkit Listrik Tenaga Angin",
+            "sector": "Energi",
+            "proponent": "dummy ",
+            "activity_duration": "Jan 2026 - Dec 2026",
+            "registry_no": "REG-11-PR-II-2026-8391"
+          },
+          {
+            "id": "804d477e-a7b3-4702-b551-04e548fa0034",
+            "activity": "AGROFORESTRY NYAMPLUNG BIOENERGY DAN DEKARBONISASI",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "Feb 2026 - Feb 2046",
+            "registry_no": "REG-11-PR-II-2026-3556"
+          },
+          {
+            "id": "95be0538-5165-44f4-aa81-ed9addb9c487",
+            "activity": "Inisiatif Karbon Biru Pulau Lombok",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Yayasan Terumbu Karang Indonesia (TERANGI)",
+            "activity_duration": "Jan 2027 - Jan 2037",
+            "registry_no": "REG-11-PR-II-2026-6330"
+          },
+          {
+            "id": "0f319eac-73b3-4a36-9569-7d894a0d949f",
+            "activity": "Perlindungan dan Pengelolaan Lokasi Gambut, Kabupaten Kutai Kartanegara",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT. Tirta Carbon Indonesia",
+            "activity_duration": "Jan 2026 - Dec 2036",
+            "registry_no": "REG-11-PR-II-2026-1460"
+          },
+          {
+            "id": "6d474dbb-1cc5-4c3e-ad00-e0b981b9f75f",
+            "activity": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara, Perluasan Daerah Aliran Sungai (Langkat)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+            "activity_duration": "May 2024 - May 2054",
+            "registry_no": "REG-11-PR-I-2026-3375"
+          },
+          {
+            "id": "7011d9ca-ddf9-4765-b421-8d4b2fb5abbe",
+            "activity": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara (Langkat)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+            "activity_duration": "Mar 2021 - Mar 2051",
+            "registry_no": "REG-11-PR-I-2026-7977"
+          },
+          {
+            "id": "67133fb5-346e-43f7-a478-1d175e9880c5",
+            "activity": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+            "activity_duration": "Feb 2023 - Feb 2053",
+            "registry_no": "REG-11-PR-I-2026-7105"
+          },
+          {
+            "id": "362ab7de-afed-4ec7-ab2d-073738e97ec3",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi berbasis agroforestry di Kelompok Tani Hutan Mekarsari",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH Mekar Sari",
+            "activity_duration": "Nov 2023 - Nov 2043",
+            "registry_no": "REG-11-PR-I-2026-7435"
+          },
+          {
+            "id": "891e5123-ef8a-415f-a88e-e02d5257941f",
+            "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut Kecamatan Banjarwangi",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+            "activity_duration": "Oct 2023 - Oct 2043",
+            "registry_no": "REG-11-PR-I-2026-1353"
+          },
+          {
+            "id": "4b2a3e22-d4c2-40de-af1d-eb9a230d7a61",
+            "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Cianjur",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+            "activity_duration": "Apr 2024 - Apr 2044",
+            "registry_no": "REG-11-PR-I-2026-1702"
+          },
+          {
+            "id": "d8438a6b-bc4b-471c-b2cd-5de02abca544",
+            "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Sukabumi",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+            "activity_duration": "Apr 2024 - Apr 2044",
+            "registry_no": "REG-11-PR-I-2026-6551"
+          },
+          {
+            "id": "f3ee0b3e-a286-426e-b489-2123b083375e",
+            "activity": "Pengurangan Emisi Gas Rumah Kaca Berbasis Pengayaan Pakan Satwa Liar",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "UPT Pengelola Kawasan Hutan, Universitas Brawijaya",
+            "activity_duration": "Jan 2027 - Jan 2037",
+            "registry_no": "REG-11-PR-I-2026-9681"
+          },
+          {
+            "id": "d6eb7dc0-b791-4649-b9d9-d9afeb6b1868",
+            "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.001",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Oct 2013 - Oct 2023",
+            "registry_no": "REG-11-PR-I-2026-7029"
+          },
+          {
+            "id": "6b514421-e518-43ec-aff0-5890e95a88b2",
+            "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.002",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Aug 2015 - Aug 2025",
+            "registry_no": "REG-11-PR-I-2026-3493"
+          },
+          {
+            "id": "258d95e4-acb7-4743-ac9b-cfcac27b2f43",
+            "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.003",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Dec 2020 - Dec 2030",
+            "registry_no": "REG-11-PR-I-2026-7135"
+          },
+          {
+            "id": "7e001f24-1ebb-4d09-8dff-c0701e1647a0",
+            "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No. 005",
+            "sector": "Energi",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Aug 2023 - Aug 2031",
+            "registry_no": "REG-11-PR-I-2026-6034"
+          },
+          {
+            "id": "b03a2b8f-be8a-4e61-a73e-2a9bb9bd10a9",
+            "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.004",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "May 2022 - Aug 2030",
+            "registry_no": "REG-11-PR-I-2026-6100"
+          },
+          {
+            "id": "82a268e4-58f2-4252-83f0-0a8b0c652287",
+            "activity": "Biogas recovery from wastewater treatment in PT. Umbul Mas Wisesa Palm Oil Mill-9197",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. Knowledge Integration Services Indonesia",
+            "activity_duration": "Mar 2015 - Mar 2025",
+            "registry_no": "REG-11-PR-I-2026-7579"
+          },
+          {
+            "id": "640e1b2b-55cc-4e81-b4a9-6db9f8657981",
+            "activity": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan kering dan mangrove di Kabupaten Nunukan, Kalimantan Utara.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Lestari Alam Bakau ",
+            "activity_duration": "Jan 2026 - Nov 2054",
+            "registry_no": "REG-11-PR-I-2026-6270"
+          },
+          {
+            "id": "70fc9a75-2de2-4ed7-b2d8-cca384e94bf0",
+            "activity": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Budhi Inti Alam",
+            "activity_duration": "Jan 2026 - Sep 2054",
+            "registry_no": "REG-11-PR-I-2026-4687"
+          },
+          {
+            "id": "ab1f52c8-3544-4307-bc17-01576f8373c9",
+            "activity": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Kemakmuran Alam Sejahtera",
+            "activity_duration": "Jan 2026 - Sep 2054",
+            "registry_no": "REG-11-PR-I-2026-8048"
+          },
+          {
+            "id": "f55b11ca-dc4e-467a-8ff7-27686b7ffdb0",
+            "activity": "PROGRAM MONITORING DRONE STOKPILE AREA MUARA (MADONA)",
+            "sector": "Energi",
+            "proponent": "PT Arutmin Indonesia Tambang Satui",
+            "activity_duration": "Jul 2024 - Dec 2025",
+            "registry_no": "REG-11-PR-XII-2025-1076"
+          },
+          {
+            "id": "3467bdf5-a714-4cf0-ae90-65ab23873650",
+            "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+            "activity_duration": "Jun 2023 - Jun 2043",
+            "registry_no": "REG-11-PR-XII-2025-2076"
+          },
+          {
+            "id": "32753333-2609-4861-9d67-1b074e279247",
+            "activity": "Peningkatan cadangan karbon pada areal Pengakuan dan Perlindungan Kemitraan Kehutanan, Lembaga Masyarakat Desa Hutan, Wana Lestari di Kabupaten Banyumas, Provinsi Jawa Tengah.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "LMDH Wana Lestari",
+            "activity_duration": "Jan 2024 - Jan 2044",
+            "registry_no": "REG-11-PR-XII-2025-7847"
+          },
+          {
+            "id": "5338cdf0-8d8c-4045-b15f-aab31e7312ee",
+            "activity": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+            "activity_duration": "Feb 2023 - Feb 2053",
+            "registry_no": "REG-11-PR-XII-2025-2633"
+          },
+          {
+            "id": "0ffb4eae-06d6-418b-b056-c1d5ebd1e6c5",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH Geralang Asri Jaya",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-7372"
+          },
+          {
+            "id": "5e22a16e-837a-4d06-a2da-2d3a3e2abaf6",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "LPHD Wana Mandiri",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-5201"
+          },
+          {
+            "id": "a6f17748-2718-46ed-8ef6-7517c96f4d09",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH Giri Mulya",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-1575"
+          },
+          {
+            "id": "d5eae4b0-f999-4c48-99c8-b4abf3df07df",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "LMDH Wana Basuki",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-3802"
+          },
+          {
+            "id": "ba96bf64-3715-43c8-a8de-fc6bb1632825",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "GAPOKTAN Wonodadi Lestari",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-4644"
+          },
+          {
+            "id": "fb484075-ff14-4264-b733-8d33ea987ec8",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Rimba Lestari, Desa Sepawon, Kecamatan Plosoklaten, Kabupaten Kediri, Provinsi Jawa Timur",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "LMDH Rimba Lestari",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-7814"
+          },
+          {
+            "id": "a1161bd1-729f-4f04-8639-94974fbfbfac",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "GAPOKTAN Wonodadi Lestari",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-3288"
+          },
+          {
+            "id": "8f50cbfa-841b-4471-96b6-123c304f8a81",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH Wana Mandiri Wangi",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-6334"
+          },
+          {
+            "id": "77570417-61cc-46d6-a5fa-2277ed6cbf3f",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH Lestari Makmur",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-5311"
+          },
+          {
+            "id": "f061553a-d196-42da-bce7-3f0c2b8e81bf",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "LD Lembah Kahuripan",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-5245"
+          },
+          {
+            "id": "0508599c-a814-4984-b386-732bd9bafa54",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "GAPOKTAN Hijau Lestari",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-2093"
+          },
+          {
+            "id": "28524369-ca4a-49d4-98f7-361ab9e94154",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KTH Lestari",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-9768"
+          },
+          {
+            "id": "295b0fd8-b2c1-4435-a79e-040aa4997e3e",
+            "activity": "Pembangkit listrik melalui pemulihan panas gas buang pada pabrik PT Semen Indonesia (Persero) Tbk di Tuban",
+            "sector": "⁠Proses Industri dan Penggunaan Produk (IPPU)",
+            "proponent": "PT Semen Indonesia (Persero) Tbk",
+            "activity_duration": "Jul 2018 - Dec 2027",
+            "registry_no": "REG-11-PR-XII-2025-3897"
+          },
+          {
+            "id": "04410183-65bb-4d09-b362-d9615312f97b",
+            "activity": "Aksi Mitigasi Perubahan Iklim Melalui Program Pengelolaan Jasa Lingkungan Hidup Di Taman Keanekaragaman Hayati Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT ASTRA DAIHATSU MOTOR",
+            "activity_duration": "Jan 2023 - Dec 2027",
+            "registry_no": "REG-11-PR-XII-2025-7722"
+          },
+          {
+            "id": "a7c11077-23e4-4869-875b-5700c2982276",
+            "activity": "Proyek Pembangkit Listrik Tenaga Air Wampu",
+            "sector": "Energi",
+            "proponent": "PT Wampu Electric Power",
+            "activity_duration": "Jan 2021 - Apr 2028",
+            "registry_no": "REG-11-PR-XII-2025-1571"
+          },
+          {
+            "id": "6a04dabe-fec0-4152-ab54-6720053db1b5",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Kelompok Tani Hutan Giri Purnama Alam",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-4973"
+          },
+          {
+            "id": "59f93cdf-69b4-443b-b14d-c79dff96565e",
+            "activity": "Fasilitasi Agroforestry, Pangan, dan Energi (FAPE-PS)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Desa Batu Sasak",
+            "activity_duration": "Sep 2025 - Dec 2025",
+            "registry_no": "REG-11-PR-XII-2025-6347"
+          },
+          {
+            "id": "20e045b6-9cda-4a0f-9cde-e82f04b99722",
+            "activity": "Proyek Pembangkit Listrik Tenaga Air (PLTA) Pamona 2",
+            "sector": "Energi",
+            "proponent": "Agasco Indonesia",
+            "activity_duration": "Jan 2021 - Sep 2026",
+            "registry_no": "REG-11-PR-XII-2025-7856"
+          },
+          {
+            "id": "73e4cc1a-5557-404e-8de8-6e5fe9f333e8",
+            "activity": "Pembangkit Listrik Tenaga Air Asahan 1 (2 x 90 MW)",
+            "sector": "Energi",
+            "proponent": "Agasco Indonesia",
+            "activity_duration": "Jan 2021 - Feb 2025",
+            "registry_no": "REG-11-PR-XII-2025-2290"
+          },
+          {
+            "id": "62dbacaa-a69f-49b9-b00a-ab91ca61eb15",
+            "activity": "Reboisasi Sumber Mata Air Sungai",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+            "proponent": "Desa Lawe Sempilang",
+            "activity_duration": "Apr 2025 - Dec 2025",
+            "registry_no": "REG-11-PR-XII-2025-9072"
+          },
+          {
+            "id": "0e737147-c247-4010-950d-4ca9c4ead470",
+            "activity": "Test Kegiatan 4 desember 2025 galuh",
+            "sector": "Energi, Pertanian",
+            "proponent": "Proponent Galuh",
+            "activity_duration": "Jan 2019 - Dec 2025",
+            "registry_no": "VER-11-PR-XII-2025-5003"
+          },
+          {
+            "id": "445d51c9-8935-46e6-b20f-63c1332cce5d",
+            "activity": "Go Green Papua Tengah 2045",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Yayasan Teknologi Hijau Papua",
+            "activity_duration": "Dec 2025 - Dec 2045",
+            "registry_no": "REG-11-PR-XII-2025-7501"
+          },
+          {
+            "id": "c8a85822-6b34-4a02-a064-eed4d63e349d",
+            "activity": "AFORESTASI, REFORESTASI, DAN REVEGETASI (“ARR”) DI SULAWESI UTARA",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "KOPERASI MULTIPIHAK RESTORASI LANSKAP HUTAN SULAWESI",
+            "activity_duration": "Nov 2024 - Nov 2064",
+            "registry_no": "REG-11-PR-XII-2025-4278"
+          },
+          {
+            "id": "a2e1d064-2f78-48bd-9875-b7bd0a7bf235",
+            "activity": "BANK SAMPAH PANDAWANI",
+            "sector": "Energi, Pengelolaan Limbah",
+            "proponent": "PANDAWANI ( PANDU KELOLA SAMPAH WARGA MANDIRI) ",
+            "activity_duration": "Dec 2024 - Dec 2025",
+            "registry_no": "REG-11-PR-XII-2025-8706"
+          },
+          {
+            "id": "ef3fdd99-2582-4adc-b17f-2feb22540700",
+            "activity": "Kolaborasi Nature-based Solution (NbS) bagi penguatan kelola Perhutanan Sosial dalam ekosistem gambut di Provinsi Jambi",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+            "activity_duration": "Dec 2025 - Dec 2065",
+            "registry_no": "REG-11-PR-XI-2025-8684"
+          },
+          {
+            "id": "cf25e702-0be7-42ca-b0c3-3a780478f990",
+            "activity": "Konservasi Karbon Biru Berbasis Kearifan Adat Rote Ndao, Provinsi Nusa Tenggara Timur",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+            "activity_duration": "Jan 2020 - Jan 2060",
+            "registry_no": "REG-11-PR-XI-2025-1398"
+          },
+          {
+            "id": "5bab14ae-5115-4491-9594-b07c6f17a53f",
+            "activity": "Kemitraan Menjaga Hutan Lindung di Desa Meragun, Kabupaten Sekadau, Provinsi Kalimantan Barat",
+            "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+            "activity_duration": "Nov 2022 - Nov 2062",
+            "registry_no": "REG-11-PR-XI-2025-6164"
+          },
+          {
+            "id": "6dd7913b-06c3-4ac6-b310-52d6a957f2eb",
+            "activity": "Pengembangan tata kelola lahan dan hutan rendah emisi dan berketahanan iklim di wilayah Kabupaten Nabire, Provinsi Papua Tengah",
+            "sector": "⁠Forestry and Other Land Use (FOLU), Pertanian",
+            "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+            "activity_duration": "Jun 2022 - Jun 2062",
+            "registry_no": "REG-11-PR-XI-2025-6360"
+          },
+          {
+            "id": "78d02a39-516a-4649-82a0-ca633ad9272b",
+            "activity": "Bersama adat, Menjaga kekayaan Biru Teluk Bintuni, Papua Barat",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Karya Persada Lestari",
+            "activity_duration": "Aug 2020 - Aug 2060",
+            "registry_no": "REG-11-PR-XI-2025-5220"
+          },
+          {
+            "id": "3ddf445e-8d4b-4077-906d-8db1391f3870",
+            "activity": "Kolaborasi Para Pihak di Provinsi Kalimantan Utara - Mendukung Pencapaian Strategi Pembangunan Rendah Karbon dan Berketahanan Iklim",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT GLOBAL ECO RESCUE LESTARI",
+            "activity_duration": "Mar 2023 - Mar 2063",
+            "registry_no": "REG-11-PR-XI-2025-9235"
+          },
+          {
+            "id": "809fa5a0-4940-4ff2-b40f-ce7416bf8559",
+            "activity": "Proyek Restorasi dan Konservasi Hutan Rawa Gambut Katingan Mentaya - IUPHHK-RE PT Rimba Makmur Utama",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Rimba Makmur Utama",
+            "activity_duration": "Oct 2013 - Oct 2073",
+            "registry_no": "REG-11-PR-X-2025-6737"
+          },
+          {
+            "id": "b2f35136-baa3-48bc-a398-9c86f4326048",
+            "activity": "Pengurangan Emisi GRK",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Duo Kembar",
+            "activity_duration": "Jan 2025 - Dec 2025",
+            "registry_no": "REG-11-PR-X-2025-4154"
+          },
+          {
+            "id": "f6687d56-2474-4b43-be22-ac9ee43eb34b",
+            "activity": "Perdagangan carbon sektor folu",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT.WANARIMBA",
+            "activity_duration": "Nov 2025 - Nov 2040",
+            "registry_no": "REG-11-PR-X-2025-3693"
+          },
+          {
+            "id": "8b877198-3594-49c3-a5da-4fc0820bbb89",
+            "activity": "Pengelolaan Lingkungan Hijau melalui Perdagangan karbon pada wilayah Perhutanan Sosial di Provinsi Sulawesi tengah",
+            "sector": "⁠Forestry and Other Land Use (FOLU), Pertanian, Pengelolaan Limbah",
+            "proponent": "Momua Journey",
+            "activity_duration": "Nov 2025 - Nov 2040",
+            "registry_no": "REG-11-PR-X-2025-6481"
+          },
+          {
+            "id": "f2be0ecd-54c5-42e8-b801-f764b1bd8864",
+            "activity": "PERDAGANGAN EMISI SEKTOR FOLU KAMPUNG UJI COBA",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT. UJI COBA",
+            "activity_duration": "Oct 2025 - Oct 2064",
+            "registry_no": "REG-11-PR-X-2025-9621"
+          },
+          {
+            "id": "d9d48ee5-8f32-47bb-9349-9349b3829f75",
+            "activity": "Perdaganagan Emisi Sektor Folu Desa Siliwangi",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Bina Balantak Raya",
+            "activity_duration": "Jan 2020 - Jan 2080",
+            "registry_no": "REG-11-PR-X-2025-5145"
+          },
+          {
+            "id": "ffe255e0-4123-4ed9-b10d-f83f6923c4bb",
+            "activity": "perdagangan emisi pada sektor kehutanan",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Riu Mamba Karya Sentosa",
+            "activity_duration": "Oct 2025 - Oct 2064",
+            "registry_no": "REG-11-PR-X-2025-1690"
+          },
+          {
+            "id": "c822015b-7a3a-42b6-a876-aeb0c409a169",
+            "activity": "Perdagangan Emisi Karbon Sektor FOLU Kampung Manusia Sehat",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "Manusia Sehat Bersama Biomassa",
+            "activity_duration": "Oct 2025 - Oct 2065",
+            "registry_no": "REG-11-PR-X-2025-9764"
+          },
+          {
+            "id": "245feb8e-de3d-4f50-ab0b-7dd4b1494a19",
+            "activity": "Penanaman pohon di Pangalengan",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Wagi Bandung Kayungyun",
+            "activity_duration": "Jan 2026 - Dec 2026",
+            "registry_no": "REG-11-PR-X-2025-8356"
+          },
+          {
+            "id": "bdfdc7a6-94ab-4e22-9f18-b1a855729725",
+            "activity": "Pembangkit Listrik Tenaga Air Hasang",
+            "sector": "Energi",
+            "proponent": "PT Binsar Natorang Energi",
+            "activity_duration": "Jul 2021 - Dec 2050",
+            "registry_no": "REG-11-PR-X-2025-8186"
+          },
+          {
+            "id": "49ddf447-7cc8-49d2-81ab-c4ee87336ca1",
+            "activity": "Proyek Penangkapan dan Pemanfaatan Metana",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT PARNA AGROMAS",
+            "activity_duration": "Feb 2021 - Feb 2031",
+            "registry_no": "REG-11-PR-X-2025-2565"
+          },
+          {
+            "id": "20f53393-1167-4a4d-acc5-4a9bcc56dd50",
+            "activity": "Proyek Penangkapan dan Pemanfaatan Metana",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT TINTIN BOYOK SAWIT MAKMUR",
+            "activity_duration": "Feb 2021 - Feb 2031",
+            "registry_no": "REG-11-PR-X-2025-6984"
+          },
+          {
+            "id": "b031cd78-f0cc-4a39-86ad-6bd4988afa0c",
+            "activity": "Pemanfaatan Biomassa dan Penyimpanan Karbon Biogenik dalam Produk Kayu Rekayasa oleh Tjipta / PT Canang Indah",
+            "sector": "⁠Proses Industri dan Penggunaan Produk (IPPU), Energi",
+            "proponent": "PT Canang Indah Industri Particle Board ",
+            "activity_duration": "Oct 2025 - Oct 2030",
+            "registry_no": "REG-11-PR-X-2025-8035"
+          },
+          {
+            "id": "72654357-68e6-4ac7-a892-731564cc61d9",
+            "activity": "Kegiatan Aksi Mitigasi Gas Rumah Kaca Melalui Penangkapan dan Pemanfaatan Gas Methane Air Limbah Pabrik Kelapa Sawit",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Alam Teduh Sentosa",
+            "activity_duration": "Sep 2023 - Aug 2030",
+            "registry_no": "VAL-10-PR-IV-2025-18716"
+          },
+          {
+            "id": "da3ada44-e909-4bc6-892d-aed2436e0b57",
+            "activity": "Pemanfaatan Biogas dari Controlled Landfill TPA Kaligending, Kabupaten Kebumen",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "Koperasi Gending Lestari Kebumen",
+            "activity_duration": "Nov 2022 - Nov 2029",
+            "registry_no": "VAL-11-PR-V-2025-27967"
+          },
+          {
+            "id": "52569627-f84d-404b-a055-3711022a26c7",
+            "activity": "Penggunaan Limbah Pabrik Kelapa Sawit (POME) dalam Sistem Biogas Co-Firing di PT EkaDura Indonesia",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Ekadura Indonesia",
+            "activity_duration": "Mar 2024 - Mar 2030",
+            "registry_no": "VAL-10-PR-IV-2025-25938"
+          },
+          {
+            "id": "1b442e68-7320-43e8-a728-361cc39db6e6",
+            "activity": "Konservasi dan Reforestasi di Kawasan Hutan Produksi Delta Mahakam (Pertamina Foundation)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Sari Lembah Subur",
+            "activity_duration": "Jun 2023 - Dec 2043",
+            "registry_no": "REG-11-PR-X-2025-4203"
+          },
+          {
+            "id": "1d9771c7-8169-4947-8ac5-fc135137ba52",
+            "activity": "Efisiensi Energi melalui Pemanfaatan Purge Gas sebagai Fuel di Package Boiler B1102 dan WHB B2221 Pabrik Ammonia 1A dengan Implementasi teknologi Purge Gas Utilization System PT Petrokimia Gresik",
+            "sector": "Energi",
+            "proponent": "PT Petrokimia Gresik",
+            "activity_duration": "Jan 2022 - Jan 2029",
+            "registry_no": "VAL-11-PR-X-2025-3647"
+          },
+          {
+            "id": "6b8ae5e4-edc9-4bd4-b011-7c02599ce32f",
+            "activity": "Pembangunan PLTS IKN 50 MW",
+            "sector": "Energi",
+            "proponent": "PT Energy Management Indonesia",
+            "activity_duration": "Dec 2024 - Nov 2031",
+            "registry_no": "VAL-11-PR-X-2025-2681"
+          },
+          {
+            "id": "30ebeed6-368f-464a-9631-9c14cc125e07",
+            "activity": "Substitusi Bahan Marine Fuel Oil dengan Natural Gas pada Fasilitas Lime Kiln di Unit Recausticing Plant PT. TEL",
+            "sector": "Energi",
+            "proponent": "PT. Tanjungenim Lestari Pulp and Paper",
+            "activity_duration": "Jan 2021 - Jan 2027",
+            "registry_no": "VAL-11-PR-X-2025-4128"
+          },
+          {
+            "id": "0c9cecf8-1d50-49db-b9d6-aee9e6ddc927",
+            "activity": "Pemanfaatan Biogas dari POME Sebagai Sumber Pembangkit Listrik di PT Mitra Mendawai Sejati",
+            "sector": "Energi",
+            "proponent": "PT Mitra Mendawai Sejati",
+            "activity_duration": "Apr 2021 - Apr 2027",
+            "registry_no": "VAL-11-PR-X-2025-5607"
+          },
+          {
+            "id": "1cb9355d-edaf-4269-a5ec-2f1659062753",
+            "activity": "Mengurangi Jumlah Pemakaian Bahan Bakar Batu Bara dengan Meningkatkan Efisiensi Energi pada Proses Produksi Gula Rafinasi di PT. Sugar Labinta.",
+            "sector": "Energi",
+            "proponent": "PT Sugar Labinta",
+            "activity_duration": "Sep 2020 - Dec 2027",
+            "registry_no": "VAL-11-PR-X-2025-2351"
+          },
+          {
+            "id": "1accd482-a502-4b83-8ec8-6de0a1e2658c",
+            "activity": "Pembangunan PLTA Jatigede",
+            "sector": "Energi",
+            "proponent": "PT Energy Management Indonesia",
+            "activity_duration": "Jun 2024 - Jun 2031",
+            "registry_no": "VAL-11-PR-X-2025-4489"
+          },
+          {
+            "id": "0dd5f759-7339-4919-b3f8-1d4920879b22",
+            "activity": "Pengoperasian PLTA Asahan III",
+            "sector": "Energi",
+            "proponent": "PT Energy Management Indonesia",
+            "activity_duration": "Dec 2024 - Nov 2031",
+            "registry_no": "VAL-11-PR-X-2025-1180"
+          },
+          {
+            "id": "98d95fba-19e7-4dff-a7f3-d4ec81b9459b",
+            "activity": "Pengoperasian Pembangkit Listrik Tenaga Minihidro (PLTM) Besai Kemu 2 x 3,5 MW",
+            "sector": "Energi",
+            "proponent": "PT Uway Energi Perdana",
+            "activity_duration": "Jan 2024 - Dec 2033",
+            "registry_no": "VER-11-PR-X-2025-8759"
+          },
+          {
+            "id": "b12d96e8-a96b-4d7b-82cb-f1b85f89e87c",
+            "activity": "Pembangunan Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Jawa Satu Power",
+            "sector": "Energi",
+            "proponent": "PT Jawa Satu Power",
+            "activity_duration": "Dec 2023 - Dec 2053",
+            "registry_no": "VAL-11-PR-X-2025-4926"
+          },
+          {
+            "id": "f029f54e-2539-46e6-8c40-7c762971fc78",
+            "activity": "Shore connection kapal saat sandar di Pelabuhan",
+            "sector": "Energi",
+            "proponent": "PT PELAYARAN BAHTERA ADHIGUNA",
+            "activity_duration": "Jan 2024 - Dec 2030",
+            "registry_no": "VAL-11-PR-X-2025-5503"
+          },
+          {
+            "id": "0088e9e7-eca0-41db-adc8-06574a31af73",
+            "activity": "Pembangunan Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Blok 3 PJB Muara Karang",
+            "sector": "Energi",
+            "proponent": "PT PJB UP Muara Karang",
+            "activity_duration": "Oct 2025 - Apr 2026",
+            "registry_no": "SPE-11-PR-V-2022-10867"
+          },
+          {
+            "id": "aa6f087e-dc56-4dc8-8c84-f471f252576f",
+            "activity": "Reduksi emisi gas rumah kaca atas pemanfaatan bus listrik berbasis baterai",
+            "sector": "Energi",
+            "proponent": "PT Transportasi Jakarta",
+            "activity_duration": "Mar 2022 - Mar 2031",
+            "registry_no": "REG-11-PR-X-2025-4566"
+          },
+          {
+            "id": "6c10bbed-137b-4155-8c41-139a85a2ab41",
+            "activity": "Penghematan biaya CNG sebesar 55% dengan alih teknologi dari Boiler tipe Firetube ke Boiler tipe Oncethrough",
+            "sector": "Energi",
+            "proponent": "PT Phapros",
+            "activity_duration": "Jan 2023 - Jan 2033",
+            "registry_no": "VER-11-PR-X-2025-4634"
+          },
+          {
+            "id": "13a4a5b0-2828-412a-a649-57a048488e3c",
+            "activity": "Proyek Biogas Hamparan",
+            "sector": "Energi, Pengelolaan Limbah",
+            "proponent": "GREE Energy",
+            "activity_duration": "Dec 2020 - Nov 2040",
+            "registry_no": "VAL-11-PR-X-2025-8334"
+          },
+          {
+            "id": "7105b9f6-9af4-4ffd-985c-e2dfc2863865",
+            "activity": "Aksi Mitigasi: Reduksi Emisi Gas Metana (CH4) dari Air Limbah Kelapa Sawit (POME) dengan Teknologi Methane Capture-Digester Tank di PT Inti Indosawit Subur Riau PMKS Buatan II",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. Inti Indosawit Subur",
+            "activity_duration": "Dec 2023 - Nov 2030",
+            "registry_no": "REG-10-PR-III-2025-16202"
+          },
+          {
+            "id": "9994f059-b564-44e6-891c-4b00d0ff8165",
+            "activity": "Digitalisasi Pengelolaan Sampah Terintegrasi untuk Pengurangan Emisi Gas Rumah Kaca melalui Diversion, Refuse-Derived Fuel (RDF), dan Daur Ulang",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Centra Rekayasa Enviro",
+            "activity_duration": "Jan 2026 - Jan 2031",
+            "registry_no": "REG-11-PR-IX-2025-7197"
+          },
+          {
+            "id": "18d19db1-dfcd-4485-9a65-07aa038090b8",
+            "activity": "Pelestarian Ekosistem Pesisir dan Pulau-Pulau Kecil di TNP Laut Sawu",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Direktorat Konservasi Ekosistem2",
+            "activity_duration": "Oct 2025 - Oct 2035",
+            "registry_no": "REG-11-PR-IX-2025-7764"
+          },
+          {
+            "id": "8f73f6cb-d511-45df-b573-cf1534508d7d",
+            "activity": "Proklim Desa Sumber Rejeki Kecamatan Sungai Lilin Kabupaten Musi Banyuasin",
+            "sector": "Energi, Pertanian, ⁠Proses Industri dan Penggunaan Produk (IPPU), ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "DLH Kabupaten Musi Banyuasin",
+            "activity_duration": "Jan 2018 - Sep 2025",
+            "registry_no": "REG-11-PR-IX-2025-1990"
+          },
+          {
+            "id": "fc94da9e-6279-4ac5-b4d2-f22c847de6b0",
+            "activity": "Proyek Lahan Gambut Kubu",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Menggala Rambu Utama",
+            "activity_duration": "Jan 2022 - Dec 2068",
+            "registry_no": "REG-11-PR-IX-2025-8113"
+          },
+          {
+            "id": "b854adef-1632-479a-b5bf-245d804161ae",
+            "activity": "Indonesia Green Gold Project Agroforestry Nyamplung Bioenergi dan Dekarbonisasi",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "Dec 2022 - Dec 2100",
+            "registry_no": "REG-11-PR-IX-2025-5209"
+          },
+          {
+            "id": "59c16add-439b-4e84-b627-77007ddf4fe7",
+            "activity": "Proklim Desa Margo Mulyo Kecamatan Tungkal Jaya Kabupaten Musi Banyuasin",
+            "sector": "Pertanian, Energi, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+            "proponent": "DLH Kabupaten Musi Banyuasin",
+            "activity_duration": "Jan 2018 - Sep 2025",
+            "registry_no": "REG-11-PR-IX-2025-1479"
+          },
+          {
+            "id": "daa107a6-8d2a-46c5-ad8a-2d7313480171",
+            "activity": "Distribusi Cangkang Sawit sebagai Pengganti Batu Bara",
+            "sector": "Energi",
+            "proponent": "PT. GOMAS JAYA NUSANTARA",
+            "activity_duration": "Sep 2025 - Dec 2025",
+            "registry_no": "REG-11-PR-VIII-2025-3320"
+          },
+          {
+            "id": "0994a1d4-7ab8-441f-ab08-89414b46766e",
+            "activity": "Pengurangan Emisi Gas Metana dari Sampah Perkotaan melalui Produksi Refuse-Derived Fuel (RDF) di Tempat Pengolahan Sampah Terpadu (TPST) Mrican, Ponorogo",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT. RECIRAYA SEMESTA ENERGI",
+            "activity_duration": "Jan 2025 - Jan 2032",
+            "registry_no": "REG-11-PR-VIII-2025-5636"
+          },
+          {
+            "id": "ae9cb7b9-4aaf-462f-9936-22f8adb2d03d",
+            "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Pekanbaru",
+            "sector": "Energi, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "May 2025 - Nov 2027",
+            "registry_no": "REG-11-PR-VIII-2025-5484"
+          },
+          {
+            "id": "000a6e00-03f4-46d6-8c42-8f94e5a2262f",
+            "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Kunduran, Blora, Jawa Tengah",
+            "sector": "Energi, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "May 2025 - Nov 2027",
+            "registry_no": "REG-11-PR-VIII-2025-9801"
+          },
+          {
+            "id": "3fce2fa6-f652-42ea-b729-a0be776b1a19",
+            "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Batu, Malang",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "May 2025 - Nov 2027",
+            "registry_no": "REG-11-PR-VIII-2025-8793"
+          },
+          {
+            "id": "250d066a-d531-4316-a3cd-abd5e9c75591",
+            "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Singosari, Malang",
+            "sector": "Energi, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "Aug 2024 - Feb 2027",
+            "registry_no": "REG-11-PR-VIII-2025-2135"
+          },
+          {
+            "id": "28762dd2-e310-4528-b45a-aa80b0aa3f45",
+            "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Pesantren Al-Hadid Bejiharjo, Gunungkidul, Yogyakarta",
+            "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "Oct 2024 - Apr 2027",
+            "registry_no": "REG-11-PR-VIII-2025-2474"
+          },
+          {
+            "id": "149ff8a8-1b5a-4cfd-93c2-b4d4740c4366",
+            "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Bejiharjo, Gunungidul, Yogyakarta",
+            "sector": "⁠Forestry and Other Land Use (FOLU), Pengelolaan Limbah, Energi, Pertanian",
+            "proponent": "PT Pandu Wijaya Negara",
+            "activity_duration": "Aug 2021 - Feb 2024",
+            "registry_no": "REG-11-PR-VIII-2025-7522"
+          },
+          {
+            "id": "82704ade-46af-4faa-8be7-d66ea03164fc",
+            "activity": "Kegiatan Musi Rawas 2025",
+            "sector": "Energi, Pengelolaan Limbah",
+            "proponent": "DINAS LINGKUNGAN HIDUP KABUPATEN MUSI RAWAS",
+            "activity_duration": "Jan 2023 - Jan 2025",
+            "registry_no": "REG-11-PR-VIII-2025-6195"
+          },
+          {
+            "id": "0ee0210b-2a53-498a-82b8-869f605ab37b",
+            "activity": "Aksi Mitigasi Perubahan Iklim Proyek PLTB Sidrap 75 MW (Pendaftaran dan Verifikasi Proyek Melalui Gold Standard, Periode Ke-3)",
+            "sector": "Energi",
+            "proponent": "PT UPC Sidrap Bayu Energi",
+            "activity_duration": "Oct 2025 - Oct 2025",
+            "registry_no": "SPE-10-PR-XI-2022-11275"
+          },
+          {
+            "id": "b2e0e58f-22ac-44c3-a266-cdf4ddb71175",
+            "activity": "Telaga Mas Kalimantan Project",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Telaga Mas Kalimantan",
+            "activity_duration": "Oct 2020 - Sep 2030",
+            "registry_no": "REG-11-PR-VIII-2025-2222"
+          },
+          {
+            "id": "cf64d73a-9bd7-4625-b83a-1fc563aa9d6f",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Kelompok Tani Hutan Giri Purnama Alam",
+            "activity_duration": "Dec 2023 - Jun 2042",
+            "registry_no": "VAL-11-PR-VIII-2025-7913"
+          },
+          {
+            "id": "34378dd7-3c61-45a0-ba93-95ce7cb5276b",
+            "activity": "Aksi Mitigasi Pengurangan Emisi Melalui Rehabilitasi Lahan Pada Areal Terdegradasi di Kabupaten Lebak, Provinsi Banten",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "PT Pandjiwaringin",
+            "activity_duration": "May 2023 - Dec 2039",
+            "registry_no": "REG-11-PR-VIII-2025-4640"
+          },
+          {
+            "id": "4cc02562-a8da-4199-ade5-8c4403200b55",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Kelompok Tani Hutan Tusam Mandiri Dot Com",
+            "activity_duration": "Jun 2022 - Jun 2042",
+            "registry_no": "REG-11-PR-VIII-2025-7502"
+          },
+          {
+            "id": "0e55297c-3188-4c29-8a37-0df41c8a6a8b",
+            "activity": "Perlindungan Hutan dan Revegetasi di Kawasan Gunung Arjuno",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Perum Perhutani",
+            "activity_duration": "May 2022 - May 2042",
+            "registry_no": "VAL-11-PR-VIII-2025-3298"
+          },
+          {
+            "id": "49c35ee3-973d-4626-a06a-50150f19fe9a",
+            "activity": "Aksi Mitigasi Pengurangan Emisi Melalui Rehabilitasi Lahan Pada Areal Terdegradasi di Kabupaten Lebak, Provinsi Banten",
+            "sector": "Energi",
+            "proponent": "PT Pandjiwaringin",
+            "activity_duration": "May 2023 - Dec 2039",
+            "registry_no": "REG-11-PR-VIII-2025-1904"
+          },
+          {
+            "id": "a6f73f32-e1ce-418a-bcde-980592d50505",
+            "activity": "Pembangkit Listrik Tenaga Panas Bumi (PLTP) Rantau Dedap",
+            "sector": "Energi",
+            "proponent": "PT Supreme Energy Rantau Dedap",
+            "activity_duration": "Dec 2021 - Dec 2028",
+            "registry_no": "VER-11-PR-VIII-2025-2364"
+          },
+          {
+            "id": "1e630e74-6055-4c3e-88bf-3b89fc0305da",
+            "activity": "Penerapan Efisiensi Energi di plant PT Amerta Indah Otsuka",
+            "sector": "Energi",
+            "proponent": "PT Amerta Indah Otsuka Kejayan Plant",
+            "activity_duration": "Jan 2019 - Jan 2024",
+            "registry_no": "VER-11-PR-VIII-2025-1917"
+          },
+          {
+            "id": "93cdd05d-ab9a-4dcf-8e8a-63a070b5c601",
+            "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Silau Raja  Kabupaten Samosir, Sumatra Utara.",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Kelompok Tani Hutan Silau Raja",
+            "activity_duration": "Jun 2022 - Jun 2042",
+            "registry_no": "VAL-11-PR-VIII-2025-1969"
+          },
+          {
+            "id": "6631e6d0-da4e-4282-9c91-f2f500c750e7",
+            "activity": "Renewal Turbo Chiller Old With Turbo Chiller New Technology",
+            "sector": "Energi",
+            "proponent": "PT Cheil Jedang Indonesia Jombang",
+            "activity_duration": "Dec 2021 - Dec 2023",
+            "registry_no": "VER-11-PR-VIII-2025-6828"
+          },
+          {
+            "id": "ec8c5115-8607-4ea2-853e-8bb62c0fa91d",
+            "activity": "Improve Efficiency Boiler with Instal new screw heat pump chiller.",
+            "sector": "Energi",
+            "proponent": "PT Cheil Jedang Indonesia Jombang",
+            "activity_duration": "Feb 2023 - Dec 2023",
+            "registry_no": "VER-11-PR-VIII-2025-5930"
+          },
+          {
+            "id": "2d58c265-c788-448c-b8c0-b03c0b97fecb",
+            "activity": "Konservasi dan Reforestasi di Kawasan Hutan Produksi Delta Mahakam (Pertamina Foundation)",
+            "sector": "⁠Forestry and Other Land Use (FOLU)",
+            "proponent": "Pertamina Foundation",
+            "activity_duration": "Sep 2017 - Dec 2038",
+            "registry_no": "VER-10-PR-VIII-2023-11163"
+          },
+          {
+            "id": "22ffa098-60e2-4fc2-aac5-f37f8a7f664b",
+            "activity": "Pemanfaatan Panel Surya untuk produksi listrik di siang hari menggantikan pemakaian listrik dari Jaringan PLN di Perumahan Karyawan dan Kantor PLTU Paiton Unit 5 amp; 6 PT. Jawa Power",
+            "sector": "Energi",
+            "proponent": "PT. Jawa Power",
+            "activity_duration": "Sep 2016 - Dec 2030",
+            "registry_no": "VER-11-PR-VIII-2025-9659"
+          },
+          {
+            "id": "6ce078f1-d211-4c9a-b5db-f213ac659589",
+            "activity": "Pembangkit listrik tenaga biogas kapasitas 2 MW dari POME Pabrik Kelapa Sawit Pasir Mandoge, Propinsi Sumatera Utara",
+            "sector": "Energi",
+            "proponent": "PT Perkebunan Nusantara IV Regional II",
+            "activity_duration": "Jul 2021 - Jul 2028",
+            "registry_no": "VAL-11-PR-VIII-2025-3666"
+          },
+          {
+            "id": "df115667-1beb-4c07-927c-1d8f4a794492",
+            "activity": "Pengoperasian Pembangkit Listrik Tenaga Mini Hidro (PLTM) Pageruyung 1 , dengan Kapasitas (maksimal) Pembangkitan = (2 x 2,2) MW , di Kabupaten Kendal , Provinsi Jawa Tengah.",
+            "sector": "Energi",
+            "proponent": "PT. Cahaya Semesta Energi",
+            "activity_duration": "Jan 2025 - Jan 2032",
+            "registry_no": "VAL-11-PR-VIII-2025-2705"
+          },
+          {
+            "id": "b4c273a8-842d-43e1-a8b0-2841863bbf40",
+            "activity": "Proyek penangkapan metana dari POME di Pabrik Kelapa Sawit Suayap",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Mitra Mendawai Sejati",
+            "activity_duration": "Apr 2019 - Sep 2042",
+            "registry_no": "VAL-11-PR-V-2024-16871"
+          },
+          {
+            "id": "d95a2d17-b1fa-4940-978c-d7eb863926b8",
+            "activity": "Proyek Pengolahan Air Limbah di Pabrik Kelapa Sawit Pasir Mandoge, Propinsi Sumatera Utara",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Perkebunan Nusantara IV Regional II",
+            "activity_duration": "Jul 2021 - Jul 2028",
+            "registry_no": "VAL-10-PR-VIII-2024-22549"
+          },
+          {
+            "id": "4c4b6822-0d83-4411-970e-6554ad812c71",
+            "activity": "Proyek PLTS Atap Sistem On Grid 3,8 MWp Area PT Pupuk Kalimantan Timur",
+            "sector": "Energi",
+            "proponent": "PT Pupuk Kalimantan Timur",
+            "activity_duration": "Jan 2022 - Dec 2028",
+            "registry_no": "VAL-11-PR-VIII-2025-7633"
+          },
+          {
+            "id": "5654dadc-3d0f-473f-906e-c6b1fd9478d3",
+            "activity": "[PNRE X PTPN III] Aksi Pengolahan Limbah Cair Pabrik Kelapa Sawit (PKS) Sei Mangkei dengan Metoda Methane Capture",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Pertamina Power Indonesia",
+            "activity_duration": "Jan 2020 - Dec 2039",
+            "registry_no": "VER-10-PR-III-2024-17575"
+          },
+          {
+            "id": "4d4c879e-6853-4ac9-befc-72997e252fcb",
+            "activity": "Aksi Pengolahan Limbah Cair Pabrik Kelapa Sawit (PKS) Sei Tapung dengan Metode Penangkapan Gas Metana",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Perkebunan Nusantara IV Regional 3",
+            "activity_duration": "Jan 2023 - Dec 2029",
+            "registry_no": "VAL-10-PR-XII-2024-25581"
+          },
+          {
+            "id": "a75b1034-6d38-4d42-9fe2-6efb772e4a9f",
+            "activity": "Pengelolaan Limbah Organik Melalui Biokonversi",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT MAGGOT INDONESIA LESTARI",
+            "activity_duration": "Oct 2021 - Dec 2028",
+            "registry_no": "VER-11-PR-V-2024-18156"
+          },
+          {
+            "id": "bcaeaae8-801c-49a6-8ab9-4a78487f7a90",
+            "activity": "1.6MW Solar PV Power Plant Project in Jakabaring Sport City",
+            "sector": "Energi",
+            "proponent": "PT Sumsel Energi Gemilang",
+            "activity_duration": "Apr 2018 - Apr 2038",
+            "registry_no": "VAL-11-PR-VIII-2025-1746"
+          },
+          {
+            "id": "22371d55-8c88-4833-96ba-785e506bd520",
+            "activity": "Pembangkit Listrik Tenaga Biogas Sukadamai 2,4 MW dari Recovery Biogas pada Pengolahan Limbah POME",
+            "sector": "Energi, Pengelolaan Limbah",
+            "proponent": "PT Nagata Bio Energi",
+            "activity_duration": "Dec 2025 - Jan 2026",
+            "registry_no": "SPE-10-PR-V-2023-10134"
+          },
+          {
+            "id": "1ba8d268-62be-4dfe-9682-9731d7e58535",
+            "activity": "Aksi Efisiensi Energi Industri dengan Memodifikasi unit Membran Filter Sistem Serial Kontinyu menjadi Paralel Batch",
+            "sector": "Energi",
+            "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+            "activity_duration": "Nov 2024 - Nov 2031",
+            "registry_no": "VER-11-PR-VIII-2025-4293"
+          },
+          {
+            "id": "0690e8bb-e085-409e-b3db-0baa05ff307f",
+            "activity": "Upgrade Proses Evaporasi amp; Kristalisasi dari Proses Single Effect menjadi 3 Effect",
+            "sector": "Energi",
+            "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+            "activity_duration": "Jan 2021 - Jan 2024",
+            "registry_no": "VER-11-PR-VIII-2025-9677"
+          },
+          {
+            "id": "f3f03516-04f2-48ac-9680-222cea6db442",
+            "activity": "Upgrade Proses Evaporasi amp; Kristalisasi dari Proses Single Effect menjadi 5 Effect",
+            "sector": "Energi",
+            "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+            "activity_duration": "Nov 2022 - Dec 2028",
+            "registry_no": "VAL-11-PR-VIII-2025-3642"
+          },
+          {
+            "id": "3890846b-0e0d-4c9e-90ec-f06dca623e87",
+            "activity": "Pengurangan Emisi Gas Rumah Kaca Melalui Aksi Substitusi Pupuk Anorganik menjadi Pupuk Organik",
+            "sector": "Pertanian",
+            "proponent": "PT Mitra Mendawai Sejati",
+            "activity_duration": "Sep 2024 - Aug 2031",
+            "registry_no": "VAL-11-PR-I-2025-16873"
+          },
+          {
+            "id": "3511132f-7603-4eea-b49f-2f67c528db52",
+            "activity": "Penggunaan boiler biomassa pada unit produksi Cairan Obat Dalam 2",
+            "sector": "Energi",
+            "proponent": "PT Industri Jamu Dan Farmasi Sido Muncul Tbk",
+            "activity_duration": "May 2019 - Apr 2026",
+            "registry_no": "VER-11-PR-VIII-2025-3864"
+          },
+          {
+            "id": "b6646af0-4463-4446-a1a0-6c7d170461d3",
+            "activity": "[PNRE X PTPN III] Pembangkit Listrik Tenaga Biogas (PLTBg) Sei Mangkei 2,4 MW dari Recovery Biogas pada Pengolahan Limbah POME",
+            "sector": "Energi",
+            "proponent": "PT Pertamina Power Indonesia",
+            "activity_duration": "Oct 2025 - Oct 2025",
+            "registry_no": "SPE-10-PR-IV-2024-17599"
+          },
+          {
+            "id": "75beda58-e013-41b9-aba7-db67ac79eb6d",
+            "activity": "Pengoperasian Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTMG Sumbagut 2 Peaker 250 MW",
+            "sector": "Energi",
+            "proponent": "PT PLN Nusantara Power PLTMG Sumbagut 2 Peaker",
+            "activity_duration": "Oct 2025 - Oct 2025",
+            "registry_no": "SPE-10-PR-VI-2024-20755"
+          },
+          {
+            "id": "ebbb9a15-6f63-4f99-ae81-aa982b2c2805",
+            "activity": "Aksi Efisiensi Energi di Sektor Industri melalui Recovery Condenser Heat Pump untuk menaikkan temperatur Feed Water Boiler",
+            "sector": "Energi",
+            "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+            "activity_duration": "Jan 2024 - Dec 2030",
+            "registry_no": "VAL-11-PR-VIII-2025-7746"
+          },
+          {
+            "id": "b9e36c53-0871-4c8c-9dc3-4e097877338b",
+            "activity": "Konversi Dari Pembangkit Single Cycle Menjadi Combined Cycle (Add On) PLTGU Grati Blok 2",
+            "sector": "Energi",
+            "proponent": "PT PLN Indonesia Power",
+            "activity_duration": "Oct 2025 - Dec 2027",
+            "registry_no": "SPE-11-PR-VI-2024-22454"
+          },
+          {
+            "id": "a44ff129-cb25-4b73-879b-d7dfc9572cbb",
+            "activity": "Pengoperasian Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Priok Blok 4",
+            "sector": "Energi",
+            "proponent": "PT PLN Indonesia Power",
+            "activity_duration": "Oct 2025 - Jan 2028",
+            "registry_no": "SPE-11-PR-IV-2024-17421"
+          },
+          {
+            "id": "edda5dd0-97a1-479c-910a-08b5b6c7ee27",
+            "activity": "Pengoperasian Pembangkit Listrik Tenaga Air Minihidro (PLTM) Gunung Wugul",
+            "sector": "Energi",
+            "proponent": "PT PLN Indonesia Power",
+            "activity_duration": "Oct 2025 - Dec 2025",
+            "registry_no": "SPE-10-PR-X-2023-16887"
+          },
+          {
+            "id": "2eab05e0-7707-4f1c-9bb9-15df95a1a9b1",
+            "activity": "Pengoperasian Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Semarang Blok 3",
+            "sector": "Energi",
+            "proponent": "PT PLN Indonesia Power",
+            "activity_duration": "Jun 2024 - Jun 2031",
+            "registry_no": "VER-11-PR-VIII-2025-2922"
+          },
+          {
+            "id": "ab108506-809b-4dc6-8aaf-d01b65d93e46",
+            "activity": "Konversi dari pembangkit single cycle menjadi combined cycle Blok 2 PLN NP UP Muara Tawar",
+            "sector": "Energi",
+            "proponent": "PT. Pembangkitan Jawa Bali Unit Muara Tawar",
+            "activity_duration": "Oct 2025 - Dec 2043",
+            "registry_no": "SPE-11-PR-VI-2024-16141"
+          },
+          {
+            "id": "73ff03e8-41d5-44fd-a73e-b4482f24ae6b",
+            "activity": "Efisiensi Konsumsi Energi Steam Berbasis Natural Gas dan peningkatan produksi steam melalui pembuatan Economizer E-1203 Reborn (Double Compartment) pada pabrik SA II PT Petrokimia Gresik",
+            "sector": "Energi",
+            "proponent": "PT Petrokimia Gresik",
+            "activity_duration": "Mar 2022 - Mar 2028",
+            "registry_no": "VER-10-PR-XII-2024-24207"
+          },
+          {
+            "id": "27395212-e640-4876-8c16-85108d4f112c",
+            "activity": "Proyek Lahendong Unit 5  Unit 6 PT Pertamina Geothermal Energy Tbk",
+            "sector": "Energi",
+            "proponent": "PT PERTAMINA GEOTHERMAL ENERGY",
+            "activity_duration": "Oct 2025 - Aug 2026",
+            "registry_no": "SPE-10-PR-VI-2023-14464"
+          },
+          {
+            "id": "4b89839b-74f1-4738-a479-15c69bbf0e01",
+            "activity": "Pemanfaatan Limbah Pabrik Kelapa Sawit (POME) untuk Biogas Co-Firing",
+            "sector": "Pengelolaan Limbah",
+            "proponent": "PT Perkebunan Nusantara IV Regional 3",
+            "activity_duration": "Oct 2025 - Apr 2026",
+            "registry_no": "SPE-11-PR-IV-2024-18003"
+          }
+        ],
+        "page": 1,
+        "page_size": 200,
+        "page_total": 1,
+        "total": 192
+      }
+    }
+  ],
+  "data": [
+    {
+      "id": "eb91bb4c-41dd-463a-bbee-84e0ec098882",
+      "activity": "Program Kampung Iklim Kampung Sarawandori Distrik Kosiwo Kabupaten Kepulauan Yapen Provinsi Papua",
+      "sector": "⁠Forestry and Other Land Use (FOLU), Pengelolaan Limbah, Energi, Pertanian, ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+      "proponent": "Dinas Lingkungan Hidup",
+      "activity_duration": "Sep 2026 - Sep 2028",
+      "registry_no": "REG-11-PR-VIII-2026-2458"
+    },
+    {
+      "id": "ff77df71-b428-4480-89fc-5f28ec98e3ee",
+      "activity": "Sistem Pemurnian Air untuk Air Minum Aman (SDW) di Indonesia",
+      "sector": "Energi",
+      "proponent": "PT Synopex Tirta Indonesia",
+      "activity_duration": "Jul 2021 - Jul 2028",
+      "registry_no": "REG-11-PR-VIII-2026-9810"
+    },
+    {
+      "id": "f6b5026e-76fd-4ce8-80a4-c4ad0bf160e3",
+      "activity": "Pemulihan Lanskap Cikaso melalui Rehabilitasi Lahan dan Pengembangan Agroforestri",
+      "sector": "⁠Forestry and Other Land Use (FOLU), Pertanian",
+      "proponent": "Yayasan Meramu Alam Nusantara",
+      "activity_duration": "Nov 2025 - Nov 2045",
+      "registry_no": "REG-11-PR-VIII-2026-2296"
+    },
+    {
+      "id": "7998b489-569f-4ab5-927d-b016a3eb4b17",
+      "activity": "Pembuatan Asupan Organik di Desa Sumbul Tengah",
+      "sector": "Pertanian, Pengelolaan Limbah",
+      "proponent": "Yayasan Petrasa",
+      "activity_duration": "Oct 2024 - Oct 2025",
+      "registry_no": "REG-11-PR-VIII-2026-8145"
+    },
+    {
+      "id": "4380877d-b1b9-4273-b7db-2b2179a9b7b7",
+      "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut DUMMY 2026",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+      "activity_duration": "Jan 2026 - Jan 2046",
+      "registry_no": "REG-11-PR-VIII-2026-7301"
+    },
+    {
+      "id": "bc9ceb6e-d7d3-45a4-bc70-20f2d0c7f8cb",
+      "activity": "Peningkatan serapan karbon melalui penanaman kembali lahan kosong pada 5 lokasi yang ada di ( Kabupaten Lahat, Kota Pagaralam )",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KSU MUTIARA BASHIROH ",
+      "activity_duration": "Oct 2026 - Jun 2027",
+      "registry_no": "REG-11-PR-VII-2026-5562"
+    },
+    {
+      "id": "e2f3b757-2a17-4580-9888-bfb21dc20f5c",
+      "activity": "Penanaman Jati Unggul untuk rehabilitasi KHDTK Wanagama I Bersama PT. Astra International Tbk.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KHDTK Pendidikan dan Pelatihan Wanagama I",
+      "activity_duration": "Aug 2023 - Aug 2025",
+      "registry_no": "REG-11-PR-VII-2026-4971"
+    },
+    {
+      "id": "b3876d6a-467c-47e0-9742-6809ac626f88",
+      "activity": "Proyek Konservasi Hutan dan Optimasi Penyerapan Carbon Global",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH GEMOK SINANDI",
+      "activity_duration": "Jan 2027 - Dec 2037",
+      "registry_no": "REG-11-PR-VII-2026-6569"
+    },
+    {
+      "id": "433775b3-9197-46af-8289-beda69b122b3",
+      "activity": "Meranti Mustika Improved Forest Management Project",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Meranti Mustika",
+      "activity_duration": "Jan 2026 - Dec 2036",
+      "registry_no": "REG-11-PR-VII-2026-8854"
+    },
+    {
+      "id": "7826df0f-50df-4a6c-81f7-4f14496b83aa",
+      "activity": "Restorasi Hidrologi Gambut dan Reboisasi Mangrove di Kabupaten Siak",
+      "sector": "Energi, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "KIANDRA SETIA BANGSA",
+      "activity_duration": "Jul 2026 - Jan 2027",
+      "registry_no": "REG-11-PR-VII-2026-8608"
+    },
+    {
+      "id": "2f32ec0f-529c-4737-a24c-3cc53dbf4eeb",
+      "activity": "kegiatan pengurangan emisi karbon",
+      "sector": "Energi",
+      "proponent": "PT. NEW SRUK",
+      "activity_duration": "Jan 2026 - Jan 2033",
+      "registry_no": "REG-11-PR-VI-2026-2125"
+    },
+    {
+      "id": "be2056ad-c991-42c9-a794-df2d16fd4f2d",
+      "activity": "Pengurangan Emisi dari Deforestasi Tidak Terencana, Konservasi dan Restorasi Ekosistem Gambut, Pencegahan Kebakaran Gambut, serta Peningkatan Serapan Karbon melalui Rehabilitasi dan Revegetasi pada Areal PBPH PT Hutani Berkah Mulia Seluas 10.444 Hektare di Kabupaten Musi Banyuasin, Provinsi Sumatera Selatan.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Hutani Berkah Mulia",
+      "activity_duration": "Jul 2024 - Jun 2084",
+      "registry_no": "REG-11-PR-VI-2026-8152"
+    },
+    {
+      "id": "e15a86a2-5b44-4f4e-aaee-7b187a1fa21f",
+      "activity": "Peningkatan Serapan Karbon Melalui Penghijauan Lingkungan Komunitas",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Tegal wangi berseri",
+      "activity_duration": "Jun 2026 - Dec 2026",
+      "registry_no": "REG-11-PR-VI-2026-1001"
+    },
+    {
+      "id": "91eaa36b-00d6-4b60-b848-048efdfad07c",
+      "activity": "Proyek Karbon Mangrove Pegat Batumbuk",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "LPHD Pegat Batumbuk",
+      "activity_duration": "Nov 2026 - Nov 2054",
+      "registry_no": "REG-11-PR-VI-2026-9410"
+    },
+    {
+      "id": "924394a8-60b7-4427-9a20-fc7b9ca345c2",
+      "activity": "Rehabilitasi Hutan dan Lahan",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "sulawesi cipta forum",
+      "activity_duration": "Jul 2026 - Aug 2026",
+      "registry_no": "REG-11-PR-VI-2026-7148"
+    },
+    {
+      "id": "7c6b03eb-87b3-42d4-82ce-37f5437a067d",
+      "activity": "Penanaman pohon dan vertikal garden",
+      "sector": "Pertanian, Energi",
+      "proponent": "RW006",
+      "activity_duration": "Sep 2025 - Dec 2025",
+      "registry_no": "REG-11-PR-VI-2026-6816"
+    },
+    {
+      "id": "81361aea-e44f-448f-b6bb-b3faaf21d428",
+      "activity": "Proklim desa air puar kecamatan mulak ulu kab. lahat  provinsi sumatera selatan",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), Energi, ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "DESA AIR PUAR KECAMATAN MULAK ULU KAB.LAHAT ",
+      "activity_duration": "Jan 2024 - Dec 2026",
+      "registry_no": "REG-11-PR-VI-2026-5897"
+    },
+    {
+      "id": "0cfebc9e-86cc-48d2-a1b8-64c73ba814b1",
+      "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Banyumas Kecamatan Baturraden",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Barn Agro Lestari",
+      "activity_duration": "Jan 2025 - Jan 2045",
+      "registry_no": "REG-11-PR-VI-2026-1075"
+    },
+    {
+      "id": "bff633f9-69f4-474a-b68a-3e80238877ed",
+      "activity": "Proklim Blumbang",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Proklim Blumbang",
+      "activity_duration": "Jan 2016 - Jun 2026",
+      "registry_no": "REG-11-PR-VI-2026-4496"
+    },
+    {
+      "id": "e0997c40-c227-460f-b241-43271b5ed7fd",
+      "activity": "Proklim Madigondo – Padukuhan Madigondo - Kalurahan Sidoharjo – Kapanewon Samigaluh – Provinsi DI Yogyakarta",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Proklim Madigondo",
+      "activity_duration": "Mar 2016 - Jun 2026",
+      "registry_no": "REG-11-PR-VI-2026-1826"
+    },
+    {
+      "id": "8a9441e1-772b-44b5-91e8-2833e6a1a191",
+      "activity": "Proyek Lahan Gambut Suntara Pekanbaru (PSPP)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT. SUNTARA GAJAPATI",
+      "activity_duration": "Jan 2024 - Dec 2063",
+      "registry_no": "REG-11-PR-VI-2026-6335"
+    },
+    {
+      "id": "1c71ea60-3991-44d2-aa5d-6cec0c32a50a",
+      "activity": "Program Ketahanan Pangan Keluarga",
+      "sector": "Pertanian",
+      "proponent": "Proklim RW 14 Cipadung",
+      "activity_duration": "Jun 2026 - Aug 2026",
+      "registry_no": "REG-11-PR-VI-2026-9163"
+    },
+    {
+      "id": "c59ec321-e968-47fd-95c4-d552c72a770d",
+      "activity": "Gunungkidul Green Cycle: Integrasi Multi-sektor NDC Indonesia (FOLU-Agri-Limbah-Energi-IPPU) untuk Hilirisasi Karbon Komunitas di Ekosistem Karst",
+      "sector": "Pertanian, ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Konsorsium Yayasan Javlec dan Yayasan Relung Indonesia",
+      "activity_duration": "Jan 2024 - Dec 2045",
+      "registry_no": "REG-11-PR-VI-2026-7361"
+    },
+    {
+      "id": "49d8898d-137e-48b7-903e-85e97242998c",
+      "activity": "Gunungkidul Green Cycle: Integrasi Multi-sektor NDC Indonesia (FOLU-Agri-Limbah-Energi-IPPU) untuk Hilirisasi Karbon Komunitas di Ekosistem Karst",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Konsorsium Yayasan Javlec dan Yayasan Relung Indonesia",
+      "activity_duration": "Jan 2026 - Dec 2047",
+      "registry_no": "REG-11-PR-VI-2026-1910"
+    },
+    {
+      "id": "4d4129ab-de83-46cf-92ca-4f48e7fbb314",
+      "activity": "Penanaman pohon trembesi untuk penyerapan karbon",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Harum lestari",
+      "activity_duration": "Oct 2026 - Dec 2046",
+      "registry_no": "REG-11-PR-VI-2026-3377"
+    },
+    {
+      "id": "52d439a9-0ea8-4218-9602-174c93e56fb8",
+      "activity": "Reduksi Emisi Gas Rumah Kaca Melalui Penerapan Ekonomi Sirkular Berbasis Biokonversi Maggot BSF dan Manajemen Limbah Non-Medis Terintegrasi di Rumah Sakit",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "RSUD Dr. Soetomo",
+      "activity_duration": "Jan 2023 - Dec 2026",
+      "registry_no": "REG-11-PR-VI-2026-9102"
+    },
+    {
+      "id": "213f24e2-9402-4a75-8418-830c0dfc465e",
+      "activity": "Pembangkit Listrik Tenaga Panas Bumi Binary Pemanfaatan Panas Brine Salak",
+      "sector": "Energi",
+      "proponent": "Star Energy Geothermal",
+      "activity_duration": "Feb 2025 - Nov 2040",
+      "registry_no": "REG-11-PR-V-2026-9456"
+    },
+    {
+      "id": "60cea788-b4dd-42e0-8bea-9c9eb9f8f865",
+      "activity": "ProKlim - Kelurahan Juata Laut - Kecamatan Tarakan Utara - Kota Tarakan - Provinsi Kalimantan Utara",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Dinas Lingkungan Hidup Kota Tarakan",
+      "activity_duration": "May 2015 - May 2026",
+      "registry_no": "REG-11-PR-V-2026-1600"
+    },
+    {
+      "id": "0d250e45-5169-4944-a60a-a7a1b6ce94d2",
+      "activity": "proyek pengembangan karbon berbasis kehutanan dan reboisasi yang berfokus pada pengurangan emisi karbon serta pembangunan ekonomi hijau berkelanjutan.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Kelompok Tani Hutan Sangsaluan",
+      "activity_duration": "Jul 2023 - Jul 2058",
+      "registry_no": "REG-11-PR-V-2026-4174"
+    },
+    {
+      "id": "d69c2a5f-946c-4414-94a1-78ced2dfa7da",
+      "activity": "Pengurangan Emisi Rumah Mas Agatha",
+      "sector": "Energi, ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+      "proponent": "LKI",
+      "activity_duration": "Jul 2026 - Jul 2036",
+      "registry_no": "REG-11-PR-V-2026-4159"
+    },
+    {
+      "id": "ba32e10c-0759-45f5-9a93-66975ab28672",
+      "activity": "PROKLIM DESA MARIO KECAMATAN TANASITOLO KABUPATEN WAJO",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), Energi, Pengelolaan Limbah",
+      "proponent": "Kelompok Proklim Desa Mario",
+      "activity_duration": "Feb 2021 - May 2026",
+      "registry_no": "REG-11-PR-V-2026-7774"
+    },
+    {
+      "id": "6e74bc62-f7cc-4207-89b5-a68380bcdeed",
+      "activity": "Dampak Sawah Tergenang Terhadap Kondisi Ekologis Kawasan. (Studi Kasus pada Penyakit Asem Aseman pada Sawah Padi dengan Irigasi Teknis di Desa Undaan Tengah)",
+      "sector": "Pertanian",
+      "proponent": "BERKAH ABADI CHARCOAL",
+      "activity_duration": "May 2026 - May 2027",
+      "registry_no": "REG-11-PR-V-2026-9364"
+    },
+    {
+      "id": "5bef2789-75e7-4cb0-8397-b0f56330030f",
+      "activity": "Tegalsari,Kalurahan Purwosari,Kapanewon Girimulyo,Kulon Progo,DIY",
+      "sector": "Pengelolaan Limbah, Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Proklim TegalsarI",
+      "activity_duration": "Apr 2026 - Aug 2026",
+      "registry_no": "REG-11-PR-V-2026-8285"
+    },
+    {
+      "id": "9880e0ed-dde2-4589-9326-28b084a83b60",
+      "activity": "Pemasangan PLTS di lokasi Proyek",
+      "sector": "Energi",
+      "proponent": "Dummy PHE Account",
+      "activity_duration": "Jul 2026 - Jul 2036",
+      "registry_no": "REG-11-PR-V-2026-5230"
+    },
+    {
+      "id": "8b683fbe-e51b-412b-a5ec-ccf79b62664d",
+      "activity": "Penanaman Tanaman Keras Multi-Guna (MPTS) untuk Peningkatan Stok Karbon pada Lahan Perhutanan Sosial Di kabupaten rembang",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "HETEL ECORANGER",
+      "activity_duration": "Jun 2026 - Dec 2026",
+      "registry_no": "REG-11-PR-V-2026-1830"
+    },
+    {
+      "id": "751c495d-34a8-4ad3-b6f2-1fad01a2524d",
+      "activity": "WAMTI Ketapang Blue Carbon Initiative (WKBCI)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Wahana Masyarakat Tani dan Nelayan Indonesia (WAMTI)",
+      "activity_duration": "Jan 2027 - Jan 2047",
+      "registry_no": "REG-11-PR-IV-2026-8545"
+    },
+    {
+      "id": "7074b952-7052-4a2c-a2f8-1d8a92042fa2",
+      "activity": "mitigasi flaring Migas",
+      "sector": "Energi",
+      "proponent": "LKI",
+      "activity_duration": "Jul 2026 - Jul 2036",
+      "registry_no": "REG-11-PR-IV-2026-7815"
+    },
+    {
+      "id": "e0d63355-f9c6-4993-8419-9fc7f417a541",
+      "activity": "Reduksi Emisi Limbah Makanan Organik Menggunakan Metode Anaerobik Digestion (SK APPLIED 018/APP/SK/II/2022)",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Dayaguna Bhakti Nusantara",
+      "activity_duration": "Mar 2022 - Mar 2029",
+      "registry_no": "REG-11-PR-IV-2026-5535"
+    },
+    {
+      "id": "2a10b91a-2be9-4836-9249-201263a4609a",
+      "activity": "Implementasi PROKASIH Untuk Penanganan Food Waste Dengan Sistem Anaerobic Digesting",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Rizqi Semesta ",
+      "activity_duration": "Nov 2022 - Nov 2029",
+      "registry_no": "REG-11-PR-IV-2026-4750"
+    },
+    {
+      "id": "9ebac149-bf40-4bb2-aa52-94145326ec1c",
+      "activity": "Gas Flare di migas",
+      "sector": "Energi",
+      "proponent": "PT. Tanah Air Bentala",
+      "activity_duration": "Jun 2026 - Jun 2033",
+      "registry_no": "REG-11-PR-IV-2026-7565"
+    },
+    {
+      "id": "d5961284-e14a-4aa8-99c4-fc5b2d533a41",
+      "activity": "Penguatan Mitigasi dan Adaptasi Iklim Desa Gambut Kabupaten Kubu Raya",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Yayasan Natural Kapital Indonesia",
+      "activity_duration": "Apr 2026 - Apr 2028",
+      "registry_no": "REG-11-PR-IV-2026-8465"
+    },
+    {
+      "id": "5dd8ba94-e7e4-4dd5-a4ed-0a5fa2069bbd",
+      "activity": "Pengembangan ekowisata kopi dan strawberry kampung Ambaidiru Kabupaten Kepulauan Yapen",
+      "sector": "Pertanian, Pengelolaan Limbah",
+      "proponent": "Dinas Lingkungan Hidup Kabupaten Kepulauan Yapen",
+      "activity_duration": "Jan 2026 - Dec 2026",
+      "registry_no": "REG-11-PR-IV-2026-6852"
+    },
+    {
+      "id": "347794c4-8e50-4837-87c6-69b814cfc9ef",
+      "activity": "Proklim(Program,Kampung,Iklim Dusun Segajih Hargotirto Kokap Kulonprogo)",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), Pengelolaan Limbah",
+      "proponent": "Dusun Segajih Hargotirto",
+      "activity_duration": "Jan 2022 - Mar 2026",
+      "registry_no": "REG-11-PR-III-2026-1346"
+    },
+    {
+      "id": "0669beb7-1b95-4c58-bc1d-18d9e6ff178d",
+      "activity": "Konversi Genset Berbahan Bakar Minyak Menjadi Sambungan Listrik Energi Terbarukan di Pelabuhan Bunati",
+      "sector": "Energi",
+      "proponent": "PT Borneo Indobara",
+      "activity_duration": "Jan 2021 - Dec 2027",
+      "registry_no": "REG-11-PR-III-2026-1116"
+    },
+    {
+      "id": "f713e356-ceed-4f5a-be91-ccaad327b5f6",
+      "activity": "Pengurangan Emisi melalui Peningkatan Penyerapan Karbon dengan Rehabilitasi Mangrove\ndi Desa Sedari, Karawang, Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Adhi Karya (Persero) Tbk",
+      "activity_duration": "Mar 2025 - Mar 2046",
+      "registry_no": "REG-11-PR-II-2026-9422"
+    },
+    {
+      "id": "decedfb4-16b2-46bb-99f8-4eea31967ff5",
+      "activity": "Program Rehabilitasi Hutan Berbasis Solusi Alam",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "UPT Pengelola Kawasan Hutan, Universitas Brawijaya",
+      "activity_duration": "Jan 2027 - Jan 2037",
+      "registry_no": "REG-11-PR-II-2026-7493"
+    },
+    {
+      "id": "f1fcb916-d6dc-4935-a158-c9121fe03193",
+      "activity": "Penanaman Pohon Nyamplung (Calophyllum inophyllum) di Kampus UIN Surakarta",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "Jan 2026 - Jan 2036",
+      "registry_no": "REG-11-PR-II-2026-4036"
+    },
+    {
+      "id": "8e608904-40fa-4b18-89c5-28f2bdb3253d",
+      "activity": "KIS BIOFUELS – UKINDO PROJECT",
+      "sector": "Energi, Pengelolaan Limbah",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Jan 2024 - Jan 2031",
+      "registry_no": "REG-11-PR-II-2026-8851"
+    },
+    {
+      "id": "7d6fa628-eb7d-473d-95ce-0e975dd62abc",
+      "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment\nProject at TSE Group, Indonesia",
+      "sector": "Pengelolaan Limbah, Energi",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Oct 2025 - Sep 2032",
+      "registry_no": "REG-11-PR-II-2026-2939"
+    },
+    {
+      "id": "c7183b52-d38a-4eef-b061-0f0338cf6819",
+      "activity": "KEGIATAN PEMBANGKIT LISTRIK TENAGA SURYA",
+      "sector": "Energi",
+      "proponent": "dummy ",
+      "activity_duration": "Feb 2026 - Dec 2026",
+      "registry_no": "REG-11-PR-II-2026-1777"
+    },
+    {
+      "id": "81cce894-c34f-455a-be4b-664aba1e6379",
+      "activity": "Kegiatan Pembangkit Listrik Tenaga Angin",
+      "sector": "Energi",
+      "proponent": "dummy ",
+      "activity_duration": "Jan 2026 - Dec 2026",
+      "registry_no": "REG-11-PR-II-2026-8391"
+    },
+    {
+      "id": "804d477e-a7b3-4702-b551-04e548fa0034",
+      "activity": "AGROFORESTRY NYAMPLUNG BIOENERGY DAN DEKARBONISASI",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "Feb 2026 - Feb 2046",
+      "registry_no": "REG-11-PR-II-2026-3556"
+    },
+    {
+      "id": "95be0538-5165-44f4-aa81-ed9addb9c487",
+      "activity": "Inisiatif Karbon Biru Pulau Lombok",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Yayasan Terumbu Karang Indonesia (TERANGI)",
+      "activity_duration": "Jan 2027 - Jan 2037",
+      "registry_no": "REG-11-PR-II-2026-6330"
+    },
+    {
+      "id": "0f319eac-73b3-4a36-9569-7d894a0d949f",
+      "activity": "Perlindungan dan Pengelolaan Lokasi Gambut, Kabupaten Kutai Kartanegara",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT. Tirta Carbon Indonesia",
+      "activity_duration": "Jan 2026 - Dec 2036",
+      "registry_no": "REG-11-PR-II-2026-1460"
+    },
+    {
+      "id": "6d474dbb-1cc5-4c3e-ad00-e0b981b9f75f",
+      "activity": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara, Perluasan Daerah Aliran Sungai (Langkat)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+      "activity_duration": "May 2024 - May 2054",
+      "registry_no": "REG-11-PR-I-2026-3375"
+    },
+    {
+      "id": "7011d9ca-ddf9-4765-b421-8d4b2fb5abbe",
+      "activity": "001-OxC: Proyek Restorasi  Konservasi Global Mangrove Trust di Sumatera Utara (Langkat)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+      "activity_duration": "Mar 2021 - Mar 2051",
+      "registry_no": "REG-11-PR-I-2026-7977"
+    },
+    {
+      "id": "67133fb5-346e-43f7-a478-1d175e9880c5",
+      "activity": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+      "activity_duration": "Feb 2023 - Feb 2053",
+      "registry_no": "REG-11-PR-I-2026-7105"
+    },
+    {
+      "id": "362ab7de-afed-4ec7-ab2d-073738e97ec3",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi berbasis agroforestry di Kelompok Tani Hutan Mekarsari",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH Mekar Sari",
+      "activity_duration": "Nov 2023 - Nov 2043",
+      "registry_no": "REG-11-PR-I-2026-7435"
+    },
+    {
+      "id": "891e5123-ef8a-415f-a88e-e02d5257941f",
+      "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut Kecamatan Banjarwangi",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+      "activity_duration": "Oct 2023 - Oct 2043",
+      "registry_no": "REG-11-PR-I-2026-1353"
+    },
+    {
+      "id": "4b2a3e22-d4c2-40de-af1d-eb9a230d7a61",
+      "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Cianjur",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+      "activity_duration": "Apr 2024 - Apr 2044",
+      "registry_no": "REG-11-PR-I-2026-1702"
+    },
+    {
+      "id": "d8438a6b-bc4b-471c-b2cd-5de02abca544",
+      "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Sukabumi",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+      "activity_duration": "Apr 2024 - Apr 2044",
+      "registry_no": "REG-11-PR-I-2026-6551"
+    },
+    {
+      "id": "f3ee0b3e-a286-426e-b489-2123b083375e",
+      "activity": "Pengurangan Emisi Gas Rumah Kaca Berbasis Pengayaan Pakan Satwa Liar",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "UPT Pengelola Kawasan Hutan, Universitas Brawijaya",
+      "activity_duration": "Jan 2027 - Jan 2037",
+      "registry_no": "REG-11-PR-I-2026-9681"
+    },
+    {
+      "id": "d6eb7dc0-b791-4649-b9d9-d9afeb6b1868",
+      "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.001",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Oct 2013 - Oct 2023",
+      "registry_no": "REG-11-PR-I-2026-7029"
+    },
+    {
+      "id": "6b514421-e518-43ec-aff0-5890e95a88b2",
+      "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.002",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Aug 2015 - Aug 2025",
+      "registry_no": "REG-11-PR-I-2026-3493"
+    },
+    {
+      "id": "258d95e4-acb7-4743-ac9b-cfcac27b2f43",
+      "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.003",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Dec 2020 - Dec 2030",
+      "registry_no": "REG-11-PR-I-2026-7135"
+    },
+    {
+      "id": "7e001f24-1ebb-4d09-8dff-c0701e1647a0",
+      "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No. 005",
+      "sector": "Energi",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Aug 2023 - Aug 2031",
+      "registry_no": "REG-11-PR-I-2026-6034"
+    },
+    {
+      "id": "b03a2b8f-be8a-4e61-a73e-2a9bb9bd10a9",
+      "activity": "Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects – CPA No.004",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "May 2022 - Aug 2030",
+      "registry_no": "REG-11-PR-I-2026-6100"
+    },
+    {
+      "id": "82a268e4-58f2-4252-83f0-0a8b0c652287",
+      "activity": "Biogas recovery from wastewater treatment in PT. Umbul Mas Wisesa Palm Oil Mill-9197",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. Knowledge Integration Services Indonesia",
+      "activity_duration": "Mar 2015 - Mar 2025",
+      "registry_no": "REG-11-PR-I-2026-7579"
+    },
+    {
+      "id": "640e1b2b-55cc-4e81-b4a9-6db9f8657981",
+      "activity": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan kering dan mangrove di Kabupaten Nunukan, Kalimantan Utara.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Lestari Alam Bakau ",
+      "activity_duration": "Jan 2026 - Nov 2054",
+      "registry_no": "REG-11-PR-I-2026-6270"
+    },
+    {
+      "id": "70fc9a75-2de2-4ed7-b2d8-cca384e94bf0",
+      "activity": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Budhi Inti Alam",
+      "activity_duration": "Jan 2026 - Sep 2054",
+      "registry_no": "REG-11-PR-I-2026-4687"
+    },
+    {
+      "id": "ab1f52c8-3544-4307-bc17-01576f8373c9",
+      "activity": "Penurunan emisi gas rumah kaca (GRK) dan peningkatan penyerapan karbon pada area proyek dengan aksi mitigasi pengurangan deforestasi, degradasi dan rehabilitasi lahan mangrove di Kabupaten Tana Tidung dan Kabupaten Bulungan, Kalimantan Utara",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Kemakmuran Alam Sejahtera",
+      "activity_duration": "Jan 2026 - Sep 2054",
+      "registry_no": "REG-11-PR-I-2026-8048"
+    },
+    {
+      "id": "f55b11ca-dc4e-467a-8ff7-27686b7ffdb0",
+      "activity": "PROGRAM MONITORING DRONE STOKPILE AREA MUARA (MADONA)",
+      "sector": "Energi",
+      "proponent": "PT Arutmin Indonesia Tambang Satui",
+      "activity_duration": "Jul 2024 - Dec 2025",
+      "registry_no": "REG-11-PR-XII-2025-1076"
+    },
+    {
+      "id": "3467bdf5-a714-4cf0-ae90-65ab23873650",
+      "activity": "Pengurangan emisi melalui kegiatan rehabilitasi lahan pada hutan rakyat berbasis agroforestry di Kabupaten Garut",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Koperasi Produsen Al-Bayyinah Sejahtera Jayamekar",
+      "activity_duration": "Jun 2023 - Jun 2043",
+      "registry_no": "REG-11-PR-XII-2025-2076"
+    },
+    {
+      "id": "32753333-2609-4861-9d67-1b074e279247",
+      "activity": "Peningkatan cadangan karbon pada areal Pengakuan dan Perlindungan Kemitraan Kehutanan, Lembaga Masyarakat Desa Hutan, Wana Lestari di Kabupaten Banyumas, Provinsi Jawa Tengah.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "LMDH Wana Lestari",
+      "activity_duration": "Jan 2024 - Jan 2044",
+      "registry_no": "REG-11-PR-XII-2025-7847"
+    },
+    {
+      "id": "5338cdf0-8d8c-4045-b15f-aab31e7312ee",
+      "activity": "Proyek Restorasi Karbon Biru Global Mangrove Trust di Indonesia - Sumatra 1",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "YAYASAN GAJAH SUMATERA (YAGASU)",
+      "activity_duration": "Feb 2023 - Feb 2053",
+      "registry_no": "REG-11-PR-XII-2025-2633"
+    },
+    {
+      "id": "0ffb4eae-06d6-418b-b056-c1d5ebd1e6c5",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Geralang Asri Jaya, Desa Kreyo, Kecamatan Randudongkal, Kabupaten Pemalang, Provinsi Jawa Tengah",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH Geralang Asri Jaya",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-7372"
+    },
+    {
+      "id": "5e22a16e-837a-4d06-a2da-2d3a3e2abaf6",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Pengelolaan Hutan Desa Wana Mandiri, Desa Gerduren, Kecamatan Purwojati, Kabupaten Banyumas, Provinsi Jawa Tengah",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "LPHD Wana Mandiri",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-5201"
+    },
+    {
+      "id": "a6f17748-2718-46ed-8ef6-7517c96f4d09",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Mulya, Desa Karangkemojing, Kecamatan Gumelar, Kabupaten Banyumas, Provinsi Jawa Tengah",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH Giri Mulya",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-1575"
+    },
+    {
+      "id": "d5eae4b0-f999-4c48-99c8-b4abf3df07df",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Wana Basuki, Desa Tunjung, Kecamatan Jatilawang, Kabupaten Banyumas, Provinsi Jawa Tengah",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "LMDH Wana Basuki",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-3802"
+    },
+    {
+      "id": "ba96bf64-3715-43c8-a8de-fc6bb1632825",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "GAPOKTAN Wonodadi Lestari",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-4644"
+    },
+    {
+      "id": "fb484075-ff14-4264-b733-8d33ea987ec8",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Lembaga Masyarakat Desa Hutan Rimba Lestari, Desa Sepawon, Kecamatan Plosoklaten, Kabupaten Kediri, Provinsi Jawa Timur",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "LMDH Rimba Lestari",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-7814"
+    },
+    {
+      "id": "a1161bd1-729f-4f04-8639-94974fbfbfac",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Wonodadi Lestari, Desa Tenggarejo, Kecamatan Tanggunggunung, Kabupaten Tulungagung, Provinsi Jawa Timur",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "GAPOKTAN Wonodadi Lestari",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-3288"
+    },
+    {
+      "id": "8f50cbfa-841b-4471-96b6-123c304f8a81",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Wana Mandiri Wangi, Desa Kadongdong, Kecamatan Banjarwangi, Kabupaten Garut, Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH Wana Mandiri Wangi",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-6334"
+    },
+    {
+      "id": "77570417-61cc-46d6-a5fa-2277ed6cbf3f",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari Makmur, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH Lestari Makmur",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-5311"
+    },
+    {
+      "id": "f061553a-d196-42da-bce7-3f0c2b8e81bf",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Desa Kelompok Lembaga Desa Lembah Kahuripan, Desa Girimukti, Kecamatan Cikelet, Kabupaten Garut, Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "LD Lembah Kahuripan",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-5245"
+    },
+    {
+      "id": "0508599c-a814-4984-b386-732bd9bafa54",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Gabungan Kelompok Tani Hijau Lestari, Desa Wangunjaya, Kecamatan Bungbulang, Kabupaten Garut, Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "GAPOKTAN Hijau Lestari",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-2093"
+    },
+    {
+      "id": "28524369-ca4a-49d4-98f7-361ab9e94154",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Lestari, Desa Sukamulya, Kecamatan Pakenjeng, Kabupaten Garut, Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KTH Lestari",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-9768"
+    },
+    {
+      "id": "295b0fd8-b2c1-4435-a79e-040aa4997e3e",
+      "activity": "Pembangkit listrik melalui pemulihan panas gas buang pada pabrik PT Semen Indonesia (Persero) Tbk di Tuban",
+      "sector": "⁠Proses Industri dan Penggunaan Produk (IPPU)",
+      "proponent": "PT Semen Indonesia (Persero) Tbk",
+      "activity_duration": "Jul 2018 - Dec 2027",
+      "registry_no": "REG-11-PR-XII-2025-3897"
+    },
+    {
+      "id": "04410183-65bb-4d09-b362-d9615312f97b",
+      "activity": "Aksi Mitigasi Perubahan Iklim Melalui Program Pengelolaan Jasa Lingkungan Hidup Di Taman Keanekaragaman Hayati Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT ASTRA DAIHATSU MOTOR",
+      "activity_duration": "Jan 2023 - Dec 2027",
+      "registry_no": "REG-11-PR-XII-2025-7722"
+    },
+    {
+      "id": "a7c11077-23e4-4869-875b-5700c2982276",
+      "activity": "Proyek Pembangkit Listrik Tenaga Air Wampu",
+      "sector": "Energi",
+      "proponent": "PT Wampu Electric Power",
+      "activity_duration": "Jan 2021 - Apr 2028",
+      "registry_no": "REG-11-PR-XII-2025-1571"
+    },
+    {
+      "id": "6a04dabe-fec0-4152-ab54-6720053db1b5",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Kelompok Tani Hutan Giri Purnama Alam",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-4973"
+    },
+    {
+      "id": "59f93cdf-69b4-443b-b14d-c79dff96565e",
+      "activity": "Fasilitasi Agroforestry, Pangan, dan Energi (FAPE-PS)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Desa Batu Sasak",
+      "activity_duration": "Sep 2025 - Dec 2025",
+      "registry_no": "REG-11-PR-XII-2025-6347"
+    },
+    {
+      "id": "20e045b6-9cda-4a0f-9cde-e82f04b99722",
+      "activity": "Proyek Pembangkit Listrik Tenaga Air (PLTA) Pamona 2",
+      "sector": "Energi",
+      "proponent": "Agasco Indonesia",
+      "activity_duration": "Jan 2021 - Sep 2026",
+      "registry_no": "REG-11-PR-XII-2025-7856"
+    },
+    {
+      "id": "73e4cc1a-5557-404e-8de8-6e5fe9f333e8",
+      "activity": "Pembangkit Listrik Tenaga Air Asahan 1 (2 x 90 MW)",
+      "sector": "Energi",
+      "proponent": "Agasco Indonesia",
+      "activity_duration": "Jan 2021 - Feb 2025",
+      "registry_no": "REG-11-PR-XII-2025-2290"
+    },
+    {
+      "id": "62dbacaa-a69f-49b9-b00a-ab91ca61eb15",
+      "activity": "Reboisasi Sumber Mata Air Sungai",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+      "proponent": "Desa Lawe Sempilang",
+      "activity_duration": "Apr 2025 - Dec 2025",
+      "registry_no": "REG-11-PR-XII-2025-9072"
+    },
+    {
+      "id": "0e737147-c247-4010-950d-4ca9c4ead470",
+      "activity": "Test Kegiatan 4 desember 2025 galuh",
+      "sector": "Energi, Pertanian",
+      "proponent": "Proponent Galuh",
+      "activity_duration": "Jan 2019 - Dec 2025",
+      "registry_no": "VER-11-PR-XII-2025-5003"
+    },
+    {
+      "id": "445d51c9-8935-46e6-b20f-63c1332cce5d",
+      "activity": "Go Green Papua Tengah 2045",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Yayasan Teknologi Hijau Papua",
+      "activity_duration": "Dec 2025 - Dec 2045",
+      "registry_no": "REG-11-PR-XII-2025-7501"
+    },
+    {
+      "id": "c8a85822-6b34-4a02-a064-eed4d63e349d",
+      "activity": "AFORESTASI, REFORESTASI, DAN REVEGETASI (“ARR”) DI SULAWESI UTARA",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "KOPERASI MULTIPIHAK RESTORASI LANSKAP HUTAN SULAWESI",
+      "activity_duration": "Nov 2024 - Nov 2064",
+      "registry_no": "REG-11-PR-XII-2025-4278"
+    },
+    {
+      "id": "a2e1d064-2f78-48bd-9875-b7bd0a7bf235",
+      "activity": "BANK SAMPAH PANDAWANI",
+      "sector": "Energi, Pengelolaan Limbah",
+      "proponent": "PANDAWANI ( PANDU KELOLA SAMPAH WARGA MANDIRI) ",
+      "activity_duration": "Dec 2024 - Dec 2025",
+      "registry_no": "REG-11-PR-XII-2025-8706"
+    },
+    {
+      "id": "ef3fdd99-2582-4adc-b17f-2feb22540700",
+      "activity": "Kolaborasi Nature-based Solution (NbS) bagi penguatan kelola Perhutanan Sosial dalam ekosistem gambut di Provinsi Jambi",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+      "activity_duration": "Dec 2025 - Dec 2065",
+      "registry_no": "REG-11-PR-XI-2025-8684"
+    },
+    {
+      "id": "cf25e702-0be7-42ca-b0c3-3a780478f990",
+      "activity": "Konservasi Karbon Biru Berbasis Kearifan Adat Rote Ndao, Provinsi Nusa Tenggara Timur",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+      "activity_duration": "Jan 2020 - Jan 2060",
+      "registry_no": "REG-11-PR-XI-2025-1398"
+    },
+    {
+      "id": "5bab14ae-5115-4491-9594-b07c6f17a53f",
+      "activity": "Kemitraan Menjaga Hutan Lindung di Desa Meragun, Kabupaten Sekadau, Provinsi Kalimantan Barat",
+      "sector": "Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+      "activity_duration": "Nov 2022 - Nov 2062",
+      "registry_no": "REG-11-PR-XI-2025-6164"
+    },
+    {
+      "id": "6dd7913b-06c3-4ac6-b310-52d6a957f2eb",
+      "activity": "Pengembangan tata kelola lahan dan hutan rendah emisi dan berketahanan iklim di wilayah Kabupaten Nabire, Provinsi Papua Tengah",
+      "sector": "⁠Forestry and Other Land Use (FOLU), Pertanian",
+      "proponent": "Yayasan Pusat Informasi Lingkungan Indonesia (PILI-Green Network)",
+      "activity_duration": "Jun 2022 - Jun 2062",
+      "registry_no": "REG-11-PR-XI-2025-6360"
+    },
+    {
+      "id": "78d02a39-516a-4649-82a0-ca633ad9272b",
+      "activity": "Bersama adat, Menjaga kekayaan Biru Teluk Bintuni, Papua Barat",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Karya Persada Lestari",
+      "activity_duration": "Aug 2020 - Aug 2060",
+      "registry_no": "REG-11-PR-XI-2025-5220"
+    },
+    {
+      "id": "3ddf445e-8d4b-4077-906d-8db1391f3870",
+      "activity": "Kolaborasi Para Pihak di Provinsi Kalimantan Utara - Mendukung Pencapaian Strategi Pembangunan Rendah Karbon dan Berketahanan Iklim",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT GLOBAL ECO RESCUE LESTARI",
+      "activity_duration": "Mar 2023 - Mar 2063",
+      "registry_no": "REG-11-PR-XI-2025-9235"
+    },
+    {
+      "id": "809fa5a0-4940-4ff2-b40f-ce7416bf8559",
+      "activity": "Proyek Restorasi dan Konservasi Hutan Rawa Gambut Katingan Mentaya - IUPHHK-RE PT Rimba Makmur Utama",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Rimba Makmur Utama",
+      "activity_duration": "Oct 2013 - Oct 2073",
+      "registry_no": "REG-11-PR-X-2025-6737"
+    },
+    {
+      "id": "b2f35136-baa3-48bc-a398-9c86f4326048",
+      "activity": "Pengurangan Emisi GRK",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Duo Kembar",
+      "activity_duration": "Jan 2025 - Dec 2025",
+      "registry_no": "REG-11-PR-X-2025-4154"
+    },
+    {
+      "id": "f6687d56-2474-4b43-be22-ac9ee43eb34b",
+      "activity": "Perdagangan carbon sektor folu",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT.WANARIMBA",
+      "activity_duration": "Nov 2025 - Nov 2040",
+      "registry_no": "REG-11-PR-X-2025-3693"
+    },
+    {
+      "id": "8b877198-3594-49c3-a5da-4fc0820bbb89",
+      "activity": "Pengelolaan Lingkungan Hijau melalui Perdagangan karbon pada wilayah Perhutanan Sosial di Provinsi Sulawesi tengah",
+      "sector": "⁠Forestry and Other Land Use (FOLU), Pertanian, Pengelolaan Limbah",
+      "proponent": "Momua Journey",
+      "activity_duration": "Nov 2025 - Nov 2040",
+      "registry_no": "REG-11-PR-X-2025-6481"
+    },
+    {
+      "id": "f2be0ecd-54c5-42e8-b801-f764b1bd8864",
+      "activity": "PERDAGANGAN EMISI SEKTOR FOLU KAMPUNG UJI COBA",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT. UJI COBA",
+      "activity_duration": "Oct 2025 - Oct 2064",
+      "registry_no": "REG-11-PR-X-2025-9621"
+    },
+    {
+      "id": "d9d48ee5-8f32-47bb-9349-9349b3829f75",
+      "activity": "Perdaganagan Emisi Sektor Folu Desa Siliwangi",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Bina Balantak Raya",
+      "activity_duration": "Jan 2020 - Jan 2080",
+      "registry_no": "REG-11-PR-X-2025-5145"
+    },
+    {
+      "id": "ffe255e0-4123-4ed9-b10d-f83f6923c4bb",
+      "activity": "perdagangan emisi pada sektor kehutanan",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Riu Mamba Karya Sentosa",
+      "activity_duration": "Oct 2025 - Oct 2064",
+      "registry_no": "REG-11-PR-X-2025-1690"
+    },
+    {
+      "id": "c822015b-7a3a-42b6-a876-aeb0c409a169",
+      "activity": "Perdagangan Emisi Karbon Sektor FOLU Kampung Manusia Sehat",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "Manusia Sehat Bersama Biomassa",
+      "activity_duration": "Oct 2025 - Oct 2065",
+      "registry_no": "REG-11-PR-X-2025-9764"
+    },
+    {
+      "id": "245feb8e-de3d-4f50-ab0b-7dd4b1494a19",
+      "activity": "Penanaman pohon di Pangalengan",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Wagi Bandung Kayungyun",
+      "activity_duration": "Jan 2026 - Dec 2026",
+      "registry_no": "REG-11-PR-X-2025-8356"
+    },
+    {
+      "id": "bdfdc7a6-94ab-4e22-9f18-b1a855729725",
+      "activity": "Pembangkit Listrik Tenaga Air Hasang",
+      "sector": "Energi",
+      "proponent": "PT Binsar Natorang Energi",
+      "activity_duration": "Jul 2021 - Dec 2050",
+      "registry_no": "REG-11-PR-X-2025-8186"
+    },
+    {
+      "id": "49ddf447-7cc8-49d2-81ab-c4ee87336ca1",
+      "activity": "Proyek Penangkapan dan Pemanfaatan Metana",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT PARNA AGROMAS",
+      "activity_duration": "Feb 2021 - Feb 2031",
+      "registry_no": "REG-11-PR-X-2025-2565"
+    },
+    {
+      "id": "20f53393-1167-4a4d-acc5-4a9bcc56dd50",
+      "activity": "Proyek Penangkapan dan Pemanfaatan Metana",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT TINTIN BOYOK SAWIT MAKMUR",
+      "activity_duration": "Feb 2021 - Feb 2031",
+      "registry_no": "REG-11-PR-X-2025-6984"
+    },
+    {
+      "id": "b031cd78-f0cc-4a39-86ad-6bd4988afa0c",
+      "activity": "Pemanfaatan Biomassa dan Penyimpanan Karbon Biogenik dalam Produk Kayu Rekayasa oleh Tjipta / PT Canang Indah",
+      "sector": "⁠Proses Industri dan Penggunaan Produk (IPPU), Energi",
+      "proponent": "PT Canang Indah Industri Particle Board ",
+      "activity_duration": "Oct 2025 - Oct 2030",
+      "registry_no": "REG-11-PR-X-2025-8035"
+    },
+    {
+      "id": "72654357-68e6-4ac7-a892-731564cc61d9",
+      "activity": "Kegiatan Aksi Mitigasi Gas Rumah Kaca Melalui Penangkapan dan Pemanfaatan Gas Methane Air Limbah Pabrik Kelapa Sawit",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Alam Teduh Sentosa",
+      "activity_duration": "Sep 2023 - Aug 2030",
+      "registry_no": "VAL-10-PR-IV-2025-18716"
+    },
+    {
+      "id": "da3ada44-e909-4bc6-892d-aed2436e0b57",
+      "activity": "Pemanfaatan Biogas dari Controlled Landfill TPA Kaligending, Kabupaten Kebumen",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "Koperasi Gending Lestari Kebumen",
+      "activity_duration": "Nov 2022 - Nov 2029",
+      "registry_no": "VAL-11-PR-V-2025-27967"
+    },
+    {
+      "id": "52569627-f84d-404b-a055-3711022a26c7",
+      "activity": "Penggunaan Limbah Pabrik Kelapa Sawit (POME) dalam Sistem Biogas Co-Firing di PT EkaDura Indonesia",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Ekadura Indonesia",
+      "activity_duration": "Mar 2024 - Mar 2030",
+      "registry_no": "VAL-10-PR-IV-2025-25938"
+    },
+    {
+      "id": "1b442e68-7320-43e8-a728-361cc39db6e6",
+      "activity": "Konservasi dan Reforestasi di Kawasan Hutan Produksi Delta Mahakam (Pertamina Foundation)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Sari Lembah Subur",
+      "activity_duration": "Jun 2023 - Dec 2043",
+      "registry_no": "REG-11-PR-X-2025-4203"
+    },
+    {
+      "id": "1d9771c7-8169-4947-8ac5-fc135137ba52",
+      "activity": "Efisiensi Energi melalui Pemanfaatan Purge Gas sebagai Fuel di Package Boiler B1102 dan WHB B2221 Pabrik Ammonia 1A dengan Implementasi teknologi Purge Gas Utilization System PT Petrokimia Gresik",
+      "sector": "Energi",
+      "proponent": "PT Petrokimia Gresik",
+      "activity_duration": "Jan 2022 - Jan 2029",
+      "registry_no": "VAL-11-PR-X-2025-3647"
+    },
+    {
+      "id": "6b8ae5e4-edc9-4bd4-b011-7c02599ce32f",
+      "activity": "Pembangunan PLTS IKN 50 MW",
+      "sector": "Energi",
+      "proponent": "PT Energy Management Indonesia",
+      "activity_duration": "Dec 2024 - Nov 2031",
+      "registry_no": "VAL-11-PR-X-2025-2681"
+    },
+    {
+      "id": "30ebeed6-368f-464a-9631-9c14cc125e07",
+      "activity": "Substitusi Bahan Marine Fuel Oil dengan Natural Gas pada Fasilitas Lime Kiln di Unit Recausticing Plant PT. TEL",
+      "sector": "Energi",
+      "proponent": "PT. Tanjungenim Lestari Pulp and Paper",
+      "activity_duration": "Jan 2021 - Jan 2027",
+      "registry_no": "VAL-11-PR-X-2025-4128"
+    },
+    {
+      "id": "0c9cecf8-1d50-49db-b9d6-aee9e6ddc927",
+      "activity": "Pemanfaatan Biogas dari POME Sebagai Sumber Pembangkit Listrik di PT Mitra Mendawai Sejati",
+      "sector": "Energi",
+      "proponent": "PT Mitra Mendawai Sejati",
+      "activity_duration": "Apr 2021 - Apr 2027",
+      "registry_no": "VAL-11-PR-X-2025-5607"
+    },
+    {
+      "id": "1cb9355d-edaf-4269-a5ec-2f1659062753",
+      "activity": "Mengurangi Jumlah Pemakaian Bahan Bakar Batu Bara dengan Meningkatkan Efisiensi Energi pada Proses Produksi Gula Rafinasi di PT. Sugar Labinta.",
+      "sector": "Energi",
+      "proponent": "PT Sugar Labinta",
+      "activity_duration": "Sep 2020 - Dec 2027",
+      "registry_no": "VAL-11-PR-X-2025-2351"
+    },
+    {
+      "id": "1accd482-a502-4b83-8ec8-6de0a1e2658c",
+      "activity": "Pembangunan PLTA Jatigede",
+      "sector": "Energi",
+      "proponent": "PT Energy Management Indonesia",
+      "activity_duration": "Jun 2024 - Jun 2031",
+      "registry_no": "VAL-11-PR-X-2025-4489"
+    },
+    {
+      "id": "0dd5f759-7339-4919-b3f8-1d4920879b22",
+      "activity": "Pengoperasian PLTA Asahan III",
+      "sector": "Energi",
+      "proponent": "PT Energy Management Indonesia",
+      "activity_duration": "Dec 2024 - Nov 2031",
+      "registry_no": "VAL-11-PR-X-2025-1180"
+    },
+    {
+      "id": "98d95fba-19e7-4dff-a7f3-d4ec81b9459b",
+      "activity": "Pengoperasian Pembangkit Listrik Tenaga Minihidro (PLTM) Besai Kemu 2 x 3,5 MW",
+      "sector": "Energi",
+      "proponent": "PT Uway Energi Perdana",
+      "activity_duration": "Jan 2024 - Dec 2033",
+      "registry_no": "VER-11-PR-X-2025-8759"
+    },
+    {
+      "id": "b12d96e8-a96b-4d7b-82cb-f1b85f89e87c",
+      "activity": "Pembangunan Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Jawa Satu Power",
+      "sector": "Energi",
+      "proponent": "PT Jawa Satu Power",
+      "activity_duration": "Dec 2023 - Dec 2053",
+      "registry_no": "VAL-11-PR-X-2025-4926"
+    },
+    {
+      "id": "f029f54e-2539-46e6-8c40-7c762971fc78",
+      "activity": "Shore connection kapal saat sandar di Pelabuhan",
+      "sector": "Energi",
+      "proponent": "PT PELAYARAN BAHTERA ADHIGUNA",
+      "activity_duration": "Jan 2024 - Dec 2030",
+      "registry_no": "VAL-11-PR-X-2025-5503"
+    },
+    {
+      "id": "0088e9e7-eca0-41db-adc8-06574a31af73",
+      "activity": "Pembangunan Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Blok 3 PJB Muara Karang",
+      "sector": "Energi",
+      "proponent": "PT PJB UP Muara Karang",
+      "activity_duration": "Oct 2025 - Apr 2026",
+      "registry_no": "SPE-11-PR-V-2022-10867"
+    },
+    {
+      "id": "aa6f087e-dc56-4dc8-8c84-f471f252576f",
+      "activity": "Reduksi emisi gas rumah kaca atas pemanfaatan bus listrik berbasis baterai",
+      "sector": "Energi",
+      "proponent": "PT Transportasi Jakarta",
+      "activity_duration": "Mar 2022 - Mar 2031",
+      "registry_no": "REG-11-PR-X-2025-4566"
+    },
+    {
+      "id": "6c10bbed-137b-4155-8c41-139a85a2ab41",
+      "activity": "Penghematan biaya CNG sebesar 55% dengan alih teknologi dari Boiler tipe Firetube ke Boiler tipe Oncethrough",
+      "sector": "Energi",
+      "proponent": "PT Phapros",
+      "activity_duration": "Jan 2023 - Jan 2033",
+      "registry_no": "VER-11-PR-X-2025-4634"
+    },
+    {
+      "id": "13a4a5b0-2828-412a-a649-57a048488e3c",
+      "activity": "Proyek Biogas Hamparan",
+      "sector": "Energi, Pengelolaan Limbah",
+      "proponent": "GREE Energy",
+      "activity_duration": "Dec 2020 - Nov 2040",
+      "registry_no": "VAL-11-PR-X-2025-8334"
+    },
+    {
+      "id": "7105b9f6-9af4-4ffd-985c-e2dfc2863865",
+      "activity": "Aksi Mitigasi: Reduksi Emisi Gas Metana (CH4) dari Air Limbah Kelapa Sawit (POME) dengan Teknologi Methane Capture-Digester Tank di PT Inti Indosawit Subur Riau PMKS Buatan II",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. Inti Indosawit Subur",
+      "activity_duration": "Dec 2023 - Nov 2030",
+      "registry_no": "REG-10-PR-III-2025-16202"
+    },
+    {
+      "id": "9994f059-b564-44e6-891c-4b00d0ff8165",
+      "activity": "Digitalisasi Pengelolaan Sampah Terintegrasi untuk Pengurangan Emisi Gas Rumah Kaca melalui Diversion, Refuse-Derived Fuel (RDF), dan Daur Ulang",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Centra Rekayasa Enviro",
+      "activity_duration": "Jan 2026 - Jan 2031",
+      "registry_no": "REG-11-PR-IX-2025-7197"
+    },
+    {
+      "id": "18d19db1-dfcd-4485-9a65-07aa038090b8",
+      "activity": "Pelestarian Ekosistem Pesisir dan Pulau-Pulau Kecil di TNP Laut Sawu",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Direktorat Konservasi Ekosistem2",
+      "activity_duration": "Oct 2025 - Oct 2035",
+      "registry_no": "REG-11-PR-IX-2025-7764"
+    },
+    {
+      "id": "8f73f6cb-d511-45df-b573-cf1534508d7d",
+      "activity": "Proklim Desa Sumber Rejeki Kecamatan Sungai Lilin Kabupaten Musi Banyuasin",
+      "sector": "Energi, Pertanian, ⁠Proses Industri dan Penggunaan Produk (IPPU), ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "DLH Kabupaten Musi Banyuasin",
+      "activity_duration": "Jan 2018 - Sep 2025",
+      "registry_no": "REG-11-PR-IX-2025-1990"
+    },
+    {
+      "id": "fc94da9e-6279-4ac5-b4d2-f22c847de6b0",
+      "activity": "Proyek Lahan Gambut Kubu",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Menggala Rambu Utama",
+      "activity_duration": "Jan 2022 - Dec 2068",
+      "registry_no": "REG-11-PR-IX-2025-8113"
+    },
+    {
+      "id": "b854adef-1632-479a-b5bf-245d804161ae",
+      "activity": "Indonesia Green Gold Project Agroforestry Nyamplung Bioenergi dan Dekarbonisasi",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU), Pengelolaan Limbah",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "Dec 2022 - Dec 2100",
+      "registry_no": "REG-11-PR-IX-2025-5209"
+    },
+    {
+      "id": "59c16add-439b-4e84-b627-77007ddf4fe7",
+      "activity": "Proklim Desa Margo Mulyo Kecamatan Tungkal Jaya Kabupaten Musi Banyuasin",
+      "sector": "Pertanian, Energi, ⁠Forestry and Other Land Use (FOLU), ⁠Proses Industri dan Penggunaan Produk (IPPU)",
+      "proponent": "DLH Kabupaten Musi Banyuasin",
+      "activity_duration": "Jan 2018 - Sep 2025",
+      "registry_no": "REG-11-PR-IX-2025-1479"
+    },
+    {
+      "id": "daa107a6-8d2a-46c5-ad8a-2d7313480171",
+      "activity": "Distribusi Cangkang Sawit sebagai Pengganti Batu Bara",
+      "sector": "Energi",
+      "proponent": "PT. GOMAS JAYA NUSANTARA",
+      "activity_duration": "Sep 2025 - Dec 2025",
+      "registry_no": "REG-11-PR-VIII-2025-3320"
+    },
+    {
+      "id": "0994a1d4-7ab8-441f-ab08-89414b46766e",
+      "activity": "Pengurangan Emisi Gas Metana dari Sampah Perkotaan melalui Produksi Refuse-Derived Fuel (RDF) di Tempat Pengolahan Sampah Terpadu (TPST) Mrican, Ponorogo",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT. RECIRAYA SEMESTA ENERGI",
+      "activity_duration": "Jan 2025 - Jan 2032",
+      "registry_no": "REG-11-PR-VIII-2025-5636"
+    },
+    {
+      "id": "ae9cb7b9-4aaf-462f-9936-22f8adb2d03d",
+      "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Pekanbaru",
+      "sector": "Energi, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "May 2025 - Nov 2027",
+      "registry_no": "REG-11-PR-VIII-2025-5484"
+    },
+    {
+      "id": "000a6e00-03f4-46d6-8c42-8f94e5a2262f",
+      "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Kunduran, Blora, Jawa Tengah",
+      "sector": "Energi, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "May 2025 - Nov 2027",
+      "registry_no": "REG-11-PR-VIII-2025-9801"
+    },
+    {
+      "id": "3fce2fa6-f652-42ea-b729-a0be776b1a19",
+      "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Batu, Malang",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "May 2025 - Nov 2027",
+      "registry_no": "REG-11-PR-VIII-2025-8793"
+    },
+    {
+      "id": "250d066a-d531-4316-a3cd-abd5e9c75591",
+      "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Singosari, Malang",
+      "sector": "Energi, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "Aug 2024 - Feb 2027",
+      "registry_no": "REG-11-PR-VIII-2025-2135"
+    },
+    {
+      "id": "28762dd2-e310-4528-b45a-aa80b0aa3f45",
+      "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Pesantren Al-Hadid Bejiharjo, Gunungkidul, Yogyakarta",
+      "sector": "Energi, Pertanian, ⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "Oct 2024 - Apr 2027",
+      "registry_no": "REG-11-PR-VIII-2025-2474"
+    },
+    {
+      "id": "149ff8a8-1b5a-4cfd-93c2-b4d4740c4366",
+      "activity": "Pembibitan dan Penanaman Pohon Nyamplung Daerah Bejiharjo, Gunungidul, Yogyakarta",
+      "sector": "⁠Forestry and Other Land Use (FOLU), Pengelolaan Limbah, Energi, Pertanian",
+      "proponent": "PT Pandu Wijaya Negara",
+      "activity_duration": "Aug 2021 - Feb 2024",
+      "registry_no": "REG-11-PR-VIII-2025-7522"
+    },
+    {
+      "id": "82704ade-46af-4faa-8be7-d66ea03164fc",
+      "activity": "Kegiatan Musi Rawas 2025",
+      "sector": "Energi, Pengelolaan Limbah",
+      "proponent": "DINAS LINGKUNGAN HIDUP KABUPATEN MUSI RAWAS",
+      "activity_duration": "Jan 2023 - Jan 2025",
+      "registry_no": "REG-11-PR-VIII-2025-6195"
+    },
+    {
+      "id": "0ee0210b-2a53-498a-82b8-869f605ab37b",
+      "activity": "Aksi Mitigasi Perubahan Iklim Proyek PLTB Sidrap 75 MW (Pendaftaran dan Verifikasi Proyek Melalui Gold Standard, Periode Ke-3)",
+      "sector": "Energi",
+      "proponent": "PT UPC Sidrap Bayu Energi",
+      "activity_duration": "Oct 2025 - Oct 2025",
+      "registry_no": "SPE-10-PR-XI-2022-11275"
+    },
+    {
+      "id": "b2e0e58f-22ac-44c3-a266-cdf4ddb71175",
+      "activity": "Telaga Mas Kalimantan Project",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Telaga Mas Kalimantan",
+      "activity_duration": "Oct 2020 - Sep 2030",
+      "registry_no": "REG-11-PR-VIII-2025-2222"
+    },
+    {
+      "id": "cf64d73a-9bd7-4625-b83a-1fc563aa9d6f",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Giri Purnama Alam, Desa Giri Awas, Kecamatan Cikajang, Kabupaten Garut, Provinsi Jawa Barat.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Kelompok Tani Hutan Giri Purnama Alam",
+      "activity_duration": "Dec 2023 - Jun 2042",
+      "registry_no": "VAL-11-PR-VIII-2025-7913"
+    },
+    {
+      "id": "34378dd7-3c61-45a0-ba93-95ce7cb5276b",
+      "activity": "Aksi Mitigasi Pengurangan Emisi Melalui Rehabilitasi Lahan Pada Areal Terdegradasi di Kabupaten Lebak, Provinsi Banten",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "PT Pandjiwaringin",
+      "activity_duration": "May 2023 - Dec 2039",
+      "registry_no": "REG-11-PR-VIII-2025-4640"
+    },
+    {
+      "id": "4cc02562-a8da-4199-ade5-8c4403200b55",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Tusam Mandiri Dot Com Desa Salaon Dolok Kecamatan Ronggur Nihuta Kabupaten Samosir, Sumatra Utara.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Kelompok Tani Hutan Tusam Mandiri Dot Com",
+      "activity_duration": "Jun 2022 - Jun 2042",
+      "registry_no": "REG-11-PR-VIII-2025-7502"
+    },
+    {
+      "id": "0e55297c-3188-4c29-8a37-0df41c8a6a8b",
+      "activity": "Perlindungan Hutan dan Revegetasi di Kawasan Gunung Arjuno",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Perum Perhutani",
+      "activity_duration": "May 2022 - May 2042",
+      "registry_no": "VAL-11-PR-VIII-2025-3298"
+    },
+    {
+      "id": "49c35ee3-973d-4626-a06a-50150f19fe9a",
+      "activity": "Aksi Mitigasi Pengurangan Emisi Melalui Rehabilitasi Lahan Pada Areal Terdegradasi di Kabupaten Lebak, Provinsi Banten",
+      "sector": "Energi",
+      "proponent": "PT Pandjiwaringin",
+      "activity_duration": "May 2023 - Dec 2039",
+      "registry_no": "REG-11-PR-VIII-2025-1904"
+    },
+    {
+      "id": "a6f73f32-e1ce-418a-bcde-980592d50505",
+      "activity": "Pembangkit Listrik Tenaga Panas Bumi (PLTP) Rantau Dedap",
+      "sector": "Energi",
+      "proponent": "PT Supreme Energy Rantau Dedap",
+      "activity_duration": "Dec 2021 - Dec 2028",
+      "registry_no": "VER-11-PR-VIII-2025-2364"
+    },
+    {
+      "id": "1e630e74-6055-4c3e-88bf-3b89fc0305da",
+      "activity": "Penerapan Efisiensi Energi di plant PT Amerta Indah Otsuka",
+      "sector": "Energi",
+      "proponent": "PT Amerta Indah Otsuka Kejayan Plant",
+      "activity_duration": "Jan 2019 - Jan 2024",
+      "registry_no": "VER-11-PR-VIII-2025-1917"
+    },
+    {
+      "id": "93cdd05d-ab9a-4dcf-8e8a-63a070b5c601",
+      "activity": "Peningkatan serapan karbon melalui kegiatan reforestasi dan pengkayaan tanaman berbasis agroforestry di Persetujuan Pengelolaan Hutan Kemasyarakatan Kelompok Tani Hutan Silau Raja  Kabupaten Samosir, Sumatra Utara.",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Kelompok Tani Hutan Silau Raja",
+      "activity_duration": "Jun 2022 - Jun 2042",
+      "registry_no": "VAL-11-PR-VIII-2025-1969"
+    },
+    {
+      "id": "6631e6d0-da4e-4282-9c91-f2f500c750e7",
+      "activity": "Renewal Turbo Chiller Old With Turbo Chiller New Technology",
+      "sector": "Energi",
+      "proponent": "PT Cheil Jedang Indonesia Jombang",
+      "activity_duration": "Dec 2021 - Dec 2023",
+      "registry_no": "VER-11-PR-VIII-2025-6828"
+    },
+    {
+      "id": "ec8c5115-8607-4ea2-853e-8bb62c0fa91d",
+      "activity": "Improve Efficiency Boiler with Instal new screw heat pump chiller.",
+      "sector": "Energi",
+      "proponent": "PT Cheil Jedang Indonesia Jombang",
+      "activity_duration": "Feb 2023 - Dec 2023",
+      "registry_no": "VER-11-PR-VIII-2025-5930"
+    },
+    {
+      "id": "2d58c265-c788-448c-b8c0-b03c0b97fecb",
+      "activity": "Konservasi dan Reforestasi di Kawasan Hutan Produksi Delta Mahakam (Pertamina Foundation)",
+      "sector": "⁠Forestry and Other Land Use (FOLU)",
+      "proponent": "Pertamina Foundation",
+      "activity_duration": "Sep 2017 - Dec 2038",
+      "registry_no": "VER-10-PR-VIII-2023-11163"
+    },
+    {
+      "id": "22ffa098-60e2-4fc2-aac5-f37f8a7f664b",
+      "activity": "Pemanfaatan Panel Surya untuk produksi listrik di siang hari menggantikan pemakaian listrik dari Jaringan PLN di Perumahan Karyawan dan Kantor PLTU Paiton Unit 5 amp; 6 PT. Jawa Power",
+      "sector": "Energi",
+      "proponent": "PT. Jawa Power",
+      "activity_duration": "Sep 2016 - Dec 2030",
+      "registry_no": "VER-11-PR-VIII-2025-9659"
+    },
+    {
+      "id": "6ce078f1-d211-4c9a-b5db-f213ac659589",
+      "activity": "Pembangkit listrik tenaga biogas kapasitas 2 MW dari POME Pabrik Kelapa Sawit Pasir Mandoge, Propinsi Sumatera Utara",
+      "sector": "Energi",
+      "proponent": "PT Perkebunan Nusantara IV Regional II",
+      "activity_duration": "Jul 2021 - Jul 2028",
+      "registry_no": "VAL-11-PR-VIII-2025-3666"
+    },
+    {
+      "id": "df115667-1beb-4c07-927c-1d8f4a794492",
+      "activity": "Pengoperasian Pembangkit Listrik Tenaga Mini Hidro (PLTM) Pageruyung 1 , dengan Kapasitas (maksimal) Pembangkitan = (2 x 2,2) MW , di Kabupaten Kendal , Provinsi Jawa Tengah.",
+      "sector": "Energi",
+      "proponent": "PT. Cahaya Semesta Energi",
+      "activity_duration": "Jan 2025 - Jan 2032",
+      "registry_no": "VAL-11-PR-VIII-2025-2705"
+    },
+    {
+      "id": "b4c273a8-842d-43e1-a8b0-2841863bbf40",
+      "activity": "Proyek penangkapan metana dari POME di Pabrik Kelapa Sawit Suayap",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Mitra Mendawai Sejati",
+      "activity_duration": "Apr 2019 - Sep 2042",
+      "registry_no": "VAL-11-PR-V-2024-16871"
+    },
+    {
+      "id": "d95a2d17-b1fa-4940-978c-d7eb863926b8",
+      "activity": "Proyek Pengolahan Air Limbah di Pabrik Kelapa Sawit Pasir Mandoge, Propinsi Sumatera Utara",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Perkebunan Nusantara IV Regional II",
+      "activity_duration": "Jul 2021 - Jul 2028",
+      "registry_no": "VAL-10-PR-VIII-2024-22549"
+    },
+    {
+      "id": "4c4b6822-0d83-4411-970e-6554ad812c71",
+      "activity": "Proyek PLTS Atap Sistem On Grid 3,8 MWp Area PT Pupuk Kalimantan Timur",
+      "sector": "Energi",
+      "proponent": "PT Pupuk Kalimantan Timur",
+      "activity_duration": "Jan 2022 - Dec 2028",
+      "registry_no": "VAL-11-PR-VIII-2025-7633"
+    },
+    {
+      "id": "5654dadc-3d0f-473f-906e-c6b1fd9478d3",
+      "activity": "[PNRE X PTPN III] Aksi Pengolahan Limbah Cair Pabrik Kelapa Sawit (PKS) Sei Mangkei dengan Metoda Methane Capture",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Pertamina Power Indonesia",
+      "activity_duration": "Jan 2020 - Dec 2039",
+      "registry_no": "VER-10-PR-III-2024-17575"
+    },
+    {
+      "id": "4d4c879e-6853-4ac9-befc-72997e252fcb",
+      "activity": "Aksi Pengolahan Limbah Cair Pabrik Kelapa Sawit (PKS) Sei Tapung dengan Metode Penangkapan Gas Metana",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Perkebunan Nusantara IV Regional 3",
+      "activity_duration": "Jan 2023 - Dec 2029",
+      "registry_no": "VAL-10-PR-XII-2024-25581"
+    },
+    {
+      "id": "a75b1034-6d38-4d42-9fe2-6efb772e4a9f",
+      "activity": "Pengelolaan Limbah Organik Melalui Biokonversi",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT MAGGOT INDONESIA LESTARI",
+      "activity_duration": "Oct 2021 - Dec 2028",
+      "registry_no": "VER-11-PR-V-2024-18156"
+    },
+    {
+      "id": "bcaeaae8-801c-49a6-8ab9-4a78487f7a90",
+      "activity": "1.6MW Solar PV Power Plant Project in Jakabaring Sport City",
+      "sector": "Energi",
+      "proponent": "PT Sumsel Energi Gemilang",
+      "activity_duration": "Apr 2018 - Apr 2038",
+      "registry_no": "VAL-11-PR-VIII-2025-1746"
+    },
+    {
+      "id": "22371d55-8c88-4833-96ba-785e506bd520",
+      "activity": "Pembangkit Listrik Tenaga Biogas Sukadamai 2,4 MW dari Recovery Biogas pada Pengolahan Limbah POME",
+      "sector": "Energi, Pengelolaan Limbah",
+      "proponent": "PT Nagata Bio Energi",
+      "activity_duration": "Dec 2025 - Jan 2026",
+      "registry_no": "SPE-10-PR-V-2023-10134"
+    },
+    {
+      "id": "1ba8d268-62be-4dfe-9682-9731d7e58535",
+      "activity": "Aksi Efisiensi Energi Industri dengan Memodifikasi unit Membran Filter Sistem Serial Kontinyu menjadi Paralel Batch",
+      "sector": "Energi",
+      "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+      "activity_duration": "Nov 2024 - Nov 2031",
+      "registry_no": "VER-11-PR-VIII-2025-4293"
+    },
+    {
+      "id": "0690e8bb-e085-409e-b3db-0baa05ff307f",
+      "activity": "Upgrade Proses Evaporasi amp; Kristalisasi dari Proses Single Effect menjadi 3 Effect",
+      "sector": "Energi",
+      "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+      "activity_duration": "Jan 2021 - Jan 2024",
+      "registry_no": "VER-11-PR-VIII-2025-9677"
+    },
+    {
+      "id": "f3f03516-04f2-48ac-9680-222cea6db442",
+      "activity": "Upgrade Proses Evaporasi amp; Kristalisasi dari Proses Single Effect menjadi 5 Effect",
+      "sector": "Energi",
+      "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+      "activity_duration": "Nov 2022 - Dec 2028",
+      "registry_no": "VAL-11-PR-VIII-2025-3642"
+    },
+    {
+      "id": "3890846b-0e0d-4c9e-90ec-f06dca623e87",
+      "activity": "Pengurangan Emisi Gas Rumah Kaca Melalui Aksi Substitusi Pupuk Anorganik menjadi Pupuk Organik",
+      "sector": "Pertanian",
+      "proponent": "PT Mitra Mendawai Sejati",
+      "activity_duration": "Sep 2024 - Aug 2031",
+      "registry_no": "VAL-11-PR-I-2025-16873"
+    },
+    {
+      "id": "3511132f-7603-4eea-b49f-2f67c528db52",
+      "activity": "Penggunaan boiler biomassa pada unit produksi Cairan Obat Dalam 2",
+      "sector": "Energi",
+      "proponent": "PT Industri Jamu Dan Farmasi Sido Muncul Tbk",
+      "activity_duration": "May 2019 - Apr 2026",
+      "registry_no": "VER-11-PR-VIII-2025-3864"
+    },
+    {
+      "id": "b6646af0-4463-4446-a1a0-6c7d170461d3",
+      "activity": "[PNRE X PTPN III] Pembangkit Listrik Tenaga Biogas (PLTBg) Sei Mangkei 2,4 MW dari Recovery Biogas pada Pengolahan Limbah POME",
+      "sector": "Energi",
+      "proponent": "PT Pertamina Power Indonesia",
+      "activity_duration": "Oct 2025 - Oct 2025",
+      "registry_no": "SPE-10-PR-IV-2024-17599"
+    },
+    {
+      "id": "75beda58-e013-41b9-aba7-db67ac79eb6d",
+      "activity": "Pengoperasian Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTMG Sumbagut 2 Peaker 250 MW",
+      "sector": "Energi",
+      "proponent": "PT PLN Nusantara Power PLTMG Sumbagut 2 Peaker",
+      "activity_duration": "Oct 2025 - Oct 2025",
+      "registry_no": "SPE-10-PR-VI-2024-20755"
+    },
+    {
+      "id": "ebbb9a15-6f63-4f99-ae81-aa982b2c2805",
+      "activity": "Aksi Efisiensi Energi di Sektor Industri melalui Recovery Condenser Heat Pump untuk menaikkan temperatur Feed Water Boiler",
+      "sector": "Energi",
+      "proponent": "PT CHEIL JEDANG INDONESIA PASURUAN",
+      "activity_duration": "Jan 2024 - Dec 2030",
+      "registry_no": "VAL-11-PR-VIII-2025-7746"
+    },
+    {
+      "id": "b9e36c53-0871-4c8c-9dc3-4e097877338b",
+      "activity": "Konversi Dari Pembangkit Single Cycle Menjadi Combined Cycle (Add On) PLTGU Grati Blok 2",
+      "sector": "Energi",
+      "proponent": "PT PLN Indonesia Power",
+      "activity_duration": "Oct 2025 - Dec 2027",
+      "registry_no": "SPE-11-PR-VI-2024-22454"
+    },
+    {
+      "id": "a44ff129-cb25-4b73-879b-d7dfc9572cbb",
+      "activity": "Pengoperasian Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Priok Blok 4",
+      "sector": "Energi",
+      "proponent": "PT PLN Indonesia Power",
+      "activity_duration": "Oct 2025 - Jan 2028",
+      "registry_no": "SPE-11-PR-IV-2024-17421"
+    },
+    {
+      "id": "edda5dd0-97a1-479c-910a-08b5b6c7ee27",
+      "activity": "Pengoperasian Pembangkit Listrik Tenaga Air Minihidro (PLTM) Gunung Wugul",
+      "sector": "Energi",
+      "proponent": "PT PLN Indonesia Power",
+      "activity_duration": "Oct 2025 - Dec 2025",
+      "registry_no": "SPE-10-PR-X-2023-16887"
+    },
+    {
+      "id": "2eab05e0-7707-4f1c-9bb9-15df95a1a9b1",
+      "activity": "Pengoperasian Pembangkit Listrik Baru Berbahan Bakar Gas Bumi PLTGU Semarang Blok 3",
+      "sector": "Energi",
+      "proponent": "PT PLN Indonesia Power",
+      "activity_duration": "Jun 2024 - Jun 2031",
+      "registry_no": "VER-11-PR-VIII-2025-2922"
+    },
+    {
+      "id": "ab108506-809b-4dc6-8aaf-d01b65d93e46",
+      "activity": "Konversi dari pembangkit single cycle menjadi combined cycle Blok 2 PLN NP UP Muara Tawar",
+      "sector": "Energi",
+      "proponent": "PT. Pembangkitan Jawa Bali Unit Muara Tawar",
+      "activity_duration": "Oct 2025 - Dec 2043",
+      "registry_no": "SPE-11-PR-VI-2024-16141"
+    },
+    {
+      "id": "73ff03e8-41d5-44fd-a73e-b4482f24ae6b",
+      "activity": "Efisiensi Konsumsi Energi Steam Berbasis Natural Gas dan peningkatan produksi steam melalui pembuatan Economizer E-1203 Reborn (Double Compartment) pada pabrik SA II PT Petrokimia Gresik",
+      "sector": "Energi",
+      "proponent": "PT Petrokimia Gresik",
+      "activity_duration": "Mar 2022 - Mar 2028",
+      "registry_no": "VER-10-PR-XII-2024-24207"
+    },
+    {
+      "id": "27395212-e640-4876-8c16-85108d4f112c",
+      "activity": "Proyek Lahendong Unit 5  Unit 6 PT Pertamina Geothermal Energy Tbk",
+      "sector": "Energi",
+      "proponent": "PT PERTAMINA GEOTHERMAL ENERGY",
+      "activity_duration": "Oct 2025 - Aug 2026",
+      "registry_no": "SPE-10-PR-VI-2023-14464"
+    },
+    {
+      "id": "4b89839b-74f1-4738-a479-15c69bbf0e01",
+      "activity": "Pemanfaatan Limbah Pabrik Kelapa Sawit (POME) untuk Biogas Co-Firing",
+      "sector": "Pengelolaan Limbah",
+      "proponent": "PT Perkebunan Nusantara IV Regional 3",
+      "activity_duration": "Oct 2025 - Apr 2026",
+      "registry_no": "SPE-11-PR-IV-2024-18003"
+    }
+  ]
+}

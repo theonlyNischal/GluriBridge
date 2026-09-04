@@ -39,6 +39,39 @@ backend/data/raw/*
 backend/data/raw/brwa_profiles/*
 !backend/data/raw/brwa_profiles/wa_list.json
 
+# Same reasoning as brwa_profiles/wa_list.json above, found the same way
+# (2026-09-04, live Render deployment check): orchestrate.py's per-source
+# freshness readers (_freshness_sruk/_freshness_srn_ppi/_freshness_verra)
+# read fetched_at straight from these small files under the otherwise-
+# excluded raw scrape dirs — none of that ever reached GitHub, so a fresh
+# Render deploy always reported "Never fetched" for these 3 sources on
+# the Sync page, even though the actual candidate data (seeded from
+# exported_output_stage3/, which IS tracked) was genuinely fresh. Only
+# the small list/metadata files these specific functions read are
+# un-ignored below — not the bulky per-project raw_details/*.json dumps,
+# which stay excluded, still caught by the unnegated wildcards above them.
+# The verra/runs/2026-09-03/ path is this specific frozen run's date —
+# if a future scrape (after unfreezing, post-Demo Day) produces a new
+# run date, this line will need updating to match.
+!backend/data/raw/sruk/
+backend/data/raw/sruk/*
+!backend/data/raw/sruk/project_list/
+backend/data/raw/sruk/project_list/*
+!backend/data/raw/sruk/project_list/all_projects.json
+!backend/data/raw/srn_ppi/
+backend/data/raw/srn_ppi/*
+!backend/data/raw/srn_ppi/project_list/
+backend/data/raw/srn_ppi/project_list/*
+!backend/data/raw/srn_ppi/project_list/all_projects.json
+!backend/data/raw/verra/
+backend/data/raw/verra/*
+!backend/data/raw/verra/latest.txt
+!backend/data/raw/verra/runs/
+backend/data/raw/verra/runs/*
+!backend/data/raw/verra/runs/2026-09-03/
+backend/data/raw/verra/runs/2026-09-03/*
+!backend/data/raw/verra/runs/2026-09-03/meta.json
+
 # A scraper's OWN local working/staging directory (e.g.
 # backend/scrapers/verra/data/), before orchestrate.py's promotion step
 # copies the relevant parts into backend/data/raw/<source>/ above — a
