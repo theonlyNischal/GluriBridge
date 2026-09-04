@@ -65,6 +65,7 @@ from gluribridge.pipeline import run_pipeline, contact_has_preservable_data  # n
 from gluribridge.export import export_pipeline_result  # noqa: E402
 from gluribridge import news_matching                  # noqa: E402
 from gluribridge.tavily_client import TavilyClient      # noqa: E402
+from gluribridge.schema import UnifiedCandidateRecord, RegistrantContact  # noqa: E402
 
 DATA_RAW = os.path.join(REPO_ROOT, "data", "raw")
 SCRAPERS_ROOT = os.path.join(REPO_ROOT, "scrapers")
@@ -448,6 +449,72 @@ def _read_preserve_contacts_by_registry_key() -> dict:
     return out
 
 
+def _read_prior_thin_candidates() -> list:
+    """
+    Reconstructs every thin (news-only) candidate from the export we're
+    about to overwrite, so run_pipeline() can carry forward one that
+    isn't rediscovered by THIS round's live news search — see
+    run_pipeline()'s prior_thin_candidates docstring for why this
+    exists: CONFIRMED real property, 2026-09-04, caught by the user
+    ("shouldn't this only grow, not shrink?") — a thin candidate has no
+    registry_ids at all, so unlike a registry-sourced candidate it was
+    never durable to begin with; it only existed because a past live
+    search happened to surface it.
+
+    Deliberately reconstructs ONLY the fields a thin candidate actually
+    has on real data (see new_thin_candidate_from_hit() in
+    news_matching.py: identity is capped to name/org/country, no
+    documents, no carbon tracks, no BRWA evidence — confirmed against
+    real exported thin candidates before writing this, not assumed) —
+    NOT a general candidate deserializer, and not intended to become
+    one; a rich candidate is always recomputed fresh from its own
+    registry data every run, which stays correct and is NOT what this
+    reads. registrant_contact is reconstructed via RegistrantContact's
+    own field set directly (**dict, filtered to real dataclass fields)
+    rather than listed out by hand, so a thin candidate that picked up
+    real Tier B/C contact data in a later run carries all of it forward
+    too — this actually makes the existing registry-id-keyed contact
+    preservation moot for thin candidates specifically, since the WHOLE
+    record (not just its contact) is what's being carried forward here.
+
+    Returns [] on a first-ever run or a malformed/missing file — fails
+    open to "nothing to carry forward," never blocks the run itself.
+    """
+    details_path = os.path.join(EXPORT_DIR, "candidate_details.json")
+    if not os.path.exists(details_path):
+        return []
+    try:
+        details_by_id = _read_json(details_path)
+    except (OSError, json.JSONDecodeError):
+        return []
+    out = []
+    for detail in details_by_id.values():
+        identity = detail.get("identity") or {}
+        if identity.get("data_richness") != "thin":
+            continue
+        contact = detail.get("contact") or {}
+        rec = UnifiedCandidateRecord(
+            primary_source="news",
+            data_richness="thin",
+            verification_status=identity.get("verification_status") or "unverified",
+            name=identity.get("name"),
+            name_en=identity.get("name_en"),
+            org=identity.get("org"),
+            province=identity.get("province"),
+            district=identity.get("district"),
+            country=identity.get("country") or "ID",
+            sector=identity.get("sector"),
+            registrant_contact=RegistrantContact(
+                **{k: v for k, v in contact.items() if k in RegistrantContact.__dataclass_fields__}
+            ),
+        )
+        rec.merged_from = list((detail.get("identity_resolution") or {}).get("merge_history") or [])
+        rec.news_evidence = list(detail.get("news_evidence") or [])
+        rec.field_sources["name"] = {"source": "news", "source_tier": 4, "retrieved_at": None}
+        out.append(rec)
+    return out
+
+
 def get_tavily_api_key() -> str | None:
     """None when unset/blank — the one place every caller (routes.py's
     /stats and /refresh, this module) checks, so "is news enrichment
@@ -527,6 +594,13 @@ def run_normalization_and_export(freshness: dict, with_news: bool = False) -> di
         resolve_contacts_tier_b=used_news,
         source_freshness=freshness,
         preserve_contacts_by_registry_key=_read_preserve_contacts_by_registry_key(),
+        # Unconditional, NOT gated on with_news (2026-09-04) — this is
+        # exactly what protects a registry-only run (including the
+        # background scheduler's own automatic hourly tick, which never
+        # passes with_news=True) from silently dropping every thin
+        # candidate the way it always used to; see run_pipeline()'s own
+        # prior_thin_candidates docstring.
+        prior_thin_candidates=_read_prior_thin_candidates(),
     )
 
     export_summary = export_pipeline_result(result, output_dir=EXPORT_DIR)

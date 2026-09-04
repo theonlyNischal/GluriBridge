@@ -1377,3 +1377,40 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   hypothesis-tagged context sentence is hedged and a fact-tagged one is NOT surfaced in the same
   email; a second, folded into the existing West Seram case, proves a fact-tagged context sentence
   is stated plainly, unhedged, in both languages, using the real DRAM/DPP-absence example).
+- **Thin (news-only) candidates now persist across runs instead of silently disappearing —
+  caught by the user asking a genuinely good question**: "shouldn't the count only grow, not
+  shrink, once something's been discovered?" It doesn't, and the honest answer is architectural,
+  not a bug being fixed on the margins: `run_pipeline()` recomputes the ENTIRE candidate list from
+  scratch on every call. A registry-sourced candidate stays rediscoverable indefinitely because its
+  underlying registry listing still exists to be re-parsed; a thin candidate has NO registry_ids at
+  all — it only ever existed because a past run's independent live Tavily search happened to
+  surface it. If a later run's own search doesn't happen to re-surface the same article, that thin
+  candidate was never being tracked anywhere to begin with, so it just doesn't get recreated —
+  confirmed precisely by diffing two real committed exports: the registry-sourced ("rich") count
+  was byte-identical (130 in both), and the entire 149->143 swing that prompted the question was
+  100% the thin population (19->13).
+  Fixed with the same "carry forward from the prior export" pattern already used for Tier B/C
+  contacts, extended to whole candidate records this time: `orchestrate.py`'s new
+  `_read_prior_thin_candidates()` reconstructs every `data_richness='thin'` candidate from the
+  export about to be overwritten (deliberately scoped to thin candidates ONLY, not a general
+  deserializer — their real shape is capped: name/org/country, no documents, no carbon tracks, no
+  BRWA evidence, confirmed against real exported thin candidates before writing this) and
+  `run_pipeline()` gained a `prior_thin_candidates` param, seeded into the SAME matching pool a
+  hit created earlier in the same run can already be corroborated against — so a prior thin
+  candidate re-surfaced this round gets genuine new evidence added in place (never duplicated),
+  and one NOT re-surfaced is carried forward completely unchanged rather than silently vanishing.
+  Passed unconditionally, not gated on `with_news` — this is exactly what now also protects a
+  registry-only run (including the background scheduler's own automatic hourly tick, which never
+  passes `with_news=True`) from the same silent-drop behavior that caused three separate incidents
+  earlier this session. `pipeline_stats.json` gained `news_thin_candidates_carried_forward`,
+  tracked separately from `news_thin_candidates_created` so the latter keeps meaning "genuinely new
+  this run," not inflated by carried-forward ones. A useful side effect noted, not separately
+  fixed: since the WHOLE thin-candidate record is now carried forward (not just its contact via
+  registry_ids, which thin candidates never have), this actually covers Tier B/C contact
+  preservation for thin candidates too — a gap the registry-id-keyed mechanism could never reach.
+  Verified via a new, fully offline test (`test_thin_candidate_persistence.py`, no live Tavily
+  calls, same discipline as `test_news_matching.py`) proving all three real scenarios end to end:
+  a thin candidate NOT re-mentioned in a later run's search is carried forward unchanged; a
+  genuinely new one is still created fresh in the same run; a re-surfaced one is corroborated in
+  place (real new evidence added) and never duplicated into a second record. All 16 backend tests
+  pass (15 + this new one).

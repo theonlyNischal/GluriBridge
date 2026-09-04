@@ -178,7 +178,8 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
                   news_hits_override: dict = None, run_scoring: bool = True,
                   resolve_contacts_tier_b: bool = False, run_dossiers: bool = True,
                   source_freshness: dict = None, reference_date: date = None,
-                  preserve_contacts_by_registry_key: dict = None) -> PipelineResult:
+                  preserve_contacts_by_registry_key: dict = None,
+                  prior_thin_candidates: list = None) -> PipelineResult:
     """
     filter_test_data: drops candidates whose own name/org contains an
       explicit test/placeholder keyword ("uji coba", "dummy", "test",
@@ -266,6 +267,26 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
       inputs (this is how this function is validated in this environment).
     run_scoring: attaches scoring.score_candidate() output to every final
       candidate, keyed by candidate_id, in result.scores.
+    prior_thin_candidates: optional list of UnifiedCandidateRecord objects
+      (data_richness='thin') reconstructed from a PRIOR run's export —
+      see orchestrate.py's _read_prior_thin_candidates(). CONFIRMED real
+      property (2026-09-04, user-caught): this function recomputes every
+      candidate from scratch on every call, and unlike a registry-sourced
+      candidate (rediscoverable as long as the underlying registry
+      listing still exists), a thin candidate has no registry_ids at all
+      — it only ever existed because a past live news search happened to
+      surface it. Without this, a thin candidate found once but not
+      re-surfaced by a LATER independent live search simply never gets
+      recreated — not deleted, never made durable to begin with, since
+      each run's news search is fully independent of any other. When
+      provided, these are seeded into the SAME matching pool a fresh
+      hit can corroborate against (exactly like a thin candidate created
+      earlier in this same run already could) — so a prior thin
+      candidate re-surfaced this round gets genuinely NEW corroborating
+      evidence added, and one NOT re-surfaced this round is still
+      carried forward unchanged, rather than silently disappearing.
+      Defaults to None, in which case behavior is identical to before
+      this param existed.
     """
     reference_date = reference_date or date.today()
     result = PipelineResult()
@@ -432,10 +453,19 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
             except Exception as e:
                 result.errors.append((f"tavily:{q}", f"search failed: {e}"))
 
+    # Carried-forward thin candidates (2026-09-04 — see prior_thin_candidates
+    # docstring above) are seeded into the SAME matching pool new_thin_
+    # candidates already uses, so a fresh hit can corroborate one of them
+    # exactly like it already could corroborate a thin candidate created
+    # earlier in THIS run — no new matching logic needed. Tracked
+    # separately from new_thin_candidates so news_thin_candidates_created
+    # below keeps its existing meaning (genuinely NEW this run), not
+    # inflated by ones that were only ever carried forward unchanged.
+    carried_forward_thin = list(prior_thin_candidates or [])
     new_thin_candidates = []
     for query, hits in hits_by_query.items():
         for hit in hits:
-            action = process_hit(hit, query, final_candidates + new_thin_candidates)
+            action = process_hit(hit, query, final_candidates + carried_forward_thin + new_thin_candidates)
             result.news_actions.append({
                 "query": query, "action": action["action"],
                 "org_candidates": action["org_candidates"], "match_score": round(action["match_score"], 1),
@@ -446,6 +476,7 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
             elif action["action"] == "new_thin_candidate":
                 new_thin_candidates.append(new_thin_candidate_from_hit(action, query))
 
+    final_candidates.extend(carried_forward_thin)
     final_candidates.extend(new_thin_candidates)
 
     # --- Step 6b: Tier B contact resolution (opt-in — see docstring) ---
@@ -598,6 +629,7 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
         "news_queries_run": len(hits_by_query),
         "news_hits_processed": sum(len(h) for h in hits_by_query.values()),
         "news_thin_candidates_created": len(new_thin_candidates),
+        "news_thin_candidates_carried_forward": len(carried_forward_thin),
         "news_corroborations": sum(1 for a in result.news_actions if a["action"] == "corroborate"),
         "tier_b_contact_attempted": tier_b_attempted,
         "tier_b_contact_resolved": tier_b_resolved,
