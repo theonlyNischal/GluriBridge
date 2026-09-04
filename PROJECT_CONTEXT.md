@@ -1455,3 +1455,41 @@ a full consolidation is a real follow-up worth doing, not done here since it was
   valid signal for a pure client-side SPA route change (no new network request fires, so
   `networkidle` can resolve before React Router's own re-render commits); fixed by waiting on the
   URL itself changing instead, not networkidle. tsc clean, 0 console errors.
+- **EN/KO coverage extended to every real page** (2026-09-04) — previously scoped to nav/header
+  chrome + Dashboard + Landing (explicit choice, made with 2 days left at the time). Extended to
+  Candidates list, Candidate detail, Territory Discovery, Partnerships (Tracked), Sync (Registry),
+  and How this works — every page except Design System, deliberately left English-only (internal
+  component reference, never part of a real user's path). Built via 6 parallel subagents, each
+  given its own isolated git worktree (one per page — the shared `i18n.ts` file made true
+  concurrent editing unsafe otherwise) and identical, explicit instructions: translate only fixed
+  UI chrome, never real candidate/org names/registry IDs/provinces/document text, and — the
+  hardest boundary to hold correctly, especially on Candidate Detail — never backend-GENERATED
+  dynamic prose (need/credibility reasoning, compliance explanations, land-rights text, the
+  outreach draft's own real EN/ID content), since none of that has a Korean equivalent anywhere in
+  the system; when genuinely unsure whether a string was fixed chrome or dynamic data, default to
+  leaving it English and say so in the report rather than guess. Merged by hand afterward, not via
+  git merge: extracted each worktree's own new `STRINGS` entries (confirmed zero key collisions
+  across all 6 before combining — each used a distinct page-scoped prefix,
+  `territory.*`/`sync.*`/`candidatesList.*`/`tracked.*`/`howItWorks.*`/`candidateDetail.*`), combined
+  them into the real `i18n.ts`, then copied each agent's modified page/component file over directly
+  (zero cross-page file overlap by construction). New keys per page: territory 67, sync 54,
+  candidatesList 39 (+ a new `lang` prop threaded into `CandidateCardGrid.tsx`), tracked 18
+  (+ `StatusEditor.tsx` wired through), howItWorks 57, candidateDetail 101 — reusing established
+  terminology everywhere the same concept recurred (프로젝트 never 후보, the existing
+  activity-category convention, `score.opportunity`/`score.evidence`) rather than each page
+  inventing its own wording. Also fixed the Landing headline's own Korean along the way — the
+  original conjugated into a full sentence ("...검증합니다"), a different, more formal register
+  than the English original's own terse noun-fragment style ("found, scored, and evidence-checked");
+  rewritten as "인도네시아 실제 산림탄소 파트너 — 발굴, 평가, 증거 기반 검증." (산림탄소 solid,
+  matching real Korean forestry-carbon terminology like 산림탄소상쇄제도; "증거 기반 검증" rather
+  than the terser but ambiguous "증거 검증" alone, which could misread as "verifying the evidence"
+  rather than "verifying \[the partners] via evidence"). **Verified after the merge, deliberately
+  not trusting each worktree's own isolated self-report**: `tsc --noEmit` clean, a full production
+  build clean, all 16 backend tests pass (untouched by this frontend-only round, re-run anyway),
+  and a real browser sweep across all 9 routes × 3 widths (1280/1440/1600) × the EN→KO toggle —
+  zero console errors, zero horizontal overflow. One agent's own first self-report was caught
+  incomplete before being trusted (it stopped before actually running the `tsc` check it claimed
+  to be about to run) — resumed and required the real command's output before accepting. All 6
+  worktrees and their branches deleted after merging (reclaimed ~2.3GB — `node_modules` isn't
+  tracked in git, so each isolated worktree needed its own `npm install` to run `tsc`/`vite`
+  independently).
