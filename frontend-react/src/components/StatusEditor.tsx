@@ -2,7 +2,21 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import { HonestState } from "./ui/HonestState";
 import { StatusBadge, STATUS_OPTIONS } from "./ui/StatusBadge";
+import { useT, type StringKey } from "../lib/i18n";
 import type { CandidateStatusValue, StatusHistoryEntry, StatusUpdateResult } from "../lib/types";
+
+// Same local KO mirror of STATUS_OPTIONS' labels as TrackedPage.tsx (the
+// only page that renders this component — see the file comment below) —
+// reuses the generic status.* keys from i18n.ts rather than editing
+// StatusBadge.tsx, which the Candidates list/detail pages also depend on
+// for their own, still-English rendering.
+const STATUS_KEY: Record<CandidateStatusValue, StringKey> = {
+  not_contacted: "status.notContacted",
+  contacted: "status.contacted",
+  follow_up_needed: "status.followUpNeeded",
+  done: "status.done",
+  rejected: "status.rejected",
+};
 
 /**
  * THE full status selector + note field + history list — lives ONLY on
@@ -24,6 +38,7 @@ export function StatusEditor({
   history: StatusHistoryEntry[];
   onSaved: (updated: StatusUpdateResult) => void;
 }) {
+  const { t } = useT();
   const [draftStatus, setDraftStatus] = useState(status);
   const [draftNote, setDraftNote] = useState(note ?? "");
   const [busy, setBusy] = useState(false);
@@ -45,7 +60,7 @@ export function StatusEditor({
       const updated = await api.setStatus(candidateId, draftStatus, draftNote.trim() || undefined);
       onSaved(updated);
     } catch (err) {
-      alert("Failed to update status: " + (err instanceof Error ? err.message : String(err)));
+      alert(t("tracked.editor.failedToUpdate") + (err instanceof Error ? err.message : String(err)));
     } finally {
       setBusy(false);
     }
@@ -60,10 +75,10 @@ export function StatusEditor({
     // new fields.
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
       <div>
-        <h4 className="mb-3 text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">Update status</h4>
+        <h4 className="mb-3 text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">{t("tracked.editor.updateStatus")}</h4>
         <div className="instrument-panel space-y-4 border border-stone-300 bg-stone-50 p-5">
           <div>
-            <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-stone-500">Status</label>
+            <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-stone-500">{t("tracked.editor.statusLabel")}</label>
             <select
               value={draftStatus}
               onChange={(e) => setDraftStatus(e.target.value as CandidateStatusValue)}
@@ -71,17 +86,17 @@ export function StatusEditor({
             >
               {STATUS_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>
-                  {o.label}
+                  {t(STATUS_KEY[o.value])}
                 </option>
               ))}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-stone-500">Note (optional)</label>
+            <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-stone-500">{t("tracked.editor.noteLabel")}</label>
             <textarea
               value={draftNote}
               onChange={(e) => setDraftNote(e.target.value)}
-              placeholder="e.g. Waiting on their Monitoring & Verification (MRV) team to respond"
+              placeholder={t("tracked.editor.notePlaceholder")}
               rows={3}
               className="w-full resize-y rounded-lg border border-stone-300 bg-white px-3 py-2 text-[13.5px] focus:border-forest-500 focus:outline-none"
             />
@@ -91,7 +106,7 @@ export function StatusEditor({
             disabled={busy || !dirty}
             className="w-full rounded-lg bg-forest-600 px-4 py-2 text-[13px] font-semibold text-white transition hover:bg-forest-700 disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {busy ? "Saving…" : "Save"}
+            {busy ? t("tracked.editor.saving") : t("tracked.editor.save")}
           </button>
         </div>
       </div>
@@ -101,10 +116,10 @@ export function StatusEditor({
           status_changed_at. Empty state uses the same HonestState pattern
           as everywhere else in this app. */}
       <div>
-        <h4 className="mb-3 text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">Status history</h4>
+        <h4 className="mb-3 text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">{t("tracked.editor.statusHistory")}</h4>
         <div className="instrument-panel border border-stone-300 bg-stone-50 p-5">
           {history.length === 0 ? (
-            <HonestState kind="not_checked" label="No status changes recorded yet" compact />
+            <HonestState kind="not_checked" label={t("tracked.editor.noHistory")} compact />
           ) : (
             <ol className="space-y-3">
               {[...history].reverse().map((h, i) => (

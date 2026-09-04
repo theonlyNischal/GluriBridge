@@ -28,7 +28,7 @@ import { api } from "../lib/api";
 import { useCandidates } from "../lib/CandidatesContext";
 import { fmtScore, POLICY_TIER_LABEL, MATCH_STATUS_LABEL, LAND_RIGHTS_CATEGORY_LABEL, VERIFICATION_STATUS_LABEL } from "../lib/format";
 import { applyCandidateFilter, searchParamsToFilterParams } from "../lib/candidateFilter";
-import { PROVINCE_NOT_AVAILABLE } from "../lib/provinceNormalize";
+import { useT, type StringKey } from "../lib/i18n";
 import type { CandidateDetail, DocumentRef } from "../lib/types";
 import { Panel } from "../components/ui/Panel";
 import { RichnessBadge, SourceBadge } from "../components/ui/Badge";
@@ -54,24 +54,84 @@ function isTab(v: string | null): v is Tab {
   return v !== null && (TABS as readonly string[]).includes(v);
 }
 
-type RailSection = { id: string; label: string; tab: Tab | null };
+type RailSection = { id: string; labelKey: StringKey; tab: Tab | null };
 
 // The page's real sections, in real page order. `tab: null` sections are
 // always mounted (hero, scores); everything else only actually exists in
 // the DOM while its own tab is selected, so a click on one of those first
 // switches to that tab, then scrolls — never jumps to something that
 // isn't really there yet.
+//
+// `labelKey` (2026-09-04, EN/KO coverage) — these are module-level
+// constants, outside any component, so they store a STRING KEY rather
+// than the resolved text itself (no hook context available here); the
+// rail/tabs bar resolve it to real text via t() at render time, inside
+// the component.
 const RAIL_SECTIONS: RailSection[] = [
-  { id: "sec-hero", label: "Why Contact First", tab: null },
-  { id: "sec-scores", label: "Scores", tab: null },
-  { id: "sec-land-rights", label: "Land Rights", tab: "overview" },
-  { id: "sec-documents", label: "Documents", tab: "overview" },
-  { id: "sec-evidence", label: "Evidence", tab: "overview" },
-  { id: "sec-compliance", label: "Compliance", tab: "compliance" },
-  { id: "sec-dossier", label: "Dossier", tab: "dossier" },
-  { id: "sec-contact", label: "Contact", tab: "dossier" },
-  { id: "sec-outreach", label: "Outreach", tab: "outreach" },
+  { id: "sec-hero", labelKey: "candidateDetail.section.whyContactFirst", tab: null },
+  { id: "sec-scores", labelKey: "candidateDetail.section.scores", tab: null },
+  { id: "sec-land-rights", labelKey: "candidateDetail.section.landRights", tab: "overview" },
+  { id: "sec-documents", labelKey: "candidateDetail.section.documents", tab: "overview" },
+  { id: "sec-evidence", labelKey: "candidateDetail.section.evidence", tab: "overview" },
+  { id: "sec-compliance", labelKey: "candidateDetail.section.compliance", tab: "compliance" },
+  { id: "sec-dossier", labelKey: "candidateDetail.section.dossier", tab: "dossier" },
+  { id: "sec-contact", labelKey: "candidateDetail.section.contact", tab: "dossier" },
+  { id: "sec-outreach", labelKey: "candidateDetail.section.outreach", tab: "outreach" },
 ];
+
+// Tabs-bar label per tab (2026-09-04) — "overview" has no matching rail
+// section by the same name (its rail entries are the finer Land Rights/
+// Documents/Evidence split), so it gets its own key; the other three
+// reuse the EXACT SAME key as their rail entry above, so the tabs bar and
+// the rail always show the identical word for the identical section.
+const TAB_LABEL_KEY: Record<Tab, StringKey> = {
+  overview: "candidateDetail.tab.overview",
+  compliance: "candidateDetail.section.compliance",
+  dossier: "candidateDetail.section.dossier",
+  outreach: "candidateDetail.section.outreach",
+};
+
+// Page-scoped Korean mirror of format.ts's English-only label maps
+// (2026-09-04) — format.ts itself stays English-only/unchanged (other
+// pages import it directly and must keep rendering exactly as before);
+// this page looks up its own key alongside the existing English map at
+// each render call site, via the koLabel() helper below. Partial<> since
+// only the real schema values format.ts's own maps already cover need an
+// entry — an unmapped raw value falls through to format.ts's own
+// existing English fallback (usually `.replace(/_/g, " ")`), unchanged.
+const VERIFICATION_STATUS_KO_KEY: Partial<Record<string, StringKey>> = {
+  registry_confirmed: "candidateDetail.verificationStatus.registryConfirmed",
+};
+const LAND_RIGHTS_CATEGORY_KO_KEY: Partial<Record<string, StringKey>> = {
+  PBPH: "candidateDetail.landRightsCategory.PBPH",
+  perhutanan_sosial: "candidateDetail.landRightsCategory.perhutananSosial",
+  hutan_adat: "candidateDetail.landRightsCategory.hutanAdat",
+  hutan_hak: "candidateDetail.landRightsCategory.hutanHak",
+  PB_PJL_karbon: "candidateDetail.landRightsCategory.pbPjlKarbon",
+};
+const POLICY_TIER_KO_KEY: Partial<Record<string, StringKey>> = {
+  penetapan: "candidateDetail.policyTier.penetapan",
+  pengaturan: "candidateDetail.policyTier.pengaturan",
+  belum_ada: "candidateDetail.policyTier.belumAda",
+};
+const MATCH_STATUS_KO_KEY: Partial<Record<string, StringKey>> = {
+  primary: "candidateDetail.matchStatus.primary",
+  auto_merged: "candidateDetail.matchStatus.autoMerged",
+};
+
+// Resolves one of format.ts's raw-value -> English-label maps to Korean
+// when uiLang is "ko" and a Korean key exists for that raw value;
+// otherwise returns `enText` UNCHANGED — so the "en" branch is always the
+// exact original expression (format.ts's own map lookup + its own
+// fallback), never a new/different EN code path. This is what keeps EN
+// rendering byte-identical to before this change.
+function koLabel(raw: string, koMap: Partial<Record<string, StringKey>>, enText: string, uiLang: "en" | "ko", t: (key: StringKey) => string): string {
+  if (uiLang === "ko") {
+    const key = koMap[raw];
+    if (key) return t(key);
+  }
+  return enText;
+}
 
 // The section each top TABS-bar button jumps to — 2026-08-31 fix. The
 // tabs bar used to just call setTab(t) directly, a SEPARATE code path
@@ -318,8 +378,15 @@ export function CandidateDetailPage() {
     navigate(`/candidates/${targetId}?${sp.toString()}`);
   }
 
-  if (error) return <div className="p-8 text-clay-700">Failed to load candidate: {error}</div>;
-  if (!rec) return <div className="p-8 text-stone-400">Loading…</div>;
+  // Renamed to `uiLang` (2026-09-04) — this page already has its own
+  // local `lang` state above for the Outreach draft's EN/ID toggle (a
+  // completely separate axis: which language the backend-generated email
+  // draft renders in, never touched by this change). `uiLang` is this
+  // page's OWN UI chrome language, from the app-wide language context.
+  const { t, lang: uiLang } = useT();
+
+  if (error) return <div className="p-8 text-clay-700">{t("candidateDetail.error.failedToLoad").replace("{error}", error)}</div>;
+  if (!rec) return <div className="p-8 text-stone-400">{t("candidateDetail.loading")}</div>;
 
   const { identity, scoring, land_rights, location, identity_resolution, documents, news_evidence, dossier, outreach, status, activity_type, contact } = rec;
   const ids = identity.registry_ids;
@@ -334,9 +401,9 @@ export function CandidateDetailPage() {
   // credible/precise here than a long plain-language prefix would. The
   // plain name is threaded through as `plainLabel` for the tooltip instead.
   const idBits: { label: string; plainLabel: string; value: string; url: string | null }[] = [
-    ids.sruk_registry_no && { label: "SRUK", plainLabel: "Carbon Registry", value: ids.sruk_registry_no, url: urls.sruk },
-    ids.srn_ppi_registry_no && { label: "SRN-PPI", plainLabel: "Climate Registry", value: ids.srn_ppi_registry_no, url: urls.srn_ppi },
-    ids.verra_project_id && { label: "Verra", plainLabel: "International Registry", value: ids.verra_project_id, url: urls.verra },
+    ids.sruk_registry_no && { label: "SRUK", plainLabel: t("candidateDetail.tracking.carbonRegistry"), value: ids.sruk_registry_no, url: urls.sruk },
+    ids.srn_ppi_registry_no && { label: "SRN-PPI", plainLabel: t("candidateDetail.tracking.climateRegistry"), value: ids.srn_ppi_registry_no, url: urls.srn_ppi },
+    ids.verra_project_id && { label: "Verra", plainLabel: t("candidateDetail.tracking.internationalRegistry"), value: ids.verra_project_id, url: urls.verra },
   ].filter((x): x is { label: string; plainLabel: string; value: string; url: string | null } => Boolean(x));
   const sources = [...new Set(identity_resolution.merge_history.map((m) => m.source))];
 
@@ -356,7 +423,7 @@ export function CandidateDetailPage() {
             Link, not history-back — predictable regardless of how this
             page was reached (row click, a deep link, a bookmark). */}
         <Link to={backHref} className="inline-flex items-center gap-1.5 text-[13px] font-medium text-stone-500 hover:text-forest-700">
-          <ArrowLeft size={14} /> Back to candidates
+          <ArrowLeft size={14} /> {t("candidateDetail.nav.backToCandidates")}
         </Link>
 
         {/* Prev/next through the exact filtered+sorted set the user was
@@ -368,12 +435,18 @@ export function CandidateDetailPage() {
         {orderedSet.length > 0 && currentIndex >= 0 && (
           <div className="flex items-center gap-2 text-[12.5px] text-stone-500">
             <span className="font-mono tabular">
-              {currentIndex + 1} of {orderedSet.length}
+              {uiLang === "ko"
+                ? t("candidateDetail.nav.ofCount").replace("{a}", String(currentIndex + 1)).replace("{b}", String(orderedSet.length))
+                : `${currentIndex + 1} of ${orderedSet.length}`}
             </span>
             <button
               onClick={() => prevRow && goToSibling(prevRow.candidate_id)}
               disabled={!prevRow}
-              title={prevRow ? `Previous: ${prevRow.name}` : "No previous candidate in this filtered view"}
+              title={
+                prevRow
+                  ? t("candidateDetail.nav.previous").replace("{name}", prevRow.name)
+                  : t("candidateDetail.nav.noPrevious")
+              }
               className="rounded p-1 hover:bg-stone-100 disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ChevronLeft size={16} />
@@ -381,7 +454,11 @@ export function CandidateDetailPage() {
             <button
               onClick={() => nextRow && goToSibling(nextRow.candidate_id)}
               disabled={!nextRow}
-              title={nextRow ? `Next: ${nextRow.name}` : "No next candidate in this filtered view"}
+              title={
+                nextRow
+                  ? t("candidateDetail.nav.next").replace("{name}", nextRow.name)
+                  : t("candidateDetail.nav.noNext")
+              }
               className="rounded p-1 hover:bg-stone-100 disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ChevronRight size={16} />
@@ -420,7 +497,7 @@ export function CandidateDetailPage() {
         <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
           <span className="inline-flex items-center gap-1 whitespace-nowrap rounded bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600">
             <MapPin size={11} />
-            {identity.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
+            {identity.province ?? <HonestState kind="no_data" label={t("province.notAvailable")} compact />}
             {identity.district ? ` · ${identity.district}` : ""}
           </span>
           {/* compact (2026-08-31 fix) — this badge row sits right below
@@ -462,22 +539,22 @@ export function CandidateDetailPage() {
             visual element is "why contact this candidate", not the raw
             numbers — but the two cards remain identical to each other. */}
         <div id="sec-scores" className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-          <ScoreStatCard axis="need" label="Opportunity" value={scoring.need_score} accent="clay" icon={Target}>
-            <ReasonList reasons={scoring.need_detection_reasons} emptyText="No documentation gap detected." kind="need" citationDisplay="popover" />
+          <ScoreStatCard axis="need" label={t("score.opportunity")} value={scoring.need_score} accent="clay" icon={Target}>
+            <ReasonList reasons={scoring.need_detection_reasons} emptyText={t("candidateDetail.need.noGapDetected")} kind="need" citationDisplay="popover" />
           </ScoreStatCard>
           <ScoreStatCard
             axis="credibility"
-            label="Evidence Strength"
+            label={t("score.evidence")}
             value={scoring.credibility_score}
             capped={scoring.credibility_capped}
-            cappedReason="Capped at 30 — this candidate's data is thin (e.g. a single uncorroborated news mention), so a higher score isn't trustworthy enough to show uncapped."
+            cappedReason={t("candidateDetail.credibility.cappedReason")}
             accent="forest"
             icon={ShieldCheck}
           >
-            <ScoreComponentBar label="Registry status" component={scoring.credibility_components.registry_status} />
-            <ScoreComponentBar label="Land rights" component={scoring.credibility_components.land_rights} />
-            <ScoreComponentBar label="Location Verified" title="Geospatial" component={scoring.credibility_components.geospatial} />
-            <ScoreComponentBar label="Contact Found" title="Contactability" component={scoring.credibility_components.contactability} />
+            <ScoreComponentBar label={t("candidateDetail.credibility.registryStatus")} component={scoring.credibility_components.registry_status} />
+            <ScoreComponentBar label={t("candidateDetail.panel.landRights")} component={scoring.credibility_components.land_rights} />
+            <ScoreComponentBar label={t("candidateDetail.credibility.locationVerified")} title={t("candidateDetail.credibility.geospatial")} component={scoring.credibility_components.geospatial} />
+            <ScoreComponentBar label={t("candidateDetail.credibility.contactFound")} title={t("candidateDetail.credibility.contactability")} component={scoring.credibility_components.contactability} />
           </ScoreStatCard>
         </div>
 
@@ -492,7 +569,13 @@ export function CandidateDetailPage() {
               (lib/format.ts); "unverified" falls back to its old raw-replace
               rendering unchanged, since it wasn't part of this round's ask. */}
           <span title={identity.verification_status.replace(/_/g, " ")} className="rounded bg-stone-100 px-2 py-0.5 text-[11px] font-semibold capitalize text-stone-500">
-            {VERIFICATION_STATUS_LABEL[identity.verification_status] ?? identity.verification_status.replace(/_/g, " ")}
+            {koLabel(
+              identity.verification_status,
+              VERIFICATION_STATUS_KO_KEY,
+              VERIFICATION_STATUS_LABEL[identity.verification_status] ?? identity.verification_status.replace(/_/g, " "),
+              uiLang,
+              t
+            )}
           </span>
         </div>
 
@@ -510,20 +593,24 @@ export function CandidateDetailPage() {
           page (the rail's own active-pill treatment, ComplianceBadge,
           ScoreLabelPill), no new colors introduced. */}
       <div className="mt-4 flex gap-1 rounded-lg border border-stone-200 bg-stone-100 p-1">
-        {TABS.map((t) => (
+        {/* Loop var renamed tabKey (2026-09-04, was `t`) — this page's
+            translate function is also called `t` (useT() above); the old
+            `TABS.map((t) => ...)` shadowed it inside this block, which
+            would have silently broken every t() call added below it. */}
+        {TABS.map((tabKey) => (
           <button
-            key={t}
+            key={tabKey}
             // Calls the EXACT SAME jump() the rail uses (2026-08-31 fix),
             // targeting this tab's own designated entry section, instead
             // of a bare setTab(t) — see TAB_ENTRY_SECTION's comment for
             // why the two need to be identical, not just both writing
             // the same `tab` state.
-            onClick={() => jump(RAIL_SECTIONS.find((s) => s.id === TAB_ENTRY_SECTION[t])!)}
+            onClick={() => jump(RAIL_SECTIONS.find((s) => s.id === TAB_ENTRY_SECTION[tabKey])!)}
             className={`flex-1 rounded-md px-4 py-2 text-[13px] font-semibold capitalize transition ${
-              tab === t ? "bg-white text-forest-700 shadow-sm" : "text-stone-500 hover:text-stone-700"
+              tab === tabKey ? "bg-white text-forest-700 shadow-sm" : "text-stone-500 hover:text-stone-700"
             }`}
           >
-            {t}
+            {t(TAB_LABEL_KEY[tabKey])}
           </button>
         ))}
       </div>
@@ -531,11 +618,11 @@ export function CandidateDetailPage() {
       {/* ---------- overview ---------- */}
       {tab === "overview" && (
         <div className="mt-4 space-y-4">
-          <Panel id="sec-land-rights" title="Land rights" className="!p-4" variant="instrument">
+          <Panel id="sec-land-rights" title={t("candidateDetail.panel.landRights")} className="!p-4" variant="instrument">
             <div className="space-y-3">
               {land_rights.land_rights_category ? (
                 <div className="rounded-lg border border-forest-200 bg-forest-50 px-3.5 py-2.5">
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-forest-600">Formal land-rights category on file</div>
+                  <div className="text-[11px] font-semibold uppercase tracking-wide text-forest-600">{t("candidateDetail.landRights.formalCategoryHeading")}</div>
                   <div className="mt-1 flex items-baseline gap-2">
                     {/* Terminology pass (2026-09-02): the 5 real
                         land_rights_category values (PBPH/perhutanan_sosial/
@@ -546,11 +633,17 @@ export function CandidateDetailPage() {
                       title={land_rights.land_rights_category.replace(/_/g, " ")}
                       className="text-[14px] font-medium capitalize text-forest-800"
                     >
-                      {LAND_RIGHTS_CATEGORY_LABEL[land_rights.land_rights_category] ?? land_rights.land_rights_category.replace(/_/g, " ")}
+                      {koLabel(
+                        land_rights.land_rights_category,
+                        LAND_RIGHTS_CATEGORY_KO_KEY,
+                        LAND_RIGHTS_CATEGORY_LABEL[land_rights.land_rights_category] ?? land_rights.land_rights_category.replace(/_/g, " "),
+                        uiLang,
+                        t
+                      )}
                     </span>
                     {land_rights.brwa_overlap && (
                       <span className="text-[12px] text-forest-700">
-                        via{" "}
+                        {t("candidateDetail.landRights.via")}{" "}
                         {land_rights.brwa_overlap.territory_source_url ? (
                           <a href={land_rights.brwa_overlap.territory_source_url} target="_blank" rel="noopener noreferrer" className="underline decoration-forest-300 underline-offset-2 hover:text-forest-900">
                             {land_rights.brwa_overlap.territory_name} ↗
@@ -573,15 +666,15 @@ export function CandidateDetailPage() {
                     </ul>
                   ) : (
                     <div className="mt-2">
-                      <HonestState kind="no_source" label="no decree document on file for this category" compact />
+                      <HonestState kind="no_source" label={t("candidateDetail.landRights.noDecreeDocument")} compact />
                     </div>
                   )}
                 </div>
               ) : land_rights.brwa_overlap ? (
                 <div className="rounded-lg border border-teal-200 bg-teal-50 px-3.5 py-2.5">
-                  <div title="BRWA spatial overlap" className="text-[11px] font-semibold uppercase tracking-wide text-teal-700">Customary Territory Overlap found (no formal category classified yet)</div>
+                  <div title="BRWA spatial overlap" className="text-[11px] font-semibold uppercase tracking-wide text-teal-700">{t("candidateDetail.landRights.overlapFoundHeading")}</div>
                   <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-[13px]">
-                    <dt className="text-stone-500">Territory</dt>
+                    <dt className="text-stone-500">{t("candidateDetail.landRights.territory")}</dt>
                     <dd className="text-stone-800">
                       {land_rights.brwa_overlap.territory_source_url ? (
                         <a href={land_rights.brwa_overlap.territory_source_url} target="_blank" rel="noopener noreferrer" className="text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-900">
@@ -591,34 +684,42 @@ export function CandidateDetailPage() {
                         land_rights.brwa_overlap.territory_name
                       )}
                     </dd>
-                    <dt className="text-stone-500">Relationship</dt>
+                    <dt className="text-stone-500">{t("candidateDetail.landRights.relationship")}</dt>
                     <dd className="text-stone-800 capitalize">
                       {land_rights.brwa_overlap.relationship} ({land_rights.brwa_overlap.distance_km} km)
                     </dd>
-                    <dt className="text-stone-500">Legal recognition status</dt>
-                    <dd className="text-stone-800">{POLICY_TIER_LABEL[land_rights.brwa_overlap.policy_tier] ?? land_rights.brwa_overlap.policy_tier}</dd>
+                    <dt className="text-stone-500">{t("candidateDetail.landRights.legalRecognitionStatus")}</dt>
+                    <dd className="text-stone-800">
+                      {koLabel(
+                        land_rights.brwa_overlap.policy_tier,
+                        POLICY_TIER_KO_KEY,
+                        POLICY_TIER_LABEL[land_rights.brwa_overlap.policy_tier] ?? land_rights.brwa_overlap.policy_tier,
+                        uiLang,
+                        t
+                      )}
+                    </dd>
                   </dl>
                 </div>
               ) : (
                 <HonestState
                   kind="not_checked"
-                  label="Not yet checked"
+                  label={t("candidateDetail.landRights.notYetChecked")}
                   compact
-                  title='No coordinates on file to test against Customary Territory Registry (BRWA) data — this is not the same as "no overlap found."'
+                  title={t("candidateDetail.landRights.notYetCheckedTitle")}
                 />
               )}
               <TerritoryMap latitude={location.latitude} longitude={location.longitude} geoFlaggedReason={location.geo_flagged_reason} brwaOverlap={land_rights.brwa_overlap} />
             </div>
           </Panel>
 
-          <Panel title="Identity resolution" className="!p-4" variant="instrument">
+          <Panel title={t("candidateDetail.panel.identityResolution")} className="!p-4" variant="instrument">
             <div className="divide-y divide-stone-100">
               {identity_resolution.merge_history.map((m, i) => (
                 <div key={i} className="flex items-center gap-3 py-1.5 text-[13px]">
                   <SourceBadge source={m.source} />
                   <span className="text-stone-500">
-                    {MATCH_STATUS_LABEL[m.match_status] ?? m.match_status}
-                    {m.match_score !== undefined && <> · score {fmtScore(m.match_score)}</>}
+                    {koLabel(m.match_status, MATCH_STATUS_KO_KEY, MATCH_STATUS_LABEL[m.match_status] ?? m.match_status, uiLang, t)}
+                    {m.match_score !== undefined && <> · {t("candidateDetail.identityResolution.score")} {fmtScore(m.match_score)}</>}
                   </span>
                 </div>
               ))}
@@ -628,7 +729,7 @@ export function CandidateDetailPage() {
           {documents.length > 0 && <DocumentsPanel documents={documents} expanded={docsExpanded} onToggle={() => setDocsExpanded((v) => !v)} />}
 
           {news_evidence.length > 0 && (
-            <Panel id="sec-evidence" title={`News evidence (${news_evidence.length})`} className="!p-4" variant="instrument">
+            <Panel id="sec-evidence" title={t("candidateDetail.panel.newsEvidenceCount").replace("{n}", String(news_evidence.length))} className="!p-4" variant="instrument">
               <ul className="space-y-2">
                 {news_evidence.map((n, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px]">
@@ -636,7 +737,7 @@ export function CandidateDetailPage() {
                     <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-stone-700 hover:text-teal-900">
                       {n.title}
                     </a>
-                    <span className="font-mono text-[11px] text-stone-400">match {fmtScore(n.match_score)}</span>
+                    <span className="font-mono text-[11px] text-stone-400">{t("candidateDetail.news.match")} {fmtScore(n.match_score)}</span>
                   </li>
                 ))}
               </ul>
@@ -651,10 +752,15 @@ export function CandidateDetailPage() {
           {scoring.compliance.deadline && (
             <div className="rounded-xl border border-compliance-amber/30 bg-compliance-amberBg p-4 text-center">
               <div className="font-mono text-figure text-compliance-amber">{scoring.compliance.days_until_deadline}</div>
-              <div title="Permenhut 6/2026 Pasal 61" className="mt-1 text-[13px] text-stone-600">days remaining until {scoring.compliance.deadline} (Forestry-Carbon Regulation, Reporting Deadline)</div>
+              {/* "Permenhut 6/2026 Pasal 61" (title attr) is a real Indonesian
+                  legal citation — kept verbatim/untranslated, same as every
+                  other Pasal reference on this page. */}
+              <div title="Permenhut 6/2026 Pasal 61" className="mt-1 text-[13px] text-stone-600">
+                {t("candidateDetail.compliance.daysRemainingUntil").replace("{date}", scoring.compliance.deadline)}
+              </div>
             </div>
           )}
-          <Panel title="Compliance (Forestry-Carbon Regulation)" className="!p-4" variant="instrument">
+          <Panel title={t("candidateDetail.compliance.panelTitle")} className="!p-4" variant="instrument">
             <div className="space-y-3">
               <ComplianceRuleRow rule_id={scoring.compliance.rule_id} badge={scoring.compliance.badge} reason={scoring.compliance.reason} primary />
               {scoring.compliance.other_rules.map((r, i) => (
@@ -675,10 +781,9 @@ export function CandidateDetailPage() {
               one deliberate click further away, via a de-emphasized text
               link rather than a second bordered section. */}
           <p className="text-[12px] leading-relaxed text-stone-400">
-            {scoring.compliance.not_wired_rules.length} additional Forestry-Carbon Regulation rules exist but aren't yet computable from available data — mostly
-            regulations that bind the Ministry directly, or require fields not yet normalized.{" "}
+            {t("candidateDetail.compliance.additionalRulesNote").replace("{n}", String(scoring.compliance.not_wired_rules.length))}{" "}
             <button onClick={() => setNotWiredExpanded((v) => !v)} className="font-medium text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-forest-700">
-              {notWiredExpanded ? "Hide" : "Show"} full rule coverage
+              {notWiredExpanded ? t("candidateDetail.compliance.hideFullRuleCoverage") : t("candidateDetail.compliance.showFullRuleCoverage")}
             </button>
           </p>
           {notWiredExpanded && (
@@ -686,9 +791,9 @@ export function CandidateDetailPage() {
               {scoring.compliance.not_wired_rules.map((r) => (
                 <li key={r.rule_id} className="flex items-center gap-3 text-[12.5px]">
                   {r.pasal !== "-" && <span className="shrink-0 whitespace-nowrap rounded bg-stone-100 px-1.5 py-0.5 font-mono text-[10.5px] text-stone-500">{r.pasal}</span>}
-                  <span className="text-stone-400 italic">Not wired</span>
+                  <span className="text-stone-400 italic">{t("candidateDetail.compliance.notWired")}</span>
                   <InfoPopover>
-                    <div className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Why</div>
+                    <div className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">{t("candidateDetail.compliance.why")}</div>
                     <p className="mt-1 text-stone-700">{r.reason}</p>
                   </InfoPopover>
                 </li>
@@ -701,11 +806,11 @@ export function CandidateDetailPage() {
       {/* ---------- dossier ---------- */}
       {tab === "dossier" && (
         <div className="mt-4 space-y-4">
-          <Panel id="sec-dossier" title="Why Gluri" className="!p-4" variant="instrument">
+          <Panel id="sec-dossier" title={t("candidateDetail.dossier.whyGluri")} className="!p-4" variant="instrument">
             <ReasonList reasons={dossier.structured.why_gluri} kind="need" />
           </Panel>
           {dossier.structured.land_and_regulatory && (
-            <Panel title="Land & regulatory position" className="!p-4" variant="instrument">
+            <Panel title={t("candidateDetail.dossier.landRegulatoryPosition")} className="!p-4" variant="instrument">
               <div className="flex items-start justify-between gap-3">
                 <p className="text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.land_rights_text}</p>
                 <CitationLink citation={dossier.structured.land_and_regulatory.land_rights_citation} />
@@ -713,7 +818,7 @@ export function CandidateDetailPage() {
               <p className="mt-2 text-[13.5px] text-stone-700">{dossier.structured.land_and_regulatory.compliance_text}</p>
             </Panel>
           )}
-          <Panel id="sec-contact" title="Contact route" className="!p-4" variant="instrument">
+          <Panel id="sec-contact" title={t("candidateDetail.dossier.contactRoute")} className="!p-4" variant="instrument">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.contact_route}</p>
             {/* Phone/WhatsApp (2026-09-01) — a real, direct contact channel,
                 shown the same way as the contact route above. general_office_line
@@ -728,14 +833,14 @@ export function CandidateDetailPage() {
                 <Phone size={14} className="shrink-0 text-stone-400" aria-hidden />
                 <span>{contact.phone}</span>
                 {contact.phone_confidence === "general_office_line" && (
-                  <span title="General office line" className="rounded bg-stone-100 px-1.5 py-0.5 text-[10.5px] font-medium uppercase tracking-wide text-stone-500">
-                    Main Office
+                  <span title={t("candidateDetail.dossier.generalOfficeLine")} className="rounded bg-stone-100 px-1.5 py-0.5 text-[10.5px] font-medium uppercase tracking-wide text-stone-500">
+                    {t("candidateDetail.dossier.mainOffice")}
                   </span>
                 )}
               </div>
             )}
           </Panel>
-          <Panel title="Suggested point of contact" className="!p-4" variant="instrument">
+          <Panel title={t("candidateDetail.dossier.suggestedPoc")} className="!p-4" variant="instrument">
             <p className="text-[13.5px] text-stone-700">{dossier.structured.suggested_poc}</p>
           </Panel>
           {/* Public presence (2026-09-01) — deliberately its own panel, never
@@ -743,14 +848,17 @@ export function CandidateDetailPage() {
               Instagram is a place to find the org, not a way to message them
               directly. Omitted entirely when none of the three are on file. */}
           {(contact?.website_url || contact?.facebook_url || contact?.instagram_handle) && (
-            <Panel title="Public presence" className="!p-4" variant="instrument">
-              <p className="mb-2 text-[12px] italic text-stone-500">Where to find them online — not a direct contact channel.</p>
+            <Panel title={t("candidateDetail.dossier.publicPresence")} className="!p-4" variant="instrument">
+              <p className="mb-2 text-[12px] italic text-stone-500">{t("candidateDetail.dossier.publicPresenceNote")}</p>
               <div className="flex flex-wrap gap-4 text-[13px]">
                 {contact?.website_url && (
                   <a href={contact.website_url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-forest-700 hover:underline">
-                    <Globe size={14} aria-hidden /> Website
+                    <Globe size={14} aria-hidden /> {t("candidateDetail.dossier.website")}
                   </a>
                 )}
+                {/* Facebook/Instagram — real platform brand names, left
+                    untranslated (same discipline as SRUK/BRWA/Verra
+                    elsewhere: a proper noun, not UI copy). */}
                 {contact?.facebook_url && (
                   <a href={contact.facebook_url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-forest-700 hover:underline">
                     <Link2 size={14} aria-hidden /> Facebook
@@ -765,12 +873,12 @@ export function CandidateDetailPage() {
             </Panel>
           )}
           {dossier.structured.dpp_validation_proxy.length > 0 && (
-            <Panel title="Project Document (DPP) validation proxy (unscored evidence — not a compliance check)" className="!p-4" variant="instrument">
+            <Panel title={t("candidateDetail.dossier.dppValidationTitle")} className="!p-4" variant="instrument">
               <ReasonList reasons={dossier.structured.dpp_validation_proxy} />
             </Panel>
           )}
           {dossier.structured.next_questions.length > 0 && (
-            <Panel title="Next questions" className="!p-4" variant="instrument">
+            <Panel title={t("candidateDetail.dossier.nextQuestions")} className="!p-4" variant="instrument">
               <ol className="list-decimal space-y-1.5 pl-5 text-[13.5px] text-stone-700">
                 {dossier.structured.next_questions.map((q, i) => (
                   <li key={i}>{q}</li>
@@ -784,13 +892,13 @@ export function CandidateDetailPage() {
       {/* ---------- outreach ---------- */}
       {tab === "outreach" && (
         <div id="sec-outreach" className="mt-4">
-          <Panel title="Outreach draft" className="!p-4" variant="instrument">
+          <Panel title={t("candidateDetail.outreach.panelTitle")} className="!p-4" variant="instrument">
             {!outreach || outreach.structured.recipient_status === "insufficient_contact" ? (
               <HonestState
                 kind="insufficient"
-                label="Cannot generate outreach yet"
+                label={t("candidateDetail.outreach.cannotGenerate")}
                 compact
-                title={outreach?.structured.warnings?.[0] ?? "Insufficient contact information."}
+                title={outreach?.structured.warnings?.[0] ?? t("candidateDetail.outreach.insufficientContactInfo")}
               />
             ) : (
               <div>
@@ -802,9 +910,13 @@ export function CandidateDetailPage() {
                   </div>
                 )}
                 <dl className="grid grid-cols-[auto,1fr] gap-x-3 gap-y-1 text-[13px]">
-                  <dt className="font-semibold text-stone-500">To</dt>
-                  <dd className="text-stone-800">{outreach.structured.to ?? "(not on file — see warning above)"}</dd>
-                  <dt className="font-semibold text-stone-500">Subject</dt>
+                  <dt className="font-semibold text-stone-500">{t("candidateDetail.outreach.to")}</dt>
+                  <dd className="text-stone-800">{outreach.structured.to ?? t("candidateDetail.outreach.notOnFile")}</dd>
+                  <dt className="font-semibold text-stone-500">{t("candidateDetail.outreach.subject")}</dt>
+                  {/* `lang` here is the OUTREACH DRAFT's own EN/ID toggle
+                      (this component's local state, above) — a completely
+                      separate axis from this page's UI-chrome language
+                      (`uiLang`); never touched by this translation pass. */}
                   <dd className="text-stone-800">{lang === "en" ? outreach.structured.subject_en : outreach.structured.subject_id}</dd>
                 </dl>
                 <div className="mt-3 flex items-center justify-between gap-3">
@@ -833,10 +945,10 @@ export function CandidateDetailPage() {
                       href={`mailto:${outreach.structured.to}?subject=${encodeURIComponent(lang === "en" ? outreach.structured.subject_en : outreach.structured.subject_id)}&body=${encodeURIComponent(
                         lang === "en" ? outreach.structured.body_en : outreach.structured.body_id
                       )}`}
-                      title={`Open in your email client — to ${outreach.structured.to}`}
+                      title={t("candidateDetail.outreach.openInEmailClient").replace("{email}", outreach.structured.to)}
                       className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-forest-600 px-3 py-1.5 text-[12.5px] font-semibold text-white hover:bg-forest-700"
                     >
-                      <Mail size={14} /> Send email
+                      <Mail size={14} /> {t("candidateDetail.outreach.sendEmail")}
                     </a>
                   )}
                 </div>
@@ -896,6 +1008,7 @@ export function CandidateDetailPage() {
  * top 3) — this is a container merge, not a content change.
  */
 function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scoring"]; dossier: CandidateDetail["dossier"] }) {
+  const { t, lang } = useT();
   const topReasons = dossier.structured.why_gluri.slice(0, 3);
   return (
     // Instrument-panel shape (2026-08-31 visual-direction rollout) —
@@ -905,9 +1018,14 @@ function WhyContactFirst({ scoring, dossier }: { scoring: CandidateDetail["scori
     // per screen" principle as Dashboard's clay KPI card), not a
     // decorative color competing with anything else here.
     <div className="instrument-panel border border-forest-300 bg-forest-50 p-5">
-      <div className="text-[11.5px] font-bold uppercase tracking-wide text-forest-700">Why contact this candidate first</div>
+      <div className="text-[11.5px] font-bold uppercase tracking-wide text-forest-700">{t("candidateDetail.hero.heading")}</div>
       <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
-        <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} />
+        {/* ScoreLabelPill already has its own opt-in `lang` prop (see the
+            component's own file) — passed through rather than
+            re-translating its internals. ComplianceBadge has no such
+            prop (see the report boundary note), so its Green/Amber/Red/
+            N/A text stays English here, same as everywhere else in the app. */}
+        <ScoreLabelPill label={scoring.score_label} need={scoring.need_score} cred={scoring.credibility_score} showNumbers={false} lang={lang} />
         <ComplianceBadge badge={scoring.compliance.badge} />
       </div>
       <p className="mt-3 font-display text-[19px] font-semibold leading-snug text-stone-900">{dossier.structured.suggested_poc}</p>
@@ -948,49 +1066,50 @@ type KeyGap = { icon: LucideIcon; label: string; text: string; sectionId: string
  * else in this app.
  */
 function KeyGapsSidebar({ rec, onJump }: { rec: CandidateDetail; onJump: (sectionId: string) => void }) {
+  const { t } = useT();
   const { carbon_tracks, location, scoring, outreach, contact } = rec;
   const gaps: KeyGap[] = [];
 
   if (!carbon_tracks.dram && !carbon_tracks.dpp) {
     gaps.push({
       icon: FolderX,
-      label: "Missing Registration/Project Document",
-      text: "No Registration Document (DRAM) or Project Document (DPP) on file yet.",
+      label: t("candidateDetail.gaps.missingRegDoc.label"),
+      text: t("candidateDetail.gaps.missingRegDoc.text"),
       sectionId: "sec-dossier",
     });
   }
   if (location.latitude == null) {
-    gaps.push({ icon: MapPin, label: "No coordinates", text: "Customary Territory Registry not checked — location not verified.", sectionId: "sec-land-rights" });
+    gaps.push({ icon: MapPin, label: t("candidateDetail.gaps.noCoordinates.label"), text: t("candidateDetail.gaps.noCoordinates.text"), sectionId: "sec-land-rights" });
   }
   if (scoring.compliance.badge === "amber" || scoring.compliance.badge === "red") {
     gaps.push({
       icon: CalendarClock,
-      label: "Compliance deadline",
-      text: `${scoring.compliance.days_until_deadline} days remaining.`,
+      label: t("candidateDetail.gaps.complianceDeadline.label"),
+      text: t("candidateDetail.gaps.complianceDeadline.text").replace("{n}", String(scoring.compliance.days_until_deadline)),
       sectionId: "sec-compliance",
     });
   }
   const recipientStatus = outreach?.structured.recipient_status;
   if (!outreach || recipientStatus === "insufficient_contact") {
-    gaps.push({ icon: Mail, label: "Contact readiness", text: "No contact resolved yet.", sectionId: "sec-outreach" });
+    gaps.push({ icon: Mail, label: t("candidateDetail.gaps.contactReadiness.label"), text: t("candidateDetail.gaps.contactReadiness.none"), sectionId: "sec-outreach" });
   } else if (recipientStatus === "name_only_no_email") {
     // Distinguishes "never searched for an email" from "searched and found
     // nothing" (2026-08-31) — same wording pattern as ContactReadinessIndicator
     // and the Outreach warning; reuses this exact gap line, no new element.
     const text = contact?.contact_tier_b_attempted_at
-      ? "Email not on file — a web search did not find a public email; manual lookup would need a different channel."
-      : "Email not on file — needs manual lookup.";
-    gaps.push({ icon: Mail, label: "Contact readiness", text, sectionId: "sec-outreach" });
+      ? t("candidateDetail.gaps.contactReadiness.attempted")
+      : t("candidateDetail.gaps.contactReadiness.notAttempted");
+    gaps.push({ icon: Mail, label: t("candidateDetail.gaps.contactReadiness.label"), text, sectionId: "sec-outreach" });
   }
 
   return (
     <aside>
       <div className="instrument-panel sticky top-[92px] border border-stone-300 bg-white p-4">
         <div className="flex items-center gap-1.5 text-[13px] font-bold text-stone-800">
-          <AlertTriangle size={15} className="text-compliance-amber" /> Key Gaps / Risks
+          <AlertTriangle size={15} className="text-compliance-amber" /> {t("candidateDetail.gaps.heading")}
         </div>
         {gaps.length === 0 ? (
-          <p className="mt-3 text-[12.5px] text-stone-500">No key gaps flagged for this candidate.</p>
+          <p className="mt-3 text-[12.5px] text-stone-500">{t("candidateDetail.gaps.none")}</p>
         ) : (
           <div className="mt-3 space-y-2.5">
             {gaps.map((g, i) => {
@@ -1040,14 +1159,17 @@ function TrackingSummaryCard({
   sources: string[];
   idBits: { label: string; plainLabel: string; value: string; url: string | null }[];
 }) {
+  const { t } = useT();
   return (
     <div className="instrument-panel border border-stone-300 bg-white p-4">
       <div className="flex flex-wrap items-center gap-3">
         <StatusBadge status={status.status} />
-        <span className="text-[12px] text-stone-500">{status.status_changed_at ? `Updated ${status.status_changed_at}` : "No status changes recorded yet"}</span>
+        <span className="text-[12px] text-stone-500">
+          {status.status_changed_at ? t("candidateDetail.tracking.updated").replace("{date}", status.status_changed_at) : t("candidateDetail.tracking.noStatusChanges")}
+        </span>
       </div>
       <Link to={`/tracked?candidate=${rec.candidate_id}`} className="mt-1.5 inline-block text-[12.5px] font-semibold text-forest-700 hover:underline">
-        View tracking →
+        {t("candidateDetail.tracking.viewTracking")}
       </Link>
       <div className="mt-3 flex flex-wrap gap-1.5 border-t border-stone-100 pt-3">
         {sources.map((s) => (
@@ -1058,7 +1180,14 @@ function TrackingSummaryCard({
         <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11.5px] text-stone-500">
           {idBits.map(({ label, plainLabel, value, url }) =>
             url ? (
-              <a key={label} href={url} target="_blank" rel="noopener noreferrer" title={`${plainLabel} (${label}) — view on their own registry`} className="inline-flex items-center gap-1">
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={t("candidateDetail.tracking.viewOnRegistry").replace("{plainLabel}", plainLabel).replace("{label}", label)}
+                className="inline-flex items-center gap-1"
+              >
                 {label} <code className="rounded bg-teal-50 px-1 py-0.5 text-teal-700 underline decoration-teal-300 underline-offset-2">{value} ↗</code>
               </a>
             ) : (
@@ -1094,6 +1223,7 @@ function TrackingSummaryCard({
  * scrolls.
  */
 function SectionRail({ visibleSections, activeId, onJump }: { visibleSections: RailSection[]; activeId: string; onJump: (s: RailSection) => void }) {
+  const { t } = useT();
   return (
     <nav aria-label="Jump to section" className="sticky top-12 z-[5] -mx-6 mb-3 border-b border-stone-200 bg-white/95 px-6 backdrop-blur">
       <div className="flex flex-wrap gap-1 overflow-x-auto py-2 text-[12px]">
@@ -1105,7 +1235,7 @@ function SectionRail({ visibleSections, activeId, onJump }: { visibleSections: R
               activeId === s.id ? "bg-forest-600 text-white" : "text-stone-500 hover:bg-stone-100 hover:text-stone-700"
             }`}
           >
-            {s.label}
+            {t(s.labelKey)}
           </button>
         ))}
       </div>
@@ -1122,9 +1252,10 @@ function documentIcon(url: string) {
 }
 
 function DocumentsPanel({ documents, expanded, onToggle }: { documents: DocumentRef[]; expanded: boolean; onToggle: () => void }) {
+  const { t } = useT();
   const shown = expanded ? documents : documents.slice(0, DOCS_COLLAPSED_COUNT);
   return (
-    <Panel id="sec-documents" title={`Documents (${documents.length})`} className="!p-4" variant="instrument">
+    <Panel id="sec-documents" title={t("candidateDetail.panel.documentsCount").replace("{n}", String(documents.length))} className="!p-4" variant="instrument">
       {/* Real evidence, never truncated out of existence — Katingan
           genuinely has 91 real, unique documents (VCS 1477's own
           multi-year monitoring/verification history). Collapsed to a
@@ -1145,10 +1276,10 @@ function DocumentsPanel({ documents, expanded, onToggle }: { documents: Document
                 href={d.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="View / download this document"
+                title={t("candidateDetail.documents.viewDownloadTitle")}
                 className="flex shrink-0 items-center gap-1 rounded px-2 py-1 text-[12px] font-semibold text-teal-700 hover:bg-teal-50"
               >
-                View <ExternalLink size={12} />
+                {t("candidateDetail.documents.view")} <ExternalLink size={12} />
               </a>
             </li>
           );
@@ -1156,7 +1287,7 @@ function DocumentsPanel({ documents, expanded, onToggle }: { documents: Document
       </ul>
       {documents.length > DOCS_COLLAPSED_COUNT && (
         <button onClick={onToggle} className="mt-3 text-[12.5px] font-semibold text-forest-700 hover:text-forest-900">
-          {expanded ? "Show fewer" : `Show all ${documents.length} documents`}
+          {expanded ? t("candidateDetail.documents.showFewer") : t("candidateDetail.documents.showAll").replace("{n}", String(documents.length))}
         </button>
       )}
     </Panel>

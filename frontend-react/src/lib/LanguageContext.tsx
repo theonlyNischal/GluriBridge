@@ -1,15 +1,24 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
 /**
- * EN/KO toggle (2026-09-03, added for Demo Day) — deliberately narrow
- * scope: real users are GluriBridge's own 2-person team, both Korean,
- * and competitors in this space ship Korean-language products, so this
- * isn't cosmetic. Scoped to the nav/header chrome + the Dashboard page
- * only for now (explicit choice, not an oversight) — everything else
- * (Candidates list, Candidate detail, Territory Discovery, How it
- * works) stays English. Extending coverage later means adding more
- * keys to STRINGS in lib/i18n.ts and more t() calls on that page; the
- * mechanism here doesn't change.
+ * EN/KO toggle (2026-09-03, added for Demo Day) — real users are
+ * GluriBridge's own 2-person team, both Korean, and competitors in this
+ * space ship Korean-language products, so this isn't cosmetic.
+ * Initially scoped to just the nav/header chrome + Dashboard (2 days
+ * left, real users are internal, judges see a live walkthrough not a
+ * self-serve tour); extended to every real page (Candidates list,
+ * Candidate detail, Territory Discovery, Partnerships/Tracked,
+ * Sync/Registry, How this works) on 2026-09-04, before handing the app
+ * to colleagues for their own independent review. Design System stays
+ * English-only — an internal component-reference page, not part of any
+ * real user's path through the app. One real, deliberate residual
+ * boundary even on now-covered pages: backend-GENERATED dynamic prose
+ * (need/credibility reasoning, compliance explanations, land-rights
+ * text, the outreach email draft's own EN/ID content) has no Korean
+ * anywhere in the system and stays English in both UI-language modes —
+ * see CandidateDetailPage.tsx's own comments for the specific list.
+ * Extending coverage further means adding more keys to STRINGS in
+ * lib/i18n.ts and more t() calls; the mechanism here doesn't change.
  *
  * Deliberately NOT applied to any real candidate data — names, orgs,
  * Indonesian legal citations, registry document names, news snippets.

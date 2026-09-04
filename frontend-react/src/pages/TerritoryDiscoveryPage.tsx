@@ -4,6 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCandidates } from "../lib/CandidatesContext";
 import { api } from "../lib/api";
+import { useT } from "../lib/i18n";
 import { fmtScore, POLICY_TIER_LABEL } from "../lib/format";
 import { Panel } from "../components/ui/Panel";
 import { FilterSelect } from "../components/ui/FilterSelect";
@@ -24,6 +25,7 @@ import type { CandidateListRow, StatsResponse, TerritoryListEntry } from "../lib
  * candidate filter panel AND a searchable territory-name lookup together.
  */
 export function TerritoryDiscoveryPage() {
+  const { t, lang } = useT();
   const { candidates } = useCandidates();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -84,7 +86,7 @@ export function TerritoryDiscoveryPage() {
       marker.bindPopup(
         `<strong>${escapeHtml(r.name)}</strong><br>${escapeHtml(r.org ?? "")}<br>` +
           `N ${fmtScore(r.need_score)} / C ${fmtScore(r.credibility_score)}<br>` +
-          `<a href="/candidates/${r.candidate_id}" data-candidate-id="${r.candidate_id}">View candidate &rarr;</a>`
+          `<a href="/candidates/${r.candidate_id}" data-candidate-id="${r.candidate_id}">${escapeHtml(t("map.popup.viewCandidate"))} &rarr;</a>`
       );
       markers.push(marker);
     });
@@ -99,7 +101,11 @@ export function TerritoryDiscoveryPage() {
     return () => {
       markers.forEach((m) => map.removeLayer(m));
     };
-  }, [filteredRows, navigate]);
+    // `t` (via `lang`) is a real dependency: the popup HTML string above
+    // bakes in the current language at marker-build time, so a language
+    // toggle with no filter change still needs markers rebuilt.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filteredRows, navigate, lang]);
 
   // Shared by both the territory-name search panel and the confirmed-
   // overlap panel — one real geometry-loading path, one real honest
@@ -115,11 +121,11 @@ export function TerritoryDiscoveryPage() {
       map.fitBounds(layer.getBounds());
       setGeometryNotice(null);
     } catch {
-      setGeometryNotice("This territory has no real geometry on file — a confirmed real gap for ~23% of customary territories, not a bug.");
+      setGeometryNotice(t("territory.geometryNotice"));
     }
   }
 
-  if (!candidates) return <div className="px-6 py-6 text-stone-400">Loading…</div>;
+  if (!candidates) return <div className="px-6 py-6 text-stone-400">{t("territory.loading")}</div>;
 
   const total = candidates.length;
   const withOverlap = candidates.filter((r) => r.has_brwa_evidence).length;
@@ -133,8 +139,8 @@ export function TerritoryDiscoveryPage() {
   return (
     <div className="topo-watermark bg-field-paper px-6 py-6">
       <div className="mb-4">
-        <h1 className="font-display text-2xl font-semibold text-stone-900">Territory Discovery</h1>
-        <p className="mt-1 text-[13.5px] text-stone-500">Real candidate locations + real Customary Territory Registry (BRWA) geometry, fetched on demand</p>
+        <h1 className="font-display text-2xl font-semibold text-stone-900">{t("nav.territoryDiscovery")}</h1>
+        <p className="mt-1 text-[13.5px] text-stone-500">{t("territory.subtitle")}</p>
       </div>
 
       {/* Executive summary — every number real, from either the already-
@@ -148,22 +154,27 @@ export function TerritoryDiscoveryPage() {
       <div className="instrument-panel border border-stone-300 bg-white px-5 py-4">
         <p className="text-[14px] leading-relaxed text-stone-700">
           <SummaryLink to="/candidates" muted>
-            {total} real candidates
+            {t("territory.summary.candidatesCount").replace("{n}", String(total))}
           </SummaryLink>{" "}
-          are mapped here, spanning <strong>{namedProvinceCount}</strong> real provinces ({notAvailableCount} have no province on file).{" "}
+          {t("territory.summary.mappedPrefix")}
+          <strong>{namedProvinceCount}</strong>
+          {t("territory.summary.provincesMid")}
+          {notAvailableCount}
+          {t("territory.summary.noProvinceSuffix")}{" "}
           {brwaTotal != null ? (
             <>
-              <strong>{brwaTotal.toLocaleString()}</strong> real customary territories are tracked, of which{" "}
-              <strong>{brwaWithGeometry!.toLocaleString()}</strong> ({Math.round((brwaWithGeometry! / brwaTotal) * 100)}%) have geometry on file — a
-              confirmed real ceiling for this data source, not an in-progress number.{" "}
+              <strong>{brwaTotal.toLocaleString()}</strong>
+              {t("territory.summary.territoriesTrackedMid")}
+              <strong>{brwaWithGeometry!.toLocaleString()}</strong>
+              {t("territory.summary.geometrySuffix").replace("{pct}", String(Math.round((brwaWithGeometry! / brwaTotal) * 100)))}
             </>
           ) : (
-            "Real customary territory totals are loading… "
+            t("territory.summary.loadingTerritories")
           )}
           <SummaryLink to="/candidates?brwaOverlap=yes" muted>
-            {withOverlap}
+            {t("territory.summary.overlapCountLink").replace("{n}", String(withOverlap))}
           </SummaryLink>{" "}
-          candidates have a confirmed land-rights overlap with a specific territory.
+          {t("territory.summary.overlapSuffix")}
         </p>
       </div>
 
@@ -188,18 +199,18 @@ export function TerritoryDiscoveryPage() {
             <div className="mt-2 flex flex-wrap items-center gap-4 text-[12px] text-stone-500">
               <span className="inline-flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-full bg-forest-500" />
-                rich candidate
+                {t("map.legend.rich")}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-full bg-clay-600" />
-                thin candidate
+                {t("map.legend.thin")}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-sm bg-teal-800" />
-                selected territory
+                {t("territory.legend.selected")}
               </span>
               <span className="text-stone-400">
-                {filteredRows.length} of {total} shown
+                {t("territory.map.shownCount").replace("{shown}", String(filteredRows.length)).replace("{total}", String(total))}
               </span>
             </div>
             {/* A filtered set can genuinely have zero plottable points —
@@ -209,14 +220,16 @@ export function TerritoryDiscoveryPage() {
                 data gap, not a broken filter. */}
             {filteredRows.length > 0 && mappableCount < filteredRows.length && (
               <div className="mt-2">
-                <HonestState kind="no_data" label="Some candidates not shown on map" compact>
-                  {filteredRows.length - mappableCount} of {filteredRows.length} filtered candidates have no real coordinates on file.
+                <HonestState kind="no_data" label={t("territory.mapGap.label")} compact>
+                  {t("territory.mapGap.body")
+                    .replace("{missing}", String(filteredRows.length - mappableCount))
+                    .replace("{total}", String(filteredRows.length))}
                 </HonestState>
               </div>
             )}
             {geometryNotice && (
               <div className="mt-2">
-                <HonestState kind="no_data" label="No geometry on file" compact>
+                <HonestState kind="no_data" label={t("territory.geometryMissing.label")} compact>
                   {geometryNotice}
                 </HonestState>
               </div>
@@ -247,6 +260,7 @@ function FilterPanel({
   shownCount: number;
   onChange: (patch: Partial<CandidateFilterParams>) => void;
 }) {
+  const { t } = useT();
   const provinceOptions = useMemo(() => {
     const grouped = groupByProvince(candidates);
     const entries = [...grouped.entries()];
@@ -266,16 +280,16 @@ function FilterPanel({
     filterParams.province || filterParams.richness || filterParams.brwaOverlap || filterParams.minNeed != null || filterParams.minCred != null;
 
   return (
-    <Panel title="Filter candidates" className="h-fit lg:sticky lg:top-[68px]" variant="instrument">
+    <Panel title={t("territory.filterPanel.title")} className="h-fit lg:sticky lg:top-[68px]" variant="instrument">
       <div className="space-y-3">
-        <Field label="Province">
-          <FilterSelect value={filterParams.province} onChange={(v) => onChange({ province: v })} placeholder="All provinces" options={provinceOptions} fullWidth />
+        <Field label={t("territory.filterPanel.province")}>
+          <FilterSelect value={filterParams.province} onChange={(v) => onChange({ province: v })} placeholder={t("territory.filterPanel.allProvinces")} options={provinceOptions} fullWidth />
         </Field>
-        <Field label="Opportunity">
+        <Field label={t("score.opportunity")}>
           <FilterSelect
             value={filterParams.minNeed != null ? String(filterParams.minNeed) : ""}
             onChange={(v) => onChange({ minNeed: v ? Number(v) : null })}
-            placeholder="Any opportunity"
+            placeholder={t("territory.filterPanel.anyOpportunity")}
             options={[
               { value: "50", label: "≥ 50" },
               { value: "70", label: "≥ 70" },
@@ -284,11 +298,11 @@ function FilterPanel({
             fullWidth
           />
         </Field>
-        <Field label="Evidence Strength">
+        <Field label={t("score.evidence")}>
           <FilterSelect
             value={filterParams.minCred != null ? String(filterParams.minCred) : ""}
             onChange={(v) => onChange({ minCred: v ? Number(v) : null })}
-            placeholder="Any evidence strength"
+            placeholder={t("territory.filterPanel.anyEvidence")}
             options={[
               { value: "50", label: "≥ 50" },
               { value: "70", label: "≥ 70" },
@@ -297,27 +311,27 @@ function FilterPanel({
             fullWidth
           />
         </Field>
-        <Field label="Richness">
+        <Field label={t("territory.filterPanel.richness")}>
           <FilterSelect
             value={filterParams.richness}
             onChange={(v) => onChange({ richness: v })}
-            placeholder="All richness"
+            placeholder={t("territory.filterPanel.allRichness")}
             options={[
-              { value: "rich", label: "Strong Evidence" },
-              { value: "corroborated", label: "Corroborated" },
-              { value: "thin", label: "Limited Evidence" },
+              { value: "rich", label: t("territory.richness.strong") },
+              { value: "corroborated", label: t("territory.richness.corroborated") },
+              { value: "thin", label: t("territory.richness.limited") },
             ]}
             fullWidth
           />
         </Field>
-        <Field label="Land rights / Customary Territory Overlap">
+        <Field label={t("territory.filterPanel.landRightsOverlap")}>
           <FilterSelect
             value={filterParams.brwaOverlap}
             onChange={(v) => onChange({ brwaOverlap: v })}
-            placeholder="Any overlap status"
+            placeholder={t("territory.filterPanel.anyOverlapStatus")}
             options={[
-              { value: "yes", label: "Confirmed overlap" },
-              { value: "no", label: "No confirmed overlap" },
+              { value: "yes", label: t("territory.overlap.confirmed") },
+              { value: "no", label: t("territory.overlap.notConfirmed") },
             ]}
             fullWidth
           />
@@ -326,11 +340,11 @@ function FilterPanel({
 
       <div className="mt-4 flex items-center justify-between border-t border-stone-100 pt-3 text-[12px]">
         <span className="text-stone-500">
-          {shownCount} of {candidates.length}
+          {t("territory.filterPanel.shownOfTotal").replace("{shown}", String(shownCount)).replace("{total}", String(candidates.length))}
         </span>
         {hasActiveFilter && (
           <button onClick={() => onChange({ province: "", richness: "", brwaOverlap: "", minNeed: null, minCred: null })} className="font-medium text-stone-700 hover:underline">
-            Reset
+            {t("territory.filterPanel.reset")}
           </button>
         )}
       </div>
@@ -348,19 +362,22 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 function SelectedRegionPanel({ province, rows }: { province: string; rows: CandidateListRow[] }) {
+  const { t } = useT();
   if (!province) {
     return (
-      <Panel title="Selected region" variant="instrument">
-        <HonestState kind="not_checked" label="No region selected">
-          Pick a province in the filter panel to see real aggregate stats for candidates there.
+      <Panel title={t("territory.selectedRegion.title")} variant="instrument">
+        <HonestState kind="not_checked" label={t("territory.selectedRegion.noneLabel")}>
+          {t("territory.selectedRegion.noneBody")}
         </HonestState>
       </Panel>
     );
   }
   if (rows.length === 0) {
     return (
-      <Panel title={`Selected region — ${province}`} variant="instrument">
-        <HonestState kind="no_data" label="No candidates match">No real candidates in {province} match the other active filters.</HonestState>
+      <Panel title={`${t("territory.selectedRegion.titlePrefix")}${province}`} variant="instrument">
+        <HonestState kind="no_data" label={t("territory.selectedRegion.noMatchLabel")}>
+          {t("territory.selectedRegion.noMatchBody").replace("{province}", province)}
+        </HonestState>
       </Panel>
     );
   }
@@ -372,18 +389,21 @@ function SelectedRegionPanel({ province, rows }: { province: string; rows: Candi
   const top = [...rows].sort((a, b) => b.need_score - a.need_score)[0];
 
   return (
-    <Panel title={`Selected region — ${province}`} variant="instrument">
+    <Panel title={`${t("territory.selectedRegion.titlePrefix")}${province}`} variant="instrument">
       <div className="grid grid-cols-2 gap-3">
-        <Stat label="Candidates" value={String(rows.length)} />
-        <Stat label="Strong / limited evidence" value={`${richness.rich} / ${richness.thin}`} />
-        <Stat label="Avg opportunity" value={avgNeed.toFixed(1)} />
-        <Stat label="Avg evidence strength" value={avgCred.toFixed(1)} />
+        <Stat label={t("nav.candidates")} value={String(rows.length)} />
+        <Stat label={t("territory.selectedRegion.strongLimited")} value={`${richness.rich} / ${richness.thin}`} />
+        <Stat label={t("territory.selectedRegion.avgOpportunity")} value={avgNeed.toFixed(1)} />
+        <Stat label={t("territory.selectedRegion.avgEvidence")} value={avgCred.toFixed(1)} />
       </div>
-      {richness.corroborated > 0 && <p className="mt-2 text-[11px] text-stone-400">+{richness.corroborated} corroborated (real, not shown above)</p>}
+      {richness.corroborated > 0 && (
+        <p className="mt-2 text-[11px] text-stone-400">{t("territory.selectedRegion.corroboratedNote").replace("{n}", String(richness.corroborated))}</p>
+      )}
       <div className="mt-3 border-t border-stone-100 pt-3">
-        <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">Top opportunity (highest Opportunity score here)</div>
+        <div className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">{t("territory.selectedRegion.topOpportunityLabel")}</div>
         <Link to={`/candidates/${top.candidate_id}`} className="mt-1 block truncate text-[13px] font-medium text-stone-700 hover:underline" title={top.name}>
-          {top.name} — opportunity {fmtScore(top.need_score)}
+          {top.name}
+          {t("territory.selectedRegion.opportunitySuffix").replace("{score}", fmtScore(top.need_score))}
         </Link>
       </div>
     </Panel>
@@ -410,7 +430,30 @@ const COMPACT_POLICY_TIER_LABEL: Record<string, string> = {
   belum_ada: "None yet",
 };
 
+// Korean mirrors of the two English-only lookups above/in lib/format.ts —
+// same "opt-in mirror, not a fork of the source of truth" pattern as
+// status.*/scoreLabel.* in i18n.ts (those lookups stay English everywhere
+// else, e.g. CandidateDetailPage, which is out of this translation pass's
+// scope).
+function koPolicyTierLabel(t: ReturnType<typeof useT>["t"], tier: string): string {
+  const map: Record<string, string> = {
+    penetapan: t("territory.policyTier.penetapan"),
+    pengaturan: t("territory.policyTier.pengaturan"),
+    belum_ada: t("territory.policyTier.belumAda"),
+  };
+  return map[tier] ?? tier;
+}
+function koCompactPolicyTierLabel(t: ReturnType<typeof useT>["t"], tier: string): string {
+  const map: Record<string, string> = {
+    penetapan: t("territory.policyTierCompact.penetapan"),
+    pengaturan: t("territory.policyTierCompact.pengaturan"),
+    belum_ada: t("territory.policyTierCompact.belumAda"),
+  };
+  return map[tier] ?? tier;
+}
+
 function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx: string) => Promise<void> }) {
+  const { t, lang } = useT();
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<TerritoryListEntry[] | null>(null);
   const [searchError, setSearchError] = useState<string | null>(null);
@@ -433,26 +476,36 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
   }, [search]);
 
   return (
-    <Panel title="Search real customary territories" variant="instrument">
+    <Panel title={t("territory.search.title")} variant="instrument">
       <input
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Territory name…"
+        placeholder={t("territory.search.placeholder")}
         className="w-full rounded-lg border border-stone-300 px-3 py-1.5 text-[13px] focus:border-forest-500 focus:outline-none"
       />
       <div className="mt-2.5 max-h-[220px] space-y-0.5 overflow-y-auto">
-        {searchError && <p className="text-[12.5px] text-clay-700">Search failed: {searchError}</p>}
-        {!searchError && search.trim().length < 2 && <p className="text-[12.5px] text-stone-400">Type at least 2 characters — searches real customary territory names.</p>}
-        {!searchError && results && results.length === 0 && <p className="text-[12.5px] text-stone-400">No real customary territory matches "{search}".</p>}
-        {results?.map((t) => (
-          <button key={t.idx} onClick={() => onSelectTerritory(t.idx)} className="hover-lift block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-stone-100">
-            <div className="truncate font-medium text-stone-800">{t.name}</div>
+        {searchError && (
+          <p className="text-[12.5px] text-clay-700">
+            {t("territory.search.failedPrefix")}
+            {searchError}
+          </p>
+        )}
+        {!searchError && search.trim().length < 2 && <p className="text-[12.5px] text-stone-400">{t("territory.search.hint")}</p>}
+        {!searchError && results && results.length === 0 && (
+          <p className="text-[12.5px] text-stone-400">{t("territory.search.noMatches").replace("{q}", search)}</p>
+        )}
+        {results?.map((entry) => (
+          <button key={entry.idx} onClick={() => onSelectTerritory(entry.idx)} className="hover-lift block w-full rounded-md px-2 py-1.5 text-left text-[12.5px] hover:bg-stone-100">
+            <div className="truncate font-medium text-stone-800">{entry.name}</div>
             <div
               className="truncate text-[11.5px] text-stone-400"
-              title={`${t.province ?? "no province on file"} · ${POLICY_TIER_LABEL[t.policy_tier] ?? t.policy_tier} · ${t.has_geometry ? "boundary shape on file" : "no boundary shape on file"}`}
+              title={`${entry.province ?? t("territory.noProvinceOnFile")} · ${
+                lang === "ko" ? koPolicyTierLabel(t, entry.policy_tier) : POLICY_TIER_LABEL[entry.policy_tier] ?? entry.policy_tier
+              } · ${entry.has_geometry ? t("territory.hasGeometryOnFile") : t("territory.noGeometryOnFile")}`}
             >
-              {t.province ?? "—"} · {COMPACT_POLICY_TIER_LABEL[t.policy_tier] ?? t.policy_tier} · {t.has_geometry ? "on file" : "no boundary"}
+              {entry.province ?? "—"} · {lang === "ko" ? koCompactPolicyTierLabel(t, entry.policy_tier) : COMPACT_POLICY_TIER_LABEL[entry.policy_tier] ?? entry.policy_tier} ·{" "}
+              {entry.has_geometry ? t("territory.onFileCompact") : t("territory.noBoundaryCompact")}
             </div>
           </button>
         ))}
@@ -462,6 +515,7 @@ function SearchTerritoriesPanel({ onSelectTerritory }: { onSelectTerritory: (idx
 }
 
 function ConfirmedOverlapPanel({ candidates, onSelectTerritory }: { candidates: CandidateListRow[]; onSelectTerritory: (idx: string) => Promise<void> }) {
+  const { t } = useT();
   const [names, setNames] = useState<Map<string, string>>(new Map());
 
   const grouped = useMemo(() => {
@@ -497,19 +551,18 @@ function ConfirmedOverlapPanel({ candidates, onSelectTerritory }: { candidates: 
   const withOverlap = candidates.filter((r) => r.has_brwa_evidence).length;
 
   return (
-    <Panel title="Territories with confirmed candidate overlap" variant="instrument">
+    <Panel title={t("territory.overlapPanel.title")} variant="instrument">
       <p className="mb-2 text-[11px] text-stone-400">
-        Real, confirmed land-rights checks only ({withOverlap} of {candidates.length} candidates) — a territory absent here hasn't necessarily
-        been checked against every candidate, per gluribridge/README.md's Open Items.
+        {t("territory.overlapPanel.note").replace("{withOverlap}", String(withOverlap)).replace("{total}", String(candidates.length))}
       </p>
       {ranked.length === 0 ? (
-        <HonestState kind="no_data" label="No confirmed overlaps in the current data" />
+        <HonestState kind="no_data" label={t("territory.overlapPanel.noneLabel")} />
       ) : (
         <ol className="space-y-1">
           {ranked.map(([idx, rows]) => (
             <li key={idx}>
               <button onClick={() => onSelectTerritory(idx)} className="hover-lift flex w-full items-center justify-between gap-2 rounded px-2 py-1.5 text-left text-[12.5px] hover:bg-stone-100">
-                <span className="truncate font-medium text-stone-700">{names.get(idx) ?? `Loading… (${idx})`}</span>
+                <span className="truncate font-medium text-stone-700">{names.get(idx) ?? `${t("territory.loading")} (${idx})`}</span>
                 <span className="shrink-0 rounded-full bg-teal-100 px-2 py-0.5 font-mono text-[11px] text-teal-800">{rows.length}</span>
               </button>
             </li>
@@ -521,6 +574,7 @@ function ConfirmedOverlapPanel({ candidates, onSelectTerritory }: { candidates: 
 }
 
 function TopTerritoriesList({ candidates, filterParams }: { candidates: CandidateListRow[]; filterParams: CandidateFilterParams }) {
+  const { t } = useT();
   const rowsForRanking = useMemo(() => applyCandidateFilter(candidates, { ...filterParams, province: "" }), [candidates, filterParams]);
   const grouped = groupByProvince(rowsForRanking);
   // "Not available" / "Spans multiple provinces" are real, honest buckets
@@ -537,11 +591,10 @@ function TopTerritoriesList({ candidates, filterParams }: { candidates: Candidat
   const maxCount = Math.max(...ranked.map(([, rows]) => rows.length), 1);
 
   return (
-    <Panel title="Top territories — real candidate count by province" variant="instrument">
+    <Panel title={t("territory.topList.title")} variant="instrument">
       <p className="mb-3 text-[11.5px] text-stone-400">
-        Ranked by real candidate count, not average need score — a province with a single high-need candidate would otherwise misleadingly
-        outrank one with genuine breadth. Reflects the other active filters (not the Province filter itself); click a row for its exact filtered
-        Candidates view. {excluded > 0 && `${excluded} candidates with no province on file (or spanning multiple provinces) are excluded from this geographic ranking — use the Province filter to view them directly.`}
+        {t("territory.topList.caption")}
+        {excluded > 0 && t("territory.topList.excludedNote").replace("{n}", String(excluded))}
       </p>
       <div className="grid grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2">
         {ranked.map(([province, rows]) => {

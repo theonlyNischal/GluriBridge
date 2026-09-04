@@ -3,6 +3,7 @@ import { RefreshCw, AlertTriangle, CheckCircle2, Lock, Radio, Loader2 } from "lu
 import { api, ApiError } from "../lib/api";
 import { Panel } from "../components/ui/Panel";
 import { StalenessBanner } from "../components/StalenessBanner";
+import { useT, type StringKey } from "../lib/i18n";
 import type { RefreshLogEntry, RefreshStatus, SourceProgress, StatsResponse, SyncSource } from "../lib/types";
 
 // Mirrors orchestrate.py's CADENCE_DAYS exactly (2026-09-03) — a
@@ -33,14 +34,14 @@ const SOURCES: SyncSource[] = ["sruk", "srn_ppi", "verra", "brwa"];
 // PDFs, see orchestrate.py's own CADENCE_DAYS comment for why it's
 // manual-only in the first place). Not blocked, just clearly labeled,
 // so a click is an informed one, not a surprise.
-const SOURCE_WARNING: Partial<Record<SyncSource, string>> = {
-  brwa: "Re-crawls all 2,283 BRWA territory profiles — much slower than the other sources, real time and load.",
+const SOURCE_WARNING: Partial<Record<SyncSource, StringKey>> = {
+  brwa: "sync.warning.brwa",
 };
 
-const PHASE_LABEL: Record<string, string> = {
-  starting: "Starting…",
-  pipeline: "Normalizing, scoring, and (if requested) searching live news…",
-  loading: "Loading results into the database…",
+const PHASE_LABEL: Record<string, StringKey> = {
+  starting: "sync.phase.starting",
+  pipeline: "sync.phase.pipeline",
+  loading: "sync.phase.loading",
 };
 
 const LIVE_SOURCE_STYLE: Record<SourceProgress, string> = {
@@ -51,12 +52,12 @@ const LIVE_SOURCE_STYLE: Record<SourceProgress, string> = {
   failed: "bg-compliance-redBg text-compliance-red",
 };
 
-const LIVE_SOURCE_TEXT: Record<SourceProgress, string> = {
-  pending: "Waiting…",
-  running: "Scraping now…",
-  done: "Done",
-  skipped: "Not due",
-  failed: "Failed",
+const LIVE_SOURCE_TEXT: Record<SourceProgress, StringKey> = {
+  pending: "sync.live.waiting",
+  running: "sync.live.scraping",
+  done: "sync.live.done",
+  skipped: "sync.live.notDue",
+  failed: "sync.live.failed",
 };
 
 function fmtDateTime(iso: string | null): string {
@@ -68,25 +69,36 @@ function fmtDateTime(iso: string | null): string {
   }
 }
 
-function fmtAge(days: number | null): string {
-  if (days == null) return "unknown age";
-  if (days === 0) return "today";
-  if (days === 1) return "1 day ago";
-  return `${days} days ago`;
+function fmtAge(days: number | null, t: (key: StringKey) => string): string {
+  if (days == null) return t("sync.age.unknown");
+  if (days === 0) return t("sync.age.today");
+  if (days === 1) return t("sync.age.oneDayAgo");
+  return t("sync.age.daysAgo").replace("{n}", String(days));
 }
 
-function sourceStatus(source: SyncSource, ageDays: number | null): { label: string; className: string } {
+function sourceStatus(source: SyncSource, ageDays: number | null): { labelKey: StringKey; className: string } {
   const cadence = CADENCE_DAYS[source];
-  if (ageDays == null) return { label: "Never fetched", className: "bg-stone-200 text-stone-600" };
-  if (cadence == null) return { label: "Manual only", className: "bg-stone-100 text-stone-500" };
-  if (ageDays >= cadence) return { label: "Due for refresh", className: "bg-compliance-amberBg text-compliance-amber" };
-  return { label: "Up to date", className: "bg-forest-100 text-forest-800" };
+  if (ageDays == null) return { labelKey: "sync.status.neverFetched", className: "bg-stone-200 text-stone-600" };
+  if (cadence == null) return { labelKey: "sync.status.manualOnly", className: "bg-stone-100 text-stone-500" };
+  if (ageDays >= cadence) return { labelKey: "sync.status.dueForRefresh", className: "bg-compliance-amberBg text-compliance-amber" };
+  return { labelKey: "sync.status.upToDate", className: "bg-forest-100 text-forest-800" };
 }
 
 const REFRESH_STATUS_STYLE: Record<RefreshLogEntry["status"], string> = {
   ok: "bg-forest-100 text-forest-800",
   frozen: "bg-stone-200 text-stone-600",
   error: "bg-compliance-redBg text-compliance-red",
+};
+
+const REFRESH_STATUS_LABEL: Record<RefreshLogEntry["status"], StringKey> = {
+  ok: "sync.log.status.ok",
+  frozen: "sync.log.status.frozen",
+  error: "sync.log.status.error",
+};
+
+const TRIGGERED_BY_LABEL: Record<RefreshLogEntry["triggered_by"], StringKey> = {
+  manual: "sync.log.triggeredBy.manual",
+  scheduler: "sync.log.triggeredBy.scheduler",
 };
 
 const POLL_MS = 1500;
@@ -111,6 +123,7 @@ const POLL_MS = 1500;
  * last real successful state.
  */
 export function SyncPage() {
+  const { t } = useT();
   const [stats, setStats] = useState<StatsResponse | null>(null);
   const [log, setLog] = useState<RefreshLogEntry[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -186,11 +199,11 @@ export function SyncPage() {
       if (cancelledRef.current) return;
       const entry = freshLog[0];
       if (entry?.status === "ok") {
-        setResult({ kind: "ok", message: entry.used_news ? "Refreshed successfully, with live news enrichment." : "Refreshed successfully (registry-only)." });
+        setResult({ kind: "ok", message: entry.used_news ? t("sync.result.okNews") : t("sync.result.okRegistry") });
       } else if (entry?.status === "error") {
         setResult({
           kind: "error",
-          message: `Couldn't complete the refresh: ${entry.detail}. Showing the last successful data from ${fmtDateTime(freshStats.last_registry_refresh)}.`,
+          message: t("sync.result.errorDetail").replace("{detail}", String(entry.detail)).replace("{ts}", fmtDateTime(freshStats.last_registry_refresh)),
         });
       }
     } catch {
@@ -210,20 +223,20 @@ export function SyncPage() {
     } catch (e) {
       if (e instanceof ApiError && e.status === 423) {
         const detail = e.body as { reason?: string } | null;
-        setResult({ kind: "frozen", message: detail?.reason ?? "Data is frozen — refresh blocked." });
+        setResult({ kind: "frozen", message: detail?.reason ?? t("sync.result.frozenBlocked") });
       } else if (e instanceof ApiError && e.status === 409) {
         const detail = e.body as { current?: RefreshStatus } | null;
         setBusy(detail?.current?.only ?? (detail?.current?.with_news ? "news" : "registry"));
-        setResult({ kind: "error", message: "A refresh is already in progress — showing its live status now." });
+        setResult({ kind: "error", message: t("sync.result.alreadyInProgress") });
         pollUntilDone();
         return;
       } else if (e instanceof ApiError && e.status === 400) {
         const detail = e.body as { detail?: string } | null;
-        setResult({ kind: "error", message: detail?.detail ?? "Refresh request rejected." });
+        setResult({ kind: "error", message: detail?.detail ?? t("sync.result.rejected") });
       } else {
         setResult({
           kind: "error",
-          message: `Couldn't reach the backend to refresh. Showing the last successful data from ${fmtDateTime(stats?.last_registry_refresh ?? null)}.`,
+          message: t("sync.result.unreachable").replace("{ts}", fmtDateTime(stats?.last_registry_refresh ?? null)),
         });
       }
       setBusy(null);
@@ -232,11 +245,11 @@ export function SyncPage() {
     pollUntilDone();
   }
 
-  if (error) return <div className="px-6 py-6 text-clay-700">Failed to load sync status: {error}</div>;
-  if (!stats || !log) return <div className="px-6 py-6 text-stone-400">Loading…</div>;
+  if (error) return <div className="px-6 py-6 text-clay-700">{t("sync.error.prefix").replace("{error}", error)}</div>;
+  if (!stats || !log) return <div className="px-6 py-6 text-stone-400">{t("sync.loading")}</div>;
 
   const frozen = stats.freeze;
-  const newsDisabledReason = !stats.tavily_configured ? "Requires TAVILY_API_KEY configured on the backend (see the repo root's .env.example)." : frozen ? "Data is frozen." : null;
+  const newsDisabledReason = !stats.tavily_configured ? t("sync.news.disabled.noKey") : frozen ? t("sync.news.disabled.frozen") : null;
   const inProgress = busy !== null;
 
   return (
@@ -252,10 +265,9 @@ export function SyncPage() {
       <StalenessBanner />
       <div className="px-6 py-6">
         <div className="mb-6 max-w-3xl">
-          <h1 className="font-display text-2xl font-bold text-stone-900">Registry Sync</h1>
+          <h1 className="font-display text-2xl font-bold text-stone-900">{t("sync.title")}</h1>
           <p className="mt-1 text-[13.5px] text-stone-500">
-            Real per-source freshness, a real refresh action, and a real activity log — {stats.candidate_count_in_db} candidates currently
-            live in the database.
+            {t("sync.subtitle").replace("{n}", String(stats.candidate_count_in_db))}
           </p>
         </div>
 
@@ -263,21 +275,21 @@ export function SyncPage() {
         <div className="mb-5 flex items-start gap-2.5 rounded-xl border border-compliance-amber/30 bg-compliance-amberBg px-4 py-3 text-[13px] text-compliance-amber">
           <Lock size={16} className="mt-0.5 shrink-0" />
           <div>
-            <div className="font-semibold">Data frozen since {fmtDateTime(frozen.frozen_at)}</div>
+            <div className="font-semibold">{t("sync.frozen.since").replace("{ts}", fmtDateTime(frozen.frozen_at))}</div>
             <div className="mt-0.5 text-compliance-amber/90">{frozen.reason}</div>
           </div>
         </div>
       )}
 
-      <Panel title="Sources" className="mb-5" variant="instrument">
+      <Panel title={t("sync.panel.sources")} className="mb-5" variant="instrument">
         <div className="overflow-x-auto">
           <table className="w-full text-[13px]">
             <thead>
               <tr className="border-b border-stone-200 text-left text-[11px] font-semibold uppercase tracking-wide text-stone-500">
-                <th className="pb-2 pr-4">Source</th>
-                <th className="pb-2 pr-4">Last fetched</th>
-                <th className="pb-2 pr-4">Age</th>
-                <th className="pb-2 pr-4">Status</th>
+                <th className="pb-2 pr-4">{t("sync.table.source")}</th>
+                <th className="pb-2 pr-4">{t("sync.table.lastFetched")}</th>
+                <th className="pb-2 pr-4">{t("sync.table.age")}</th>
+                <th className="pb-2 pr-4">{t("sync.table.status")}</th>
                 <th className="pb-2" />
               </tr>
             </thead>
@@ -289,18 +301,18 @@ export function SyncPage() {
                 // moment-to-moment state, not the pre-refresh snapshot
                 // stats was loaded with.
                 const live = progress?.in_progress ? progress.source_status[source] : null;
-                const status = live ? { label: LIVE_SOURCE_TEXT[live], className: LIVE_SOURCE_STYLE[live] } : sourceStatus(source, f.age_days);
+                const status = live ? { labelKey: LIVE_SOURCE_TEXT[live], className: LIVE_SOURCE_STYLE[live] } : sourceStatus(source, f.age_days);
                 return (
                   <tr key={source}>
                     <td className="py-2.5 pr-4 font-semibold text-stone-800">{SOURCE_LABEL[source]}</td>
                     <td className="py-2.5 pr-4 font-mono text-stone-600" title={f.timestamp_source ?? undefined}>
                       {fmtDateTime(f.fetched_at)}
                     </td>
-                    <td className="py-2.5 pr-4 text-stone-500">{fmtAge(f.age_days)}</td>
+                    <td className="py-2.5 pr-4 text-stone-500">{fmtAge(f.age_days, t)}</td>
                     <td className="py-2.5 pr-4">
                       <span title={f.note ?? undefined} className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${status.className}`}>
                         {live === "running" && <Loader2 size={11} className="animate-spin" />}
-                        {status.label}
+                        {t(status.labelKey)}
                       </span>
                     </td>
                     <td className="py-2.5 text-right">
@@ -311,7 +323,7 @@ export function SyncPage() {
                       <button
                         onClick={() => runRefresh(false, source)}
                         disabled={inProgress || !!frozen}
-                        title={SOURCE_WARNING[source] ?? `Refresh ${SOURCE_LABEL[source]} only`}
+                        title={SOURCE_WARNING[source] ? t(SOURCE_WARNING[source]!) : t("sync.button.refreshOnly").replace("{source}", SOURCE_LABEL[source])}
                         className={`inline-flex items-center gap-1 rounded-md border px-2 py-1 text-[11px] font-semibold transition disabled:cursor-not-allowed disabled:opacity-40 ${
                           SOURCE_WARNING[source]
                             ? "border-compliance-amber/40 text-compliance-amber hover:bg-compliance-amberBg"
@@ -319,7 +331,7 @@ export function SyncPage() {
                         }`}
                       >
                         <RefreshCw size={11} className={busy === source ? "animate-spin" : ""} />
-                        {busy === source ? "Refreshing…" : "Refresh"}
+                        {busy === source ? t("sync.button.refreshing") : t("sync.button.refresh")}
                       </button>
                     </td>
                   </tr>
@@ -357,18 +369,20 @@ export function SyncPage() {
               </div>
               <p className="mt-2 flex items-center gap-1.5 text-[12px] text-stone-500">
                 <Loader2 size={12} className="animate-spin" />
-                {PHASE_LABEL[progress.phase] ?? `Working on ${SOURCE_LABEL[progress.phase as SyncSource] ?? progress.phase}…`}
+                {PHASE_LABEL[progress.phase]
+                  ? t(PHASE_LABEL[progress.phase])
+                  : t("sync.phase.workingOn").replace("{source}", SOURCE_LABEL[progress.phase as SyncSource] ?? progress.phase)}
               </p>
             </div>
           )}
         </div>
       </Panel>
 
-      <Panel title="Refresh" className="mb-5" variant="instrument">
+      <Panel title={t("sync.panel.refresh")} className="mb-5" variant="instrument">
         <p className="text-[12.5px] text-stone-500">
-          Last registry-only refresh: <span className="font-mono text-stone-700">{fmtDateTime(stats.last_registry_refresh)}</span>
+          {t("sync.refresh.lastRegistryOnly")} <span className="font-mono text-stone-700">{fmtDateTime(stats.last_registry_refresh)}</span>
           <br />
-          Last refresh with live news enrichment: <span className="font-mono text-stone-700">{fmtDateTime(stats.last_full_refresh_with_news)}</span>
+          {t("sync.refresh.lastWithNews")} <span className="font-mono text-stone-700">{fmtDateTime(stats.last_full_refresh_with_news)}</span>
         </p>
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -378,7 +392,7 @@ export function SyncPage() {
             className="inline-flex items-center gap-2 rounded-lg bg-forest-600 px-4 py-2 text-[13.5px] font-semibold text-white transition hover:bg-forest-700 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <RefreshCw size={14} className={busy === "registry" ? "animate-spin" : ""} />
-            {busy === "registry" ? "Refreshing…" : "Refresh registries"}
+            {busy === "registry" ? t("sync.button.refreshing") : t("sync.button.refreshRegistries")}
           </button>
           <button
             onClick={() => runRefresh(true)}
@@ -387,7 +401,7 @@ export function SyncPage() {
             className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-4 py-2 text-[13.5px] font-semibold text-stone-700 transition hover:border-forest-400 hover:text-forest-700 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <Radio size={14} className={busy === "news" ? "animate-pulse" : ""} />
-            {busy === "news" ? "Refreshing…" : "Full refresh (with news)"}
+            {busy === "news" ? t("sync.button.refreshing") : t("sync.button.fullRefreshNews")}
           </button>
           {newsDisabledReason && !frozen && <span className="text-[12px] text-stone-400">{newsDisabledReason}</span>}
         </div>
@@ -408,20 +422,20 @@ export function SyncPage() {
         )}
       </Panel>
 
-      <Panel title="Activity log" variant="instrument">
+      <Panel title={t("sync.panel.activityLog")} variant="instrument">
         {log.length === 0 ? (
-          <p className="text-[13px] text-stone-400">No refresh attempts recorded yet.</p>
+          <p className="text-[13px] text-stone-400">{t("sync.log.empty")}</p>
         ) : (
           <ol className="space-y-2.5">
             {log.map((entry) => (
               <li key={entry.id} className="rounded-lg border border-stone-200 bg-white p-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${REFRESH_STATUS_STYLE[entry.status]}`}>{entry.status}</span>
+                  <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${REFRESH_STATUS_STYLE[entry.status]}`}>{t(REFRESH_STATUS_LABEL[entry.status])}</span>
                   <span className="text-[11.5px] text-stone-400">{fmtDateTime(entry.started_at)}</span>
                   <span className="text-[11px] text-stone-400">·</span>
-                  <span className="text-[11px] uppercase tracking-wide text-stone-400">{entry.triggered_by}</span>
+                  <span className="text-[11px] uppercase tracking-wide text-stone-400">{t(TRIGGERED_BY_LABEL[entry.triggered_by])}</span>
                   {entry.with_news && (
-                    <span className="text-[11px] text-stone-400">· {entry.used_news ? "news enrichment used" : "news enrichment requested, not used"}</span>
+                    <span className="text-[11px] text-stone-400">· {entry.used_news ? t("sync.log.newsUsed") : t("sync.log.newsRequestedNotUsed")}</span>
                   )}
                 </div>
                 {entry.detail && <p className="mt-1.5 text-[12.5px] leading-relaxed text-stone-600">{entry.detail}</p>}

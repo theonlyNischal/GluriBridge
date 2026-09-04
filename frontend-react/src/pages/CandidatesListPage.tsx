@@ -7,6 +7,30 @@ import { KpiCard } from "../components/ui/KpiCard";
 import { FilterSelect } from "../components/ui/FilterSelect";
 import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
 import { applyCandidateFilter, filterParamsToSearchParams, searchParamsToFilterParams } from "../lib/candidateFilter";
+import { useT, type StringKey } from "../lib/i18n";
+import type { ActivityCategory, CandidateStatusValue } from "../lib/types";
+
+// Opt-in Korean mirrors (2026-09-04, EN/KO toggle) of StatusBadge.tsx's
+// STATUS_LABEL and the 5 real activity_categories values — same pattern
+// as DashboardPage.tsx's STATUS_LABEL_KEY / ProjectTypeBreakdown.tsx's
+// CATEGORY_KEY: those shared source-of-truth maps stay English-only and
+// untouched, this page-local lookup is additive, used only when
+// lang === "ko" below.
+const STATUS_LABEL_KEY: Record<CandidateStatusValue, StringKey> = {
+  not_contacted: "status.notContacted",
+  contacted: "status.contacted",
+  follow_up_needed: "status.followUpNeeded",
+  done: "status.done",
+  rejected: "status.rejected",
+};
+
+const ACTIVITY_LABEL_KEY: Record<ActivityCategory, StringKey> = {
+  Reforestation: "activity.reforestation",
+  "Social forestry": "activity.socialForestry",
+  Conservation: "activity.conservation",
+  Peatland: "activity.peatland",
+  "Improved Forest Management": "activity.improvedForestManagement",
+};
 
 // Pagination (2026-08-31) — the card grid costs far more vertical space
 // per candidate than the table it replaced (roughly 240px/card vs ~55px/
@@ -32,6 +56,15 @@ const SORT_OPTIONS: { value: string; label: string }[] = [
   { value: "credAsc", label: "Evidence Strength (low to high)" },
 ];
 
+// Opt-in Korean mirror of SORT_OPTIONS' labels above (2026-09-04) — same
+// additive, lang==="ko"-only pattern as STATUS_LABEL_KEY/ACTIVITY_LABEL_KEY.
+const SORT_LABEL_KEY: Record<string, StringKey> = {
+  needDesc: "candidatesList.sort.needDesc",
+  needAsc: "candidatesList.sort.needAsc",
+  credDesc: "candidatesList.sort.credDesc",
+  credAsc: "candidatesList.sort.credAsc",
+};
+
 function sortValueFor(sortKey: string | null, sortDir: string): string {
   if (!sortKey) return "";
   if (sortKey === "need_score") return sortDir === "asc" ? "needAsc" : "needDesc";
@@ -47,6 +80,7 @@ function applySortValue(v: string): { sortKey: "need_score" | "credibility_score
 }
 
 export function CandidatesListPage() {
+  const { t, lang } = useT();
   const { candidates, error } = useCandidates();
   const [searchParams, setSearchParams] = useSearchParams();
   const filterParams = searchParamsToFilterParams(searchParams);
@@ -95,34 +129,36 @@ export function CandidatesListPage() {
   // look like the full list with no explanation. Each chip is real
   // (labels the actual active param) and removable.
   const activeChips: { key: string; label: string; clear: Partial<typeof filterParams> }[] = [];
-  if (filterParams.minNeed != null) activeChips.push({ key: "minNeed", label: `Opportunity ≥ ${filterParams.minNeed}`, clear: { minNeed: null } });
-  if (filterParams.minCred != null) activeChips.push({ key: "minCred", label: `Evidence Strength ≥ ${filterParams.minCred}`, clear: { minCred: null } });
-  if (filterParams.complianceFlag === "approaching") activeChips.push({ key: "compliance", label: "Compliance deadline approaching (amber/red)", clear: { complianceFlag: "" } });
-  if (filterParams.complianceFlag === "amber") activeChips.push({ key: "compliance", label: "Amber compliance badge", clear: { complianceFlag: "" } });
-  if (filterParams.contactResolved === "yes") activeChips.push({ key: "contactResolved", label: "Has resolved contact", clear: { contactResolved: "" } });
-  if (filterParams.contactResolved === "no") activeChips.push({ key: "contactResolved", label: "No resolved contact", clear: { contactResolved: "" } });
+  if (filterParams.minNeed != null) activeChips.push({ key: "minNeed", label: `${t("score.opportunity")} ≥ ${filterParams.minNeed}`, clear: { minNeed: null } });
+  if (filterParams.minCred != null) activeChips.push({ key: "minCred", label: `${t("score.evidence")} ≥ ${filterParams.minCred}`, clear: { minCred: null } });
+  if (filterParams.complianceFlag === "approaching") activeChips.push({ key: "compliance", label: t("candidatesList.chip.complianceApproaching"), clear: { complianceFlag: "" } });
+  if (filterParams.complianceFlag === "amber") activeChips.push({ key: "compliance", label: t("candidatesList.chip.amberBadge"), clear: { complianceFlag: "" } });
+  if (filterParams.contactResolved === "yes") activeChips.push({ key: "contactResolved", label: t("candidatesList.chip.hasResolvedContact"), clear: { contactResolved: "" } });
+  if (filterParams.contactResolved === "no") activeChips.push({ key: "contactResolved", label: t("candidatesList.chip.noResolvedContact"), clear: { contactResolved: "" } });
   // province/brwaOverlap arrive from Territory Discovery's filter panel
   // and its "top territories"/BRWA-overlap links — same no-dropdown-here
-  // reasoning as the threshold filters above.
-  if (filterParams.province) activeChips.push({ key: "province", label: `Province: ${filterParams.province}`, clear: { province: "" } });
-  if (filterParams.brwaOverlap === "yes") activeChips.push({ key: "brwaOverlap", label: "Confirmed Customary Territory Overlap", clear: { brwaOverlap: "" } });
-  if (filterParams.brwaOverlap === "no") activeChips.push({ key: "brwaOverlap", label: "No Confirmed Customary Territory Overlap", clear: { brwaOverlap: "" } });
+  // reasoning as the threshold filters above. The province NAME itself
+  // (filterParams.province) is real data and stays untranslated — only
+  // the "Province:" label word passes through t().
+  if (filterParams.province) activeChips.push({ key: "province", label: `${t("candidatesList.chip.provincePrefix")} ${filterParams.province}`, clear: { province: "" } });
+  if (filterParams.brwaOverlap === "yes") activeChips.push({ key: "brwaOverlap", label: t("candidatesList.chip.brwaOverlapYes"), clear: { brwaOverlap: "" } });
+  if (filterParams.brwaOverlap === "no") activeChips.push({ key: "brwaOverlap", label: t("candidatesList.chip.brwaOverlapNo"), clear: { brwaOverlap: "" } });
   // hasEmail/lowConfidenceEmail/hasPhone/hasPublicPresence arrive from the
   // Dashboard's "Contact ready:"/"Also found:" summary numbers — a real
   // gap found and fixed 2026-09-02: these 4 params were landing here with
   // no chip at all (the count badge silently changed, same "looks like
   // the full list" problem the params above were already fixed for).
-  if (filterParams.hasEmail === "yes") activeChips.push({ key: "hasEmail", label: "Has confidently-resolved email", clear: { hasEmail: "" } });
-  if (filterParams.hasEmail === "no") activeChips.push({ key: "hasEmail", label: "No confidently-resolved email", clear: { hasEmail: "" } });
-  if (filterParams.lowConfidenceEmail === "yes") activeChips.push({ key: "lowConfidenceEmail", label: "Has weaker email match", clear: { lowConfidenceEmail: "" } });
-  if (filterParams.lowConfidenceEmail === "no") activeChips.push({ key: "lowConfidenceEmail", label: "No weaker email match", clear: { lowConfidenceEmail: "" } });
-  if (filterParams.hasPhone === "yes") activeChips.push({ key: "hasPhone", label: "Reachable by phone/WhatsApp", clear: { hasPhone: "" } });
-  if (filterParams.hasPhone === "no") activeChips.push({ key: "hasPhone", label: "No phone/WhatsApp on file", clear: { hasPhone: "" } });
-  if (filterParams.hasPublicPresence === "yes") activeChips.push({ key: "hasPublicPresence", label: "Findable online (website/social)", clear: { hasPublicPresence: "" } });
-  if (filterParams.hasPublicPresence === "no") activeChips.push({ key: "hasPublicPresence", label: "No public presence found", clear: { hasPublicPresence: "" } });
+  if (filterParams.hasEmail === "yes") activeChips.push({ key: "hasEmail", label: t("candidatesList.chip.hasEmailYes"), clear: { hasEmail: "" } });
+  if (filterParams.hasEmail === "no") activeChips.push({ key: "hasEmail", label: t("candidatesList.chip.hasEmailNo"), clear: { hasEmail: "" } });
+  if (filterParams.lowConfidenceEmail === "yes") activeChips.push({ key: "lowConfidenceEmail", label: t("candidatesList.chip.lowConfidenceEmailYes"), clear: { lowConfidenceEmail: "" } });
+  if (filterParams.lowConfidenceEmail === "no") activeChips.push({ key: "lowConfidenceEmail", label: t("candidatesList.chip.lowConfidenceEmailNo"), clear: { lowConfidenceEmail: "" } });
+  if (filterParams.hasPhone === "yes") activeChips.push({ key: "hasPhone", label: t("candidatesList.chip.hasPhoneYes"), clear: { hasPhone: "" } });
+  if (filterParams.hasPhone === "no") activeChips.push({ key: "hasPhone", label: t("candidatesList.chip.hasPhoneNo"), clear: { hasPhone: "" } });
+  if (filterParams.hasPublicPresence === "yes") activeChips.push({ key: "hasPublicPresence", label: t("candidatesList.chip.hasPresenceYes"), clear: { hasPublicPresence: "" } });
+  if (filterParams.hasPublicPresence === "no") activeChips.push({ key: "hasPublicPresence", label: t("candidatesList.chip.hasPresenceNo"), clear: { hasPublicPresence: "" } });
 
-  if (error) return <div className="px-5 py-4 text-clay-700">Failed to load candidates: {error}</div>;
-  if (!candidates) return <div className="px-5 py-4 text-stone-400">Loading…</div>;
+  if (error) return <div className="px-5 py-4 text-clay-700">{t("candidatesList.errorPrefix")} {error}</div>;
+  if (!candidates) return <div className="px-5 py-4 text-stone-400">{t("candidatesList.loading")}</div>;
 
   const total = candidates.length;
   const highNeed = candidates.filter((r) => r.need_score >= 70).length;
@@ -146,10 +182,10 @@ export function CandidatesListPage() {
             — this card has always counted amber only, so its link has to
             match that same narrower definition, or the rows you'd land on
             would outnumber what the card just showed you. */}
-        <KpiCard label="Total candidates" value={total} variant="instrument" live to="/candidates" />
-        <KpiCard label="High opportunity (≥70)" value={highNeed} accent="clay" variant="instrument" to="/candidates?minNeed=70" />
-        <KpiCard label="High evidence strength (≥70)" value={highCred} variant="instrument" to="/candidates?minCred=70" />
-        <KpiCard label="Amber compliance" value={amberCompliance} variant="instrument" to="/candidates?compliance=amber" />
+        <KpiCard label={t("candidatesList.kpi.total")} value={total} variant="instrument" live to="/candidates" />
+        <KpiCard label={t("candidatesList.kpi.highOpp")} value={highNeed} accent="clay" variant="instrument" to="/candidates?minNeed=70" />
+        <KpiCard label={t("candidatesList.kpi.highEvid")} value={highCred} variant="instrument" to="/candidates?minCred=70" />
+        <KpiCard label={t("candidatesList.kpi.amberCompliance")} value={amberCompliance} variant="instrument" to="/candidates?compliance=amber" />
       </div>
 
       {/* One real, working search (the old top-bar search box was
@@ -172,39 +208,59 @@ export function CandidatesListPage() {
             type="text"
             value={filterParams.search}
             onChange={(e) => updateFilter({ search: e.target.value })}
-            placeholder="Search name or organization…"
+            placeholder={t("candidatesList.searchPlaceholder")}
             className="w-64 bg-transparent text-[13px] text-stone-700 placeholder:text-stone-400 focus:outline-none"
           />
         </div>
         <FilterSelect
           value={filterParams.richness}
           onChange={(v) => updateFilter({ richness: v })}
-          placeholder="All richness"
-          options={[{ value: "rich", label: "Strong Evidence" }, { value: "corroborated", label: "Corroborated" }, { value: "thin", label: "Limited Evidence" }]}
+          placeholder={t("candidatesList.filter.allRichness")}
+          options={[
+            { value: "rich", label: t("candidatesList.richness.strong") },
+            { value: "corroborated", label: t("candidatesList.richness.corroborated") },
+            { value: "thin", label: t("candidatesList.richness.thin") },
+          ]}
         />
-        <FilterSelect value={filterParams.status} onChange={(v) => updateFilter({ status: v as typeof filterParams.status })} placeholder="All statuses" options={STATUS_OPTIONS} />
+        <FilterSelect
+          value={filterParams.status}
+          onChange={(v) => updateFilter({ status: v as typeof filterParams.status })}
+          placeholder={t("candidatesList.filter.allStatuses")}
+          options={
+            lang === "ko"
+              ? STATUS_OPTIONS.map((o) => ({ value: o.value, label: t(STATUS_LABEL_KEY[o.value]) }))
+              : STATUS_OPTIONS
+          }
+        />
         <FilterSelect
           value={filterParams.activityCategory}
           onChange={(v) => updateFilter({ activityCategory: v })}
-          placeholder="All activity types"
+          placeholder={t("candidatesList.filter.allActivityTypes")}
           options={[
-            { value: "Peatland", label: "Peatland" },
-            { value: "Reforestation", label: "Reforestation" },
-            { value: "Social forestry", label: "Social forestry" },
-            { value: "Conservation", label: "Conservation" },
-            { value: "Improved Forest Management", label: "Improved Forest Management" },
-            { value: "unclassified", label: "Needs Classification" },
-            { value: "not_applicable", label: "Not Relevant" },
+            { value: "Peatland", label: lang === "ko" ? t(ACTIVITY_LABEL_KEY.Peatland) : "Peatland" },
+            { value: "Reforestation", label: lang === "ko" ? t(ACTIVITY_LABEL_KEY.Reforestation) : "Reforestation" },
+            { value: "Social forestry", label: lang === "ko" ? t(ACTIVITY_LABEL_KEY["Social forestry"]) : "Social forestry" },
+            { value: "Conservation", label: lang === "ko" ? t(ACTIVITY_LABEL_KEY.Conservation) : "Conservation" },
+            {
+              value: "Improved Forest Management",
+              label: lang === "ko" ? t(ACTIVITY_LABEL_KEY["Improved Forest Management"]) : "Improved Forest Management",
+            },
+            { value: "unclassified", label: lang === "ko" ? t("activity.unclassified") : "Needs Classification" },
+            { value: "not_applicable", label: lang === "ko" ? t("activity.notApplicable") : "Not Relevant" },
           ]}
         />
         <FilterSelect
           value={sortValueFor(filterParams.sortKey, filterParams.sortDir)}
           onChange={(v) => updateFilter(applySortValue(v))}
-          placeholder="Default order"
-          options={SORT_OPTIONS}
+          placeholder={t("candidatesList.filter.defaultOrder")}
+          options={
+            lang === "ko"
+              ? SORT_OPTIONS.map((o) => ({ value: o.value, label: t(SORT_LABEL_KEY[o.value]) }))
+              : SORT_OPTIONS
+          }
         />
         <span className="ml-auto whitespace-nowrap rounded-full bg-stone-100 px-2.5 py-1 text-[12px] font-medium text-stone-500">
-          {rows.length} of {candidates.length}
+          {rows.length} {t("candidatesList.countOf")} {candidates.length}
         </span>
       </div>
 
@@ -213,13 +269,15 @@ export function CandidatesListPage() {
         // rollout) — a filter chip is a state indicator, not a place that
         // needs its own competing accent color.
         <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-stone-200 bg-stone-100/50 px-5 py-2.5">
-          <span className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">Active filter{activeChips.length > 1 ? "s" : ""}:</span>
+          <span className="text-[11.5px] font-semibold uppercase tracking-wide text-stone-500">
+            {t(activeChips.length > 1 ? "candidatesList.activeFilters" : "candidatesList.activeFilter")}
+          </span>
           {activeChips.map((c) => (
             <button
               key={c.key}
               onClick={() => updateFilter(c.clear)}
               className="flex items-center gap-1.5 rounded-full border border-stone-300 bg-white px-2.5 py-1 text-[12px] font-medium text-stone-700 hover:bg-stone-50"
-              title="Click to remove this filter"
+              title={t("candidatesList.chip.removeTooltip")}
             >
               {c.label}
               <span className="text-stone-500">×</span>
@@ -235,7 +293,7 @@ export function CandidatesListPage() {
           same relationship as the app shell's own white header sitting
           above this page's body. */}
       <div className="topo-watermark bg-field-paper flex-1 overflow-auto">
-        <CandidateCardGrid rows={pagedRows} currentQuery={currentQuery} />
+        <CandidateCardGrid rows={pagedRows} currentQuery={currentQuery} lang={lang} />
       </div>
 
       {/* Pagination footer — always visible (shrink-0, outside the
@@ -245,8 +303,8 @@ export function CandidatesListPage() {
       {rows.length > 0 && totalPages > 1 && (
         <div className="flex shrink-0 items-center justify-between gap-3 border-t border-stone-200 bg-white px-5 py-3">
           <span className="text-[12.5px] text-stone-500">
-            Showing <span className="font-semibold text-stone-700">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, rows.length)}</span> of{" "}
-            <span className="font-semibold text-stone-700">{rows.length}</span>
+            {t("candidatesList.pagination.showing")} <span className="font-semibold text-stone-700">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, rows.length)}</span>{" "}
+            {t("candidatesList.countOf")} <span className="font-semibold text-stone-700">{rows.length}</span>
           </span>
           <div className="flex items-center gap-1">
             <button
@@ -254,7 +312,7 @@ export function CandidatesListPage() {
               disabled={page <= 1}
               className="flex items-center gap-1 rounded-md border border-stone-300 px-2.5 py-1.5 text-[12.5px] font-medium text-stone-600 hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              <ChevronLeft size={14} /> Prev
+              <ChevronLeft size={14} /> {t("candidatesList.pagination.prev")}
             </button>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
               <button
@@ -273,7 +331,7 @@ export function CandidatesListPage() {
               disabled={page >= totalPages}
               className="flex items-center gap-1 rounded-md border border-stone-300 px-2.5 py-1.5 text-[12.5px] font-medium text-stone-600 hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Next <ChevronRight size={14} />
+              {t("candidatesList.pagination.next")} <ChevronRight size={14} />
             </button>
           </div>
         </div>

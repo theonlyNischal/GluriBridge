@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import { useCandidates } from "../lib/CandidatesContext";
 import { Panel } from "../components/ui/Panel";
+import { useT } from "../lib/i18n";
 
 /**
  * "How this works" — a permanent, honest explanation of the pipeline,
@@ -22,6 +23,7 @@ import { Panel } from "../components/ui/Panel";
  * page, no multi-round polish project, per explicit scope.
  */
 export function HowItWorksPage() {
+  const { t } = useT();
   const { candidates } = useCandidates();
   const [stats, setStats] = useState<Awaited<ReturnType<typeof api.getStats>> | null>(null);
   const [statsError, setStatsError] = useState<string | null>(null);
@@ -52,8 +54,12 @@ export function HowItWorksPage() {
       .catch(() => setComplianceCounts(null));
   }, [candidates]);
 
-  if (!candidates) return <div className="px-6 py-6 text-stone-400">Loading…</div>;
-  if (statsError) return <div className="px-6 py-6 text-clay-700">Failed to load live stats: {statsError}</div>;
+  if (!candidates) return <div className="px-6 py-6 text-stone-400">{t("howItWorks.loading")}</div>;
+  if (statsError) return (
+    <div className="px-6 py-6 text-clay-700">
+      {t("howItWorks.statsErrorPrefix")} {statsError}
+    </div>
+  );
 
   const total = candidates.length;
   // Real per-source candidate contribution — computed from each real
@@ -75,42 +81,43 @@ export function HowItWorksPage() {
   return (
     <div className="topo-watermark bg-field-paper px-6 py-6">
       <div className="mb-6">
-        <h1 className="font-display text-2xl font-semibold text-stone-900">How this works</h1>
-        <p className="mt-1 text-[13.5px] text-stone-500">
-          A permanent, honest explanation of this pipeline — every number below is fetched live from the real API, never typed in.
-        </p>
+        <h1 className="font-display text-2xl font-semibold text-stone-900">{t("howItWorks.title")}</h1>
+        <p className="mt-1 text-[13.5px] text-stone-500">{t("howItWorks.subtitle")}</p>
       </div>
 
       <div className="max-w-4xl space-y-5">
-        <Panel title="Data sources" variant="instrument">
+        <Panel title={t("howItWorks.dataSources.title")} variant="instrument">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {/* Terminology pass (2026-09-02) — plain label as the primary
                 heading, real technical acronym kept in parens right next
                 to it (this page IS the detail/explainer view, so the
                 acronym stays visible, not just in a tooltip); body
                 `description` text already explains each term in full and
-                is left untouched. */}
+                is left untouched. `stat`/`detail` stay English-only in
+                both languages (2026-09-04 KO pass) — they're built from
+                live sourceCount()/stats/pipeline_stats values, not fixed
+                strings, so they're out of scope for this dictionary. */}
             <SourceCard
-              name="Carbon Registry (SRUK)"
-              description="Sistem Registri Unit Karbon — Indonesia's carbon-unit registry. Registers the tradable credit itself, only after validation/verification."
+              name={t("howItWorks.source.sruk.name")}
+              description={t("howItWorks.source.sruk.desc")}
               stat={`${sourceCount("sruk")} of ${total} final candidates`}
               detail={p ? `${p.sruk_and_srn_ppi_input} raw SRUK+SRN-PPI records fetched (combined — the pipeline doesn't currently split this raw count by source)` : null}
             />
             <SourceCard
-              name="Climate Registry (SRN-PPI)"
-              description="Sistem Registri Nasional Pengendalian Perubahan Iklim — the broader climate-action registry. Registers the mitigation action itself, regardless of whether it becomes a tradable credit."
+              name={t("howItWorks.source.srnppi.name")}
+              description={t("howItWorks.source.srnppi.desc")}
               stat={`${sourceCount("srn_ppi")} of ${total} final candidates`}
               detail={null}
             />
             <SourceCard
-              name="International Registry (Verra)"
-              description="The international voluntary carbon standard registry — the track most non-Indonesian projects use."
+              name={t("howItWorks.source.verra.name")}
+              description={t("howItWorks.source.verra.desc")}
               stat={`${sourceCount("verra")} of ${total} final candidates`}
               detail={p ? `${p.verra_input} raw Verra records fetched (before filtering to Indonesia-only, forestry-sector projects)` : null}
             />
             <SourceCard
-              name="Customary Territory Registry (BRWA)"
-              description="Badan Registrasi Wilayah Adat — Indonesia's customary/indigenous territory registry (NGO-run). Cross-referenced as real land-rights evidence, not another candidate source."
+              name={t("howItWorks.source.brwa.name")}
+              description={t("howItWorks.source.brwa.desc")}
               stat={stats ? `${stats.brwa_territories.total.toLocaleString()} territories tracked` : "—"}
               detail={
                 stats
@@ -119,95 +126,79 @@ export function HowItWorksPage() {
               }
             />
             <SourceCard
-              name="Tavily (live web search)"
-              description="Used to discover organizations with no registry presence at all, and to attempt finding a contact when a registry has no named individual on file."
+              name={t("howItWorks.source.tavily.name")}
+              description={t("howItWorks.source.tavily.desc")}
               stat={`${sourceCount("news")} of ${total} final candidates discovered this way`}
               detail={p ? `${p.news_queries_run} real search queries run, ${p.news_hits_processed} hits processed` : null}
             />
           </div>
         </Panel>
 
-        <Panel title="How scoring works" variant="instrument">
+        <Panel title={t("howItWorks.scoring.title")} variant="instrument">
           <p className="text-[13.5px] leading-relaxed text-stone-700">
-            Every candidate gets two independent scores — shown elsewhere in the app as <strong>Opportunity</strong> (internally, the{" "}
-            <span title="need score">need score</span>: is there a real documentation/monitoring gap Gluri could fill) and{" "}
-            <strong>Evidence Strength</strong> (internally, the <span title="credibility score">credibility score</span>: how
-            mature/confirmed the project itself is). These are <strong>never combined into one ranking</strong> — a fully-documented,
-            credible project can genuinely have an Opportunity score of 0 (no gap detected, not a bad candidate), and a brand-new, thin
-            lead can score high on Opportunity while still being low on Evidence Strength. Sort by whichever axis you're trying to find.
+            {t("howItWorks.scoring.introA")} <strong>{t("score.opportunity")}</strong>{" "}
+            {t("howItWorks.scoring.betweenOppEvid")} <strong>{t("score.evidence")}</strong>{" "}
+            {t("howItWorks.scoring.beforeNeverCombined")} <strong>{t("howItWorks.scoring.neverCombined")}</strong>{" "}
+            {t("howItWorks.scoring.afterNeverCombined")}
           </p>
           <h4 className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
-            What drives Opportunity <span title="need score" className="normal-case tracking-normal text-stone-400">(need score)</span>
+            {t("howItWorks.whatDrivesOpportunity")} <span title="need score" className="normal-case tracking-normal text-stone-400">(need score)</span>
           </h4>
           <ul className="space-y-1.5 text-[13px] leading-relaxed text-stone-700">
-            <li>• Reached a technical/validation stage but hasn't filed the core project document either track requires (a DRAM or a DPP).</li>
-            <li>• No technical or monitoring documentation submitted to any registry at all.</li>
-            <li>• Registered on Verra but shows no progress beyond an early pipeline listing.</li>
-            <li>• A real news mention suggests the organization is actively looking for a monitoring/technology partner (treated as inferred, not confirmed, since it comes from a news article, not a registry).</li>
-            <li>• Registration is actively progressing — the organization is currently engaged with the process.</li>
-            <li>• A Forestry-Carbon Regulation (Permenhut 6/2026) reporting deadline is approaching or has passed.</li>
+            <li>• {t("howItWorks.opp.bullet1")}</li>
+            <li>• {t("howItWorks.opp.bullet2")}</li>
+            <li>• {t("howItWorks.opp.bullet3")}</li>
+            <li>• {t("howItWorks.opp.bullet4")}</li>
+            <li>• {t("howItWorks.opp.bullet5")}</li>
+            <li>• {t("howItWorks.opp.bullet6")}</li>
           </ul>
           <h4 className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
-            What drives Evidence Strength <span title="credibility score" className="normal-case tracking-normal text-stone-400">(credibility score)</span>
+            {t("howItWorks.whatDrivesEvidence")} <span title="credibility score" className="normal-case tracking-normal text-stone-400">(credibility score)</span>
           </h4>
           <ul className="space-y-1.5 text-[13px] leading-relaxed text-stone-700">
-            <li>• <strong>Registry status</strong> — is it in an official registry, has it progressed beyond initial registration, does it have a DRAM/DPP on file.</li>
-            <li>• <strong>Land rights</strong> — a formal land-rights category on file, or a confirmed Customary Territory Registry (BRWA) overlap.</li>
-            <li>• <strong>Location Verified</strong> <span title="Geospatial" className="text-stone-400">(Geospatial)</span> — real coordinates on file, and whether a full boundary (not just a point) exists.</li>
-            <li>• <strong>Contact Found</strong> <span title="Contactability" className="text-stone-400">(Contactability)</span> — whether a real contact (a name and/or an email) has actually been resolved.</li>
+            <li>• <strong>{t("howItWorks.evid.registryStatus.term")}</strong> — {t("howItWorks.evid.registryStatus.desc")}</li>
+            <li>• <strong>{t("howItWorks.evid.landRights.term")}</strong> — {t("howItWorks.evid.landRights.desc")}</li>
+            <li>• <strong>{t("howItWorks.evid.locationVerified.term")}</strong> <span title="Geospatial" className="text-stone-400">(Geospatial)</span> — {t("howItWorks.evid.locationVerified.desc")}</li>
+            <li>• <strong>{t("howItWorks.evid.contactFound.term")}</strong> <span title="Contactability" className="text-stone-400">(Contactability)</span> — {t("howItWorks.evid.contactFound.desc")}</li>
           </ul>
         </Panel>
 
-        <Panel title="How compliance is checked" variant="instrument">
+        <Panel title={t("howItWorks.compliance.title")} variant="instrument">
           <p className="text-[13.5px] leading-relaxed text-stone-700">
-            Permenhut 6/2026 is the regulation governing forest-carbon trading in Indonesia. It contains 25 real, individually-encoded
-            rules —{" "}
+            {t("howItWorks.compliance.intro")}{" "}
             {complianceCounts ? (
               <>
                 <strong>
                   {complianceCounts.wired} of {complianceCounts.total}
                 </strong>{" "}
-                are currently wired into live scoring
+                {t("howItWorks.compliance.wiredSuffix")}
               </>
             ) : (
-              "the exact wired-vs-total count is loading…"
+              t("howItWorks.compliance.loading")
             )}
-            . The rest aren't silently skipped — each one is flagged with its own specific reason it isn't yet computable from the data
-            this pipeline normalizes: most bind the Ministry directly rather than an individual project, or need a field this pipeline
-            doesn't currently capture (e.g. a document submission timestamp). Every one of those reasons is visible per-candidate, on the
-            Compliance tab's expanded rule list — never a blanket "not done yet."
+            {t("howItWorks.compliance.rest")}
           </p>
         </Panel>
 
-        <Panel title="Why no LLM in scoring, dossier, or outreach" variant="instrument">
-          <p className="text-[13.5px] leading-relaxed text-stone-700">
-            Every score, badge, and generated document in this pipeline is a deterministic function of already-known fields — no language
-            model ever decides a score, a match, or what to write. This is a deliberate trust decision, not a cost-cutting shortcut:
-            deterministic logic is fully auditable (the exact same input always produces the exact same output, traceable rule by rule),
-            carries zero hallucination risk, and is cheap enough to re-run daily at full scale. The one place text generation happens at
-            all — dossier and outreach-email prose — is template-based, assembling already-computed real facts into readable sentences,
-            never inventing a new fact or a new number.
-          </p>
+        <Panel title={t("howItWorks.noLlm.title")} variant="instrument">
+          <p className="text-[13.5px] leading-relaxed text-stone-700">{t("howItWorks.noLlm.body")}</p>
         </Panel>
 
-        <Panel title="How contact resolution works" variant="instrument">
-          <p className="text-[13.5px] leading-relaxed text-stone-700">
-            A contact is resolved in one of three ways, checked in order — a candidate only moves to the next when the previous one
-            genuinely found nothing:
-          </p>
+        <Panel title={t("howItWorks.contact.title")} variant="instrument">
+          <p className="text-[13.5px] leading-relaxed text-stone-700">{t("howItWorks.contact.intro")}</p>
           <ul className="mt-2 space-y-1.5 text-[13px] leading-relaxed text-stone-700">
-            <li>• <strong>Found directly in the official registry record</strong> — a named individual the registry itself lists as the registrant. The most common real outcome, but registries record a name, never an email.</li>
-            <li>• <strong>Found via the organization's own website</strong> — a live web search for the org's own site, requiring the page to genuinely self-identify as that organization (a copyright footer or an explicit "contact us" naming it) before trusting an email found there.</li>
-            <li>• <strong>Mentioned in a news article</strong> — the lowest-confidence lead, since a news article has no equivalent structural anchor (no copyright footer, no dedicated contact page) to verify against.</li>
+            <li>• <strong>{t("howItWorks.contact.registry.term")}</strong> — {t("howItWorks.contact.registry.desc")}</li>
+            <li>• <strong>{t("howItWorks.contact.website.term")}</strong> — {t("howItWorks.contact.website.desc")}</li>
+            <li>• <strong>{t("howItWorks.contact.news.term")}</strong> — {t("howItWorks.contact.news.desc")}</li>
           </ul>
           <p className="mt-3 text-[13.5px] leading-relaxed text-stone-700">
-            The real, current breakdown across all {total} final candidates:
+            {t("howItWorks.contact.breakdown").replace("{n}", String(total))}
           </p>
           <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <Stat label="Confidently-resolved emails" value={hasEmail} />
-            <Stat label="Weaker email matches" value={lowConfidenceEmail} />
-            <Stat label="Named contacts, no email yet" value={nameOnlyNoEmail} />
-            <Stat label="Nothing found" value={nothingFound} />
+            <Stat label={t("howItWorks.stat.confidentEmails")} value={hasEmail} />
+            <Stat label={t("howItWorks.stat.weakEmails")} value={lowConfidenceEmail} />
+            <Stat label={t("howItWorks.stat.namedNoEmailYet")} value={nameOnlyNoEmail} />
+            <Stat label={t("howItWorks.stat.nothingFound")} value={nothingFound} />
           </div>
         </Panel>
       </div>

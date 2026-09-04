@@ -8,7 +8,22 @@ import { KpiCard } from "../components/ui/KpiCard";
 import { FilterSelect } from "../components/ui/FilterSelect";
 import { STATUS_OPTIONS } from "../components/ui/StatusBadge";
 import { applyCandidateFilter, filterParamsToSearchParams, searchParamsToFilterParams, type SortKey } from "../lib/candidateFilter";
+import { useT, type StringKey } from "../lib/i18n";
 import type { CandidateDetail, CandidateStatusValue } from "../lib/types";
+
+// Maps the shared STATUS_OPTIONS' 5 values onto the existing status.*
+// keys in i18n.ts (kept generic, not dash.*-prefixed, specifically so
+// pages beyond Dashboard could reuse them) — a local KO mirror of
+// StatusBadge.tsx's English labels, scoped to this page's own render
+// call rather than editing that shared file (which the Candidates list/
+// detail pages also depend on for their own, still-English rendering).
+const STATUS_KEY: Record<CandidateStatusValue, StringKey> = {
+  not_contacted: "status.notContacted",
+  contacted: "status.contacted",
+  follow_up_needed: "status.followUpNeeded",
+  done: "status.done",
+  rejected: "status.rejected",
+};
 
 /**
  * A filtered Candidates view, preset to non-default status — reuses the
@@ -22,6 +37,7 @@ import type { CandidateDetail, CandidateStatusValue } from "../lib/types";
  * rather than duplicating the editor.
  */
 export function TrackedPage() {
+  const { t } = useT();
   const { candidates, updateStatus } = useCandidates();
   const [searchParams, setSearchParams] = useSearchParams();
   const filterParams = searchParamsToFilterParams(searchParams);
@@ -85,7 +101,7 @@ export function TrackedPage() {
 
   const currentQuery = searchParams.toString();
 
-  if (!candidates) return <div className="px-5 py-4 text-stone-400">Loading…</div>;
+  if (!candidates) return <div className="px-5 py-4 text-stone-400">{t("tracked.loading")}</div>;
 
   const trackedTotal = candidates.filter((r) => r.status !== "not_contacted").length;
   const counts: Record<CandidateStatusValue, number> = { not_contacted: 0, contacted: 0, follow_up_needed: 0, done: 0, rejected: 0 };
@@ -101,27 +117,35 @@ export function TrackedPage() {
           action still outstanding), muted the rest to ink, added the
           live-pulse dot to Tracked total. */}
       <div className="grid shrink-0 grid-cols-4 gap-3 border-b border-stone-200 bg-white px-5 py-4">
-        <KpiCard label="Tracked total" value={trackedTotal} sub={`of ${candidates.length} candidates`} variant="instrument" live />
-        <KpiCard label="Contacted" value={counts.contacted} variant="instrument" />
-        <KpiCard label="Follow-up needed" value={counts.follow_up_needed} accent="clay" variant="instrument" />
-        <KpiCard label="Done" value={counts.done} variant="instrument" />
+        <KpiCard
+          label={t("tracked.kpi.total")}
+          value={trackedTotal}
+          sub={t("tracked.kpi.total.sub").replace("{n}", String(candidates.length))}
+          variant="instrument"
+          live
+        />
+        <KpiCard label={t(STATUS_KEY.contacted)} value={counts.contacted} variant="instrument" />
+        <KpiCard label={t(STATUS_KEY.follow_up_needed)} value={counts.follow_up_needed} accent="clay" variant="instrument" />
+        <KpiCard label={t(STATUS_KEY.done)} value={counts.done} variant="instrument" />
       </div>
 
       <div className="flex shrink-0 items-center gap-2 border-b border-stone-200 bg-white px-5 py-3">
         {candidateParam ? (
           <button onClick={clearCandidateFilter} className="flex items-center gap-1.5 rounded-full border border-stone-300 bg-white px-2.5 py-1 text-[12px] font-medium text-stone-700 hover:bg-stone-50">
-            Showing 1 candidate <span className="text-stone-500">×</span>
+            {t("tracked.filter.showingOne")} <span className="text-stone-500">×</span>
           </button>
         ) : (
           <FilterSelect
             value={filterParams.status}
             onChange={(v) => updateFilter({ status: v as typeof filterParams.status })}
-            placeholder="All tracked statuses"
-            options={STATUS_OPTIONS.filter((o) => o.value !== "not_contacted")}
+            placeholder={t("tracked.filter.placeholder")}
+            options={STATUS_OPTIONS.filter((o) => o.value !== "not_contacted").map((o) => ({ ...o, label: t(STATUS_KEY[o.value]) }))}
           />
         )}
         <span className="ml-auto whitespace-nowrap rounded-full bg-stone-100 px-2.5 py-1 text-[12px] font-medium text-stone-500">
-          {rows.length} of {candidateParam ? 1 : trackedTotal} tracked
+          {t("tracked.badge.count")
+            .replace("{shown}", String(rows.length))
+            .replace("{total}", String(candidateParam ? 1 : trackedTotal))}
         </span>
       </div>
 
@@ -132,7 +156,7 @@ export function TrackedPage() {
       <div className="topo-watermark bg-field-paper flex flex-1 flex-col">
         {rows.length === 0 ? (
           <div className="flex flex-1 items-center justify-center text-[13px] text-stone-400">
-            No candidates have a status set yet — select one below to start tracking it.
+            {t("tracked.empty")}
           </div>
         ) : (
           <CandidateTable
@@ -149,8 +173,12 @@ export function TrackedPage() {
 
       {selectedId && (
         <div className="topo-watermark bg-field-paper shrink-0 border-t border-stone-300 p-6">
-          {detailError && <p className="text-[13px] text-clay-700">Failed to load: {detailError}</p>}
-          {!detailError && !selectedDetail && <p className="text-[13px] text-stone-400">Loading…</p>}
+          {detailError && (
+            <p className="text-[13px] text-clay-700">
+              {t("tracked.detail.failedToLoad")} {detailError}
+            </p>
+          )}
+          {!detailError && !selectedDetail && <p className="text-[13px] text-stone-400">{t("tracked.loading")}</p>}
           {selectedDetail && (
             // A bespoke card, not the shared Panel — this workspace is
             // meant to feel bigger/richer than a normal panel, a
@@ -166,7 +194,7 @@ export function TrackedPage() {
                   <p className="mt-1 text-[13px] text-stone-500">{selectedDetail.identity.org ?? "—"}</p>
                 </div>
                 <Link to={`/candidates/${selectedDetail.candidate_id}`} className="shrink-0 whitespace-nowrap text-[13px] font-semibold text-stone-700 hover:underline">
-                  Full detail →
+                  {t("tracked.detail.fullDetail")}
                 </Link>
               </div>
               <div className="p-7">

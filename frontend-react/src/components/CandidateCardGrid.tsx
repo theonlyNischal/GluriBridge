@@ -8,6 +8,8 @@ import { ContactReadinessIndicator } from "./ui/ContactReadinessIndicator";
 import { RowActions } from "./CandidateTable";
 import { PROVINCE_NOT_AVAILABLE } from "../lib/provinceNormalize";
 import { fmtScore } from "../lib/format";
+import { t as translate } from "../lib/i18n";
+import type { Lang } from "../lib/LanguageContext";
 import type { CandidateListRow } from "../lib/types";
 
 /**
@@ -23,7 +25,20 @@ import type { CandidateListRow } from "../lib/types";
  * not table-fixed, so it can never repeat the column-crushing bug found
  * and fixed on the table (nothing here has a fixed pixel width at all).
  */
-export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListRow[]; currentQuery: string }) {
+export function CandidateCardGrid({
+  rows,
+  currentQuery,
+  lang = "en",
+}: {
+  rows: CandidateListRow[];
+  currentQuery: string;
+  // Opt-in (2026-09-04, EN/KO toggle) — default "en" so this component's
+  // only other call site (none currently — CandidatesListPage is its
+  // sole consumer) would be unaffected either way; threaded down to
+  // ScoreLabelPill exactly as that component's own lang prop expects,
+  // rather than re-translating its internals here.
+  lang?: Lang;
+}) {
   const navigate = useNavigate();
   return (
     <div className="grid grid-cols-1 gap-4 p-5 md:grid-cols-2 xl:grid-cols-3">
@@ -50,9 +65,11 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
           <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
             <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-stone-100 px-2.5 py-0.5 text-[11px] font-medium text-stone-600">
               <MapPin size={11} />
-              {r.province ?? <HonestState kind="no_data" label={PROVINCE_NOT_AVAILABLE} compact />}
+              {r.province ?? (
+                <HonestState kind="no_data" label={lang === "ko" ? translate("province.notAvailable", "ko") : PROVINCE_NOT_AVAILABLE} compact />
+              )}
             </span>
-            <ScoreLabelPill label={r.score_label} need={r.need_score} cred={r.credibility_score} showNumbers={false} />
+            <ScoreLabelPill label={r.score_label} need={r.need_score} cred={r.credibility_score} showNumbers={false} lang={lang} />
           </div>
 
           <div className="mt-3 grid grid-cols-2 gap-3 border-y border-stone-100 py-3">
@@ -64,7 +81,9 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
                 one consistent "how these two axes look" language
                 app-wide rather than a plain number here and a bar there. */}
             <div>
-              <div title="Need score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Opportunity</div>
+              <div title="Need score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">
+                {lang === "ko" ? translate("score.opportunity", "ko") : "Opportunity"}
+              </div>
               <div className="mt-0.5 font-mono text-figure-sm tabular text-clay-600">
                 {fmtScore(r.need_score)} <span className="text-[12px] font-normal text-stone-400">/100</span>
               </div>
@@ -73,7 +92,9 @@ export function CandidateCardGrid({ rows, currentQuery }: { rows: CandidateListR
               </div>
             </div>
             <div>
-              <div title="Credibility score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">Evidence Strength</div>
+              <div title="Credibility score" className="text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">
+                {lang === "ko" ? translate("score.evidence", "ko") : "Evidence Strength"}
+              </div>
               <div className="mt-0.5 font-mono text-figure-sm tabular text-forest-600">
                 {fmtScore(r.credibility_score)} <span className="text-[12px] font-normal text-stone-400">/100</span>
               </div>
