@@ -107,7 +107,43 @@ print(f"RUN 3: Org A re-surfaced by a real follow-up article — corroborated in
       f"(1 record, {len(run3_orgs_matching[0].news_evidence)} evidence entr{'y' if len(run3_orgs_matching[0].news_evidence) == 1 else 'ies'}), "
       f"not duplicated. news_thin_candidates_created={run3.stats['news_thin_candidates_created']}.")
 
+# --- Run 4: the SAME real source URL, returned under two DIFFERENT
+# queries in the SAME run (2026-09-04 — CONFIRMED real on live data: the
+# messy 38-string province list means near-duplicate province strings
+# like "West Kalimantan" and "West Kalimantan province" can both return
+# the same real Tavily result, with slightly different title text each
+# time) — must produce exactly ONE thin candidate, not two, even though
+# neither hit's org-name match score was high enough to trigger the
+# existing fuzzy-match corroboration path. ---
+HIT_SAME_URL_A = {
+    "title": "Project 1-208 Indonesia",
+    "url": "https://example-news.id/project-1-208",
+    "content": "PT Contoh Lestari peatland restoration project overview.",
+    "score": 0.7,
+}
+HIT_SAME_URL_B = {
+    "title": "Project 1-208 Indonesia - National Academies",
+    "url": "https://example-news.id/project-1-208",  # identical URL, different title text
+    "content": "Overview page for PT Contoh Lestari's peatland project, hosted externally.",
+    "score": 0.7,
+}
+run4 = run_pipeline(
+    sruk_files=sruk_files, verra_files=[], brwa_list_path="sample_data/uploads/wa_list.json",
+    news_hits_override={"qA": [HIT_SAME_URL_A], "qB": [HIT_SAME_URL_B]},
+)
+run4_matching = [c for c in run4.candidates if c.org == "PT Contoh Lestari"]
+assert len(run4_matching) == 1, \
+    f"expected exactly 1 thin candidate for one real URL under two queries — found {len(run4_matching)}"
+assert run4.stats["news_thin_candidates_created"] == 1, \
+    "the second hit (same URL) must be discarded as a duplicate, not counted as a new creation"
+duplicate_logged = any(a["action"] == "duplicate_url_discarded" for a in run4.news_actions)
+assert duplicate_logged, "the discarded duplicate must be logged as such, not silently dropped"
+print(f"RUN 4: same real URL returned under 2 different queries — exactly 1 thin candidate created, "
+      f"the duplicate correctly discarded and logged (news_thin_candidates_created="
+      f"{run4.stats['news_thin_candidates_created']}).")
+
 print()
 print(">>> VERIFIED: a thin candidate not re-surfaced by a later run's search is carried forward "
       "unchanged, not lost; a genuinely new one is still created fresh; a re-surfaced one is "
-      "corroborated in place, never duplicated.")
+      "corroborated in place, never duplicated; the same real source URL returned under two "
+      "different queries in one run produces exactly one candidate, never two.")

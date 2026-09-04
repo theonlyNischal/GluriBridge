@@ -466,14 +466,42 @@ def run_pipeline(sruk_files: list, verra_files: list, brwa_list_path: str,
     for query, hits in hits_by_query.items():
         for hit in hits:
             action = process_hit(hit, query, final_candidates + carried_forward_thin + new_thin_candidates)
+            logged_action = action["action"]
+            if action["action"] == "new_thin_candidate":
+                # URL-dedup guard (2026-09-04 — CONFIRMED real, live: 2 of
+                # 165 candidates on a real run were the SAME source URL
+                # returned under two near-duplicate province-string queries
+                # — e.g. "West Kalimantan" and "West Kalimantan province",
+                # a real consequence of province names not being
+                # normalized/deduped, see news_matching.py's own comment).
+                # apply_corroboration() already dedupes by URL for a hit
+                # that matches an EXISTING candidate above the fuzzy-match
+                # floor, but a hit whose org-name extraction doesn't score
+                # high enough to even attempt that match (a very plausible
+                # outcome for two differently-worded Tavily snippets of the
+                # same page) fell straight to "new_thin_candidate" with no
+                # equivalent check — creating a genuine duplicate record
+                # for the identical real source. Checked directly against
+                # every thin candidate already in THIS run's own batch
+                # (carried-forward and freshly-created alike) — nothing new
+                # to add for an identical URL, so this hit is discarded,
+                # not merged (there's no new evidence, just the same page).
+                hit_url = hit.get("url")
+                is_duplicate_url = hit_url and any(
+                    hit_url in ({m.get("source_id") for m in cand.merged_from}
+                                | {e.get("url") for e in cand.news_evidence})
+                    for cand in carried_forward_thin + new_thin_candidates
+                )
+                if is_duplicate_url:
+                    logged_action = "duplicate_url_discarded"
             result.news_actions.append({
-                "query": query, "action": action["action"],
+                "query": query, "action": logged_action,
                 "org_candidates": action["org_candidates"], "match_score": round(action["match_score"], 1),
                 "target": action["target_candidate"].name if action["target_candidate"] else None,
             })
             if action["action"] == "corroborate":
                 apply_corroboration(action["target_candidate"], action, query)
-            elif action["action"] == "new_thin_candidate":
+            elif action["action"] == "new_thin_candidate" and logged_action != "duplicate_url_discarded":
                 new_thin_candidates.append(new_thin_candidate_from_hit(action, query))
 
     final_candidates.extend(carried_forward_thin)
